@@ -7,4 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="MapeamentoEntidades\" />
+    <Folder Include="MapeamentoViewModels\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
 </Project>
