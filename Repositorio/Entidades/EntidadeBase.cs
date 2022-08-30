@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Repositorio.Entidades
 {
-    internal class EntidadeBase
+    public abstract class EntidadeBase
     {
+        public int Id { get; set; }
+        public string Nome { get; set; }
     }
 }
