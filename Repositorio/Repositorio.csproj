@@ -7,4 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BancoDados\" />
+    <Folder Include="Enuns\" />
+    <Folder Include="Mapeamentos\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
