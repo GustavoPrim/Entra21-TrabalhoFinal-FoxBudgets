@@ -2,7 +2,7 @@
 
 namespace Aplicacao.Administrador.Controllers
 {
-    public class AdministradorController
+    public class AdministradorController : Controller
     {
         [HttpGet]
         public IActionResult Index()
