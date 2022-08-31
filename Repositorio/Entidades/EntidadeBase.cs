@@ -1,4 +1,4 @@
-﻿namespace Repositorio.Entidades
+namespace Repositorio.Entidades
 {
     public class EntidadeBase
     {
