@@ -2,9 +2,9 @@
 
 namespace Repositorio.Repositorios
 {
-    internal class AdministradorRepositorio : IAdministradorRepositorio
+    public class AdministradorRepositorio : IAdministradorRepositorio
     {
-        //private readonly AdministradorContexto _contexto;
+        private readonly AdministrradorContexto _contexto;
 
         //public AdministradorRepositorio(AdministadorContexto contexto)
         //{
@@ -26,17 +26,22 @@ namespace Repositorio.Repositorios
 
         public void Cadastrar(Administrador administrador)
         {
-            throw new NotImplementedException();
+            _contexto.Administradores.Add(administrador);
+            _contexto.SaveChanges();
         }
 
         public Administrador ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
+
+            return administrador;
         }
 
         public List<Administrador> ObterTodos()
         {
-            throw new NotImplementedException();
+            var administrador = _contexto.Administradores.ToList();
+
+            return administrador;
         }
     }
 }
