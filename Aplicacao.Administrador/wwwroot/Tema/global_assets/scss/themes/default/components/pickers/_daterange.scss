@@ -1,0 +1,382 @@
+/* ------------------------------------------------------------------------------
+*
+*  # Daterange picker
+*
+*  Date range picker component for Bootstrap
+*
+* ---------------------------------------------------------------------------- */
+
+// Check if component is enabled
+@if $enable-daterange {
+
+    // Core
+    .daterangepicker {
+        position: absolute;
+        color: inherit;
+        background-color: $dropdown-bg;
+        border-radius: $dropdown-border-radius;
+        border: $dropdown-border-width solid $dropdown-border-color;
+        width: auto;
+        max-width: none;
+        padding: 0;
+        margin-top: $dropdown-spacer;
+        top: 0;
+        left: 0;
+        z-index: $zindex-tooltip;
+        display: none;
+        box-shadow: $dropdown-box-shadow;
+
+        // Dropup
+        &.drop-up {
+            margin-top: -($dropdown-padding-y);
+        }
+
+        // Containers
+        &.single .daterangepicker .ranges,
+        &.single .drp-calendar {
+            float: none;
+        }
+        &.single .drp-selected,
+        &.auto-apply .drp-buttons {
+            display: none;
+        }
+        &.show-calendar .drp-calendar {
+            display: block;
+        }
+        &.show-calendar .drp-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+
+        //
+        // Calendar
+        //
+
+        // Container
+        .drp-calendar {
+            display: none;
+
+            // 2 calendars
+            &.left,
+            &.right {
+                padding: $datepicker-padding;
+            }
+        }
+
+        // Calendar table
+        .calendar-table {
+
+            // Nav buttons
+            .prev,
+            .next {
+                cursor: pointer;
+
+                // Icon
+                span {
+                    border: solid $body-color;
+                    border-width: 0 0.125rem 0.125rem 0;
+                    border-radius: 0;
+                    display: inline-block;
+                    padding: 0.1875rem;
+                }
+            }
+            .next span {
+                transform: rotate(-45deg);
+            }
+            .prev span {
+                transform: rotate(135deg);
+            }
+
+            // Table
+            table {
+                width: 100%;
+                margin: 0;
+                border-spacing: 0;
+                border-collapse: collapse;
+            }
+        }
+
+
+        //
+        // Table cells
+        //
+
+        // Base
+        th {
+            font-weight: $font-weight-normal;
+
+            // Month title
+            &.month {
+                width: auto;
+                padding-top: 0;
+                padding-bottom: 0;
+                font-size: $h6-font-size;
+            }
+        }
+        td,
+        th {
+            white-space: nowrap;
+            text-align: center;
+            vertical-align: middle;
+            padding: $datepicker-item-padding;
+            min-width: (($datepicker-item-padding * 2) + $line-height-computed);
+            cursor: default;
+            font-size: $font-size-sm;
+            border-radius: $border-radius;
+            transition: color ease-in-out $component-transition-timer, background-color ease-in-out $component-transition-timer;
+
+            // Available days
+            &.available:hover {
+                background-color: $datepicker-item-hover-bg;
+                color: $datepicker-item-hover-color;
+            }
+
+            // Week number
+            &.week {
+                font-size: 80%;
+                color: $datepicker-item-weekday-color;
+            }
+        }
+        td {
+
+            // Disabled dates
+            &.off {
+                &,
+                &.in-range,
+                &.start-date,
+                &.end-date {
+                    background-color: transparent;
+                    color: $datepicker-item-focusout-color;
+                }
+            }
+
+            // Dates in range
+            &.in-range {
+                background-color: $datepicker-item-hover-bg;
+                color: $datepicker-item-hover-color;
+                border-radius: 0;
+            }
+
+            // Start/end dates
+            &.start-date {
+                border-radius: $border-radius 0 0 $border-radius;
+            }
+            &.end-date {
+                border-radius: 0 $border-radius $border-radius 0;
+            }
+            &.start-date.end-date {
+                border-radius: $border-radius;
+            }
+
+            // Active state
+            &.active:not(.off),
+            &.active:not(.off):hover {
+                color: $datepicker-item-active-color;
+                background-color: $datepicker-item-active-bg;
+            }
+        }
+
+        // Disabled state
+        td.disabled,
+        option.disabled {
+            color: $datepicker-item-focusout-color;
+            cursor: $cursor-disabled;
+        }
+
+
+        //
+        // Selects
+        //
+  
+        select {
+            display: inline-block;
+            font-family: $custom-select-font-family;
+            font-weight: $custom-select-font-weight;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+            color: $custom-select-color;
+            vertical-align: middle;
+            height: $custom-select-height-sm;
+            background: $custom-select-bg $custom-select-background;
+            border: $custom-select-border-width solid $custom-select-border-color;
+            padding: $custom-select-padding-y-sm ($custom-select-padding-x-sm + $custom-select-indicator-padding) $custom-select-padding-y-sm $custom-select-padding-x-sm;
+            appearance: none;
+            @include border-radius($custom-select-border-radius, 0);
+            @include box-shadow($custom-select-box-shadow);
+            @include transition($custom-forms-transition);
+
+            &:focus {
+                border-color: $custom-select-focus-border-color;
+                background-color: $input-focus-bg;
+                outline: 0;
+            }
+
+            &.monthselect,
+            &.yearselect {
+                margin: 0;
+                cursor: default;
+                width: 49%;
+            }
+
+            &.monthselect {
+                margin-right: 2%;
+            }
+        }
+
+
+        //
+        // Time
+        //
+
+        .calendar-time {
+            text-align: center;
+            margin: $datepicker-padding auto 0 auto;
+            position: relative;
+
+            select.disabled {
+                color: $custom-select-disabled-color;
+                background-color: $custom-select-disabled-bg;
+                cursor: $cursor-disabled;
+            }
+        }
+
+        .drp-buttons {
+            clear: both;
+            padding: $datepicker-padding;
+            border-top: $border-width solid $border-color;
+            display: none;
+
+            .btn {
+                margin-left: map-get($spacers, 2);
+            }
+        }
+
+        .drp-selected {
+            display: inline-block;
+            font-size: $font-size-sm;
+            margin-right: auto;
+        }
+
+
+        //
+        // Ranges
+        //
+
+        .ranges {
+            float: none;
+            text-align: left;
+            margin: 0;
+            padding: $dropdown-padding-y 0;
+
+            &:empty {
+                display: none;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 auto;
+                padding: 0;
+                width: 100%;
+            }
+
+            li {
+                color: $dropdown-link-color;
+                font-size: $font-size-sm;
+                padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+                cursor: pointer;
+                transition: color ease-in-out $component-transition-timer, background-color ease-in-out $component-transition-timer;
+
+                &:hover {
+                    color: $dropdown-link-hover-color;
+                    background-color: $dropdown-link-hover-bg;
+                }
+
+                &.active {
+                    color: $dropdown-link-active-color;
+                    background-color: $dropdown-link-active-bg;
+                }
+            }
+        }
+
+
+        //
+        // Setup responsive views
+        //
+
+        // Mobile
+        @include media-breakpoint-down(sm) {
+            margin-left: $content-container-padding-x;
+            margin-right: $content-container-padding-x;
+
+            // Stack elements
+            &.opensleft,
+            &.opensright {
+                left: 0!important;
+                right: 0 !important;
+
+                // Stack containers
+                .ranges,
+                .calendar,
+                .calendars {
+                    float: none;
+                }
+            }
+
+            // Remove side margin from calendars
+            .calendar {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            // Make ranges full width
+            .ranges {
+                width: 100%;
+            }
+
+            // Selected date indicator
+            .drp-selected {
+                width: 100%;
+                margin-bottom: map-get($spacers, 2);
+            }
+
+            // When calendar is shown
+            &.show-calendar {
+                &.show-ranges .ranges {
+                    border-bottom: $border-width solid $border-color;
+                }
+                .drp-buttons {
+                    justify-content: center;
+                    text-align: center;
+                }
+            }
+        }
+
+        // Desktop
+        @include media-breakpoint-up(sm) {
+
+            // Borders
+            &.show-ranges.single.rtl .drp-calendar.left,
+            &.show-ranges.rtl .drp-calendar.right {
+                border-right: $border-width solid $border-color;
+            }
+            &.show-ranges.single.ltr .drp-calendar.left,
+            &.show-ranges.ltr .drp-calendar.left {
+                border-left: $border-width solid $border-color;
+            }
+
+            // Display containers horizontally
+            .ranges,
+            .drp-calendar {
+                float: left;
+            }
+
+            // Give ranges menu some width
+            .ranges {
+                min-width: $dropdown-min-width;
+            }
+        }
+    }
+}
