@@ -1,0 +1,31 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Border utility
+ *
+ *  Override and extend default border utility.
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Text color in dark containers
+@each $color, $value in $theme-colors {
+
+    // Generate .border-top-* classes
+    .border-top-#{$color} {
+        border-top-color: $value !important;
+    }
+
+    // Generate .border-bottom-* classes
+    .border-bottom-#{$color} {
+        border-bottom-color: $value !important;
+    }
+
+    // Generate .border-left-* classes
+    .border-left-#{$color} {
+        border-left-color: $value !important;
+    }
+
+    // Generate .border-right-* classes
+    .border-right-#{$color} {
+        border-right-color: $value !important;
+    }
+}
