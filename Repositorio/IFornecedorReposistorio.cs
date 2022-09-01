@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Repositorio.Entidades;
 
 namespace Repositorio
 {
-    internal interface IFornecedorReposistorio
+    public interface IFornecedorReposistorio
     {
+        void Cadastrar(Fornecedor fornecedor);
+        List<Fornecedor> ObterTodos();
+        void Atualizar (Fornecedor fornecedorParaAlterar);
+        void Apagar(int id);
+        Fornecedor ObterPorId(int id);
     }
 }
