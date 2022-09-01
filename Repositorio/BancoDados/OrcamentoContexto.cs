@@ -3,8 +3,15 @@ using Repositorio.Entidades;
 
 namespace Repositorio.BancoDados
 {
-    internal class OrcamentoContexto
+    public class OrcamentoContexto : DbContext
     {
         public DbSet<Administrador> Administradores { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
+
+        public OrcamentoContexto(
+            DbContextOptions<OrcamentoContexto> options)
+            : base(options)
+        {
+        }
     }
 }
