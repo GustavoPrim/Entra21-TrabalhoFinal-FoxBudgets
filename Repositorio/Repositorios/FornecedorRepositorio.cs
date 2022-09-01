@@ -1,6 +1,6 @@
 ﻿namespace Repositorio.Repositorios
 {
-    internal class FornecedorRepositorio
+    public class FornecedorRepositorio
     {
     }
 }
