@@ -2,7 +2,6 @@
 {
     public class Cliente : EntidadeBase
     {
-        public string NomeConstrutora { get; set; }
         public string Cpf { get; set; }
         public string Cnpj { get; set; }
         public DateTime DataNascimento { get; set; }
