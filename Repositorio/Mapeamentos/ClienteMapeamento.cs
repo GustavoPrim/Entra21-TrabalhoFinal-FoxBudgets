@@ -9,6 +9,10 @@ namespace Repositorio.Mapeamentos
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
             builder.ToTable("clientes");
+
+            /*builder.HasKey(x => x.Id).HasName("id");
+
+            builder.Property(x => x.)*/
         }
     }
 }

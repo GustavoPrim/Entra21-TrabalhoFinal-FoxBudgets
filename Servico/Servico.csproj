@@ -12,6 +12,7 @@
     <Folder Include="MapeamentoEntidades\" />
     <Folder Include="MapeamentoViewModels\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
