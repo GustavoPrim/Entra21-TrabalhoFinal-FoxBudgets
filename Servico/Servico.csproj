@@ -11,8 +11,10 @@
     <Folder Include="Extensions\" />
     <Folder Include="MapeamentoEntidades\" />
     <Folder Include="MapeamentoViewModels\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,12 @@ namespace Repositorio.Repositorios
     public class ClienteRepositorio : IClienteRepositorio
     {
         private readonly ClienteContexto _contexto;
+
+        public ClienteRepositorio(ClienteContexto contexto)
+        {
+            _contexto = contexto;
+        }
+
         public void Apagar(int id)
         {
             throw new NotImplementedException();
@@ -17,9 +23,24 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public void Editar()
+        public void Atualizar(Cliente clienteParaAlterar)
         {
-            throw new NotImplementedException();
+            var cliente = _contexto.Clientes.Where(x => x.Id == clienteParaAlterar.Id).FirstOrDefault();
+
+            cliente.Cpf = clienteParaAlterar.Cpf;
+            cliente.DataNascimento = clienteParaAlterar.DataNascimento;
+            cliente.Endereco = clienteParaAlterar.Endereco;
+            cliente.Email = clienteParaAlterar.Email;
+            cliente.Telefone = clienteParaAlterar.Telefone;
+            cliente.Cnpj = clienteParaAlterar.Cnpj;
+            cliente.DataFundacao = clienteParaAlterar.DataFundacao;
+            cliente.EnderecoConstrutora = clienteParaAlterar.EnderecoConstrutora;
+            cliente.EmailConstrutora = clienteParaAlterar.EmailConstrutora;
+            cliente.TelefoneComercial = clienteParaAlterar.TelefoneComercial;
+            cliente.Crea = clienteParaAlterar.Crea;
+
+            _contexto.Update(cliente);
+            _contexto.SaveChanges();
         }
 
         public Cliente ObterPorId(int Id)

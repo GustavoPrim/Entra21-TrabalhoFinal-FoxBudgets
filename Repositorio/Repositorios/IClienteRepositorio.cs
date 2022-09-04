@@ -6,7 +6,7 @@ namespace Repositorio.Repositorios
     {
         public void Cadastrar(Cliente cliente);
         public List<Cliente> ObterTodos();
-        public void Editar();
+        public void Atualizar(Cliente clienteParaAlterar);
         public void Apagar(int id);
         Cliente ObterPorId(int Id);
     }
