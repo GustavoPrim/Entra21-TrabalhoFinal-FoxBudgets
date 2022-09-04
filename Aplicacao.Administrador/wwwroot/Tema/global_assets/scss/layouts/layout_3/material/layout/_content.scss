@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Main content layout
+ *
+ *  Styles for main structure of content area
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Make sure document has 100% height
+html {
+    display: flex;
+    flex-direction: column;
+
+    // Smooth scrolling to anchors
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
+// Document body
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+// Main container
+.page-content {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding: $content-container-padding-y $content-container-padding-x;
+}
+
+// Content wrapper
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+// Main content container
+.content {
+    flex-grow: 1;
+    margin-left: $content-container-padding-x;
+    margin-right: $content-container-padding-x;
+    @include clearfix;
+}
+
+
+//
+// Scroll to top
+//
+
+.btn-to-top {
+    position: fixed;
+    bottom: $content-container-padding-y;
+    right: ($content-container-padding-x * 2);
+    align-self: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    z-index: $zindex-dropdown - 1;
+    @include transition($transition-base);
+
+    // Show
+    &-visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    // After fixed navbars
+    .page-content + .navbar.fixed-bottom ~ & {
+        bottom: $content-container-padding-y + $nav-link-height;
+    }
+    .page-content + .fixed-bottom:not(.navbar) ~ & {
+        bottom: $content-container-padding-y + ($nav-link-height * 2);
+    }
+}

@@ -1,0 +1,152 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Breadcrumb component
+ *
+ *  Overrides for breadcrumb bootstrap component
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Base
+.breadcrumb {
+    padding: 0;
+}
+
+// Breadcrumb item
+.breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    padding: $breadcrumb-padding-y 0;
+    color: inherit;
+
+    // Icons
+    i {
+        font-size: $font-size-sm;
+        top: 0;
+    }
+}
+
+// Linked items
+a.breadcrumb-item {
+    color: inherit;
+    @include transition(opacity ease-in-out $component-transition-timer);
+
+    // Hover state
+    &:hover,
+    &:focus,
+    .show > & {
+        opacity: 0.75;
+    }
+}
+
+// Transparent breadcrumb
+.page-header-content {
+
+    // Breadcrumb
+    > .breadcrumb {
+        padding-top: 0;
+        padding-bottom: ($breadcrumb-padding-y * 2);
+
+        &:first-child {
+            padding-bottom: 0;
+            padding-top: ($breadcrumb-padding-y * 2);
+        }
+    }
+}
+
+
+//
+// Divider styles
+//
+
+// Dash
+.breadcrumb-dash > .breadcrumb-item + .breadcrumb-item:before  {
+    content: '\2013\00a0';
+}
+
+// Arrow
+.breadcrumb-arrow > .breadcrumb-item + .breadcrumb-item:before  {
+    content: '\2192\00a0';
+
+    // RTL
+    [dir=rtl] & {
+        content: '\2190\00a0';
+    }
+}
+
+// Arrows
+.breadcrumb-arrows > .breadcrumb-item + .breadcrumb-item:before  {
+    content: '\00bb\00a0';
+}
+
+// Caret
+.breadcrumb-caret > .breadcrumb-item + .breadcrumb-item:before  {
+    content: '\203A\00a0';
+}
+
+
+//
+// Breadcrumb line
+//
+
+// Base
+.breadcrumb-line {
+    position: relative;
+    padding-left: $breadcrumb-line-padding-x;
+    padding-right: $breadcrumb-line-padding-x;
+}
+
+// Light line
+.breadcrumb-line-light {
+    background-color: $breadcrumb-line-light-bg;
+    color: $body-color;
+
+    // Inside page header
+    .page-header-light &:last-child {
+        border-top: $breadcrumb-line-border-width solid $breadcrumb-line-light-border-color;
+    }
+}
+
+// Dark line
+.breadcrumb-line-dark {
+    background-color: $breadcrumb-line-dark-bg;
+    color: $white;
+
+    // Inside page header
+    .page-header-dark &:last-child {
+        border-top: $breadcrumb-line-border-width solid $breadcrumb-line-dark-border-color;
+    }
+
+    // Active state
+    .breadcrumb-item {
+        &.active {
+            color: inherit;
+        }
+    }
+}
+
+
+//
+// Breadrumb elements
+//
+
+// Base
+.breadcrumb-elements-item {
+    display: flex;
+    align-items: center;
+    padding: $breadcrumb-padding-y 0;
+
+    // Spacing between items
+    + .breadcrumb-elements-item {
+        margin-left: map-get($spacers, 3);
+    }
+
+    // Icons
+    i {
+        top: 0;
+    }
+}
+
+// Links
+a.breadcrumb-elements-item {
+    @extend a.breadcrumb-item;
+}
