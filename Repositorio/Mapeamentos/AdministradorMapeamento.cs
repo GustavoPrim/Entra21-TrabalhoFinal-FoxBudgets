@@ -15,10 +15,38 @@ namespace Repositorio.Mapeamentos
             builder.Property(x => x.Id).HasColumnName("id");
 
             builder.Property(x => x.Nome)
-                .HasColumnName("STRING")
-                .HasMaxLength(40)
+                .HasColumnName("VARCHAR")
+                .HasMaxLength(100)
                 .IsRequired()
-                .HasColumnName("Nome");
+                .HasColumnName("nome");
+
+            builder.Property(x => x.Cpf)
+                .HasColumnName("STRING")
+                .IsRequired()
+                .HasColumnName("cpf");
+
+            builder.Property(x => x.DataNascimento)
+                .HasColumnName("DATETIME2")
+                .IsRequired()
+                .HasColumnName("DataNascimento");
+
+            builder.Property(x => x.Endereco)
+                .HasColumnName("VARCHAR")
+                .HasMaxLength(200)
+                .IsRequired()
+                .HasColumnName("endereco");
+
+            builder.Property(x => x.Email)
+                .HasColumnName("STRING")
+                .IsRequired()
+                .HasColumnName("email");
+
+            builder.Property(x => x.Telefone)
+                .HasColumnName("INT");
+
+            builder.Property(x => x.Genero)
+                .HasColumnName("BIT")
+                .HasDefaultValue(true);
         }
     }
 }
