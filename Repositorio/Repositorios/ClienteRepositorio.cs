@@ -33,11 +33,6 @@ namespace Repositorio.Repositorios
             cliente.Email = clienteParaAlterar.Email;
             cliente.Telefone = clienteParaAlterar.Telefone;
             cliente.Cnpj = clienteParaAlterar.Cnpj;
-            cliente.DataFundacao = clienteParaAlterar.DataFundacao;
-            cliente.EnderecoConstrutora = clienteParaAlterar.EnderecoConstrutora;
-            cliente.EmailConstrutora = clienteParaAlterar.EmailConstrutora;
-            cliente.TelefoneComercial = clienteParaAlterar.TelefoneComercial;
-            cliente.Crea = clienteParaAlterar.Crea;
 
             _contexto.Update(cliente);
             _contexto.SaveChanges();

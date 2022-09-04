@@ -28,11 +28,6 @@ namespace Servico.Servicos
             cliente.Email = clienteCadastrarViewModel.Email;
             cliente.Telefone = clienteCadastrarViewModel.Telefone;
             cliente.Cnpj = clienteCadastrarViewModel.Cnpj;
-            cliente.DataFundacao = clienteCadastrarViewModel.DataFundacao;
-            cliente.EnderecoConstrutora = clienteCadastrarViewModel.EnderecoConstrutora;
-            cliente.EmailConstrutora = clienteCadastrarViewModel.EmailConstrutora;
-            cliente.TelefoneComercial = clienteCadastrarViewModel.TelefoneComercial;
-            cliente.Crea = clienteCadastrarViewModel.Crea;
         }
 
         public void Editar(ClienteEditarViewModel clienteEditarViewModel)
@@ -44,11 +39,6 @@ namespace Servico.Servicos
             cliente.Email = clienteEditarViewModel.Email;
             cliente.Telefone = clienteEditarViewModel.Telefone;
             cliente.Cnpj = clienteEditarViewModel.Cnpj;
-            cliente.DataFundacao = clienteEditarViewModel.DataFundacao;
-            cliente.EnderecoConstrutora = clienteEditarViewModel.EnderecoConstrutora;
-            cliente.EmailConstrutora = clienteEditarViewModel.EmailConstrutora;
-            cliente.TelefoneComercial = clienteEditarViewModel.TelefoneComercial;
-            cliente.Crea = clienteEditarViewModel.Crea;
 
             _clienteRepositorio.Atualizar(cliente);
         }

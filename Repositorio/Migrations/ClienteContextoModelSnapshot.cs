@@ -25,8 +25,6 @@ namespace Repositorio.Migrations
 
                 b.HasKey("Id").HasName("id");
             });
-
-
         }
     }
 }
