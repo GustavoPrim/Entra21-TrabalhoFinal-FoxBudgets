@@ -11,6 +11,14 @@ namespace Repositorio.Mapeamentos
             builder.ToTable("administradores");
 
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id).HasColumnName("id");
+
+            builder.Property(x => x.Nome)
+                .HasColumnName("STRING")
+                .HasMaxLength(40)
+                .IsRequired()
+                .HasColumnName("Nome");
         }
     }
 }
