@@ -17,8 +17,24 @@ namespace Servico.ViewModels.Administradores
 
         [Display(Name = "DataNascimento")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
-        [Required(ErrorMessage = "{0} deve estar no formato dd/MM/yyyy")]
         [DataType(DataType.Date)]
+        public DateTime DataNascimento { get; set; }
+
+        [Display(Name = "Endereco")]
+        [Required(ErrorMessage = "{0} deve ser preenchido")]
+        [MaxLength(50, ErrorMessage = "{0} deve conter no máximo {1} caracteres")]
+        [MinLength(3, ErrorMessage = "{0} deve conter no mínimo {1} caracter")]
+        public string Endereco { get; set; }
+
+        //Conferir com o professor as validações para email
+        [Display(Name = "email")]
+        [Required(ErrorMessage = "{0} deve ser preenchido")]
+        [MinLength(3, ErrorMessage = "{0} deve ter no mínimo {1} caracteres")]
+        public string Email { get; set; }
+
+        [Display(Name = "telefone")]
+        [MinLength(8, ErrorMessage = "{0} deve conter no mínimo {1} caracteres")]
+        public int telefone { get; set; }
 
     }
 }
