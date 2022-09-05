@@ -5,7 +5,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Aplicacao.Administrador
 {
-    public interface IAdministradorServico
+    internal interface IAdministradorServico
     {
         void Cadastrar(AdministradorCadastrarViewModel administradorCadastrarViewModel);
         void Editar(AdministradorCadastrarViewModel administradorEditarViewModel);
