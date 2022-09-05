@@ -1,0 +1,748 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Sidebar layouts
+ *
+ *  Sidebar components, main navigation and sidebar itself
+ *
+ * ---------------------------------------------------------------------------- */
+
+
+// Sidebar base
+// ------------------------------
+
+// Base
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: $sidebar-base-width;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	box-sizing: content-box;
+}
+
+// Main and secondary sidebars default position
+.sidebar-main,
+.sidebar-secondary {
+	left: -($sidebar-base-width * 1.1);
+	box-shadow: $sidebar-left-mobile-box-shadow;
+}
+
+// Right sidebar default position
+.sidebar-right {
+	right: -($sidebar-base-width * 1.1);
+	box-shadow: $sidebar-right-mobile-box-shadow;
+}
+
+
+
+// Sidebar content
+// ------------------------------
+
+// Main container
+.sidebar-content {
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;	
+}
+
+// Content section
+.sidebar-section {
+	position: relative;
+	flex-shrink: 0;
+
+	// Remove extra spacing in last form group containers
+	.form-group:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Content section header
+.sidebar-section-header {
+	display: flex;
+	align-items: center;
+	padding: $sidebar-section-header-padding-y $sidebar-section-header-padding-x;
+}
+
+// Content section body
+.sidebar-section-body {
+	position: relative;
+	padding: $sidebar-section-body-padding-y $sidebar-section-body-padding-x;
+}
+
+// Resized sidebar sections
+//
+// Add this class to containers that are only visible when
+// sidebar is resized. And use .sidebar-resize-hide to hide elements.
+.sidebar-resize-show {
+	display: none;
+}
+
+
+
+// Sidebar togglers
+// ------------------------------
+
+// Toggle sidebars on desktop
+.btn-sidebar-expand {
+	display: none;
+	border-radius: 0;
+	padding: map-get($spacers, 1);
+}
+
+// Toggle main sidebar on mobile
+.sidebar-mobile-expanded {
+
+	// Left sidebars
+	&.sidebar-main,
+	&.sidebar-secondary {
+		left: 0;
+	}
+
+	// Right sidebar
+	&.sidebar-right {
+		right: 0;
+	}
+
+	// Sidebar in content section
+	&.sidebar-component {
+		display: block;
+	}
+}
+
+
+
+// User widget
+// ------------------------------
+
+.sidebar-user {
+	$sidebar-user-img-size: 2.375rem;
+	img {
+		height: $sidebar-user-img-size;
+		width: $sidebar-user-img-size;
+		margin-top: (($line-height-computed * 2) - $sidebar-user-img-size) / 2;
+		margin-bottom: (($line-height-computed * 2) - $sidebar-user-img-size) / 2;
+	}
+}
+
+
+
+// Sidebar navigation
+// ------------------------------
+
+// Main sidebar nav
+.nav-sidebar {
+	flex-direction: column;
+
+	// Add vertical spacing to the first and last nav items
+	.nav-item:not(.nav-item-header) {
+		&:first-child {
+			padding-top: $navigation-padding-y;
+		}
+		&:last-child {
+			padding-bottom: $navigation-padding-y;
+		}
+	}
+
+	// Add spacing between nav items for better visual separation
+	.nav-item:not(.nav-item-divider) {
+		margin-bottom: $navigation-item-spacer-y;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// Text style in top level links
+	> .nav-item > .nav-link {
+		font-weight: $navigation-item-font-weight;
+	}
+
+	// Links
+	.nav-link {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		color: $navigation-item-color;
+		padding: $navigation-item-padding-y $navigation-item-padding-x;
+		@include transition(background-color ease-in-out $component-transition-timer, color ease-in-out $component-transition-timer);
+
+		// Icons
+		i {
+			margin-right: $navigation-item-padding-x;
+			margin-top: ($line-height-computed - $icon-font-size) / 2;
+			margin-bottom: ($line-height-computed - $icon-font-size) / 2;
+			top: 0;
+		}
+
+		// Badges
+		.badge {
+			@include transition(background-color ease-in-out $component-transition-timer, border-color ease-in-out $component-transition-timer);
+		}
+
+		// Ignore disabled links when adding colors
+		&:not(.disabled) {
+			@include hover {
+				color: $navigation-item-hover-color;
+				background-color: $navigation-item-hover-bg;
+			}
+		}
+
+		// Disabled state
+		&.disabled {
+			@include plain-hover-focus {
+				background-color: transparent;
+				opacity: $navigation-item-disabled-opacity;
+			}
+		}
+	}
+
+	// Active links in submenu
+	.nav-item > .nav-link.active {
+		background-color: $navigation-item-sub-active-bg;
+		color: $navigation-item-sub-active-color;
+	}
+
+	// Link in opened submenu
+	.nav-item-open > .nav-link:not(.disabled),
+	> .nav-item-expanded:not(.nav-item-open) > .nav-link {
+		background-color: $navigation-item-hover-bg;
+		color: $navigation-item-hover-color;
+	}
+
+	// Active link in top level
+	> .nav-item-open > .nav-link:not(.disabled),
+	> .nav-item > .nav-link.active {
+		background-color: $navigation-item-active-bg;
+		color: $navigation-item-active-color;
+	}
+
+	// Submenus
+	> .nav-item-submenu > .nav-group-sub {
+		background-color: $navigation-item-sub-bg;
+	}
+
+	// Nav item header
+	.nav-item-header {
+		padding: $navigation-item-padding-y $navigation-item-padding-x;
+		color: $gray-500;
+
+		// Hide icons by default and show them in folded mode
+		> i {
+			display: none;
+		}
+	}
+
+	// Divider
+	.nav-item-divider {
+		margin: $navigation-padding-y 0;
+		height: 1px;
+		background-color: $sidebar-border-color;
+	}
+}
+
+// Nav items with submenu
+.nav-item-submenu {
+	> .nav-link {
+		padding-right: ($navigation-item-padding-x + ($icon-font-size * 1.5));
+
+		// Direction arrow
+		&:after {
+			content: $icon-menu-sub-arrow-ltr;
+		    font-family: $icon-font-family;
+		    display: inline-block;
+		    font-size: $icon-font-size;
+		    vertical-align: middle;
+		    line-height: 1;
+		    position: absolute;
+			top: $navigation-item-padding-y;
+			margin-top: ($line-height-computed - $icon-font-size) / 2;
+		    right: $navigation-item-padding-x;
+		    @include transition(transform 0.25s ease-in-out);
+		    @include ll-font-smoothing();
+
+		    // RTL
+		    [dir=rtl] & {
+				content: $icon-menu-sub-arrow-rtl;
+		    }
+		}
+	}
+
+	// When submenu is opened, rotate arrow
+	&.nav-item-open > .nav-link {
+		&:after {
+			transform: rotate(90deg);
+		}
+	}
+}
+
+// Sidebar nav submenus
+.nav-group-sub {
+	display: block;
+
+	// Hide submenus by default
+	.nav-item:not(.nav-item-expanded) > & {
+		display: none;
+	}
+
+	// Links
+	.nav-link {
+		padding: $navigation-sub-padding-y $navigation-item-padding-x $navigation-sub-padding-y (($navigation-item-padding-x * 2) + $icon-font-size);
+	}
+
+	// Third level menus
+	.nav-group-sub {
+		.nav-link {
+			padding-left: (($navigation-item-padding-x * 3) + $icon-font-size);
+		}
+
+		// Fourth level
+		.nav-group-sub {
+			.nav-link {
+				padding-left: (($navigation-item-padding-x * 4) + $icon-font-size);
+			}
+		}
+	}
+
+	// Re-position arrow icon in submenu items since padding differs
+	.nav-item-submenu > .nav-link {
+		&:after {
+			top: $navigation-sub-padding-y;
+		}
+	}
+}
+
+// Scrollspy nav
+.nav-scrollspy {
+	.nav-link.active + .nav,
+	.nav-item-open .nav-link:not(.active) + .nav {
+		display: block;
+	}
+
+	// Rotate direction icon
+	.nav-link {
+		&.active:after {
+			transform: rotate(90deg);
+		}
+	}
+}
+
+
+//
+// Optional navigation styles
+//
+
+// Reversed icons alignment
+@if $enable-sidebar-nav-icons-reverse {
+	.nav-sidebar-icons-reverse {
+		.nav-link {
+			padding-right: $navigation-item-padding-x + $navigation-item-padding-x + $icon-font-size;
+
+			i {
+				position: absolute;
+				top: $navigation-item-padding-y;
+				right: $navigation-item-padding-x;
+				margin-right: 0;
+			}
+		}
+
+		.nav-item-submenu {
+			.nav-link {
+				padding-right: ($nav-link-padding-x + $icon-font-size + $icon-font-size + $nav-link-padding-x);
+
+				&:after {
+					right: ($nav-link-padding-x + $icon-font-size + $icon-font-size);
+				}
+			}
+		}
+
+		.nav-group-sub {
+			.nav-link {
+				padding-left: ($navigation-item-padding-x * 2);
+
+				i {
+					top: $navigation-sub-padding-y;
+				}
+			}
+
+			.nav-group-sub {
+				.nav-link {
+					padding-left: ($navigation-item-padding-x * 3);
+				}
+
+				.nav-group-sub {
+					.nav-link {
+						padding-left: ($navigation-item-padding-x * 4);
+					}
+				}
+			}
+		}
+	}
+}
+
+// Bordered navigation
+@if $enable-sidebar-nav-bordered {
+	.nav-sidebar-bordered {
+		> .nav-item:not(.nav-item-divider) {
+			border-top: $navigation-bordered-border-width solid $navigation-bordered-border-color;
+			margin-bottom: 0;
+		}
+
+		> .nav-item-header {
+			background-color: $navigation-bordered-header-bg;
+			border-top: $navigation-bordered-border-width solid $navigation-bordered-border-color;
+			margin: 0;
+		}
+	}
+}
+
+
+
+// Sidebar colors
+// ------------------------------
+
+// Dark sidebar
+.sidebar-dark {
+	background-color: $sidebar-dark-bg;
+
+	// Expand button
+	.btn-sidebar-expand {
+		&:hover,
+		&:focus {
+			background-color: lighten($sidebar-dark-bg, 5%);
+		}
+		&:not([disabled]):not(.disabled):active {
+			background-color: lighten($sidebar-dark-bg, 7.5%);
+		}
+	}
+}
+
+// Light sidebar
+.sidebar-light {
+	background-color: $sidebar-light-bg;
+
+	// Expand button
+	.btn-sidebar-expand {
+		&:hover,
+		&:focus {
+			background-color: lighten($sidebar-light-bg, 5%);
+		}
+		&:not([disabled]):not(.disabled):active {
+			background-color: lighten($sidebar-light-bg, 7.5%);
+		}
+	}
+}
+
+
+
+// Content sidebar
+// ------------------------------
+
+// Base
+.sidebar-component {
+	display: none;
+	position: static;
+	width: 100%;
+	margin-bottom: map-get($spacers, 3);
+	@include border-radius($border-radius);
+	@include box-shadow($card-box-shadow);
+}
+
+// Sectioned sidebar
+.sidebar-sections {
+	background-color: transparent;
+	margin: 0;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+
+//
+// Generate series of `.sidebar-expand-*` responsive classes for configuring
+// where sidebar collapses. If togglers are in main navbar, make sure breakpoints match.
+// ------------------------------
+
+.sidebar-expand {
+	@each $breakpoint in map-keys($grid-breakpoints) {
+		$next: breakpoint-next($breakpoint, $grid-breakpoints);
+		$infix: breakpoint-infix($next, $grid-breakpoints);
+
+		&#{$infix} {
+			@include media-breakpoint-up($next) {
+				position: static;
+
+				// Collapsed state
+				&.sidebar-collapsed {
+					width: auto;
+
+					// Display the button
+					.btn-sidebar-expand {
+						display: flex;
+						align-items: center;
+						height: 100%;
+					}
+
+					// Hide all content
+					> *:not(.btn-sidebar-expand) {
+						display: none !important;
+					}
+				}
+
+				// Main sidebar
+				&.sidebar-main {
+					z-index: $sidebar-zindex-main;
+					box-shadow: $sidebar-left-desktop-box-shadow;
+				}
+
+				// Mini sidebar
+				&.sidebar-main-resized {
+					position: absolute;
+					left: 0;
+					transition: none;
+
+					// Add spacing = mini sidebar width
+					+ * {
+						margin-left: $sidebar-mini-width;
+					}
+
+					// Collapsed main sidebar
+					&:not(.sidebar-main-unfold) {
+						width: $sidebar-mini-width;
+						overflow: hidden;
+						
+						// Hide all content
+						.sidebar-main-title,
+						.nav-group-sub,
+						.nav-sidebar .nav-link > span,
+						.nav-sidebar .nav-item-header > div {
+							display: none !important;
+						}
+
+						// Remove side padding from section container
+						.sidebar-section-body {
+							padding-left: 0;
+							padding-right: 0;
+						}
+
+						// Sidebar user section
+						.sidebar-user {
+
+							// Center image
+							.media {
+								justify-content: center;
+
+								// Hide all text
+								> * {
+									&:not(:first-child) {
+										display: none!important;
+									}
+
+									&:first-child {
+										margin-right: 0!important;
+									}
+								}
+							}
+						}
+
+						// User menu
+						.user-menu-vertical {
+							padding-left: map-get($spacers, 2);
+							padding-right: map-get($spacers, 2);
+						}
+
+						// Control elements' visibility.
+						// Use .sidebar-resize-hide to hide element when sidebar is resized
+						// Use .sidebar-resize-show to show element when sidebar is resized
+						.sidebar-resize-hide {
+							display: none;
+						}
+						.sidebar-resize-show {
+							display: block;
+						}
+
+						// Center link and header content
+						.sidebar-main-header,
+						.nav-sidebar .nav-link,
+						.nav-sidebar .nav-item-header {
+							padding-left: 0;
+							padding-right: 0;
+							justify-content: center;
+						}
+
+						// Sidebar header
+						.sidebar-main-header {
+							> * {
+								margin: 0 !important;
+							}
+						}
+
+						// Navigation
+						.nav-sidebar {
+
+							// Icons base
+							.nav-link i,
+							.nav-item-header i {
+								position: static;
+								display: block;
+							}
+
+							// Links
+							.nav-link {
+
+								// Hide submenu indicator
+								&:after {
+									content: none;
+								}
+
+								// Icons
+								i {
+									margin-left: 0;
+									margin-right: 0;
+								}
+							}
+
+							// Headers
+							.nav-item-header {
+								display: flex;
+
+								// Icons
+								> i {
+									margin-top: (($line-height-computed - $icon-font-size) / 2);
+									margin-bottom: (($line-height-computed - $icon-font-size) / 2);
+								}
+							}
+						}
+					}
+
+					// Expanded mini sidebar
+					&.sidebar-main-unfold {
+						width: $sidebar-base-width;
+						z-index: $zindex-sticky + 2;
+						box-shadow: $sidebar-left-mobile-box-shadow;
+					}
+				}
+
+				// Secondary sidebar
+				&.sidebar-secondary {
+					z-index: $sidebar-zindex-secondary;
+					box-shadow: $sidebar-left-desktop-box-shadow;
+
+					.sidebar-light + &.sidebar-light,
+					.sidebar-dark + &.sidebar-dark {
+						padding-left: $border-width;
+					}
+				}
+
+				// Right sidebar
+				&.sidebar-right {
+					z-index: $sidebar-zindex-right;
+					box-shadow: $sidebar-right-desktop-box-shadow;
+				}
+
+				// Sidebar component
+				&.sidebar-component {
+					display: flex;
+					width: $sidebar-base-width;
+					z-index: $sidebar-zindex-component;
+
+					// Left alignment
+					&-left {
+						margin-right: $grid-gutter-width;
+					}
+
+					// Right alignment
+					&-right {
+						margin-left: $grid-gutter-width;
+					}
+				}
+
+				// Sticky sidebar
+				&.sidebar-sticky {
+		            @supports (position: sticky) {
+		                position: sticky;
+		                top: map-get($spacers, 3);
+		                z-index: $zindex-sticky;
+		            }
+				}
+			}
+
+			@include media-breakpoint-down($breakpoint) {
+				z-index: $sidebar-zindex;
+				@include transition(left ease-in-out $component-transition-timer, right ease-in-out $component-transition-timer);
+			}
+		}
+	}
+}
+
+
+
+// Sidebar components
+// ------------------------------
+
+// Button group
+.row-tile {
+	div[class*=col] {
+
+		//
+		// Rounded corners
+		//
+
+		// Remove rounded corners from all buttons
+		.btn {
+			@include border-radius(0);
+		}
+
+		// Keep left rounded corners for the first and last buttons only
+		&:first-child {
+			.btn {
+				&:first-child {
+					@if $enable-rounded {
+						border-top-left-radius: $border-radius;
+					}
+				}
+				&:last-child {
+					@if $enable-rounded {
+						border-bottom-left-radius: $border-radius;
+					}
+				}
+			}
+		}
+
+		// Keep right rounded corners for the first and last buttons only
+		&:last-child {
+			.btn {
+				&:first-child {
+					@if $enable-rounded {
+						border-top-right-radius: $border-radius;
+					}
+				}
+				&:last-child {
+					@if $enable-rounded {
+						border-bottom-right-radius: $border-radius;
+					}
+				}
+			}
+		}
+
+		//
+		// Borders
+		//
+
+		// Remove top borders
+		.btn + .btn {
+			border-top: 0;
+		}
+
+		// Remove left borders
+		+ div[class*=col] {
+			.btn {
+				border-left: 0;
+			}
+		}
+	}
+}
