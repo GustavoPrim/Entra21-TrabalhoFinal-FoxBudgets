@@ -1,9 +1,10 @@
-﻿using Servico.ViewModels;
+﻿using Repositorio.Entidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 //namespace Repositorio.entidades;
 
 
-namespace Aplicacao.Administrador
+namespace Aplicacao.Administradores
 {
     public interface IAdministradorServico
     {

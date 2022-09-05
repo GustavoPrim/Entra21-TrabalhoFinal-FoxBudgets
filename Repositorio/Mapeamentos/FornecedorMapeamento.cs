@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace Repositorio.Mapeamentos
 {
-    internal class FornecedorMapeamento : IEntityTypeConfiguration<Fornecedor>
+    public class FornecedorMapeamento : IEntityTypeConfiguration<Fornecedor>
     {
         public void Configure(EntityTypeBuilder<Fornecedor> builder)
         {
