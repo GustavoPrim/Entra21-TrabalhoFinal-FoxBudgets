@@ -9,6 +9,6 @@
         public int Telefone { get; set; }
         public string Categoria { get; set; }
 
-        //material
+        public Material Material { get; set; }
     }
 }
