@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repositorio.Entidades;
+using Repositorio.Mapeamentos;
 
 namespace Repositorio.BancoDados
 {
@@ -12,6 +13,12 @@ namespace Repositorio.BancoDados
             DbContextOptions<OrcamentoContexto> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AdministradorMapeamento());
+            modelBuilder.ApplyConfiguration(new FornecedorMapeamento());
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Servico.Servicos
     {
         private readonly IClienteRepositorio _clienteRepositorio;
 
-        public ClienteService(ClienteContexto contexto)
+        public ClienteService(OrcamentoContexto contexto)
         {
             _clienteRepositorio = new ClienteRepositorio(contexto);
         }
