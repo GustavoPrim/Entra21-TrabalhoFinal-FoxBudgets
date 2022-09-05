@@ -8,5 +8,6 @@
         public string Email { get; set; }
         public int Telefone { get; set; }
         public bool Genero { get; set; }
+        public IList<Administrador> Administradores { get; set; }
     }
 }

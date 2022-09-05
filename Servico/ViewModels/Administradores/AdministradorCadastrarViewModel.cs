@@ -2,7 +2,7 @@
 
 namespace Servico.ViewModels.Administradores
 {
-    internal class AdministradorCadastrarViewModel
+    public class AdministradorCadastrarViewModel
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
