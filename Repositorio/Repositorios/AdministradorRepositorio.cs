@@ -1,10 +1,16 @@
-﻿using Repositorio.Entidades;
+﻿using Repositorio.BancoDados;
+using Repositorio.Entidades;
 
 namespace Repositorio.Repositorios
 {
     public class AdministradorRepositorio : IAdministradorRepositorio
     {
-        private readonly AdministrradorContexto _contexto;
+        private readonly OrcamentoContexto _contexto;
+
+        public AdministradorRepositorio(OrcamentoContexto contexto)
+        {
+            _contexto = contexto;
+        }
 
         public void Apagar(int id)
         {
