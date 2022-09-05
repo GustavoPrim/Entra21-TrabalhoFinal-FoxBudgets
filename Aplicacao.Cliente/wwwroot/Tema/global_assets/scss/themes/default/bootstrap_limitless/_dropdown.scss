@@ -1,0 +1,382 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Dropdown menu component
+ *
+ *  Overrides for dropdown menu bootstrap component
+ *
+ * ---------------------------------------------------------------------------- */
+
+
+//
+// Base styles
+//
+
+// Dropdown menu item
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    outline: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    margin-bottom: 0;
+    @include transition(background-color ease-in-out $component-transition-timer, color ease-in-out $component-transition-timer);
+
+    // Add spacing between items
+    & + &,
+    .dropdown-submenu + &,
+    & + .dropdown-submenu {
+        margin-top: $dropdown-item-spacer-y;
+    }
+
+    // Due to default solution, this needs to be duplicated
+    // as :active is different from .active in the template
+    &:active {
+        color: $dropdown-link-hover-color;
+        @include gradient-bg($dropdown-link-hover-bg);
+    }
+    &.active {
+        color: $dropdown-link-active-color;
+        @include gradient-bg($dropdown-link-active-bg);
+    }
+
+    // Disabled state
+    &.disabled,
+    &:disabled {
+        color: $dropdown-link-disabled-color;
+        background-color: transparent; 
+        cursor: $cursor-disabled;
+
+        // Mute badges and images
+        > .badge,
+        > img {
+            opacity: 0.8;
+        }
+    }
+}
+
+// Active submenu indicator
+.dropdown-item-open {
+    background-color: $dropdown-link-hover-bg;
+    color: $dropdown-link-hover-color;
+}
+
+// Dropdown section headers
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    line-height: $line-height-sm;
+
+    // Highlighted header
+    &-highlight {
+        background-color: $dropdown-header-bg;
+
+        // Add top spacing
+        .dropdown-item + &,
+        & + .dropdown-item {
+            margin-top: $dropdown-padding-y;
+        }
+    }
+}
+
+// Icons, badges and images
+.dropdown-item,
+.dropdown-header {
+
+    // Icons and images
+    > i,
+    > img {
+        margin-right: $dropdown-icon-spacer-x;
+    }
+
+    // Icon
+    > i {
+        top: 0;
+    }
+
+    // Image thumbs
+    > img {
+        max-height: $line-height-computed;
+    }
+}
+
+// Scrollable dropdown
+.dropdown-scrollable {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                max-height: $dropdown-scrollable-max-height;
+                overflow-y: auto;
+            }
+        }
+    }
+}
+
+
+//
+// Dropdown submenu
+//
+
+.dropdown-menu {
+    > .dropdown-submenu {
+        position: relative;
+
+        // Link
+        > .dropdown-item {
+            padding-right: ($dropdown-item-padding-x + ($icon-font-size * 1.5));
+
+            // Arrow icon
+            &:after {
+                content: $icon-menu-sub-arrow-ltr;
+                font-family: $icon-font-family;
+                position: absolute;
+                top: 50%;
+                margin-top: -($icon-font-size / 2);
+                right: $dropdown-item-padding-x;
+                font-size: $icon-font-size;
+                line-height: 1;
+                @include ll-font-smoothing();
+
+                // RTL
+                [dir=rtl] & {
+                    content: $icon-menu-sub-arrow-rtl;
+                }
+            }
+        }
+
+        // Hover and open states
+        &.show,
+        &:hover {
+            > .dropdown-item {
+                background-color: $dropdown-link-hover-bg;
+                color: $dropdown-link-hover-color;
+            }
+        }
+
+        // Display submenu on hover
+        &:hover > .dropdown-item:not(.dropdown-toggle) ~ .dropdown-menu,
+        &:focus > .dropdown-item:not(.dropdown-toggle) ~ .dropdown-menu {
+            display: block;
+        }
+
+        // Hide submenu if parent is disabled
+        &.disabled {
+            > .dropdown-menu {
+                display: none;
+            }
+
+            > .dropdown-item {
+                background-color: transparent;
+                color: $dropdown-link-disabled-color;
+                cursor: $cursor-disabled;
+            }
+        }
+
+        // Submenu position
+        > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -($dropdown-padding-y + rem-calc($dropdown-border-width));
+        }
+
+        // Left submenu position
+        &.dropdown-submenu-left > .dropdown-menu {
+            left: auto;
+            right: 100%;
+        }
+
+        // Make submenu levels stacked on mobile
+        @include media-breakpoint-down(lg) {
+            
+            // Change arrow icon direction
+            .dropdown-toggle:after {
+                content: $icon-menu-arrow-down;
+            }
+
+            // Make them stacked
+            &,
+            &.dropdown-submenu-left {
+                .dropdown-menu {
+                    position: static;
+                    margin: 0!important;
+                    border-width: 0;
+                    width: 100%;
+                    box-shadow: none;
+                    @include border-radius(0);
+                }
+            }
+
+            // Third level
+            > .dropdown-menu > .dropdown-item,
+            > .dropdown-menu > .dropdown-submenu > .dropdown-item {
+                padding-left: ($dropdown-item-padding-x * 2);
+            }
+
+            // Third level
+            > .dropdown-menu > .dropdown-submenu > .dropdown-menu > .dropdown-item,
+            > .dropdown-menu > .dropdown-submenu > .dropdown-menu > .dropdown-submenu > .dropdown-item {
+                padding-left: ($dropdown-item-padding-x * 3);
+            }
+        }
+    }
+
+    // Reverse in dropdown and bottom navbars
+    .dropup > .dropdown-menu {
+        top: auto;
+        bottom: 0;
+        margin-top: 0;
+        margin-bottom: -($dropdown-padding-y + rem-calc($dropdown-border-width));
+    }
+
+    // Spacing between submenus
+    .dropdown-submenu + .dropdown-submenu {
+        margin-top: $dropdown-item-spacer-y;
+    }
+}
+
+
+//
+// Additional alignment
+//
+
+// Drop right
+.dropright {
+    .dropdown-toggle {
+        &::after {
+            vertical-align: middle;
+        }
+    }
+}
+
+// Drop left
+.dropleft {
+    .dropdown-toggle {
+        &::before {
+            vertical-align: middle;
+        }
+    }
+
+    // Remove left arrow in submenu
+    .dropdown-submenu .dropdown-toggle::before {
+        content: none;
+    }
+}
+
+
+//
+// RTL alignment
+//
+
+// Base alignment
+.dropdown-menu {
+    [dir=rtl] .navbar-nav > .nav-item:not([class*=mega-menu]) > &,
+    [dir=rtl] .nav-item:not([class*=mega-menu]) .navbar-nav-link ~ & {
+        /*rtl:begin:ignore*/
+        left: auto;
+        right: 0;
+        /*rtl:end:ignore*/
+    }
+}
+
+// Reverse
+.dropdown-menu-right {
+    [dir=rtl] .navbar-nav > .nav-item:not([class*=mega-menu]) > &,
+    [dir=rtl] .nav-item:not([class*=mega-menu]) .navbar-nav-link ~ & {
+        /*rtl:begin:ignore*/
+        right: auto;
+        left: 0;
+        /*rtl:end:ignore*/
+    }
+}
+
+
+//
+// Optional sizing
+//
+
+// Large
+.dropdown-menu-lg {
+    .dropdown-item {
+        padding-top: $input-btn-padding-y-lg;
+        padding-bottom: $input-btn-padding-y-lg;
+        font-size: $font-size-lg;
+        line-height: $input-btn-line-height-lg;
+    }
+}
+
+// Small
+.dropdown-menu-sm {
+    .dropdown-item {
+        padding-top: $input-btn-padding-y-sm;
+        padding-bottom: $input-btn-padding-y-sm;
+        font-size: $font-size-sm;
+        line-height: $input-btn-line-height-sm;
+    }
+}
+
+
+//
+// Menu with custom background
+//
+
+.dropdown-menu-custom {
+
+    // Links and labels
+    > .dropdown-item,
+    > .dropdown-submenu > .dropdown-item {
+        color: $white;
+
+        // Hover state
+        @include hover-focus {
+            background-color: $dropdown-dark-hover-bg;
+        }
+
+        // Active state
+        &.active {
+            background-color: $dropdown-dark-active-bg;
+        }
+
+        // Disabled state
+        &.disabled {
+            background-color: transparent;
+            color: $dropdown-dark-disabled-color;
+        }
+    }
+
+    // Background color for submenu link states
+    > .dropdown-submenu {
+        &.show,
+        &:hover {
+            > .dropdown-item {
+                background-color: $dropdown-dark-hover-bg;
+                color: $white;
+            }
+        }
+
+        // Remove bg color in disabled links
+        &.disabled {
+            > .dropdown-item {
+                background-color: transparent;
+                color: $dropdown-dark-disabled-color;
+            }
+        }
+    }
+
+    // Dropdown header
+    > .dropdown-header {
+        color: $dropdown-dark-header-color;
+
+        &-highlight {
+            background-color: $dropdown-dark-header-bg;
+        }
+    }
+
+    // Divider
+    > .dropdown-divider {
+        border-top-color: $dropdown-dark-divider-bg;
+    }
+}
