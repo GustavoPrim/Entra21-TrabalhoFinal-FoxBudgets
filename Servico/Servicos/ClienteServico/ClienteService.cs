@@ -43,14 +43,18 @@ namespace Servico.Servicos.ClienteServico
             _clienteRepositorio.Atualizar(cliente);
         }
 
-        public void ObterPorId(int id)
+        public Cliente ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var cliente = _clienteRepositorio.ObterPorId(id);
+
+            return cliente;
         }
 
         public List<Cliente> ObterTodos()
         {
-            throw new NotImplementedException();
+            var clienteDoBanco = _clienteRepositorio.ObterTodos();
+
+            return clienteDoBanco;
         }
     }
 }

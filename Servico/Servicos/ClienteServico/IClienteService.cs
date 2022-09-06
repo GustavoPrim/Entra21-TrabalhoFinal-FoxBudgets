@@ -9,6 +9,6 @@ namespace Servico.Servicos.ClienteServico
         List<Cliente> ObterTodos();
         void Editar(ClienteEditarViewModel clienteEditarViewModel);
         void Apagar(int id);
-        void ObterPorId(int id);
+        Cliente ObterPorId(int id);
     }
 }
