@@ -10,6 +10,12 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="MapeamentoViewModels\" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
+
   </ItemGroup>
 
   <ItemGroup>

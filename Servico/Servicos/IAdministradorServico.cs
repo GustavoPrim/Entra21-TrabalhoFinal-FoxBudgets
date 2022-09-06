@@ -2,7 +2,6 @@
 using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
-
 namespace Aplicacao.Administradores
 {
     internal interface IAdministradorServico
