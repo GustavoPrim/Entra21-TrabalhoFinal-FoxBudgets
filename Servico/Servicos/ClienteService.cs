@@ -1,5 +1,4 @@
-﻿using Repositorio.BancoDados;
-using Repositorio.Entidades;
+﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.ViewModels;
 
@@ -9,9 +8,9 @@ namespace Servico.Servicos
     {
         private readonly IClienteRepositorio _clienteRepositorio;
 
-        public ClienteService(OrcamentoContexto contexto)
+        public ClienteService(IClienteRepositorio clienteRepositorio)
         {
-            _clienteRepositorio = new ClienteRepositorio(contexto);
+            _clienteRepositorio = clienteRepositorio;
         }
 
         public void Apagar(int id)
@@ -19,38 +18,28 @@ namespace Servico.Servicos
             _clienteRepositorio.Apagar(id);
         }
 
-        public void Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel)
+        public void Cadastrar(ClienteCadastrarViewModel viewModel)
         {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteCadastrarViewModel.Cpf;
-            cliente.DataNascimento = clienteCadastrarViewModel.DataNascimento;
-            cliente.Endereco = clienteCadastrarViewModel.Endereco;
-            cliente.Email = clienteCadastrarViewModel.Email;
-            cliente.Telefone = clienteCadastrarViewModel.Telefone;
-            cliente.Cnpj = clienteCadastrarViewModel.Cnpj;
+            var cliente = _mapeamento.ConstruirCom()
         }
 
-        public void Editar(ClienteEditarViewModel clienteEditarViewModel)
+        public bool Editar(ClienteEditarViewModel viewModel)
         {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteEditarViewModel.Cpf;
-            cliente.DataNascimento = clienteEditarViewModel.DataNascimento;
-            cliente.Endereco = clienteEditarViewModel.Endereco;
-            cliente.Email = clienteEditarViewModel.Email;
-            cliente.Telefone = clienteEditarViewModel.Telefone;
-            cliente.Cnpj = clienteEditarViewModel.Cnpj;
+            var cliente = _clienteRepositorio.ObterPorId(viewModel.Id);
 
+            if (cliente == null)
+                return false;
+
+            //_mapeamento.AtualizarCampos(cliente, viewModel);
             _clienteRepositorio.Atualizar(cliente);
+
+            return true;
         }
 
-        public void ObterPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Cliente? ObterPorId(int id) =>
+            _clienteRepositorio.ObterPorId(id);
 
-        public List<Cliente> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Cliente> ObterTodos() =>
+            _clienteRepositorio.ObterTodos();
     }
 }
