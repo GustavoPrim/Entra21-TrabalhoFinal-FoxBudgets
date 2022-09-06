@@ -11,7 +11,6 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
-
         public void Apagar(int id)
         {
             var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
@@ -23,7 +22,7 @@ namespace Repositorio.Repositorios
         public void Atualizar(Administrador administradorParaAlterar)
         {
             var administradores = _contexto.Administradores
-            .Where(x => x.Id == administradorParaAlterar.Id).FirstOrDefault();
+                .Where(x => x.Id == administradorParaAlterar.Id).FirstOrDefault();
         }
 
         public void Cadastrar(Administrador administrador)
