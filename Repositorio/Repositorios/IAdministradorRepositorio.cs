@@ -6,8 +6,9 @@ namespace Repositorio.Repositorios
     {
         void Cadastrar(Administrador administrador);
         List<Administrador> ObterTodos();
-        void Atualizar(Administrador administradorParaAlterar);
-        void Apagar(int id);
+        void Atualizar(Administrador administradorparaalterar);
+        bool Apagar(int id);
         Administrador ObterPorId(int id);
+        void Editar(Administrador administrador);
     }
 }
