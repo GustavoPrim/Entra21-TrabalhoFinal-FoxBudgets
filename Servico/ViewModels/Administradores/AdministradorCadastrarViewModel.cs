@@ -26,15 +26,14 @@ namespace Servico.ViewModels.Administradores
         [MinLength(3, ErrorMessage = "{0} deve conter no mínimo {1} caracter")]
         public string Endereco { get; set; }
 
-        //Conferir com o professor as validações para email
         [Display(Name = "email")]
-        [Required(ErrorMessage = "{0} deve ser preenchido")]
+        [EmailAddress(ErrorMessage = "{0} deve ser preenchido")]
         [MinLength(3, ErrorMessage = "{0} deve ter no mínimo {1} caracteres")]
         public string Email { get; set; }
 
         [Display(Name = "telefone")]
         [MinLength(8, ErrorMessage = "{0} deve conter no mínimo {1} caracteres")]
-        public int telefone { get; set; }
+        public int Telefone { get; set; }
 
     }
 }
