@@ -2,7 +2,6 @@
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
-using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
@@ -24,57 +23,33 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _administradorRepositorio.Apagar(id);
 
-
         public Administrador Cadastrar(AdministradorCadastrarViewModel viewModel)
         {
             var administrador = _mapeamentoEntidade.ConstruirCom(viewModel);
 
             _administradorRepositorio.Cadastrar(administrador);
-
             return administrador;
         }
 
-        private string SalvarArquivo(AdministradorCadastrarViewModel viewModel, string caminhoArquivos)
+        public bool Editar(AdministradorEditarViewModel viewModel)
         {
-            if (viewModel.Arquivo == null)
-                return string.Empty;
+            var administrador = _administradorRepositorio.ObterPorId(viewModel.Id);
 
-            var path = Path.Combine(caminhoArquivos, PastaImagens);
+            if (administrador == null)
+                return false;
 
-            if(!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            _mapeamentoEntidade.AtualizarCom(administrador, viewModel);
+            _administradorRepositorio.Editar(administrador);
 
-            var informacaoDoArquivo = new FileInfo(viewModel.Arquivo.FileName);
-            var nomeArquivo = Guid.NewGuid() + informacaoDoArquivo.Extension;
-
-            string caminhoArquivo = Path.Combine(path, nomeArquivo);
-
-            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-            {
-                viewModel.Arquivo.CopyTo(stream);
-
-                return nomeArquivo;
-            }
+            return true;
         }
 
-        public void Editar(AdministradorCadastrarViewModel administradorEditarViewModel)
-        {
-            throw new NotImplementedException();
-        }
+        public Administrador? ObterPorId(int id) =>
+            _administradorRepositorio.ObterPorId(id);
 
-        public Administrador? ObterPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Administrador> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Administrador> ObterTodos() =>
+            _administradorRepositorio.ObterTodos();
 
-        public IList<Administrador> ObterTodosSelect2()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

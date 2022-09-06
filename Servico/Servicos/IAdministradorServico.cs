@@ -6,11 +6,10 @@ namespace Aplicacao.Administradores
 {
     internal interface IAdministradorServico
     {
-        Administrador Cadastrar(AdministradorCadastrarViewModel viewModel,string caminhoArquivos);
-        void Editar(AdministradorCadastrarViewModel administradorEditarViewModel);
+        Administrador Cadastrar(AdministradorCadastrarViewModel viewModel);
+        bool Editar(AdministradorEditarViewModel viewModel);
         bool Apagar(int id);
         Administrador? ObterPorId(int id);
-        List<Administrador> ObterTodos();
-        IList<Administrador> ObterTodosSelect2();
+        IList<Administrador> ObterTodos();
     }
 }

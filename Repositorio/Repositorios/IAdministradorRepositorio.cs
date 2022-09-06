@@ -9,5 +9,6 @@ namespace Repositorio.Repositorios
         void Atualizar(Administrador administradorparaalterar);
         bool Apagar(int id);
         Administrador ObterPorId(int id);
+        void Editar(Administrador administrador);
     }
 }
