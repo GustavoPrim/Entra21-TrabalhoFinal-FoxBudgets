@@ -1,7 +1,7 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels;
+using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos
+namespace Servico.Servicos.ClienteServico
 {
     public interface IClienteService
     {

@@ -1,9 +1,9 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
-using Servico.ViewModels;
+using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos
+namespace Servico.Servicos.ClienteServico
 {
     public class ClienteService : IClienteService
     {
