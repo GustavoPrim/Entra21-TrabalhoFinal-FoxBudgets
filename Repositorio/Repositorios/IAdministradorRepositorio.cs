@@ -4,11 +4,10 @@ namespace Repositorio.Repositorios
 {
     public interface IAdministradorRepositorio
     {
-        void Cadastrar(Administrador administrador);
-        List<Administrador> ObterTodos();
-        void Atualizar(Administrador administradorparaalterar);
         bool Apagar(int id);
-        Administrador ObterPorId(int id);
+        Administrador Cadastrar(Administrador administrador);
         void Editar(Administrador administrador);
+        Administrador ObterPorId(int id);
+        IList<Administrador> ObterTodos();
     }
 }
