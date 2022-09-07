@@ -4,7 +4,7 @@ using Repositorio.BancoDados;
 
 namespace Repositorio.Migrations
 {
-    [DbContext(typeof(ClienteContexto))]
+    [DbContext(typeof(OrcamentoContexto))]
     partial class ClienteContextoModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

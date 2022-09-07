@@ -1,9 +1,9 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
-using Servico.ViewModels;
+using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos
+namespace Servico.Servicos.ClienteServico
 {
     public class ClienteService : IClienteService
     {
@@ -43,14 +43,18 @@ namespace Servico.Servicos
             _clienteRepositorio.Atualizar(cliente);
         }
 
-        public void ObterPorId(int id)
+        public Cliente ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var cliente = _clienteRepositorio.ObterPorId(id);
+
+            return cliente;
         }
 
         public List<Cliente> ObterTodos()
         {
-            throw new NotImplementedException();
+            var clienteDoBanco = _clienteRepositorio.ObterTodos();
+
+            return clienteDoBanco;
         }
     }
 }
