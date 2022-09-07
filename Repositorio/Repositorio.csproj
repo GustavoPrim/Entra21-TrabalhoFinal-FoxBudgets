@@ -1,25 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Enuns\" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Enuns\" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+		<Folder Include="Migrations\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
-
-	  <PackageReference Include="EntityFramework" Version="6.4.4" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
-
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+		<PackageReference Include="EntityFramework" Version="6.4.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+	</ItemGroup>
 </Project>

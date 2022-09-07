@@ -1,0 +1,175 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Main content layout
+ *
+ *  Styles for main structure of content area
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Make sure document has 100% height
+html {
+    display: flex;
+    flex-direction: column;
+
+    // Smooth scrolling to anchors
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
+// Document body
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+// Main container
+.page-content {
+    display: flex;
+    flex-grow: 1;
+    padding: $content-container-padding-y $content-container-padding-x;
+
+    // Extra padding to match other elements
+    &:not(.container) {
+        @include media-breakpoint-up(lg) {
+            padding-left: ($page-container-padding-x / 2) + $content-container-padding-x;
+            padding-right: ($page-container-padding-x / 2) + $content-container-padding-x;
+        }
+        @include media-breakpoint-up(xl) {
+            padding-left: $page-container-padding-x + $content-container-padding-x;
+            padding-right: $page-container-padding-x + $content-container-padding-x;
+        }
+    }
+}
+
+// Content wrapper
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+// Main content container
+.content {
+    flex-grow: 1;
+    margin-left: $content-container-padding-x;
+    margin-right: $content-container-padding-x;
+    @include clearfix;
+}
+
+
+//
+// Boxed container
+//
+
+// Custom containers that can be applied to navbar or other components
+.container-boxed {
+    @include media-breakpoint-up(lg) {
+        padding-left: ($page-container-padding-x / 2) + ($content-container-padding-x * 2);
+        padding-right: ($page-container-padding-x / 2) + ($content-container-padding-x * 2);
+    }
+    @include media-breakpoint-up(xl) {
+        padding-left: $page-container-padding-x + ($content-container-padding-x * 2);
+        padding-right: $page-container-padding-x + ($content-container-padding-x * 2);
+    }
+
+    // Same for full width mega menu
+    .mega-menu-full {
+        .dropdown-menu {
+            @include media-breakpoint-up(lg) {
+                left: ($page-container-padding-x / 2) + ($content-container-padding-x * 2);
+                right: ($page-container-padding-x / 2) + ($content-container-padding-x * 2);
+            }
+            @include media-breakpoint-up(xl) {
+                left: $page-container-padding-x + ($content-container-padding-x * 2);
+                right: $page-container-padding-x + ($content-container-padding-x * 2);
+            }
+        }
+    }
+
+    // Boxed layout
+    > .container {
+        .mega-menu-full .dropdown-menu {
+            left: ($content-container-padding-x * 2);
+            right: ($content-container-padding-x * 2);
+        }
+    }
+}
+
+
+
+//
+// Scroll to top
+//
+
+.btn-to-top {
+    $to_top_btn_size: ($btn-padding-y * 2) + ($line-height-computed - $icon-font-size);
+
+    position: fixed;
+    bottom: $content-container-padding-y;
+    right: ($content-container-padding-x * 2);
+    align-self: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    z-index: $zindex-dropdown - 1;
+    @include transition($transition-base);
+
+    // Show
+    &-visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    // Adjust button position on screen sizes
+    @include media-breakpoint-up(lg) {
+        right: ((($page-container-padding-x / 2) - $to_top_btn_size) / 2);
+    }
+    @include media-breakpoint-up(xl) {
+        right: (($page-container-padding-x - $to_top_btn_size) / 2);
+    }
+
+    // After fixed navbars
+    .page-content + .navbar.fixed-bottom ~ & {
+        bottom: $content-container-padding-y + $nav-link-height;
+    }
+    .page-content + .fixed-bottom:not(.navbar) ~ & {
+        bottom: $content-container-padding-y + ($nav-link-height * 2);
+    }
+}
+
+
+//
+// FAB
+//
+
+@if $enable-fab {
+    [data-fab-position="custom"] {
+
+        // Left placement
+        &.fab-menu-top-left,
+        &.fab-menu-bottom-left {
+            left: $fab-gutter-x;
+
+            @include media-breakpoint-up(lg) {
+                left: ((($page-container-padding-x / 2) - $fab-main-btn-size) / 2) + $content-container-padding-x;
+            }
+            @include media-breakpoint-up(xl) {
+                left: (($page-container-padding-x - $fab-main-btn-size) / 2) + $content-container-padding-x;
+            }
+        }
+        
+        // Right placement
+        &.fab-menu-top-right,
+        &.fab-menu-bottom-right {
+            @include media-breakpoint-up(lg) {
+                right: ((($page-container-padding-x / 2) - $fab-main-btn-size) / 2) + $content-container-padding-x;
+            }
+            @include media-breakpoint-up(xl) {
+                right: (($page-container-padding-x - $fab-main-btn-size) / 2) + $content-container-padding-x;
+            }
+        }
+    }
+}

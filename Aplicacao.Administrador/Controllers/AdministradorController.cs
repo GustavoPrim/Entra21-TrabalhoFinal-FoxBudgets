@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Aplicacao.Administrador.Controllers
+namespace Aplicacao.Administradores.Controllers
 {
     public class AdministradorController : Controller
     {

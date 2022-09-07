@@ -1,47 +1,61 @@
-﻿using Repositorio.Entidades;
+﻿using Repositorio.BancoDados;
+using Repositorio.Entidades;
+using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
     public class AdministradorRepositorio : IAdministradorRepositorio
     {
-        //private readonly AdministrradorContexto _contexto;
+        private readonly OrcamentoContexto _contexto;
 
-        //public AdministradorRepositorio(AdministadorContexto contexto)
-        //{
-        //    _contexto = contexto;
-        //}
-        //public void Apagar(int id)
-        //{
-        //    var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
+        public AdministradorRepositorio(OrcamentoContexto contexto)
+        {
+            _contexto = contexto;
+        }
+        public bool Apagar(int id)
+        {
+            var administrador = _contexto.Administradores
+                .FirstOrDefault(x => x.Id == id);
 
-        //    _contexto.Administradores.Remove(administrador);
-        //    _contexto.SaveChanges();
-        //}
+            if (administrador == null)
+                return false;
 
-        //public void Atualizar(Administrador administradorParaAlterar)
-        //{
-        //    var administradores = _contexto.Administradores
-        //        .Where(x => x.Id == administradorParaAlterar.Id).FirstOrDefault();
-        //}
+            _contexto.Administradores.Remove(administrador);
+            _contexto.SaveChanges();
 
-        //public void Cadastrar(Administrador administrador)
-        //{
-        //    _contexto.Administradores.Add(administrador);
-        //    _contexto.SaveChanges();
-        //}
+            return true;
+        }
 
-        //public Administrador ObterPorId(int id)
-        //{
-        //    var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
+        public void Atualizar(Administrador administradorParaAlterar)
+        {
+            var administradores = _contexto.Administradores
+                .Where(x => x.Id == administradorParaAlterar.Id)
+                .FirstOrDefault();
+        }
 
-        //    return administrador;
-        //}
+        public Administrador Cadastrar(Administrador administrador)
+        {
+            _contexto.Administradores.Add(administrador);
+            _contexto.SaveChanges();
 
-        //public List<Administrador> ObterTodos()
-        //{
-        //    var administrador = _contexto.Administradores.ToList();
+            return administrador;
+        }
 
-        //    return administrador;
-        //}
+        public void Editar(Administrador administrador)
+        {
+            _contexto.Administradores.Update(administrador);
+            _contexto.SaveChanges();
+        }
+
+        public Administrador ObterPorId(int id) =>
+            _contexto.Administradores
+            .Include(x => x.Administradores)
+            .FirstOrDefault(x => x.Id == id);
+        
+
+        public IList<Administrador> ObterTodos() =>
+            _contexto.Administradores
+                 .Include(x => x.Administradores)
+                 .ToList();
     }
 }
