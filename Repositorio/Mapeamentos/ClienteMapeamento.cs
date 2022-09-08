@@ -21,6 +21,33 @@ namespace Repositorio.Mapeamentos
                 .HasColumnType("VARCHAR")
                 .IsRequired()
                 .HasColumnName("cnpj");
+
+            builder.Property(x => x.DataNascimento)
+                .HasColumnType("DATETIME")
+                .IsRequired()
+                .HasColumnName("dataNascimento");
+
+            builder.Property(x => x.Endereco)
+                .HasColumnType("VARCHAR")
+                .IsRequired()
+                .HasColumnName("endereco");
+
+            builder.Property(x => x.Email)
+                .HasColumnType("VARCHAR")
+                .IsRequired()
+                .HasColumnName("email");
+
+            builder.Property(x => x.Telefone)
+                .HasColumnType("INT")
+                .IsRequired()
+                .HasColumnName("telefone");
+
+            builder.Property(x => x.Crea)
+                .HasColumnType("STRING")
+                .IsRequired()
+                .HasColumnName("crea");
+
+            // Email, Telefone, Crea.
         }
     }
 }
