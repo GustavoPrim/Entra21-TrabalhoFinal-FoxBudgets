@@ -1,6 +1,6 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
-using Servico.ViewModels;
+using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
 {

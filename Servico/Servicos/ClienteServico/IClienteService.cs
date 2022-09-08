@@ -1,7 +1,7 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels.Clientes;
+using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos
+namespace Servico.Servicos.ClienteServico
 {
     public interface IClienteService
     {
@@ -9,6 +9,6 @@ namespace Servico.Servicos
         List<Cliente> ObterTodos();
         void Editar(ClienteEditarViewModel clienteEditarViewModel);
         void Apagar(int id);
-        void ObterPorId(int id);
+        Cliente ObterPorId(int id);
     }
 }

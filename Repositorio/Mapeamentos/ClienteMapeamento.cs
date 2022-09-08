@@ -10,9 +10,17 @@ namespace Repositorio.Mapeamentos
         {
             builder.ToTable("clientes");
 
-            /*builder.HasKey(x => x.Id).HasName("id");
+            builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.)*/
+            builder.Property(x => x.Cpf)
+                .HasColumnType("VARCHAR")
+                .IsRequired()
+                .HasColumnName("cpf");
+
+            builder.Property(x => x.Cnpj)
+                .HasColumnType("VARCHAR")
+                .IsRequired()
+                .HasColumnName("cnpj");
         }
     }
 }

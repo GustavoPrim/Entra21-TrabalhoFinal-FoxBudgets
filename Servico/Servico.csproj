@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -9,9 +9,12 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="MapeamentoEntidades\" />
     <Folder Include="MapeamentoViewModels\" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
+using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
@@ -11,39 +12,50 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
-
-        public void Apagar(int id)
+        public bool Apagar(int id)
         {
-            var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
+            var administrador = _contexto.Administradores
+                .FirstOrDefault(x => x.Id == id);
+
+            if (administrador == null)
+                return false;
 
             _contexto.Administradores.Remove(administrador);
             _contexto.SaveChanges();
+
+            return true;
         }
 
         public void Atualizar(Administrador administradorParaAlterar)
         {
             var administradores = _contexto.Administradores
-            .Where(x => x.Id == administradorParaAlterar.Id).FirstOrDefault();
+                .Where(x => x.Id == administradorParaAlterar.Id)
+                .FirstOrDefault();
         }
 
-        public void Cadastrar(Administrador administrador)
+        public Administrador Cadastrar(Administrador administrador)
         {
             _contexto.Administradores.Add(administrador);
             _contexto.SaveChanges();
-        }
-
-        public Administrador ObterPorId(int id)
-        {
-            var administrador = _contexto.Administradores.Where(x => x.Id == id).FirstOrDefault();
 
             return administrador;
         }
 
-        public List<Administrador> ObterTodos()
+        public void Editar(Administrador administrador)
         {
-            var administrador = _contexto.Administradores.ToList();
-
-            return administrador;
+            _contexto.Administradores.Update(administrador);
+            _contexto.SaveChanges();
         }
+
+        public Administrador ObterPorId(int id) =>
+            _contexto.Administradores
+            .Include(x => x.Administradores)
+            .FirstOrDefault(x => x.Id == id);
+        
+
+        public IList<Administrador> ObterTodos() =>
+            _contexto.Administradores
+                 .Include(x => x.Administradores)
+                 .ToList();
     }
 }
