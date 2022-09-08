@@ -1,7 +1,6 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
-using Servico.ViewModels.ClienteViewModels;
 
 namespace Servico.Servicos.ClienteServico
 {
