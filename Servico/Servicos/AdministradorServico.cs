@@ -6,7 +6,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
 {
-    internal class AdministradorServico : IAdministradorServico
+    public class AdministradorServico : IAdministradorServico
     {
 
         private readonly IAdministradorRepositorio _administradorRepositorio;
