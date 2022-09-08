@@ -3,7 +3,7 @@ using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos.ClienteServico
+/*namespace Servico.Servicos.ClienteServico
 {
     public class ClienteService : IClienteService
     {
@@ -57,4 +57,4 @@ namespace Servico.Servicos.ClienteServico
             return clienteDoBanco;
         }
     }
-}
+}*/
