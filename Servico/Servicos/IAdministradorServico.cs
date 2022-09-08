@@ -3,7 +3,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Aplicacao.Administradores
 {
-    internal interface IAdministradorServico
+    public interface IAdministradorServico
     {
         Administrador Cadastrar(AdministradorCadastrarViewModel viewModel);
         bool Editar(AdministradorEditarViewModel viewModel);
