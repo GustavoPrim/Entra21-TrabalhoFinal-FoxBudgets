@@ -2,6 +2,6 @@
 {
     public class ClienteEditarViewModel : ClienteViewModel
     {
-        int Id { get; set; }
+        public int Id { get; set; }
     }
 }
