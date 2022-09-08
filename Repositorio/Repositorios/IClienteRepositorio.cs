@@ -4,10 +4,10 @@ namespace Repositorio.Repositorios
 {
     public interface IClienteRepositorio
     {
-        public void Cadastrar(Cliente cliente);
-        public List<Cliente> ObterTodos();
-        public void Atualizar(Cliente clienteParaAlterar);
-        public void Apagar(int id);
-        Cliente ObterPorId(int Id);
+        bool Apagar(int id);
+        Cliente Cadastrar(Cliente cliente);
+        void Editar(Cliente cliente);
+        Cliente? ObterPorId(int Id);
+        IList<Cliente> ObterTodos();
     }
 }
