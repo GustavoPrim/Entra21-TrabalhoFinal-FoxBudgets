@@ -33,7 +33,7 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public void Atualizar(Cliente clienteParaAlterar)
+        public void Editar(Cliente clienteParaAlterar)
         {
             var cliente = _contexto.Clientes.Where(x => x.Id == clienteParaAlterar.Id).FirstOrDefault();
 
