@@ -173,7 +173,7 @@
                 <!-- Header -->
                 <div class="sidebar-section sidebar-header">
                     <div class="sidebar-section-body d-flex align-items-center justify-content-center pb-0">
-                        <h6 class="sidebar-resize-hide flex-1 mb-0">Navigation</h6>
+                        <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
                         <div>
                             <button type="button" class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
                                 <i class="icon-transmission"></i>
@@ -194,9 +194,9 @@
                         </a>
 
                         <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-weight-semibold">Victoria Baker</div>
+                            <div class="font-weight-semibold">William Lima</div>
                             <div class="font-size-sm line-height-sm text-muted">
-                                Senior developer
+                                Administrador 
                             </div>
                         </div>
                     </div>
@@ -207,13 +207,13 @@
                     <ul class="nav nav-sidebar" data-nav-type="accordion">
 
                         <!-- Main -->
-                        <li class="nav-item-header pt-0"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
+                        <li class="nav-item-header pt-0"><div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu" title="Main"></i></li>
                         <li class="nav-item">
                             <a href="index.html" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
-                                    <span class="d-block font-weight-normal opacity-50">No active orders</span>
+                                    <span class="d-block font-weight-normal opacity-50"></span>
                                 </span>
                             </a>
                         </li>
@@ -221,8 +221,13 @@
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Administrador</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Index" class="nav-link">Listar</a></li>
-                                <li class="nav-item"><a  asp-controller="Administrador" asp-action="Cadastrar"  class="nav-link">Cadastrar</a></li>
+                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Index" class="nav-link">Listar Administradores</a></li>
+                                <li class="nav-item"><a  asp-controller="Administrador" asp-action="Cadastrar"  class="nav-link">Cadastrar administrador</a></li>
+                            </ul>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                <li class="nav-item"><a asp-controller="Administrador" asp-action="ListarFornecedor" class="nav-link">Listar Fornecedores</a></li>
+                                <li class="nav-item"><a  asp-controller="Administrador" asp-action="CadastrarFornecedor"  class="nav-link">Cadastrar fornecedor</a></li>
                             </ul>
                         </li>
                         <!-- /layout -->

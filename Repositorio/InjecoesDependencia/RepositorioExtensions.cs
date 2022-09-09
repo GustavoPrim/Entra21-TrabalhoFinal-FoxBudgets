@@ -17,13 +17,13 @@ namespace Repositorio.InjecoesDependencia
             return services;
         }
 
-        public static IServiceCollection AdicionarEntityFramework(
-            this IServiceCollection services, ConfigurationManager configurationManager)
-        {
-            services.AddDbContext<OrcamentoContexto>(options =>
-                options.UseSqlServer(configurationManager.GetConnectionString("SqlServer")));
+        //public static IServiceCollection AdicionarEntityFramework(
+        //    this IServiceCollection services, ConfigurationManager configurationManager)
+       // {
+        //    services.AddDbContext<OrcamentoContexto>(options =>
+         //       options.UseSqlServer(configurationManager.GetConnectionString("SqlServer")));
 
-            return services;
+          //  return services;
         }
     }
-}
+//}
