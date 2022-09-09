@@ -1,7 +1,7 @@
 ﻿using Repositorio.Entidades;
 using System.ComponentModel.DataAnnotations;
 
-namespace Servico.ViewModels.ClienteViewModels
+namespace Servico.ViewModels.Clientes
 {
     public class ClienteViewModel : EntidadeBase
     {
