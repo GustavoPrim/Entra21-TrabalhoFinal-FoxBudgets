@@ -1,51 +1,50 @@
-﻿using Repositorio.BancoDados;
-using Repositorio.Entidades;
+﻿//using Repositorio.BancoDados;
+//using Repositorio.Entidades;
 
-namespace Repositorio.Repositorios
-{
-    public class ClienteRepositorio : IClienteRepositorio
-    {
-        private readonly ClienteContexto _contexto;
+////namespace Repositorio.Repositorios
+////{
+////    public class ClienteRepositorio : IClienteRepositorio
+////    {
+////        private readonly OrcamentoContexto _contexto;
 
-        public ClienteRepositorio(ClienteContexto contexto)
-        {
-            _contexto = contexto;
-        }
+////        public ClienteRepositorio(OrcamentoContexto contexto)
+////        {
+////            _contexto = contexto;
+////        }
 
-        public void Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
+////        public bool Apagar(int id)
+////        {
+////            var cliente = _contexto.Clientes
+////                .FirstOrDefault(x => x.Id == id);
 
-        public void Cadastrar(Cliente cliente)
-        {
-            _contexto.Clientes.Add(cliente);
-            _contexto.SaveChanges();
-        }
+////            if (cliente == null)
+////                return false;
 
-        public void Atualizar(Cliente clienteParaAlterar)
-        {
-            var cliente = _contexto.Clientes.Where(x => x.Id == clienteParaAlterar.Id).FirstOrDefault();
+////            _contexto.Clientes.Remove(cliente);
+////            _contexto.SaveChanges();
 
-            cliente.Cpf = clienteParaAlterar.Cpf;
-            cliente.DataNascimento = clienteParaAlterar.DataNascimento;
-            cliente.Endereco = clienteParaAlterar.Endereco;
-            cliente.Email = clienteParaAlterar.Email;
-            cliente.Telefone = clienteParaAlterar.Telefone;
-            cliente.Cnpj = clienteParaAlterar.Cnpj;
+////            return true;
+////        }
 
-            _contexto.Update(cliente);
-            _contexto.SaveChanges();
-        }
+//        public Cliente Cadastrar(Cliente cliente)
+//        {
+//            _contexto.Clientes.Add(cliente);
+//            _contexto.SaveChanges();
 
-        public Cliente ObterPorId(int Id)
-        {
-            throw new NotImplementedException();
-        }
+//            return cliente;
+//        }
 
-        public List<Cliente> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
+//        public void Editar(Cliente cliente)
+//        {
+//            _contexto.Clientes.Update(cliente);
+//            _contexto.SaveChanges();
+//        }
+
+//        public Cliente? ObterPorId(int id) =>
+//            _contexto.Clientes
+//            .FirstOrDefault(x => x.Id == id);
+
+//        public IList<Cliente> ObterTodos() =>
+//            _contexto.Clientes.ToList();
+//    }
+//}

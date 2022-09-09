@@ -1,14 +1,14 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels;
+using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
 {
     public interface IClienteService
     {
-        void Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel);
-        List<Cliente> ObterTodos();
-        void Editar(ClienteEditarViewModel clienteEditarViewModel);
-        void Apagar(int id);
-        void ObterPorId(int id);
+        bool Apagar(int id);
+        Cliente Cadastrar(ClienteCadastrarViewModel viewModel);
+        bool Editar(ClienteEditarViewModel viewModel);
+        Cliente? ObterPorId(int id);
+        IList<Cliente> ObterTodos();
     }
 }

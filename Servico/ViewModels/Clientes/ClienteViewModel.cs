@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Servico.ViewModels
+namespace Servico.ViewModels.Clientes
 {
     public class ClienteViewModel
     {

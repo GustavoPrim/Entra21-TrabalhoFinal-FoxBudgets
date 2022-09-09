@@ -8,17 +8,21 @@ namespace Repositorio.BancoDados
     {
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
+        //public DbSet<Cliente> Clientes { get; set; }
 
         public OrcamentoContexto(
             DbContextOptions<OrcamentoContexto> options)
             : base(options)
         {
+            // dotnet ef migrations add AdicionarAdministradorFornecedorTabela --project Repositorio --startup-project .\Aplicacao.Administrador
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AdministradorMapeamento());
             modelBuilder.ApplyConfiguration(new FornecedorMapeamento());
+            //modelBuilder.ApplyConfiguration(new ClienteMapeamento());
         }
     }
 }

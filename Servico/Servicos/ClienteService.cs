@@ -1,56 +1,49 @@
-﻿using Repositorio.BancoDados;
-using Repositorio.Entidades;
-using Repositorio.Repositorios;
-using Servico.ViewModels;
+﻿//using Repositorio.Entidades;
+//using Repositorio.Repositorios;
+//using Servico.MapeamentoEntidades;
+//using Servico.ViewModels.Clientes;
 
-namespace Servico.Servicos
-{
-    public class ClienteService : IClienteService
-    {
-        private readonly IClienteRepositorio _clienteRepositorio;
+//namespace Servico.Servicos
+//{
+//    public class ClienteService : IClienteService
+//    {
+//        private readonly IClienteRepositorio _clienteRepositorio;
+//        private readonly IClienteMapeamentoEntidade _mapeamento;
 
-        public ClienteService(OrcamentoContexto contexto)
-        {
-            _clienteRepositorio = new ClienteRepositorio(contexto);
-        }
+//        public ClienteService(
+//            IClienteRepositorio clienteRepositorio,
+//            IClienteMapeamentoEntidade mapeamento)
+//        {
+//            _clienteRepositorio = clienteRepositorio;
+//            _mapeamento = mapeamento;
+//        }
 
-        public void Apagar(int id)
-        {
-            _clienteRepositorio.Apagar(id);
-        }
+//        public bool Apagar(int id) =>
+//            _clienteRepositorio.Apagar(id);
 
-        public void Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel)
-        {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteCadastrarViewModel.Cpf;
-            cliente.DataNascimento = clienteCadastrarViewModel.DataNascimento;
-            cliente.Endereco = clienteCadastrarViewModel.Endereco;
-            cliente.Email = clienteCadastrarViewModel.Email;
-            cliente.Telefone = clienteCadastrarViewModel.Telefone;
-            cliente.Cnpj = clienteCadastrarViewModel.Cnpj;
-        }
+//        public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
+//        {
+//            var cliente = _mapeamento.ConstruirCom(viewModel);
+//            _clienteRepositorio.Cadastrar(cliente);
+//            return cliente;
+//        }
 
-        public void Editar(ClienteEditarViewModel clienteEditarViewModel)
-        {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteEditarViewModel.Cpf;
-            cliente.DataNascimento = clienteEditarViewModel.DataNascimento;
-            cliente.Endereco = clienteEditarViewModel.Endereco;
-            cliente.Email = clienteEditarViewModel.Email;
-            cliente.Telefone = clienteEditarViewModel.Telefone;
-            cliente.Cnpj = clienteEditarViewModel.Cnpj;
+////        public bool Editar(ClienteEditarViewModel viewModel)
+////        {
+////            var cliente = _clienteRepositorio.ObterPorId(viewModel.Id);
 
-            _clienteRepositorio.Atualizar(cliente);
-        }
+////            if (cliente == null)
+////                return false;
 
-        public void ObterPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+//            _mapeamento.AtualizarCampos(cliente, viewModel);
+//            _clienteRepositorio.Editar(cliente);
+//            return true;
+//        }
 
-        public List<Cliente> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
+////        public Cliente? ObterPorId(int id) =>
+////            _clienteRepositorio.ObterPorId(id);
+
+////        public IList<Cliente> ObterTodos() =>
+////            _clienteRepositorio.ObterTodos();
+////    }
+////}
