@@ -1,5 +1,6 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
+using Servico.MapeamentoEntidades;
 using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
@@ -7,20 +8,24 @@ namespace Servico.Servicos
     public class ClienteService : IClienteService
     {
         private readonly IClienteRepositorio _clienteRepositorio;
+        private readonly IClienteMapeamentoEntidade _mapeamento;
 
-        public ClienteService(IClienteRepositorio clienteRepositorio)
+        public ClienteService(
+            IClienteRepositorio clienteRepositorio,
+            IClienteMapeamentoEntidade mapeamento)
         {
             _clienteRepositorio = clienteRepositorio;
+            _mapeamento = mapeamento;
         }
 
-        public void Apagar(int id)
-        {
+        public bool Apagar(int id) =>
             _clienteRepositorio.Apagar(id);
-        }
 
-        public void Cadastrar(ClienteCadastrarViewModel viewModel)
+        public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
         {
-            var cliente = _mapeamento.ConstruirCom()
+            var cliente = _mapeamento.ConstruirCom(viewModel);
+            _clienteRepositorio.Cadastrar(cliente);
+            return cliente;
         }
 
         public bool Editar(ClienteEditarViewModel viewModel)
@@ -30,9 +35,8 @@ namespace Servico.Servicos
             if (cliente == null)
                 return false;
 
-            //_mapeamento.AtualizarCampos(cliente, viewModel);
-            _clienteRepositorio.Atualizar(cliente);
-
+            _mapeamento.AtualizarCampos(cliente, viewModel);
+            _clienteRepositorio.Editar(cliente);
             return true;
         }
 
