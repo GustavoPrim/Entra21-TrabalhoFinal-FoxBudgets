@@ -19,7 +19,7 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public void Atualizar(Fornecedor fornecedorParaAlterar)
+        public void Editar(Fornecedor fornecedorParaAlterar)
         {
             var fornecedor = _contexto.Fornecedores
                 .Where(x => x.Id == fornecedorParaAlterar.Id).FirstOrDefault();
