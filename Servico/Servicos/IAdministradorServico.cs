@@ -1,7 +1,7 @@
 ﻿using Repositorio.Entidades;
 using Servico.ViewModels.Administradores;
 
-namespace Aplicacao.Administradores
+namespace Servico.Servicos
 {
     public interface IAdministradorServico
     {

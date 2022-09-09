@@ -4,7 +4,7 @@ using Servico.ViewModels.Fornecedores;
 
 namespace Servico.Servicos.FornecedorServico
 {
-    internal class FornecedorServico : IFornecedorServico
+    public class FornecedorServico : IFornecedorServico
     {
         private readonly IFornecedorReposistorio _fornecedorReposistorio;
 
