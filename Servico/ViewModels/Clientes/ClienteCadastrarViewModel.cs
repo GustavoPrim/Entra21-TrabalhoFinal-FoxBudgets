@@ -1,4 +1,4 @@
-﻿namespace Servico.ViewModels.ClienteViewModels
+﻿namespace Servico.ViewModels.Clientes
 {
     public class ClienteCadastrarViewModel : ClienteViewModel
     {
