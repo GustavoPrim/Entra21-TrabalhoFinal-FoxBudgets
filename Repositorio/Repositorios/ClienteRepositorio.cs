@@ -1,6 +1,5 @@
-﻿//using Repositorio.BancoDados;
-//using Repositorio.Entidades;
-//using System.Data.Entity;
+﻿using Repositorio.BancoDados;
+using Repositorio.Entidades;
 
 //namespace Repositorio.Repositorios
 //{
@@ -27,42 +26,25 @@
 //            return true;
 //        }
 
-//        public void Cadastrar(Cliente cliente)
-//        {
-//            _contexto.Clientes.Add(cliente);
-//            _contexto.SaveChanges();
-//        }
+        public Cliente Cadastrar(Cliente cliente)
+        {
+            _contexto.Clientes.Add(cliente);
+            _contexto.SaveChanges();
 
-//        public void Editar(Cliente clienteParaAlterar)
-//        {
-//            var cliente = _contexto.Clientes.Where(x => x.Id == clienteParaAlterar.Id).FirstOrDefault();
+            return cliente;
+        }
 
-//            cliente.Cpf = clienteParaAlterar.Cpf;
-//            cliente.DataNascimento = clienteParaAlterar.DataNascimento;
-//            cliente.Endereco = clienteParaAlterar.Endereco;
-//            cliente.Email = clienteParaAlterar.Email;
-//            cliente.Telefone = clienteParaAlterar.Telefone;
-//            cliente.Cnpj = clienteParaAlterar.Cnpj;
+        public void Editar(Cliente cliente)
+        {
+            _contexto.Clientes.Update(cliente);
+            _contexto.SaveChanges();
+        }
 
-//            _contexto.Update(cliente);
-//            _contexto.SaveChanges();
-//        }
+        public Cliente? ObterPorId(int id) =>
+            _contexto.Clientes
+            .FirstOrDefault(x => x.Id == id);
 
-//        public Cliente? ObterPorId(int id) => 
-//            _contexto.Clientes.FirstOrDefault(x => x.Id == id);
-        
-//        public IList<Cliente> ObterTodos() => 
-//            _contexto.Clientes
-//                .Include(x => x.Cpf)
-//                .Include(x => x.Cnpj)
-//                .Include(x => x.DataNascimento)
-//                .Include(x => x.Email)
-//                .Include(x => x.Telefone)
-//                .ToList();
-
-//        void IClienteRepositorio.Apagar(int id)
-//        {
-//            throw new NotImplementedException();
-//        }
-//    }
-//}
+        public IList<Cliente> ObterTodos() =>
+            _contexto.Clientes.ToList();
+    }
+}

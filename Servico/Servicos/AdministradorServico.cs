@@ -7,7 +7,6 @@ namespace Servico.Servicos
 {
     public class AdministradorServico : IAdministradorServico
     {
-
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
 
@@ -46,9 +45,7 @@ namespace Servico.Servicos
         public Administrador? ObterPorId(int id) =>
             _administradorRepositorio.ObterPorId(id);
 
-
         public IList<Administrador> ObterTodos() =>
             _administradorRepositorio.ObterTodos();
-
     }
 }
