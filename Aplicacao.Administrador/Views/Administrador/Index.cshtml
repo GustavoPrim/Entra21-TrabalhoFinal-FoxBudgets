@@ -33,8 +33,12 @@
                 <td>@administrador.Email</td>
                 <td>@administrador.Telefone</td>
                 <td>
-                    <a asp-action="editar" asp-route-id="@administrador.Id">Editar</a>
-                    <a asp-action="apagar" asp-route-id="@administrador.Id">Apagar</a>
+                   <a class="btn btn-primary" asp-action="editar" asp-route-id="@administrador.Id">
+                    <i class="fa-solid fa-pencil"></i> Editar
+                </a>
+                <a class="btn btn-outline-danger" asp-action="apagar" asp-route-id="@administrador.Id">
+                    <i class="fa-solid fa-trash"></i> Apagar
+                </a>
                 </td>
             </tr>
         }

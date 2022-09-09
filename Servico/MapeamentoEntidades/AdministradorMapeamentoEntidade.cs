@@ -10,9 +10,14 @@ namespace Servico.MapeamentoEntidades
 {
     public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
-        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel viewModel)
+        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {
-            throw new NotImplementedException();
+            administrador.Nome = administradorEditarViewModel.Nome;
+            administrador.Cpf = administradorEditarViewModel.Cpf;
+            administrador.DataNascimento = administradorEditarViewModel.DataNascimento;
+            administrador.Endereco = administradorEditarViewModel.Endereco;
+            administrador.Email = administradorEditarViewModel.Email;
+            administrador.Telefone = administradorEditarViewModel.Telefone;
         }
 
         public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel)
