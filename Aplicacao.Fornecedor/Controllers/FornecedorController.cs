@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
+using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace Aplicacao.Fornecedor.Controllers
 {
@@ -22,7 +22,7 @@ namespace Aplicacao.Fornecedor.Controllers
         }
 
         [HttpGet("obterTodos")]
-        public IActionResult ObterTodos([FromQuery])
+        public IActionResult ObterTodos()
         {
             var fornecedores = _fornecedorServico.ObterTodos().ToList();
             return Ok(fornecedores);
@@ -55,6 +55,17 @@ namespace Aplicacao.Fornecedor.Controllers
             var alterar = _fornecedorServico.Editar(viewModel);
 
             if (!alterar)
+                return NotFound();
+
+            return Ok();
+        }
+
+        [HttpGet("apagar")]
+        public IActionResult Apagar([FromQuery] int id)
+        {
+            var apagar = _fornecedorServico.Apagar(id);
+
+            if (!apagar)
                 return NotFound();
 
             return Ok();

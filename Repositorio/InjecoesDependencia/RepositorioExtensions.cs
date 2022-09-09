@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repositorio.BancoDados;
 using Repositorio.Repositorios;
-using System.Configuration;
 
 namespace Repositorio.InjecoesDependencia
 {
