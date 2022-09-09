@@ -1,0 +1,348 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Custom form inputs
+ *
+ *  Custom checkboxes, radios, selects and file inputs
+ *
+ * ---------------------------------------------------------------------------- */
+
+
+//
+// Checkboxes and radios
+//
+
+// Container
+.custom-control {
+    padding-left: 0;
+
+    // Inside dropdown
+    &.dropdown-item {
+        padding-left: $dropdown-item-padding-x;
+    }
+}
+
+// Container as label
+label.custom-control {
+    margin-bottom: 0;
+}
+
+// Inline controls
+.custom-control-inline {
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+// Input
+.custom-control-input {
+
+    // Active state
+    &:not(:checked):not(:disabled):active ~ .custom-control-label:before,
+    &:not(:checked):not(:disabled) ~ .custom-control-label:active:before {
+        border-color: darken($custom-control-indicator-border-color, 15%);
+    }
+
+    // Inside dropdown item
+    .dropdown-item & {
+        left: $dropdown-item-padding-x;
+    }
+
+    // Disabled state
+    &:disabled {
+        ~ .custom-control-label {
+            cursor: $cursor-disabled;
+
+            &:before {
+                opacity: .65;
+            }
+        }
+    }
+}
+
+// Custom control indicators
+.custom-control-label {
+    display: inline-flex;
+    padding-left: $custom-control-gutter + $custom-control-indicator-size;
+    min-width: $custom-control-indicator-size;
+    min-height: $custom-control-indicator-size;
+
+    // Background
+    &::before,
+    &::after {
+        left: 0;
+        top: (($line-height-computed - $custom-control-indicator-size) / 2);
+    }
+
+    // Inside dropdown item
+    .dropdown-item & {
+        padding-left: $custom-control-indicator-size + $dropdown-item-padding-x;
+    }
+}
+
+// Right input alignment
+.custom-control {
+    &.custom-control-right {
+
+        // Stick original input to the right
+        .custom-control-input {
+            left: auto;
+            right: 0;
+        }
+
+        // Inside dropdown item
+        &.dropdown-item .custom-control-input {
+            right: $dropdown-item-padding-x;
+        }
+
+        // Change alignment
+        .custom-control-label {
+            padding-left: 0;
+            padding-right: $custom-control-gutter + $custom-control-indicator-size;
+
+            &:before,
+            &:after {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+
+
+//
+// Checkbox and radio
+//
+
+// Inversed (on dark background)
+.custom-checkbox,
+.custom-radio {
+    &-inverse {
+        .custom-control-label::before,
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:focus:not(:checked) ~ .custom-control-label::before,
+        .custom-control-input:not(:checked):not(:disabled):active ~ .custom-control-label:before,
+        .custom-control-input:not(:checked):not(:disabled) ~ .custom-control-label:active:before {
+            border-color: $white;
+        }
+
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $white;
+        }
+
+        .custom-control-label::before,
+        .custom-control-input:disabled ~ .custom-control-label::before {
+            background-color: transparent;
+        }
+
+        .custom-control-input:disabled ~ .custom-control-label {
+            color: rgba($white, 0.75);
+        }
+    }
+}
+
+// Checkbox active indicator
+.custom-checkbox-inverse {
+    .custom-control-input:checked ~ .custom-control-label:after {
+        background-image: escape-svg($custom-checkbox-inverse-indicator-icon-checked);
+    }
+}
+
+// Radio active indicator
+.custom-radio-inverse {
+    .custom-control-input:checked ~ .custom-control-label:after {
+        background-image: escape-svg($custom-radio-inverse-indicator-icon-checked);
+    }
+}
+
+
+//
+// Switch
+//
+
+// Base
+.custom-switch {
+
+    // Switch UI
+    .custom-control-label {
+        display: inline-block;
+        min-width: $custom-switch-width;
+        padding-left: $custom-switch-width + $custom-control-gutter;
+
+        // Base
+        &::before {
+            border: 0;
+            left: 0;
+            background-color: $custom-switch-off-color;
+        }
+
+        // Handle
+        &::after {
+            top: add(($line-height-computed - $custom-control-indicator-size) / 2, $custom-control-indicator-border-width);
+            left: $custom-control-indicator-border-width;
+            background-color: $custom-switch-indicator-color;
+            box-shadow: $custom-switch-indicator-box-shadow;
+        }
+
+        // Inside dropdown
+        .dropdown-item & {
+            padding-left: $custom-switch-width + $dropdown-item-padding-x;
+        }
+    }
+
+    // Handler color
+    .custom-control-input:checked ~ .custom-control-label::after {
+        background-color: $custom-switch-indicator-color;
+    }
+
+    // On color
+    .custom-control-input:checked ~ .custom-control-label::before,
+    .custom-control-input:disabled:checked ~ .custom-control-label::before {
+        background-color: $custom-switch-on-color;
+    }
+
+    // Off color
+    .custom-control-input:not(:checked):active ~ .custom-control-label::before,
+    .custom-control-input:disabled~.custom-control-label::before,
+    .custom-control-input[disabled]~.custom-control-label::before {
+        background-color: $custom-switch-off-color;
+    }
+
+    // Disabled handler
+    .custom-control-input:disabled~.custom-control-label:after {
+        opacity: 0.9;
+    }
+
+    // Right alignment
+    &.custom-control-right {
+
+        // Label
+        .custom-control-label {
+            padding-right: $custom-switch-width + $custom-control-gutter;
+
+            // Re-calculate handle position
+            &:after {
+                right: subtract(($custom-switch-width - $custom-switch-indicator-size), $custom-control-indicator-border-width);
+            }
+        }
+    }
+
+
+    //
+    // Shape
+    //
+
+    &-square {
+        .custom-control-label::before {
+            border-radius: $border-radius;
+        }
+        .custom-control-label::after {
+            border-radius: subtract($border-radius, 1px);
+        }
+    }
+
+
+    //
+    // Inversed (for dark backgrounds)
+    //
+
+    &-inverse {
+
+        // On color
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $custom-switch-inverse-on-color;
+        }
+
+        // Off color
+        .custom-control-label::before,
+        .custom-control-input:not(:checked):active ~ .custom-control-label::before,
+        .custom-control-input:disabled~.custom-control-label::before,
+        .custom-control-input[disabled]~.custom-control-label::before {
+            background-color: $custom-switch-inverse-off-color;
+        }
+    }
+}
+
+
+//
+// Color options
+//
+
+.custom-control {
+    &-secondary {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $secondary;
+            border-color: $secondary;
+        }
+    }
+    &-dark {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $dark;
+            border-color: $dark;
+        }
+    }
+    &-success {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $success;
+            border-color: $success;
+        }
+    }
+    &-danger {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $danger;
+            border-color: $danger;
+        }
+    }
+    &-warning {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $warning;
+            border-color: $warning;
+        }
+    }
+    &-info {
+        .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-control-input:disabled:checked ~ .custom-control-label::before {
+            background-color: $info;
+            border-color: $info;
+        }
+    }
+}
+
+
+//
+// Select
+//
+
+.custom-select {
+    cursor: $custom-control-cursor;
+
+    // Disabled state
+    &:disabled {
+        cursor: $cursor-disabled;
+    }
+}
+
+
+//
+// File
+//
+
+.custom-file-label {
+    margin-bottom: 0;
+
+    // Adjust button border radius
+    &:after {
+        @include border-right-radius(subtract($input-border-radius, $input-border-width));
+    }
+
+    // Keep the left border if you want to make input border transparent
+    &.border-transparent:after {
+        border-left-color: $input-border-color;
+    }
+}

@@ -1,0 +1,71 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Ripple effect
+ *
+ *  Styles for material design ripple click effect
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Check if component is enabled
+@if $enable-ripple {
+
+    // Base
+    .ripple-effect {
+        width: 0;
+        height: 0;
+        transform: scale(0);
+        opacity: 1;
+        position: absolute;
+        background-color: rgba($black, 0.25);
+        border-radius: 50%;        
+        animation: ripple-drop 0.5s cubic-bezier(0, 0, 0.3, 1);
+    }
+
+    // Container
+    .ripple-container {
+        overflow: hidden;
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+
+    // If element has no children
+    .ripple-only-child.dropdown-toggle:after {
+        margin-left: 0;
+    }
+
+
+    // Animation base
+    @keyframes ripple-drop {
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+
+    //
+    // Ripple colors
+    //
+
+    // Light ripple overlay
+    .btn:not(.btn-light):not(.btn-link):not(.bg-transparent):not([class*="-100"]):not(.btn-white):not(.btn-yellow):not(.btn-outline-light):not(.btn-outline-white),
+    .ripple-light,
+    .sidebar-dark .btn-light-100,
+    .sidebar-dark .btn-outline-light-100,
+    .navbar-dark .btn-light-100,
+    .navbar-dark .btn-outline-light-100,
+    .nav-tabs-solid-custom .nav-link,
+    .list-group-custom .list-group-item-action,
+    .sidebar-dark .nav-link,
+    .sidebar-user-material-footer > a,
+    .sp-replacer[class*=bg-],
+    .pagination-pager-linked .page-link,
+    .page-item.active .page-link,
+    .list-group-item-action.active,
+    .navbar-dark .navbar-nav-link,
+    .select2-results__option[aria-selected=true] {
+        .ripple-effect {
+            background-color: rgba($white, 0.5);
+        }
+    }
+}

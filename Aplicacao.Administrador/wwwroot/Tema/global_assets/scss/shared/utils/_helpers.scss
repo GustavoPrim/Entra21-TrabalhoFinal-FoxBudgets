@@ -1,0 +1,452 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Helper classes
+ *
+ *  Custom helper classes used in the template.
+ *
+ * ---------------------------------------------------------------------------- */
+
+
+// Content helpers
+// -------------------------
+
+// Font size
+.font-size-lg {
+    font-size: $font-size-lg;
+}
+.font-size-base {
+    font-size: $font-size-base;
+}
+.font-size-sm {
+    font-size: $font-size-sm;
+}
+.font-size-xs {
+    font-size: $font-size-xs;
+}
+
+// Line height
+.line-height-lg {
+    line-height: $line-height-lg;
+}
+.line-height-base {
+    line-height: $line-height-base;
+}
+.line-height-sm {
+    line-height: $line-height-sm;
+}
+.line-height-xs {
+    line-height: $line-height-xs;
+}
+.line-height-1 {
+    line-height: 1;
+}
+
+// Opacity
+.opacity-75 {
+    opacity: 0.75;
+}
+.opacity-50 {
+    opacity: 0.5;
+}
+.opacity-25 {
+    opacity: 0.25;
+}
+.opacity-0 {
+    opacity: 0;
+}
+
+// Edges
+.top {
+    &-0 {
+        top: 0 !important;
+    }
+    &-50 {
+        top: 50% !important;
+    }
+    &-100 {
+        top: 100% !important;
+    }
+    &-auto {
+        top: auto !important;
+    }
+}
+.bottom {
+    &-0 {
+        bottom: 0 !important;
+    }
+    &-auto {
+        bottom: auto !important;
+    }
+}
+.left {
+    &-0 {
+        left: 0 !important;
+    }
+    &-50 {
+        left: 50% !important;
+    }
+    &-100 {
+        left: 100% !important;
+    }
+    &-auto {
+        left: auto !important;
+    }
+}
+.right {
+    &-0 {
+        right: 0 !important;
+    }
+    &-auto {
+        right: auto !important;
+    }
+}
+
+// Translate
+.translate-middle {
+    transform: translate(-50%, -50%);
+}
+.translate-middle-x {
+    transform: translateX(-50%);
+}
+.translate-middle-y {
+    transform: translateY(-50%);
+}
+
+// Cursors
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-move {
+    cursor: move;
+}
+.cursor-default {
+    cursor: default;
+}
+.cursor-disabled {
+    cursor: $cursor-disabled;
+}
+
+
+// Borders
+// -------------------------
+
+// Vertical borders
+.border-y-0 {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+// Horizontal borders
+.border-x-0 {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+
+//
+// Border widths
+//
+
+// Double border
+.border-2 {
+    border: ($border-width * 2) solid;
+}
+.border-top-2 {
+    border-top: ($border-width * 2) solid;
+}
+.border-bottom-2 {
+    border-bottom: ($border-width * 2) solid;
+}
+.border-left-2 {
+    border-left: ($border-width * 2) solid;
+}
+.border-right-2 {
+    border-right: ($border-width * 2) solid;
+}
+
+// Tripple border
+.border-3 {
+    border: ($border-width * 3) solid;
+}
+.border-top-3 {
+    border-top: ($border-width * 3) solid;
+}
+.border-bottom-3 {
+    border-bottom: ($border-width * 3) solid;
+}
+.border-left-3 {
+    border-left: ($border-width * 3) solid;
+}
+.border-right-3 {
+    border-right: ($border-width * 3) solid;
+}
+
+// Border style
+.border {
+
+    // Dashed
+    &-dashed {
+        border-style: dashed;
+    }
+    &-top-dashed {
+        border-top-style: dashed;
+    }
+    &-bottom-dashed {
+        border-bottom-style: dashed;
+    }
+    &-left-dashed {
+        border-left-style: dashed;
+    }
+    &-right-dashed {
+        border-right-style: dashed;
+    }
+
+    // Dotted
+    &-dotted {
+        border-style: dotted;
+    }
+}
+
+
+//
+// Border colors
+//
+
+// Transparent border
+.border-transparent {
+    border-color: transparent !important;
+}
+.border-top-transparent {
+    border-top-color: transparent !important;
+}
+.border-bottom-transparent {
+    border-bottom-color: transparent !important;
+}
+.border-left-transparent {
+    border-left-color: transparent !important;
+}
+.border-right-transparent {
+    border-right-color: transparent !important;
+}
+
+// Class with body background color
+.bg-body {
+    background-color: $body-bg;
+}
+
+
+
+
+// Rounded corners
+// -------------------------
+
+// Fully rounded borders
+.rounded-top-pill {
+    @include border-top-radius($rounded-pill !important);
+}
+.rounded-bottom-pill {
+    @include border-bottom-radius($rounded-pill !important);
+}
+.rounded-left-pill {
+    @include border-left-radius($rounded-pill !important);
+}
+.rounded-right-pill {
+    @include border-right-radius($rounded-pill !important);
+}
+
+
+//
+// Remove rounded corners from specific side
+//
+
+.rounded-top-0 {
+    @include border-top-radius(0 !important);
+}
+.rounded-bottom-0 {
+    @include border-bottom-radius(0 !important);
+}
+.rounded-left-0 {
+    @include border-left-radius(0 !important);
+}
+.rounded-right-0 {
+    @include border-right-radius(0 !important);
+}
+
+
+
+// Transforms
+// -------------------------
+
+//
+// Rotation
+//
+
+// Basic direction
+.rotate-45 {
+    transform: rotate(45deg);
+}
+.rotate-90 {
+    transform: rotate(90deg);
+}
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+// Inversed
+.rotate-45-inverse {
+    transform: rotate(-45deg);
+}
+.rotate-90-inverse {
+    transform: rotate(-90deg);
+}
+.rotate-180-inverse {
+    transform: rotate(-180deg);
+}
+
+
+//
+// Spinner animation
+//
+
+// Default
+.spinner {
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+}
+
+// Reversed
+.spinner-reverse {
+    display: inline-block;
+    animation: rotation_reverse 1s linear infinite;
+}
+
+// Default rotation
+@keyframes rotation {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+// Inversed rotation
+@keyframes rotation_reverse {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-360deg);}
+}
+
+
+
+// Sizing
+// -------------------------
+
+// Auto height
+.h-auto {
+    height: auto;
+}
+
+// Element widths
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        .w#{$infix}-auto { width: auto !important; }
+
+        .w#{$infix}-25 { width: 25% !important; }
+        .w#{$infix}-50 { width: 50% !important; }
+        .w#{$infix}-75 { width: 75% !important; }
+        .w#{$infix}-100 { width: 100% !important; }
+
+        .wmin#{$infix}-0 { min-width: 0 !important; }
+        .wmin#{$infix}-200 { min-width: 200px !important; }
+        .wmin#{$infix}-250 { min-width: 250px !important; }
+        .wmin#{$infix}-300 { min-width: 300px !important; }
+        .wmin#{$infix}-350 { min-width: 350px !important; }
+        .wmin#{$infix}-400 { min-width: 400px !important; }
+        .wmin#{$infix}-450 { min-width: 450px !important; }
+        .wmin#{$infix}-500 { min-width: 500px !important; }
+        .wmin#{$infix}-550 { min-width: 550px !important; }
+        .wmin#{$infix}-600 { min-width: 600px !important; }
+
+        .flex#{$infix}-0 { flex: 0 1 auto !important; }
+        .flex#{$infix}-1 { flex: 1 !important; }
+
+        .overflow#{$infix}-auto { overflow: auto !important; }
+        .overflow#{$infix}-visible { overflow: visible !important; }
+
+        .border#{$infix}-0 { border: 0 !important; }
+        .border-top#{$infix}-0 { border-top: 0 !important; }
+        .border-bottom#{$infix}-0 { border-bottom: 0 !important; }
+        .border-left#{$infix}-0 { border-left: 0 !important; }
+        .border-right#{$infix}-0 { border-right: 0 !important; }
+
+        .rounded#{$infix}-top { @include border-top-radius($border-radius !important); }
+        .rounded#{$infix}-top-0 { @include border-top-radius(0 !important); }
+        .rounded#{$infix}-left { @include border-left-radius($border-radius !important); }
+        .rounded#{$infix}-left-0 { @include border-left-radius(0 !important); }
+    }
+}
+
+
+
+// Misc
+// -------------------------
+
+// Disable all transitions
+.no-transitions * {
+    &,
+    &:before,
+    &:after {
+        @include transition(none !important);
+    }
+}
+
+// Light placeholder
+.placeholder-light {
+    &::placeholder {
+        color: $input-placeholder-light-color;
+    }
+}
+
+// Remove outline
+.outline-0 {
+    @include plain-hover-focus {
+        outline: 0;
+    }
+}
+
+// Hide scrollbar
+.scrollbar-hidden {
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+// Text shadow
+.text-shadow-dark {
+    text-shadow: 0 0 0.1875rem rgba($black, 0.5);
+}
+.text-shadow-light {
+    text-shadow: 0 0 0.1875rem rgba($white, 0.5);
+}
+.text-black {
+    color: $black !important;
+}
+
+// Shadows
+.shadow-1 {
+    box-shadow: $shadow-depth1;
+}
+.shadow-inverse-1 {
+    box-shadow: $shadow-inverse-depth1;
+}
+.shadow-2 {
+    box-shadow: $shadow-depth2;
+}
+.shadow-3 {
+    box-shadow: $shadow-depth3;
+}
+.shadow-4 {
+    box-shadow: $shadow-depth4;
+}
+.shadow-5 {
+    box-shadow: $shadow-depth5;
+}

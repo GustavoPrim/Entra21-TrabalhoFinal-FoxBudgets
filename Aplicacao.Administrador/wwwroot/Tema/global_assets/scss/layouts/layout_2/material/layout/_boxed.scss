@@ -1,0 +1,43 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Boxed layout
+ *
+ *  Styles for main structure of content area in boxed layout
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Check if component is enabled
+@if $enable-boxed {
+
+    // Class for body, adds background color/image
+    .layout-boxed-bg {
+        background: $boxed-bg; // mainly for demo, use whatever you want
+    }
+    
+    // Boxed layout base
+    .layout-boxed {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        @include box-shadow($boxed-container-box-shadow);
+
+        // Sizing
+        &,
+        > .navbar {
+            @include media-breakpoint-up(lg) {
+                width: map-get($grid-breakpoints, "lg");
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @include media-breakpoint-up(xl) {
+                width: map-get($grid-breakpoints, "xl");
+            }
+        }
+
+        // Page container
+        .page-content {
+            background-color: $body-bg;
+        }
+    }
+}
