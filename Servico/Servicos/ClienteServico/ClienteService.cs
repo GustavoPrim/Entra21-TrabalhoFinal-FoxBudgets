@@ -50,7 +50,7 @@ namespace Servico.Servicos.ClienteServico
             return cliente;
         }
 
-        public List<Cliente> ObterTodos()
+        public IList<Cliente> ObterTodos()
         {
             var clienteDoBanco = _clienteRepositorio.ObterTodos();
 
