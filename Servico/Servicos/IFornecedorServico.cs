@@ -5,9 +5,10 @@ namespace Servico.Servicos
 {
     public interface IFornecedorServico
     {
-        void Cadastrar(FornecedorCadastrarViewModel fornecedorCadastrarViewModel);
-        void Editar(FornecedorCadastrarViewModel fornecedorEditarViewModel);
-        void Apagar(int id);
-        Fornecedor ObterPorId(int id);
+        bool Apagar(int id);
+        Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel);
+        bool Editar(FornecedorEditarViewModel viewModel);
+        Fornecedor? ObterPorId(int id);
+        IList<Fornecedor> ObterTodos();
     }
 }
