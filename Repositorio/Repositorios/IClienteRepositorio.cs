@@ -7,7 +7,7 @@ namespace Repositorio.Repositorios
         bool Apagar(int id);
         Cliente Cadastrar(Cliente cliente);
         void Editar(Cliente cliente);
-        Cliente? ObterPorId(int Id);
+        Cliente? ObterPorId(int id);
         IList<Cliente> ObterTodos();
     }
 }
