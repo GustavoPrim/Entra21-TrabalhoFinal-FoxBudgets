@@ -23,5 +23,20 @@
     </tr>
     </thead>
     <tbody>
-    
+        @foreach (var administrador in Model)
+        {
+            <tr>
+                <td>@administrador.Nome</td>
+                <td>@administrador.Cpf</td>
+                <td>@administrador.DataNascimento</td>
+                <td>@administrador.Endereco</td>
+                <td>@administrador.Email</td>
+                <td>@administrador.Telefone</td>
+                <td>
+                    <a asp-action="editar" asp-route-id="@administrador.Id">Editar</a>
+                    <a asp-action="apagar" asp-route-id="@administrador.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
