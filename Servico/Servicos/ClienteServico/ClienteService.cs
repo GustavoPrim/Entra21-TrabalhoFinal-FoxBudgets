@@ -5,13 +5,13 @@ using Servico.ViewModels.ClienteViewModels;
 
 namespace Servico.Servicos.ClienteServico
 {
-    public class ClienteService : IClienteService
+    public class ClienteService 
     {
         private readonly IClienteRepositorio _clienteRepositorio;
 
         public ClienteService(OrcamentoContexto contexto)
         {
-            _clienteRepositorio = new ClienteRepositorio(contexto);
+            //_clienteRepositorio = new ClienteRepositorio(contexto);
         }
 
         public void Apagar(int id)
@@ -40,7 +40,7 @@ namespace Servico.Servicos.ClienteServico
             cliente.Telefone = clienteEditarViewModel.Telefone;
             cliente.Cnpj = clienteEditarViewModel.Cnpj;
 
-            _clienteRepositorio.Atualizar(cliente);
+            //_clienteRepositorio.Atualizar(cliente);
         }
 
         public Cliente ObterPorId(int id)
@@ -50,11 +50,11 @@ namespace Servico.Servicos.ClienteServico
             return cliente;
         }
 
-        public List<Cliente> ObterTodos()
-        {
-            var clienteDoBanco = _clienteRepositorio.ObterTodos();
+        //public List<Cliente> ObterTodos()
+        //{
+        //    var clienteDoBanco = _clienteRepositorio.ObterTodos();
 
-            return clienteDoBanco;
-        }
+        //    //return clienteDoBanco;
+        //}
     }
 }

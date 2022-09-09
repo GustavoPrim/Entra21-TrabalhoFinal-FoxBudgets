@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
-    public class ClienteRepositorio : IClienteRepositorio
+    public class ClienteRepositorio 
     {
         private readonly OrcamentoContexto _contexto;
 
@@ -60,9 +60,9 @@ namespace Repositorio.Repositorios
                 .Include(x => x.Telefone)
                 .ToList();
 
-        void IClienteRepositorio.Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //void IClienteRepositorio.Apagar(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

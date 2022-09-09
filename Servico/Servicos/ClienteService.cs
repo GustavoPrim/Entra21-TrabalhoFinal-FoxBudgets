@@ -4,7 +4,7 @@ using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
 {
-    public class ClienteService : IClienteService
+    public class ClienteService 
     {
         private readonly IClienteRepositorio _clienteRepositorio;
 
@@ -20,7 +20,7 @@ namespace Servico.Servicos
 
         public void Cadastrar(ClienteCadastrarViewModel viewModel)
         {
-            var cliente = _mapeamento.ConstruirCom()
+            //var cliente = _mapeamento.ConstruirCom();
         }
 
         public bool Editar(ClienteEditarViewModel viewModel)
@@ -31,7 +31,7 @@ namespace Servico.Servicos
                 return false;
 
             //_mapeamento.AtualizarCampos(cliente, viewModel);
-            _clienteRepositorio.Atualizar(cliente);
+            //_clienteRepositorio.Atualizar(cliente);
 
             return true;
         }
