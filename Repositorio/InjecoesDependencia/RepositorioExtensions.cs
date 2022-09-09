@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repositorio.BancoDados;
 using Repositorio.Repositorios;
