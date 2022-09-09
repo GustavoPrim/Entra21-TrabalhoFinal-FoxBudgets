@@ -26,13 +26,14 @@ namespace Servico.ViewModels.Administradores
         [MaxLength(50, ErrorMessage = "{0} deve conter no máximo {1} caracteres")]
         public string Endereco { get; set; }
 
-        [Display(Name = "Email")]
+        [Display(Name = "E-mail")]
         [EmailAddress(ErrorMessage = "{0} deve ser preenchido")]
         [MinLength(3, ErrorMessage = "{0} deve ter no mínimo {1} caracteres")]
         public string Email { get; set; }
 
         [Display(Name = "Telefone")]
         [MinLength(8, ErrorMessage = "{0} deve conter no mínimo {1} caracteres")]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
+
     }
 }
