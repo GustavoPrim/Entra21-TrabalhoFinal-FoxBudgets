@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
+using Servico.Servicos;
 using Servico.ViewModels.Administradores;
 
 namespace Aplicacao.Administradores.Controllers
@@ -9,10 +10,10 @@ namespace Aplicacao.Administradores.Controllers
     {
         private readonly IAdministradorServico _administradorServico;
 
-        public AdministradorController(IAdministradorServico administradorServico)
-        {
-            _administradorServico = administradorServico;
-        }
+        //public AdministradorController(IAdministradorServico administradorServico)
+        //{
+        //    _administradorServico = administradorServico;
+        //}
 
         [HttpGet]
         public IActionResult Index()
@@ -24,8 +25,7 @@ namespace Aplicacao.Administradores.Controllers
         [HttpGet("cadastrar")]
         public IActionResult Cadastrar()
         {
-            var administradores = ObterAdministradores();
-            ViewBag.Administrador = ObterAdministradores();
+            ViewBag.Administradores = ObterAdministradores();
 
             var administradorCadastrarViewModel = new AdministradorCadastrarViewModel();
 
@@ -37,7 +37,7 @@ namespace Aplicacao.Administradores.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Administrador = ObterAdministradores();
+                ViewBag.Administradores = ObterAdministradores();
                 return View(administradorCadastrarViewModel);
             }
 
@@ -68,7 +68,7 @@ namespace Aplicacao.Administradores.Controllers
                 Telefone = administrador.Telefone,
                 Cpf = administrador.Cpf
             };
-            ViewBag.Administrador = administradores;
+            ViewBag.Administradores = administradores;
 
             return View(administradorEditarViewModel);
         }
@@ -78,7 +78,7 @@ namespace Aplicacao.Administradores.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Administrador = ObterAdministradores();
+                ViewBag.Administradores = ObterAdministradores();
                 return View(administradorEditarViewModel);
             }
             _administradorServico.Editar(administradorEditarViewModel);

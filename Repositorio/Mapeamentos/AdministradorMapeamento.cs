@@ -4,7 +4,7 @@ using Repositorio.Entidades;
 
 namespace Repositorio.Mapeamentos
 {
-    internal class AdministradorMapeamento : IEntityTypeConfiguration<Administrador>
+    public class AdministradorMapeamento : IEntityTypeConfiguration<Administrador>
     {
         public void Configure(EntityTypeBuilder<Administrador> builder)
         {
