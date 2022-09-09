@@ -1,7 +1,7 @@
 ﻿using Repositorio.Entidades;
 using Servico.ViewModels.Fornecedores;
 
-namespace Servico.Servicos.FornecedorServico
+namespace Servico.Servicos
 {
     public interface IFornecedorServico
     {
