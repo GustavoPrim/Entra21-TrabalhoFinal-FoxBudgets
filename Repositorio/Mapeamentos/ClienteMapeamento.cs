@@ -4,7 +4,7 @@ using Repositorio.Entidades;
 
 namespace Repositorio.Mapeamentos
 {
-    public class ClienteMapeamento : IEntityTypeConfiguration<Cliente>
+    internal class ClienteMapeamento : IEntityTypeConfiguration<Cliente>
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {

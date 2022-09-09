@@ -1,5 +1,5 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels.Clientes;
+using Servico.ViewModels.ClienteViewModels;
 
 namespace Servico.MapeamentoEntidades
 {
