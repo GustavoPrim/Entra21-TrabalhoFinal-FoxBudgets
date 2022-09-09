@@ -1,4 +1,4 @@
-﻿using Repositorio.Entidades;
+using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.Servicos;
