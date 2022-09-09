@@ -7,7 +7,7 @@ namespace Servico.Servicos
     {
         bool Apagar(int id);
         Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel);
-        //bool Editar(FornecedorEditarViewModel viewModel);
+        bool Editar(FornecedorEditarViewModel viewModel);
         Fornecedor? ObterPorId(int id);
         IList<Fornecedor> ObterTodos();
     }

@@ -4,10 +4,10 @@ namespace Repositorio.Repositorios
 {
     public interface IFornecedorReposistorio
     {
-        void Cadastrar(Fornecedor fornecedor);
-        List<Fornecedor> ObterTodos();
-        void Atualizar(Fornecedor fornecedorParaAlterar);
-        void Apagar(int id);
+        bool Apagar(int id);
+        Fornecedor Cadastrar(Fornecedor fornecedor);
+        void Editar(Fornecedor fornecedorParaAlterar);
         Fornecedor ObterPorId(int id);
+        IList<Fornecedor> ObterTodos();
     }
 }

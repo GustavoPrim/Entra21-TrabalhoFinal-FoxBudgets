@@ -13,33 +13,38 @@ namespace Servico
 
         public FornecedorServico(
             IFornecedorReposistorio fornecedorRepositorio,
-            IFornecedorMapeamentoEntidade mapeamentoEntidade)
+            IFornecedorMapeamentoEntidade mapeamento)
         {
             _fornecedorRepositorio = fornecedorRepositorio;
-            _mapeamento = mapeamentoEntidade;
+            _mapeamento = mapeamento;
         }
 
-        public void Apagar(int id) =>
+        public bool Apagar(int id) =>
             _fornecedorRepositorio.Apagar(id);
 
-        public void Cadastrar(FornecedorCadastrarViewModel viewModel)
+        public Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel)
         {
             var fornecedor = _mapeamento.ConstruirCom(viewModel);
+            _fornecedorRepositorio.Cadastrar(fornecedor);
+            return fornecedor;
         }
 
-        public void Editar(FornecedorCadastrarViewModel fornecedorEditarViewModel)
+        public bool Editar(FornecedorEditarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            var fornecedor = _fornecedorRepositorio.ObterPorId(viewModel.Id);
+
+            if (fornecedor == null)
+                return false;
+
+            _mapeamento.AtualizarCampos(fornecedor, viewModel);
+            _fornecedorRepositorio.Editar(fornecedor);
+            return true;
         }
 
-        public Fornecedor ObterPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Fornecedor? ObterPorId(int id) =>
+            _fornecedorRepositorio.ObterPorId(id);
 
-        public IList<Fornecedor> ObterTodos()
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Fornecedor> ObterTodos() =>
+            _fornecedorRepositorio.ObterTodos();
     }
 }

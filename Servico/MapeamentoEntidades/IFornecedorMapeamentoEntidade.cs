@@ -5,10 +5,7 @@ namespace Servico.MapeamentoEntidades
 {
     public interface IFornecedorMapeamentoEntidade
     {
-        bool Apagar(int id);
-        Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel);
-        bool Editar(FornecedorEditarViewModel viewModel);
-        Fornecedor? ObterPorId(int id);
-        IList<Fornecedor> ObterTodos();
+        Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel);
+        void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel);
     }
 }
