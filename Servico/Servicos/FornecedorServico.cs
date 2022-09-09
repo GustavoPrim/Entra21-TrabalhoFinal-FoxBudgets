@@ -1,8 +1,8 @@
-﻿using Repositorio;
-using Repositorio.Entidades;
+﻿using Repositorio.Entidades;
+using Repositorio.Repositorios;
 using Servico.ViewModels.Fornecedores;
 
-namespace Servico.Servicos.FornecedorServico
+namespace Servico.Servicos
 {
     internal class FornecedorServico : IFornecedorServico
     {
