@@ -1,60 +1,53 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
+using Servico.MapeamentoEntidades;
 using Servico.ViewModels.ClienteViewModels;
 
-namespace Servico.Servicos.ClienteServico
+namespace Servico.Servicos.ClienteServico;
+
+public class ClienteService : IClienteService
 {
-    public class ClienteService : IClienteService
+
+    private readonly IClienteRepositorio _clienteRepositorio;
+    private readonly IClienteMapeamentoEntidade _mapeamentoEntidade;
+    public ClienteService(
+    IClienteRepositorio clienteRespositorio,
+    IClienteMapeamentoEntidade mapeamentoEntidade)
     {
-        private readonly IClienteRepositorio _clienteRepositorio;
-
-        public ClienteService(OrcamentoContexto contexto)
-        {
-            _clienteRepositorio = new ClienteRepositorio(contexto);
-        }
-
-        public void Apagar(int id)
-        {
-            _clienteRepositorio.Apagar(id);
-        }
-
-        public void Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel)
-        {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteCadastrarViewModel.Cpf;
-            cliente.DataNascimento = clienteCadastrarViewModel.DataNascimento;
-            cliente.Endereco = clienteCadastrarViewModel.Endereco;
-            cliente.Email = clienteCadastrarViewModel.Email;
-            cliente.Telefone = clienteCadastrarViewModel.Telefone;
-            cliente.Cnpj = clienteCadastrarViewModel.Cnpj;
-        }
-
-        public void Editar(ClienteEditarViewModel clienteEditarViewModel)
-        {
-            var cliente = new Cliente();
-            cliente.Cpf = clienteEditarViewModel.Cpf;
-            cliente.DataNascimento = clienteEditarViewModel.DataNascimento;
-            cliente.Endereco = clienteEditarViewModel.Endereco;
-            cliente.Email = clienteEditarViewModel.Email;
-            cliente.Telefone = clienteEditarViewModel.Telefone;
-            cliente.Cnpj = clienteEditarViewModel.Cnpj;
-
-            _clienteRepositorio.Atualizar(cliente);
-        }
-
-        public Cliente ObterPorId(int id)
-        {
-            var cliente = _clienteRepositorio.ObterPorId(id);
-
-            return cliente;
-        }
-
-        public List<Cliente> ObterTodos()
-        {
-            var clienteDoBanco = _clienteRepositorio.ObterTodos();
-
-            return clienteDoBanco;
-        }
+        _clienteRepositorio = clienteRespositorio;
+        _mapeamentoEntidade = mapeamentoEntidade;
     }
+    public bool Apagar(int id) =>
+        _clienteRepositorio.Apagar(id);
+    public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
+    {
+        var cliente = _mapeamentoEntidade.ConstruirCom(viewModel);
+        _clienteRepositorio.Cadastrar(cliente);
+        return cliente;
+    }
+
+    public bool Editar(ClienteEditarViewModel viewModel)
+    {
+        var cliente = _clienteRepositorio.ObterPorId(viewModel.Id);
+        if (cliente == null)
+            return false;
+
+        _mapeamentoEntidade.AtualizarCampos(cliente, viewModel);
+        _clienteRepositorio.Editar(cliente);
+        return true;
+    }
+ 
+    private void ApagarArquivoAntigo(string caminhoPastaImagens, string arquivoAntigo)
+    {
+        var caminhoArquivoAntigo = Path.Join(caminhoPastaImagens, arquivoAntigo);
+
+        if (File.Exists(caminhoArquivoAntigo))
+            File.Delete(caminhoArquivoAntigo);
+    }
+    public Cliente ObterPorId(int id) =>
+    _clienteRepositorio.ObterPorId(id);
+
+    public IList<Cliente> ObterTodos() =>
+    _clienteRepositorio.ObterTodos();
 }

@@ -5,10 +5,10 @@ namespace Servico.Servicos.ClienteServico
 {
     public interface IClienteService
     {
-        void Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel);
+        Cliente Cadastrar(ClienteCadastrarViewModel clienteCadastrarViewModel);
         IList<Cliente> ObterTodos();
-        void Editar(ClienteEditarViewModel clienteEditarViewModel);
-        void Apagar(int id);
+        bool Editar(ClienteEditarViewModel clienteEditarViewModel);
+        bool Apagar(int id);
         Cliente ObterPorId(int id);
     }
 }

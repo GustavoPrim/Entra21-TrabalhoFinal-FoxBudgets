@@ -1,16 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Repositorio.Entidades;
+using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.ClienteViewModels
 {
-    public class ClienteViewModel
+    public class ClienteViewModel : EntidadeBase
     {
-        //[Display(Name = "Nome")]
+        [Display(Name = nameof(Nome))]
+        [Required(ErrorMessage = "Digite algo.")]
+        public string Nome { get; set; }
+
         [Display(Name = nameof(Cpf))]
-        [Required(ErrorMessage = "Selecione um item")]
+        [Required(ErrorMessage = "Selecione um CPF válido.")]
+
         public string Cpf { get; set; }
 
         [Display(Name = nameof(Cnpj))]
-        [Required(ErrorMessage = "Selecione um item")]
+        [Required(ErrorMessage = "Selecione um CNPJ válido.")]
         public string Cnpj { get; set; }
 
         [Display(Name = nameof(DataNascimento))]
