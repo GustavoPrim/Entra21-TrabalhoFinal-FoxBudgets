@@ -10,10 +10,10 @@ namespace Aplicacao.Administradores.Controllers
     {
         private readonly IAdministradorServico _administradorServico;
 
-        //public AdministradorController(IAdministradorServico administradorServico)
-        //{
-        //    _administradorServico = administradorServico;
-        //}
+        public AdministradorController(IAdministradorServico administradorServico)
+        {
+            _administradorServico = administradorServico;
+        }
 
         [HttpGet]
         public IActionResult Index()

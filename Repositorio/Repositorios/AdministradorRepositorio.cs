@@ -8,10 +8,10 @@ namespace Repositorio.Repositorios
     {
         private readonly OrcamentoContexto _contexto;
 
-        //public AdministradorRepositorio(OrcamentoContexto contexto)
-        //{
-        //    _contexto = contexto;
-        //}
+        public AdministradorRepositorio(OrcamentoContexto contexto)
+        {
+            _contexto = contexto;
+        }
         public bool Apagar(int id)
         {
             var administrador = _contexto.Administradores
