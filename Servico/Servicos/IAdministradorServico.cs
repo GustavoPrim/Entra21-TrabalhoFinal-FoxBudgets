@@ -1,9 +1,10 @@
 ﻿using Repositorio.Entidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
-namespace Servico.Servicos
+namespace Aplicacao.Administradores
 {
-    public interface IAdministradorServico
+    internal interface IAdministradorServico
     {
         Administrador Cadastrar(AdministradorCadastrarViewModel viewModel);
         bool Editar(AdministradorEditarViewModel viewModel);

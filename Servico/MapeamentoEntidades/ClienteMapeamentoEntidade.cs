@@ -1,18 +1,24 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels.Clientes;
+using Servico.ViewModels.ClienteViewModels;
 
 namespace Servico.MapeamentoEntidades
 {
     public class ClienteMapeamentoEntidade : IClienteMapeamentoEntidade
     {
-        public void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel)
+        public Cliente ConstruirCom(ClienteCadastrarViewModel viewModel, string caminho)
         {
-            throw new NotImplementedException();
-        }
+            return new Cliente
+            {
+                Cpf = viewModel.Cpf,
+                Cnpj = viewModel.Cnpj,
+                DataNascimento = viewModel.DataNascimento,
+                Endereco = viewModel.Endereco,
+                Email = viewModel.Email,
+                Telefone = viewModel.Telefone,
+                Crea = viewModel.Crea,
 
-        public Cliente ConstruirCom(ClienteCadastrarViewModel viewModel)
-        {
-            throw new NotImplementedException();
+
+            };
         }
     }
 }

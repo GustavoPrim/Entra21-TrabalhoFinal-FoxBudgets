@@ -3,7 +3,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Servico.MapeamentoEntidades
 {
-    public interface IAdministradorMapeamentoEntidade
+    internal interface IAdministradorMapeamentoEntidade
     {
         Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel);
         void AtualizarCom(Administrador administrador, AdministradorEditarViewModel viewModel);
