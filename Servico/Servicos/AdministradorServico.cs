@@ -10,13 +10,13 @@ namespace Servico.Servicos
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
 
-        public AdministradorServico(
-            IAdministradorRepositorio administradorRepositorio,
-            IAdministradorMapeamentoEntidade mapeamentoEntidade)
-        {
-            _administradorRepositorio = administradorRepositorio;
-            _mapeamentoEntidade = mapeamentoEntidade;
-        }
+        //public AdministradorServico(
+        //    IAdministradorRepositorio administradorRepositorio,
+        //    IAdministradorMapeamentoEntidade mapeamentoEntidade)
+        //{
+        //    _administradorRepositorio = administradorRepositorio;
+        //    _mapeamentoEntidade = mapeamentoEntidade;
+        //}
 
         public bool Apagar(int id) =>
             _administradorRepositorio.Apagar(id);

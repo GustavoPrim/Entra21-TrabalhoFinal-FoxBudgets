@@ -1,50 +1,52 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
-using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 
-namespace Servico
+namespace Servico.Servicos
 {
     public class FornecedorServico : IFornecedorServico
     {
-        private readonly IFornecedorReposistorio _fornecedorRepositorio;
+        private readonly IFornecedorReposistorio _fornecedorReposistorio;
         private readonly IFornecedorMapeamentoEntidade _mapeamento;
 
         public FornecedorServico(
-            IFornecedorReposistorio fornecedorRepositorio,
+            IFornecedorReposistorio fornecedorReposistorio,
             IFornecedorMapeamentoEntidade mapeamento)
         {
-            _fornecedorRepositorio = fornecedorRepositorio;
+            _fornecedorReposistorio = fornecedorReposistorio;
             _mapeamento = mapeamento;
         }
 
         public bool Apagar(int id) =>
-            _fornecedorRepositorio.Apagar(id);
+            _fornecedorReposistorio.Apagar(id);
 
         public Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel)
         {
             var fornecedor = _mapeamento.ConstruirCom(viewModel);
-            _fornecedorRepositorio.Cadastrar(fornecedor);
+
+            _fornecedorReposistorio.Cadastrar(fornecedor);
+
             return fornecedor;
         }
 
         public bool Editar(FornecedorEditarViewModel viewModel)
         {
-            var fornecedor = _fornecedorRepositorio.ObterPorId(viewModel.Id);
+            var fornecedor = _fornecedorReposistorio.ObterPorId(viewModel.Id);
 
             if (fornecedor == null)
                 return false;
 
             _mapeamento.AtualizarCampos(fornecedor, viewModel);
-            _fornecedorRepositorio.Editar(fornecedor);
+            _fornecedorReposistorio.Editar(fornecedor);
+
             return true;
         }
 
         public Fornecedor? ObterPorId(int id) =>
-            _fornecedorRepositorio.ObterPorId(id);
+            _fornecedorReposistorio.ObterPorId(id);
 
         public IList<Fornecedor> ObterTodos() =>
-            _fornecedorRepositorio.ObterTodos();
+            _fornecedorReposistorio.ObterTodos();
     }
 }

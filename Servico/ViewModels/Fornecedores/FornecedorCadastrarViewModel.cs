@@ -39,5 +39,11 @@ namespace Servico.ViewModels.Fornecedores
         [MinLength(6, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
         [MaxLength(25, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
         public string Email { get; set; }
+
+        [Display(Name = "Telefone")]
+        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        [MinLength(10, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
+        [MaxLength(11, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
+        public string Telefone { get; set; }
     }
 }
