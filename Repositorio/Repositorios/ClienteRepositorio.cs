@@ -1,6 +1,5 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
-using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
@@ -27,42 +26,25 @@ namespace Repositorio.Repositorios
             return true;
         }
 
-        public void Cadastrar(Cliente cliente)
+        public Cliente Cadastrar(Cliente cliente)
         {
             _contexto.Clientes.Add(cliente);
             _contexto.SaveChanges();
+
+            return cliente;
         }
 
-        public void Editar(Cliente clienteParaAlterar)
+        public void Editar(Cliente cliente)
         {
-            var cliente = _contexto.Clientes.Where(x => x.Id == clienteParaAlterar.Id).FirstOrDefault();
-
-            cliente.Cpf = clienteParaAlterar.Cpf;
-            cliente.DataNascimento = clienteParaAlterar.DataNascimento;
-            cliente.Endereco = clienteParaAlterar.Endereco;
-            cliente.Email = clienteParaAlterar.Email;
-            cliente.Telefone = clienteParaAlterar.Telefone;
-            cliente.Cnpj = clienteParaAlterar.Cnpj;
-
-            _contexto.Update(cliente);
+            _contexto.Clientes.Update(cliente);
             _contexto.SaveChanges();
         }
 
-        public Cliente? ObterPorId(int id) => 
-            _contexto.Clientes.FirstOrDefault(x => x.Id == id);
-        
-        public IList<Cliente> ObterTodos() => 
+        public Cliente? ObterPorId(int id) =>
             _contexto.Clientes
-                .Include(x => x.Cpf)
-                .Include(x => x.Cnpj)
-                .Include(x => x.DataNascimento)
-                .Include(x => x.Email)
-                .Include(x => x.Telefone)
-                .ToList();
+            .FirstOrDefault(x => x.Id == id);
 
-        void IClienteRepositorio.Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Cliente> ObterTodos() =>
+            _contexto.Clientes.ToList();
     }
 }

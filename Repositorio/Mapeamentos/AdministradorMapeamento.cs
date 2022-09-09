@@ -12,41 +12,57 @@ namespace Repositorio.Mapeamentos
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Id).HasColumnName("id");
-
             builder.Property(x => x.Nome)
-                .HasColumnName("VARCHAR")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(100)
                 .IsRequired()
                 .HasColumnName("nome");
 
             builder.Property(x => x.Cpf)
-                .HasColumnName("STRING")
+                .HasColumnType("STRING")
                 .IsRequired()
                 .HasColumnName("cpf");
 
             builder.Property(x => x.DataNascimento)
-                .HasColumnName("DATETIME2")
+                .HasColumnType("DATETIME2")
                 .IsRequired()
                 .HasColumnName("DataNascimento");
 
             builder.Property(x => x.Endereco)
-                .HasColumnName("VARCHAR")
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(200)
                 .IsRequired()
                 .HasColumnName("endereco");
 
             builder.Property(x => x.Email)
-                .HasColumnName("STRING")
+                .HasColumnType("STRING")
                 .IsRequired()
                 .HasColumnName("email");
 
             builder.Property(x => x.Telefone)
-                .HasColumnName("INT");
+                .HasColumnType("INT");
 
-            builder.Property(x => x.Genero)
-                .HasColumnName("BIT")
-                .HasDefaultValue(true);
+            builder.HasData(
+                new Administrador
+                {
+                    Id = 1,
+                    Nome = "Gustavo Prim",
+                    Cpf = "666.999.666-99",
+                    //DataNascimento = ,
+                    Endereco = "Rua Julio Michel 1130",
+                    Email = "gugahprm@gmail.com",
+                    Telefone = 992499565
+                },
+                new Administrador
+                {
+                    Id = 2,
+                    Nome = "Lucas Alves",
+                    Cpf = "123.456.789-10",
+                    //DataNascimento = 
+                    Endereco = "Rua Água Branca 1234",
+                    Email = "lucasalves@gmail.com",
+                    Telefone = 992460586
+                });
         }
     }
 }
