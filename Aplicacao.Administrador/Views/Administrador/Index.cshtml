@@ -1,1 +1,27 @@
-﻿<p class="h3">Fox Budgets</p>
+﻿@model List<Administrador>
+
+<p class="h3">Lista de Administradores</p>
+
+<div class="row mb-3">
+    <div class="text-end">
+        <a asp-action="cadastrar" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>Cadastrar
+        </a>
+    </div>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+
+    <tr>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Data de Nascimento</th>
+        <th>Endereço</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+</table>
