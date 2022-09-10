@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Fornecedor.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico;
 using Servico.Servicos;
@@ -128,7 +129,7 @@ namespace Aplicacao.Administradores.Controllers
             }
 
             _fornecedorServico.Cadastrar(fornecedorCadastrarViewModel);
-            return RedirectToAction("Index");
+            return RedirectToAction("ListarFornecedor");
         }
     }
 }
