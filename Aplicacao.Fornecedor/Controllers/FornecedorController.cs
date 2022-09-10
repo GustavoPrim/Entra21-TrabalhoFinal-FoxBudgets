@@ -28,7 +28,7 @@ namespace Aplicacao.Fornecedor.Controllers
             return Ok(fornecedores);
         }
 
-        [HttpPost("cadastrar")]
+        [HttpPost("cadastrarfornecedor")]
         public IActionResult Cadastrar([FromBody] FornecedorCadastrarViewModel viewModel)
         {
             if (!ModelState.IsValid)

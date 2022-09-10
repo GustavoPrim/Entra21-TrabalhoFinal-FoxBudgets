@@ -26,7 +26,6 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.DataFundacao)
                 .HasColumnType("DATETIME2")
-                .HasMaxLength(8)
                 .IsRequired()
                 .HasColumnName("dataFundacao");
 
