@@ -9,5 +9,7 @@
         public string Email { get; set; }
         public int Telefone { get; set; }
         public string Crea { get; set; }
+        public IList<Cliente> Clientes { get; set; }
+
     }
 }
