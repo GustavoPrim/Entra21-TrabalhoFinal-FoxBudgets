@@ -12,13 +12,21 @@ namespace Repositorio.Mapeamentos
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Nome)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(100)
+                .IsRequired()
+                .HasColumnName("nome");
+
             builder.Property(x => x.Cpf)
                 .HasColumnType("VARCHAR")
+                .HasMaxLength(20)
                 .IsRequired()
                 .HasColumnName("cpf");
 
             builder.Property(x => x.Cnpj)
                 .HasColumnType("VARCHAR")
+                .HasMaxLength(14)
                 .IsRequired()
                 .HasColumnName("cnpj");
 
@@ -34,20 +42,23 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Email)
                 .HasColumnType("VARCHAR")
+                .HasMaxLength(100)
                 .IsRequired()
                 .HasColumnName("email");
 
             builder.Property(x => x.Telefone)
-                .HasColumnType("INT")
+                .HasColumnType("VARCHAR")
                 .IsRequired()
+                .HasMaxLength(100)
                 .HasColumnName("telefone");
 
             builder.Property(x => x.Crea)
-                .HasColumnType("STRING")
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(200)
                 .IsRequired()
                 .HasColumnName("crea");
 
-            // Email, Telefone, Crea.
+            // adicionar pelo menos 2 no banco de dados
         }
     }
 }
