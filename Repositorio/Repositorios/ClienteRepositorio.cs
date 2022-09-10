@@ -27,6 +27,13 @@ public class ClienteRepositorio : IClienteRepositorio
         return true;
     }
 
+    public void Atualizar(Cliente clienteParaAlterar)
+    {
+        var clientes = _contexto.Clientes
+                .Where(x => x.Id == clienteParaAlterar.Id)
+                .FirstOrDefault();
+    }
+
     public Cliente Cadastrar(Cliente cliente)
     {
         _contexto.Clientes.Add(cliente);
