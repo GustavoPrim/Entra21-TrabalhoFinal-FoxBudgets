@@ -9,6 +9,7 @@ namespace Repositorio.BancoDados
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Material> Materiais { get; set; }
 
         public OrcamentoContexto(
             DbContextOptions<OrcamentoContexto> options)
