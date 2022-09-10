@@ -49,7 +49,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Telefone)
                 .HasColumnType("VARCHAR")
-
+                .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
