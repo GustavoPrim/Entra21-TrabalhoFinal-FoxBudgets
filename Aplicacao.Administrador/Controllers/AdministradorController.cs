@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Fornecedor.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
+using Servico;
 using Servico.Servicos;
 using Servico.ViewModels.Administradores;
+using Servico.ViewModels.Fornecedores;
 
 namespace Aplicacao.Administradores.Controllers
 {
@@ -9,6 +12,7 @@ namespace Aplicacao.Administradores.Controllers
     public class AdministradorController : Controller
     {
         private readonly IAdministradorServico _administradorServico;
+        private readonly IFornecedorServico _fornecedorServico;
 
         public AdministradorController(IAdministradorServico administradorServico)
         {
@@ -96,6 +100,36 @@ namespace Aplicacao.Administradores.Controllers
             return Enum.GetNames<AdministradorEnum>()
                 .OrderBy(x => x)
                 .ToList();
+        }
+
+        private List<string> ObterFornecedores()
+        {
+            return Enum.GetNames<AdministradorEnum>()
+                .OrderBy(x => x)
+                .ToList();
+        }
+
+        [HttpGet("cadastrarfornecedor")]
+        public IActionResult CadastrarFornecedor()
+        {
+            ViewBag.Fornecedores = ObterFornecedores();
+
+            var fornecedorCadastrarViewModel = new FornecedorCadastrarViewModel();
+
+            return View(fornecedorCadastrarViewModel);
+        }
+
+        [HttpPost("cadastrarfornecedor")]
+        public IActionResult CadastrarFornecedor([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorCadastrarViewModel);
+            }
+
+            _fornecedorServico.Cadastrar(fornecedorCadastrarViewModel);
+            return RedirectToAction("ListarFornecedor");
         }
     }
 }
