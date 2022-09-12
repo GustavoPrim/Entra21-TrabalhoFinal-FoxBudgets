@@ -105,12 +105,8 @@ namespace Aplicacao.Fornecedores.Controllers
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
-            var apagar = _fornecedorServico.Apagar(id);
-
-            if (!apagar)
-                return NotFound();
-
-            return Ok();
+            _fornecedorServico.Apagar(id);
+            return RedirectToAction("ListarFornecedor");
         }
 
         
