@@ -24,8 +24,7 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Data de fundação")]
         [Required(ErrorMessage = "{0} deve ser preenchida!")]
-        [MinLength(8, ErrorMessage = "{0} deve conter {1} caracteres!")]
-        [MaxLength(8, ErrorMessage = "{0} deve conter {1} caracteres!")]
+        [DataType(DataType.Date)]
         public DateTime DataFundacao { get; set; }
 
         [Display(Name = "Categoria")]
@@ -39,5 +38,11 @@ namespace Servico.ViewModels.Fornecedores
         [MinLength(6, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
         [MaxLength(25, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
         public string Email { get; set; }
+
+        [Display(Name = "Telefone")]
+        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        [MinLength(10, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
+        [MaxLength(11, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
+        public string Telefone { get; set; }
     }
 }

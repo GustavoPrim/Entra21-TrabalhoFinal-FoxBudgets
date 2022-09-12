@@ -10,7 +10,7 @@ namespace Repositorio.Mapeamentos
         {
             builder.ToTable("fornecedores");
 
-            builder.HasKey(x => x.Id).HasName("id");
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome)
                 .HasColumnType("VARCHAR")
@@ -24,17 +24,28 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("cnpj");
 
+            builder.Property(x => x.DataFundacao)
+                .HasColumnType("DATETIME2")
+                .IsRequired()
+                .HasColumnName("dataFundacao");
+
             builder.Property(x => x.Endereco)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(50)
                 .IsRequired()
                 .HasColumnName("endereco");
 
-            builder.Property(x => x.DataFundacao)
-                .HasColumnType("DATETIME2")
-                .HasMaxLength(8)
+            builder.Property(x => x.Email)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(25)
                 .IsRequired()
-                .HasColumnName("dataFundacao");
+                .HasColumnName("email");
+
+            builder.Property(X => X.Telefone)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(50)
+                .IsRequired()
+                .HasColumnName("telefone");
 
             builder.Property(x => x.Categoria)
                 .HasColumnType("VARCHAR")
@@ -42,11 +53,8 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("categoria");
 
-            builder.Property(x => x.Email)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(25)
-                .IsRequired()
-                .HasColumnName("email");
+            //builder.Property(x => x.Material)
+            // adicionar pelo menos 2 no banco de dados
         }
     }
 }

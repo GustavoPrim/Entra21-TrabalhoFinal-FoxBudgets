@@ -15,13 +15,15 @@ namespace Repositorio.BancoDados
             DbContextOptions<OrcamentoContexto> options)
             : base(options)
         {
+            // dotnet ef migrations add AdicionarAdministradorFornecedorTabela --project Repositorio --startup-project .\Aplicacao.Administrador
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AdministradorMapeamento());
             modelBuilder.ApplyConfiguration(new FornecedorMapeamento());
-            modelBuilder.ApplyConfiguration(new ClienteMapeamento());
+            //modelBuilder.ApplyConfiguration(new ClienteMapeamento());
         }
     }
 }
