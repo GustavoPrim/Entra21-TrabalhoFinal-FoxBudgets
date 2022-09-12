@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
-namespace Aplicacao.Fornecedor.Controllers
+namespace Aplicacao.Administradores.Controllers
 {
     [Route("fornecedor")]
     public class FornecedorController : Controller
@@ -17,10 +16,9 @@ namespace Aplicacao.Fornecedor.Controllers
         }
 
         [HttpGet]
-        public IActionResult ListarFornecedor()
+        public IActionResult Index()
         {
-            var fornecedor = _fornecedorServico.ObterTodos();
-            return View("listarfornecedor", fornecedor);
+            return View();
         }
 
         [HttpGet("obterTodos")]
@@ -30,26 +28,14 @@ namespace Aplicacao.Fornecedor.Controllers
             return Ok(fornecedores);
         }
 
-        [HttpGet("cadastrarfornecedor")]
-        public IActionResult CadastrarFornecedor()
-        {
-            ViewBag.Fornecedores = ObterFornecedores();
-
-            var fornecedorCadastrarViewModel = new FornecedorCadastrarViewModel();
-            return View(fornecedorCadastrarViewModel);
-        }
-
         [HttpPost("cadastrarfornecedor")]
-        public IActionResult CadastrarFornecedor([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
+        public IActionResult Cadastrar([FromBody] FornecedorCadastrarViewModel viewModel)
         {
             if (!ModelState.IsValid)
-            {
-               ViewBag.Fornecedores = ObterFornecedores();
-                return View(fornecedorCadastrarViewModel);
-            }
+                return UnprocessableEntity(ModelState);
 
-            _fornecedorServico.Cadastrar(fornecedorCadastrarViewModel);
-            return RedirectToAction("ListarFornecedor");
+            var fornecedor = _fornecedorServico.Cadastrar(viewModel);
+            return Ok(fornecedor);
         }
 
         [HttpGet("obterPorId")]
@@ -83,13 +69,6 @@ namespace Aplicacao.Fornecedor.Controllers
                 return NotFound();
 
             return Ok();
-        }
-
-        private List<string> ObterFornecedores()
-        {
-            return Enum.GetNames<AdministradorEnum>()
-                .OrderBy(x => x)
-                .ToList();
         }
     }
 }
