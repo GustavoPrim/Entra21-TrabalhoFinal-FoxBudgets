@@ -21,7 +21,7 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _fornecedorReposistorio.Apagar(id);
 
-        public Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel)
+        public Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel)
         {
             var fornecedor = _mapeamentoEntidade.ConstruirCom(viewModel);
 

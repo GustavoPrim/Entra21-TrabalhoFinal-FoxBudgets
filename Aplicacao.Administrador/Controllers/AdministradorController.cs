@@ -117,7 +117,7 @@ namespace Aplicacao.Administradores.Controllers
             return View(fornecedorCadastrarViewModel);
         }
 
-        [HttpPost("cadastrarfornecedor")]
+        /*[HttpPost("cadastrarfornecedor")]
         public IActionResult CadastrarFornecedor([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
         {
             if (!ModelState.IsValid)
@@ -128,6 +128,6 @@ namespace Aplicacao.Administradores.Controllers
 
             _fornecedorServico.Cadastrar(fornecedorCadastrarViewModel);
             return RedirectToAction("ListarFornecedor");
-        }
+        }*/
     }
 }
