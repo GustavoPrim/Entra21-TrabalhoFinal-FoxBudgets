@@ -1,25 +1,15 @@
-﻿<h2>LOGIN</h2>
-
-<form action="/Login/ChecarLogin" method="post">
-
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 text-left">
-            <label for="userId" class="form-label">Usuário</label>
-            <input type="email" class="form-control" name="Email" id="Email" placeHolder="nome@exemplo.com" />
-        </div>
+﻿@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Login";
+}
+<form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Login</label>
+        <input type="text" class="form-control" id="login"
     </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 text-left">
-            <label for="userPassword" class="form-label" text-left>Senha</label>
-            <input type="password" class="form-control" name="PassWord" id="PassWord" placeHolder="nome@exemplo.com" />
-        </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha">
     </div>
-    <br />
-    <div class="row">
-        <div class=row>
-            <button class="btn btn-primary" type="submit">Entrar</button>
-        </div>
-    </div>
-
+    <button type="submit" class="btn btn-primary">Entrar</button>
 </form>
