@@ -133,9 +133,6 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(50)")
                         .HasColumnName("endereco");
 
-                    b.Property<int>("MaterialId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -148,8 +145,6 @@ namespace Repositorio.Migrations
 
                     b.HasKey("Id")
                         .HasName("id");
-
-                    b.HasIndex("MaterialId");
 
                     b.ToTable("fornecedores", (string)null);
                 });
@@ -187,17 +182,6 @@ namespace Repositorio.Migrations
                     b.HasOne("Repositorio.Entidades.Administrador", null)
                         .WithMany("Administradores")
                         .HasForeignKey("AdministradorId");
-                });
-
-            modelBuilder.Entity("Repositorio.Entidades.Fornecedor", b =>
-                {
-                    b.HasOne("Repositorio.Entidades.Material", "Material")
-                        .WithMany()
-                        .HasForeignKey("MaterialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Material");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Administrador", b =>

@@ -61,18 +61,11 @@ namespace Repositorio.Migrations
                     email = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
                     Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     categoria = table.Column<string>(type: "VARCHAR(20)", maxLength: 20, nullable: false),
-                    MaterialId = table.Column<int>(type: "int", nullable: false),
                     nome = table.Column<string>(type: "VARCHAR(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("id", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_fornecedores_Material_MaterialId",
-                        column: x => x.MaterialId,
-                        principalTable: "Material",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -89,11 +82,6 @@ namespace Repositorio.Migrations
                 name: "IX_administradores_AdministradorId",
                 table: "administradores",
                 column: "AdministradorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_fornecedores_MaterialId",
-                table: "fornecedores",
-                column: "MaterialId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
