@@ -6,8 +6,10 @@
 
     var selectDosFornecedores = new SelectList(fornecedores, string.Empty);
 }
+<p class="h3">Cadastro de Administradores</p>
 <form asp-action="cadastrar" method="POST">
-    <div>
+
+    <div class="mb-3">
         <label asp-for="Nome" class="form-label"></label>
         <input asp-for="Nome" class="form-control" />
         <span asp-validation-for="Nome" class="text-danger"></span>
