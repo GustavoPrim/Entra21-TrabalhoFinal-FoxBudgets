@@ -3,16 +3,31 @@ using Servico.ViewModels.Fornecedores;
 
 namespace Servico.MapeamentoEntidades
 {
-    internal class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
+    public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
     {
         public void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            fornecedor.Nome = viewModel.Nome;
+            fornecedor.Cnpj = viewModel.Cnpj;
+            fornecedor.Endereco = viewModel.Endereco;
+            fornecedor.DataFundacao = viewModel.DataFundacao;
+            fornecedor.Email = viewModel.Email;
+            fornecedor.Telefone = viewModel.Telefone;
+            fornecedor.Categoria = viewModel.Categoria;
         }
 
         public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            return new Fornecedor
+            {
+                Nome = viewModel.Nome,
+                Cnpj = viewModel.Cnpj,
+                Endereco = viewModel.Endereco,
+                DataFundacao = viewModel.DataFundacao,
+                Email = viewModel.Email,
+                Telefone = viewModel.Telefone,
+                Categoria = viewModel.Categoria,
+            };
         }
     }
 }

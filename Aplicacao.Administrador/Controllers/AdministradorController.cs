@@ -1,7 +1,5 @@
-﻿using Aplicacao.Fornecedor.Controllers;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
-using Servico;
 using Servico.Servicos;
 using Servico.ViewModels.Administradores;
 using Servico.ViewModels.Fornecedores;
