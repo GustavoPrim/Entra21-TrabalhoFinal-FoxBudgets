@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
+using Repositorio.Enuns;
 
 namespace Repositorio.Mapeamentos
 {
@@ -53,8 +54,29 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("categoria");
 
-            //builder.Property(x => x.Material)
-            // adicionar pelo menos 2 no banco de dados
+            builder.HasData(
+                new Fornecedor
+                {
+                    Id = 1,
+                    Nome = "Wolf Orçamentos",
+                    Cnpj = "",
+                    DataFundacao = new DateTime(2020, 03, 15),
+                    Endereco = "Rua 2 de Setembro 1890",
+                    Email = "Willljdev@gmail.com",
+                    Telefone = "991599314",
+                    Categoria = AdministradorEnum.MaterialHidraulico
+                },
+                new Fornecedor
+                {
+                    Id = 2,
+                    Nome = "BudgetsVG",
+                    Cnpj = "",
+                    DataFundacao = new DateTime(2019, 09, 18),
+                    Endereco = "Rua Alberto Stein 199",
+                    Email = "budgetsVG@gmail.com",
+                    Telefone = "3381-7700",
+                    Categoria = AdministradorEnum.MaterialBruto
+                });
         }
     }
 }
