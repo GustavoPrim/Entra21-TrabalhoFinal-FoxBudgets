@@ -47,14 +47,27 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("telefone");
 
-            builder.Property(x => x.Categoria)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(20)
-                .IsRequired()
-                .HasColumnName("categoria");
-
-            //builder.Property(x => x.Material)
-            // adicionar pelo menos 2 no banco de dados
+            builder.HasData(
+                new Fornecedor
+                {
+                    Id = 1,
+                    Nome = "Wolf's Orçamentos",
+                    Cnpj = "12.345.678/0001-99",
+                    DataFundacao = new DateTime(2020, 08, 18),
+                    Endereco = "Rua Dois de Setembro 1895",
+                    Email = "wolfsacessoria@gmail.com",
+                    Telefone = "3381-0987"
+                },
+                new Fornecedor
+                {
+                    Id = 2,
+                    Nome = "Budgets VG",
+                    Cnpj = "99.888.777/0001-10",
+                    DataFundacao = new DateTime(2019, 09, 14),
+                    Endereco = "Rua Alberto Stein 199",
+                    Email = "gugahprm@gmail.com",
+                    Telefone = "991509314"
+                });
         }
     }
 }
