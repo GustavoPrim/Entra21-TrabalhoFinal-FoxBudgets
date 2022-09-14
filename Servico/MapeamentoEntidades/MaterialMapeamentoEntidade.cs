@@ -1,10 +1,11 @@
 ﻿using Repositorio.Entidades;
+using Servico.ViewModels.Materiais;
 
 namespace Servico.MapeamentoEntidades
 {
     internal class MaterialMapeamentoEntidade : IMaterialMapeamentoEntidade
     {
-        public void AtualizarCom(Material material, MaterialEditarViewModel viewModel)
+        public void AtualizarCom(Material material, MateriaisEditarViewModel viewModel)
         {
             material.Nome = viewModel.Nome;
             material.Sku = viewModel.Sku;
@@ -12,7 +13,7 @@ namespace Servico.MapeamentoEntidades
             material.Descricao = viewModel.Descricao;
         }
 
-        public Material ConstruirCom(MaterialCadastrarViewModel viewModel)
+        public Material ConstruirCom(MateriaisCadastrarViewModel viewModel)
         {
             return new Material
             {
