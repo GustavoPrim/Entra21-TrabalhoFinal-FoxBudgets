@@ -4,7 +4,7 @@ using Servico.Servicos;
 using Servico.ViewModels.Administradores;
 using Servico.ViewModels.Fornecedores;
 
-namespace Aplicacao.Administradores.Controllers
+namespace Aplicacao.Administrador.Controllers
 {
     [Route("administrador")]
     public class AdministradorController : Controller

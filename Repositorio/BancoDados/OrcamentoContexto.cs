@@ -23,7 +23,8 @@ namespace Repositorio.BancoDados
         {
             modelBuilder.ApplyConfiguration(new AdministradorMapeamento());
             modelBuilder.ApplyConfiguration(new FornecedorMapeamento());
-            //modelBuilder.ApplyConfiguration(new ClienteMapeamento());
+            modelBuilder.ApplyConfiguration(new ClienteMapeamento());
+            modelBuilder.ApplyConfiguration(new MaterialMapeamento());
         }
     }
 }

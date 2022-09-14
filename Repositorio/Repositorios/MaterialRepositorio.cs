@@ -12,6 +12,7 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
+
         public bool Apagar(int id)
         {
             var material = _contexto.Materiais
@@ -34,20 +35,17 @@ namespace Repositorio.Repositorios
             return material;
         }
 
-        public void Editar(Material materialParaAlterar)
+        public void Editar(Material material)
         {
-            _contexto.Materiais.Update(materialParaAlterar);
+            _contexto.Materiais.Update(material);
             _contexto.SaveChanges();
         }
 
-        public Material? ObterPorId(int id) => _contexto.Materiais
-                .Include(x => x.DataValidade)
-                .Include(x => x.Descricao)
-                .FirstOrDefault(x => x.Id == id);
+        public Material? ObterPorId(int id) =>
+            _contexto.Materiais.Where(x => x.Id == id)
+            .FirstOrDefault();
 
-        public IList<Material> ObterTodos() => _contexto.Materiais
-                .Include(x => x.DataValidade)
-                .Include(x => x.Descricao)
-                .ToList();
+        public IList<Material> ObterTodos() =>
+            _contexto.Materiais.ToList();
     }
 }

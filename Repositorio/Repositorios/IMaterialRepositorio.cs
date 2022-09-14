@@ -4,10 +4,10 @@ namespace Repositorio.Repositorios
 {
     public interface IMaterialRepositorio
     {
-        public Material Cadastrar(Material material);
-        public IList<Material> ObterTodos();
-        public void Editar(Material materialParaAlterar);
-        public bool Apagar(int id);
+        bool Apagar(int id);
+        Material Cadastrar(Material material);
+        void Editar(Material material);
         Material? ObterPorId(int id);
+        IList<Material> ObterTodos();
     }
 }

@@ -54,29 +54,29 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("categoria");
 
-            builder.HasData(
-                new Fornecedor
-                {
-                    Id = 1,
-                    Nome = "Wolf Tubos e conexões",
-                    Cnpj = "",
-                    DataFundacao = new DateTime(2020, 03, 15),
-                    Endereco = "Rua 2 de Setembro 1890",
-                    Email = "Willljdev@gmail.com",
-                    Telefone = "991599314",
-                    Categoria = AdministradorEnum.MaterialHidraulico.ToString("Material hidráulico")
-                },
-                new Fornecedor
-                {
-                    Id = 2,
-                    Nome = "Materiais de construção VG",
-                    Cnpj = "",
-                    DataFundacao = new DateTime(2019, 09, 18),
-                    Endereco = "Rua Alberto Stein 199",
-                    Email = "budgetsVG@gmail.com",
-                    Telefone = "3381-7700",
-                    Categoria = AdministradorEnum.MaterialBruto.ToString("Material Bruto")
-                });
+            //builder.HasData(
+            //    new Fornecedor
+            //    {
+            //        Id = 1,
+            //        Nome = "Wolf Tubos e conexões",
+            //        Cnpj = "",
+            //        DataFundacao = new DateTime(2020, 03, 15),
+            //        Endereco = "Rua 2 de Setembro 1890",
+            //        Email = "Willljdev@gmail.com",
+            //        Telefone = "991599314",
+            //        Categoria = AdministradorEnum.MaterialHidraulico.ToString("Material hidráulico")
+            //    },
+            //    new Fornecedor
+            //    {
+            //        Id = 2,
+            //        Nome = "Materiais de construção VG",
+            //        Cnpj = "",
+            //        DataFundacao = new DateTime(2019, 09, 18),
+            //        Endereco = "Rua Alberto Stein 199",
+            //        Email = "budgetsVG@gmail.com",
+            //        Telefone = "3381-7700",
+            //        Categoria = AdministradorEnum.MaterialBruto.ToString("Material Bruto")
+            //    });
         }
     }
 }

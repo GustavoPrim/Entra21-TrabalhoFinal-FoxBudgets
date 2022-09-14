@@ -1,6 +1,4 @@
-﻿using Aplicacao.Administradores.Models;
-using Microsoft.AspNetCore.Mvc;
-using Repositorio.Entidades;
+﻿using Microsoft.AspNetCore.Mvc;
 using Repositorio.Repositorios;
 using Servico.ViewModels;
 
@@ -25,7 +23,7 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Administrador administrador = _usuarioRepositorio.BuscarPorLogin(loginModel.Login); //Verificar com Efraim questão de consulta no banco de dados
+                    var administrador = _usuarioRepositorio.BuscarPorLogin(loginModel.Login); //Verificar com Efraim questão de consulta no banco de dados
 
                     if (administrador != null)
                     {
