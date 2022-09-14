@@ -1,6 +1,7 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels.Materiais;
 
 namespace Servico.Servicos
 {
@@ -20,7 +21,7 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _materialRepositorio.Apagar(id);
 
-        public Material Cadastrar(MaterialCadastrarViewModel viewModel)
+        public Material Cadastrar(MateriaisCadastrarViewModel viewModel)
         {
             var material = _materialMapeamento.ConstruirCom(viewModel);
 
@@ -28,7 +29,7 @@ namespace Servico.Servicos
             return material;
         }
 
-        public bool Editar(MaterialEditarViewModel viewModel)
+        public bool Editar(MateriasEditarViewModel viewModel)
         {
             var material = _materialRepositorio.ObterPorId(viewModel.Id);
 

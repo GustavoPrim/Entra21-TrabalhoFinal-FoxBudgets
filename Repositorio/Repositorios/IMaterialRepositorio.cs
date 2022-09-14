@@ -7,7 +7,7 @@ namespace Repositorio.Repositorios
         bool Apagar(int id);
         Material Cadastrar(Material material);
         void Editar(Material material);
-        Material ObterPorId(int id);
+        Material? ObterPorId(int id);
         IList<Material> ObterTodos();
     }
 }

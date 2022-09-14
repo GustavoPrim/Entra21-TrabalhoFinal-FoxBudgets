@@ -1,5 +1,6 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
+using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
@@ -22,6 +23,7 @@ namespace Repositorio.Repositorios
 
             _contexto.Materiais.Remove(material);
             _contexto.SaveChanges();
+
             return true;
         }
 
@@ -29,6 +31,7 @@ namespace Repositorio.Repositorios
         {
             _contexto.Materiais.Add(material);
             _contexto.SaveChanges();
+
             return material;
         }
 
