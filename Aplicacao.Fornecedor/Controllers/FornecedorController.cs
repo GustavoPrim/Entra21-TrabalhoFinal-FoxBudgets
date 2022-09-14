@@ -5,7 +5,7 @@ using Servico.ViewModels.Fornecedores;
 
 namespace Aplicacao.Fornecedores.Controllers
 {
-    [Route("fornecedor")]
+   /* [Route("fornecedor")]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
@@ -110,5 +110,5 @@ namespace Aplicacao.Fornecedores.Controllers
         }
 
         
-    }
+    }*/
 }

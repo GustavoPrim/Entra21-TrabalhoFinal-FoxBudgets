@@ -83,7 +83,8 @@ namespace Aplicacao.Fornecedores.Controllers
                 Email = fornecedor.Email,
                 Endereco = fornecedor.Endereco,
                 Telefone = fornecedor.Telefone,
-                Cnpj = fornecedor.Cnpj
+                Cnpj = fornecedor.Cnpj,
+                Categoria = fornecedor.Categoria,
             };
             ViewBag.Fornecedores = fornecedores;
 
