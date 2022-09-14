@@ -20,7 +20,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Cpf)
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(20)
+                .HasMaxLength(18)
                 .IsRequired()
                 .HasColumnName("cpf");
 
@@ -58,7 +58,31 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("crea");
 
-            // adicionar pelo menos 2 no banco de dados
+            builder.HasData(
+                new Cliente
+                {
+                    Id = 1,
+                    Nome = "Gustavo Prim",
+                    Cpf = "111.222.111-22",
+                    Cnpj = "12.345.678/0001-90",
+                    DataNascimento = new DateTime(2000, 08, 18),
+                    Endereco = "Rua Julio Michel 1130",
+                    Email = "gugahprm@gmail.com",
+                    Telefone = "992499565",
+                    Crea = "1234567"
+                },
+                new Cliente
+                {
+                    Id = 2,
+                    Nome = "Lucas Alves",
+                    Cpf = "444.555.444-55",
+                    Cnpj = "77.888.777/0001-10",
+                    DataNascimento = new DateTime(1997, 08, 31),
+                    Endereco = "Rua Hermann Tribess 1234",
+                    Email = "lucasalves@gmail.com",
+                    Telefone = "992380457",
+                    Crea = "7654321"
+                });
         }
     }
 }
