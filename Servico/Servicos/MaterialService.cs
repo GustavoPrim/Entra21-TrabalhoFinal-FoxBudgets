@@ -29,7 +29,7 @@ namespace Servico.Servicos
             return material;
         }
 
-        public bool Editar(MateriasEditarViewModel viewModel)
+        public bool Editar(MateriaisEditarViewModel viewModel)
         {
             var material = _materialRepositorio.ObterPorId(viewModel.Id);
 
