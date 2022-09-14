@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Aplicacao.Administradores.Controllers.Login
+namespace Aplicacao.Administrador.Controllers.Login
 {
 	public class SairController : Controller
 	{

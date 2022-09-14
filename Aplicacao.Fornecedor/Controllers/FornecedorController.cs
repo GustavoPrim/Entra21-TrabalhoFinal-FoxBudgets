@@ -4,7 +4,7 @@ using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
-namespace Aplicacao.Administradores.Controllers
+namespace Aplicacao.Administrador.Controllers
 {
     [Route("fornecedor")]
     public class FornecedorController : Controller
