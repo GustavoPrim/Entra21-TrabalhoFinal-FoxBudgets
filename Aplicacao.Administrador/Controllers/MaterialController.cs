@@ -23,7 +23,7 @@ namespace Aplicacao.Administrador.Controllers
         public IActionResult ObterTodos()
         {
             var materiais = _materialService.ObterTodos().ToList();
-            return Ok()
+            return Ok();
         }
     }
 }
