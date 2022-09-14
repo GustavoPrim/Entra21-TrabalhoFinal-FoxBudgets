@@ -1,0 +1,34 @@
+﻿@model MaterialEditarViewModel
+@{
+    var materiais = ViewBag.Matreriais as List<string>;
+    materiais.Add(string.Empty);
+
+    var selectDosMateriais = new SelectList(materiais, string.Empty);
+}
+
+<form asp-action="editar" method="POST">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Sku" class="form-label"></label>
+        <input asp-for="Sku" class="form-control" />
+        <span asp-validation-for="Sku" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DataValidade" class="form-label"></label>
+        <input asp-for="DataValidade" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+        <input asp-for="Descricao" class="form-control" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+</form>
