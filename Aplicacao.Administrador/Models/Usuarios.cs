@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace Aplicacao.Administrador.Models
+namespace Aplicacao.Administradores.Models
 {
     public class Usuarios
     {

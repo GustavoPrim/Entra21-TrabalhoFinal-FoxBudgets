@@ -33,6 +33,12 @@ namespace Repositorio.Repositorios
                 .FirstOrDefault();
         }
 
+        public Administrador BuscarPorLogin(string login)
+        {
+           return _contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+
+        }
+
         public Administrador Cadastrar(Administrador administrador)
         {
             _contexto.Administradores.Add(administrador);
