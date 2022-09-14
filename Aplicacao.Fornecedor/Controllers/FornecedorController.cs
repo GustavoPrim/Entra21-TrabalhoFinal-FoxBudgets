@@ -4,7 +4,7 @@ using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
-namespace Aplicacao.Fornecedor.Controllers
+namespace Aplicacao.Administrador.Controllers
 {
     [Route("fornecedor")]
     public class FornecedorController : Controller
@@ -48,7 +48,7 @@ namespace Aplicacao.Fornecedor.Controllers
                 return View(fornecedorCadastrarViewModel);
             }
 
-            _fornecedorServico.Cadastrar(fornecedorCadastrarViewModel);
+            _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel);
             return RedirectToAction("ListarFornecedor");
         }
 
