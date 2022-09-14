@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
+using Repositorio.Enuns;
 
 namespace Repositorio.Mapeamentos
 {
