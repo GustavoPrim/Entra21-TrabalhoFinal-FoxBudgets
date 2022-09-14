@@ -1,10 +1,10 @@
-﻿using Aplicacao.Administradores.Models;
+﻿using Aplicacao.Administrador.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.ViewModels;
 
-namespace Aplicacao.Administradores.Controllers
+namespace Aplicacao.Administrador.Controllers
 {
     public class LoginController : Controller
     {
