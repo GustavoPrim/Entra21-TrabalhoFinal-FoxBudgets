@@ -48,34 +48,26 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("telefone");
 
-            builder.Property(x => x.Categoria)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(20)
-                .IsRequired()
-                .HasColumnName("categoria");
-
             builder.HasData(
                 new Fornecedor
                 {
                     Id = 1,
-                    Nome = "Wolf Tubos e conexões",
-                    Cnpj = "",
-                    DataFundacao = new DateTime(2020, 03, 15),
-                    Endereco = "Rua 2 de Setembro 1890",
-                    Email = "Willljdev@gmail.com",
-                    Telefone = "991599314",
-                    Categoria = AdministradorEnum.MaterialHidraulico.ToString("Material hidráulico")
+                    Nome = "Wolf's Orçamentos",
+                    Cnpj = "12.345.678/0001-99",
+                    DataFundacao = new DateTime(2020, 08, 18),
+                    Endereco = "Rua Dois de Setembro 1895",
+                    Email = "wolfsacessoria@gmail.com",
+                    Telefone = "3381-0987"
                 },
                 new Fornecedor
                 {
                     Id = 2,
-                    Nome = "Materiais de construção VG",
-                    Cnpj = "",
-                    DataFundacao = new DateTime(2019, 09, 18),
+                    Nome = "Budgets VG",
+                    Cnpj = "99.888.777/0001-10",
+                    DataFundacao = new DateTime(2019, 09, 14),
                     Endereco = "Rua Alberto Stein 199",
-                    Email = "budgetsVG@gmail.com",
-                    Telefone = "3381-7700",
-                    Categoria = AdministradorEnum.MaterialBruto.ToString("Material Bruto")
+                    Email = "gugahprm@gmail.com",
+                    Telefone = "991509314"
                 });
         }
     }

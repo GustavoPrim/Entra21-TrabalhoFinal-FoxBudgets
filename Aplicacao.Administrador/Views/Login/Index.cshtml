@@ -1,25 +1,28 @@
-﻿<h2>LOGIN</h2>
+﻿@using Servico.ViewModels
+@model LoginModel
+@{
+	Layout = "_LayoutDeslogado";
+	ViewData["Title"] = "Login";
+}
 
-<form action="/Login/ChecarLogin" method="post">
+if(TempData["MensagemErro"] != null)
+{
+		<div class="alert alert-danger" role="alert">
+			<button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dimiss="alert" aria-label="Close">X</button>
+	@TempData["MensagemErro"]
+		</div>
+}
 
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 text-left">
-            <label for="userId" class="form-label">Usuário</label>
-            <input type="email" class="form-control" name="Email" id="Email" placeHolder="nome@exemplo.com" />
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 text-left">
-            <label for="userPassword" class="form-label" text-left>Senha</label>
-            <input type="password" class="form-control" name="PassWord" id="PassWord" placeHolder="nome@exemplo.com" />
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class=row>
-            <button class="btn btn-primary" type="submit">Entrar</button>
-        </div>
-    </div>
-
+<form asp-controller="Login" asp-action="Entrar" method="post">
+  <div class="mb-3">
+	<label for="login" class="form-label">Login</label>
+	<input type="text" asp-for="Login" class="form-control" id="login" />
+		@Html.ValidationMessageFor(x => x.Login)
+  </div>
+  <div class="mb-3">
+	<label for="Senha" class="form-label">Senha</label>
+	<input type="password" asp-for="Senha" class="form-control" id="senha">
+		@Html.ValidationMessageFor(x => x.Senha)
+  </div>
+  <button type="submit" class="btn btn-primary">Entrar</button>
 </form>
