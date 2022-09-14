@@ -2,9 +2,10 @@
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
-namespace Aplicacao.Administrador.Controllers
+
+namespace Aplicacao.Fornecedores.Controllers
+
 {
     [Route("fornecedor")]
     public class FornecedorController : Controller
@@ -29,6 +30,12 @@ namespace Aplicacao.Administrador.Controllers
             var fornecedores = _fornecedorServico.ObterTodos().ToList();
             return Ok(fornecedores);
         }
+        private List<string> ObterFornecedores()
+        {
+            return Enum.GetNames<AdministradorEnum>()
+                .OrderBy(x => x)
+                .ToList();
+        }
 
         [HttpGet("cadastrarfornecedor")]
         public IActionResult CadastrarFornecedor()
@@ -36,6 +43,7 @@ namespace Aplicacao.Administrador.Controllers
             ViewBag.Fornecedores = ObterFornecedores();
 
             var fornecedorCadastrarViewModel = new FornecedorCadastrarViewModel();
+
             return View(fornecedorCadastrarViewModel);
         }
 
@@ -44,7 +52,7 @@ namespace Aplicacao.Administrador.Controllers
         {
             if (!ModelState.IsValid)
             {
-               ViewBag.Fornecedores = ObterFornecedores();
+                ViewBag.Fornecedores = ObterFornecedores();
                 return View(fornecedorCadastrarViewModel);
             }
 
@@ -63,33 +71,46 @@ namespace Aplicacao.Administrador.Controllers
             return Ok(fornecedor);
         }
 
-        [HttpPost("editar")]
-        public IActionResult Editar([FromBody] FornecedorEditarViewModel viewModel)
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id)
         {
-            var alterar = _fornecedorServico.Editar(viewModel);
+            var fornecedor = _fornecedorServico.ObterPorId(id);
+            var fornecedores = ObterFornecedores();
 
-            if (!alterar)
-                return NotFound();
+            var fornecedorEditarViewModel = new FornecedorEditarViewModel
+            {
+                Id = fornecedor.Id,
+                Nome = fornecedor.Nome,
+                DataFundacao = fornecedor.DataFundacao,
+                Email = fornecedor.Email,
+                Endereco = fornecedor.Endereco,
+                Telefone = fornecedor.Telefone,
+                Cnpj = fornecedor.Cnpj
+            };
+            ViewBag.Fornecedores = fornecedores;
 
-            return Ok();
+            return View(fornecedorEditarViewModel);
+        }
+
+        [HttpPost("editar")]
+        public IActionResult Editar([FromForm] FornecedorEditarViewModel fornecedorEditarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorEditarViewModel);
+            }
+            _fornecedorServico.Editar(fornecedorEditarViewModel);
+            return RedirectToAction("ListarFornecedor");
         }
 
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
-            var apagar = _fornecedorServico.Apagar(id);
-
-            if (!apagar)
-                return NotFound();
-
-            return Ok();
+            _fornecedorServico.Apagar(id);
+            return RedirectToAction("ListarFornecedor");
         }
 
-        private List<string> ObterFornecedores()
-        {
-            return Enum.GetNames<AdministradorEnum>()
-                .OrderBy(x => x)
-                .ToList();
-        }
+        
     }
 }
