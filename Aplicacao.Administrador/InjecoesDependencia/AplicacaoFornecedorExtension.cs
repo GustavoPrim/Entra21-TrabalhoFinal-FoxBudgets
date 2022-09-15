@@ -4,7 +4,7 @@ namespace Aplicacao.Administrador.InjecoesDependencia
 {
     public static class AplicacaoFornecedorExtensions
     {
-        public static IServiceCollection AdicionarNewtonsoftJson(this IServiceCollection services)
+        public static IServiceCollection AdicionarNewtonsoftJson2(this IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson(
                 x => x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
