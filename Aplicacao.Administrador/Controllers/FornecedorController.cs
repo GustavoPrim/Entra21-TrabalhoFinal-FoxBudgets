@@ -3,9 +3,9 @@ using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 
-namespace Aplicacao.Fornecedores.Controllers
+namespace Aplicacao.Administradores.Controllers
 {
-    [Route("fornecedor")]
+    [Route("administradorfornecedor")]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
