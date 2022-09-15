@@ -5,7 +5,7 @@ using Servico.ViewModels.Materiais;
 
 namespace Aplicacao.Administradores.Controllers
 {
-    [Route("materiais")]
+    [Route("material")]
     public class MaterialController : Controller
     {
         private readonly IMaterialService _materialService;
@@ -38,7 +38,7 @@ namespace Aplicacao.Administradores.Controllers
         [HttpGet("cadastrarmateriais")]
         public IActionResult CadastrarMateriais()
         {
-            ViewBag.Fornecedores = ObterMateriais();
+            ViewBag.Materiais = ObterMateriais();
 
             var materialCadastrarViewModel = new MateriaisCadastrarViewModel();
 
