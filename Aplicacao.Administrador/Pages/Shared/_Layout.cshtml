@@ -218,18 +218,29 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Administrador</span></a>
+                            <!-- <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Operações</span></a>-->
+                                <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Cadastros</span></a>
 
-                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Index" class="nav-link">Listar Administradores</a></li>
-                                <li class="nav-item"><a  asp-controller="Administrador" asp-action="Cadastrar"  class="nav-link">Cadastrar administrador</a></li>
-                            </ul>
+                                    <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                
+                                        <li class="nav-item"><a  asp-controller="Administrador" asp-action="Cadastrar"  class="nav-link">Cadastrar administrador</a></li>
+                                        <li class="nav-item"><a  asp-controller="Fornecedor" asp-action="CadastrarFornecedor"  class="nav-link">Cadastrar fornecedor</a></li>
+                                        <li class="nav-item"><a  asp-controller="Material" asp-action="CadastrarMateriais"  class="nav-link">Cadastrar material</a></li>
+                                    </ul>     
+                        </li>
 
-                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                <li class="nav-item"><a asp-controller="Fornecedor" asp-action="ListarFornecedor" class="nav-link">Listar Fornecedores</a></li>
-                                <li class="nav-item"><a  asp-controller="Fornecedor" asp-action="CadastrarFornecedor"  class="nav-link">Cadastrar fornecedor</a></li>
-                                <li class="nav-item"><a  asp-controller="Administrador" asp-action="Sair"  class="nav-link">Sair da conta</a></li>
-                            </ul>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Listas</span></a>
+                                    <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                
+                                        <li class="nav-item"><a asp-controller="Administrador" asp-action="Index" class="nav-link">Listar Administradores</a></li>
+                                        <li class="nav-item"><a asp-controller="Fornecedor" asp-action="ListarFornecedor" class="nav-link">Listar Fornecedores</a></li>
+                                    </ul>
+
+                                    <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                        
+                                        <li class="nav-item"><a  asp-controller="Administrador" asp-action="Sair"  class="nav-link">Sair da conta</a></li>
+                                    </ul>
                         </li>
                         <!-- /layout -->
 

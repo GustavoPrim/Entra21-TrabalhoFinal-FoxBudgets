@@ -1,11 +1,13 @@
 using Aplicacao.Administrador.Help;
 using Aplicacao.Administrador.InjecoesDependencia;
 using Aplicacao.Cliente.InjecoesDependencia;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
+using Repositorio.Repositorios;
 using Servico.InjecoesDependencia;
+using Servico.MapeamentoEntidades;
+using Servico.Servicos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,10 @@ builder.Services
         o.Cookie.IsEssential = true;
     });
 
+
+builder.Services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
 
 var app = builder.Build();
 
