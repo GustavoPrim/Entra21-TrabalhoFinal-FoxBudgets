@@ -1,6 +1,4 @@
-﻿using Repositorio.Enuns;
-
-namespace Repositorio.Entidades
+﻿namespace Repositorio.Entidades
 {
     public class Fornecedor : EntidadeBase
     {

@@ -110,7 +110,5 @@ namespace Aplicacao.Fornecedores.Controllers
             _fornecedorServico.Apagar(id);
             return RedirectToAction("ListarFornecedor");
         }
-
-        
     }
 }
