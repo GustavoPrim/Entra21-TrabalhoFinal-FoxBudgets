@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Repositorio.Entidades
+﻿namespace Repositorio.Entidades
 {
     public class Administrador : EntidadeBase
     {
