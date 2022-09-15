@@ -8,22 +8,22 @@ namespace Servico.Servicos
     public class FornecedorServico : IFornecedorServico
     {
         private readonly IFornecedorReposistorio _fornecedorReposistorio;
-        private readonly IFornecedorMapeamentoEntidade _mapeamento;
+        private readonly IFornecedorMapeamentoEntidade _mapeamentoEntidade;
 
         public FornecedorServico(
             IFornecedorReposistorio fornecedorReposistorio,
-            IFornecedorMapeamentoEntidade mapeamento)
+            IFornecedorMapeamentoEntidade mapeamentoEntidade)
         {
             _fornecedorReposistorio = fornecedorReposistorio;
-            _mapeamento = mapeamento;
+            _mapeamentoEntidade = mapeamentoEntidade;
         }
 
         public bool Apagar(int id) =>
             _fornecedorReposistorio.Apagar(id);
 
-        public Fornecedor Cadastrar(FornecedorCadastrarViewModel viewModel)
+        public Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel)
         {
-            var fornecedor = _mapeamento.ConstruirCom(viewModel);
+            var fornecedor = _mapeamentoEntidade.ConstruirCom(viewModel);
 
             _fornecedorReposistorio.Cadastrar(fornecedor);
 
@@ -37,7 +37,7 @@ namespace Servico.Servicos
             if (fornecedor == null)
                 return false;
 
-            _mapeamento.AtualizarCampos(fornecedor, viewModel);
+            _mapeamentoEntidade.AtualizarCampos(fornecedor, viewModel);
             _fornecedorReposistorio.Editar(fornecedor);
 
             return true;

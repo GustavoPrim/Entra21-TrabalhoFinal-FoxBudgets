@@ -1,16 +1,11 @@
 ﻿using Repositorio.Entidades;
 using Servico.ViewModels.Administradores;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servico.MapeamentoEntidades
 {
     public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
-        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
+        public void AtualizarCom(Adm administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {
             administrador.Nome = administradorEditarViewModel.Nome;
             administrador.Cpf = administradorEditarViewModel.Cpf;
@@ -20,9 +15,9 @@ namespace Servico.MapeamentoEntidades
             administrador.Telefone = administradorEditarViewModel.Telefone;
         }
 
-        public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel)
+        public Adm ConstruirCom(AdministradorCadastrarViewModel viewModel)
         {
-            return new Administrador
+            return new Adm
             {
                 Nome = viewModel.Nome,
                 Telefone = viewModel.Telefone,

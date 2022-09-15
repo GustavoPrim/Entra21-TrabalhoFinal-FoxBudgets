@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
-namespace Aplicacao.Fornecedor.Controllers
+
+namespace Aplicacao.Fornecedores.Controllers
+
 {
     [Route("fornecedor")]
     public class FornecedorController : Controller
@@ -16,9 +18,10 @@ namespace Aplicacao.Fornecedor.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult ListarFornecedor()
         {
-            return View();
+            var fornecedor = _fornecedorServico.ObterTodos();
+            return View("listarfornecedor", fornecedor);
         }
 
         [HttpGet("obterTodos")]
@@ -27,15 +30,34 @@ namespace Aplicacao.Fornecedor.Controllers
             var fornecedores = _fornecedorServico.ObterTodos().ToList();
             return Ok(fornecedores);
         }
+        private List<string> ObterFornecedores()
+        {
+            return Enum.GetNames<AdministradorEnum>()
+                .OrderBy(x => x)
+                .ToList();
+        }
 
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromBody] FornecedorCadastrarViewModel viewModel)
+        [HttpGet("cadastrarfornecedor")]
+        public IActionResult CadastrarFornecedor()
+        {
+            ViewBag.Fornecedores = ObterFornecedores();
+
+            var fornecedorCadastrarViewModel = new FornecedorCadastrarViewModel();
+
+            return View(fornecedorCadastrarViewModel);
+        }
+
+        [HttpPost("cadastrarfornecedor")]
+        public IActionResult CadastrarFornecedor([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorCadastrarViewModel);
+            }
 
-            var fornecedor = _fornecedorServico.Cadastrar(viewModel);
-            return Ok(fornecedor);
+            _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel);
+            return RedirectToAction("ListarFornecedor");
         }
 
         [HttpGet("obterPorId")]
@@ -49,26 +71,44 @@ namespace Aplicacao.Fornecedor.Controllers
             return Ok(fornecedor);
         }
 
-        [HttpPost("editar")]
-        public IActionResult Editar([FromBody] FornecedorEditarViewModel viewModel)
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id)
         {
-            var alterar = _fornecedorServico.Editar(viewModel);
+            var fornecedor = _fornecedorServico.ObterPorId(id);
+            var fornecedores = ObterFornecedores();
 
-            if (!alterar)
-                return NotFound();
+            var fornecedorEditarViewModel = new FornecedorEditarViewModel
+            {
+                Id = fornecedor.Id,
+                Nome = fornecedor.Nome,
+                DataFundacao = fornecedor.DataFundacao,
+                Email = fornecedor.Email,
+                Endereco = fornecedor.Endereco,
+                Telefone = fornecedor.Telefone,
+                Cnpj = fornecedor.Cnpj
+            };
+            ViewBag.Fornecedores = fornecedores;
 
-            return Ok();
+            return View(fornecedorEditarViewModel);
+        }
+
+        [HttpPost("editar")]
+        public IActionResult Editar([FromForm] FornecedorEditarViewModel fornecedorEditarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorEditarViewModel);
+            }
+            _fornecedorServico.Editar(fornecedorEditarViewModel);
+            return RedirectToAction("ListarFornecedor");
         }
 
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
-            var apagar = _fornecedorServico.Apagar(id);
-
-            if (!apagar)
-                return NotFound();
-
-            return Ok();
+            _fornecedorServico.Apagar(id);
+            return RedirectToAction("ListarFornecedor");
         }
     }
 }

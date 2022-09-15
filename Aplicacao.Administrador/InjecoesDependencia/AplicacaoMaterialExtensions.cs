@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Aplicacao.Fornecedor.InjecoesDependencia
+namespace Aplicacao.Administrador.InjecoesDependencia
 {
-    public static class AplicacaoExtensions
+    public static class AplicacaoMaterialExtensions
     {
         public static IServiceCollection AdicionarNewtonsoftJson(this IServiceCollection services)
         {
