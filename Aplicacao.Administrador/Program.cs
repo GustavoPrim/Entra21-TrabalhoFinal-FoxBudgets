@@ -20,6 +20,10 @@ builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEn
 builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
 builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
 
+builder.Services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
+
 var app = builder.Build();
 
 

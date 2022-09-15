@@ -21,15 +21,15 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _materialRepositorio.Apagar(id);
 
-        public Material Cadastrar(MateriaisCadastrarViewModel viewModel)
+        public Material CadastrarMateriais(MateriaisCadastrarViewModel viewModel)
         {
             var material = _materialMapeamento.ConstruirCom(viewModel);
 
-            _materialRepositorio.Cadastrar(material);
+            _materialRepositorio.CadastrarMateriais(material);
             return material;
         }
 
-        public bool Editar(MateriaisEditarViewModel viewModel)
+        public bool EditarMateriais(MateriaisEditarViewModel viewModel)
         {
             var material = _materialRepositorio.ObterPorId(viewModel.Id);
 
@@ -37,7 +37,7 @@ namespace Servico.Servicos
                 return false;
 
             _materialMapeamento.AtualizarCom(material, viewModel);
-            _materialRepositorio.Editar(material);
+            _materialRepositorio.EditarMateriais(material);
             return true;
         }
 

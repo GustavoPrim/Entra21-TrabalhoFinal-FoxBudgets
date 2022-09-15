@@ -5,8 +5,8 @@ namespace Repositorio.Repositorios
     public interface IMaterialRepositorio
     {
         bool Apagar(int id);
-        Material Cadastrar(Material material);
-        void Editar(Material material);
+        Material CadastrarMateriais(Material material);
+        void EditarMateriais(Material material);
         Material? ObterPorId(int id);
         IList<Material> ObterTodos();
     }
