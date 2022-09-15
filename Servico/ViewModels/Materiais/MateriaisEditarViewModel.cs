@@ -1,6 +1,7 @@
-﻿namespace Servico.ViewModels.Materiais;
-
-public class MateriaisEditarViewModel : MateriaisViewModel
+namespace Servico.ViewModels.Materiais
 {
-    public int Id { get; set; }
+    public class MateriaisEditarViewModel : MateriaisCadastrarViewModel
+    {
+        public int Id { get; set; }
+    }
 }
