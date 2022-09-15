@@ -35,6 +35,7 @@ builder.Services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntida
 builder.Services.AddScoped<IMaterialService, MaterialService>();
 builder.Services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
 
+
 var app = builder.Build();
 
 
