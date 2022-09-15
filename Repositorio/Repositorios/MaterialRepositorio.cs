@@ -26,7 +26,7 @@ namespace Repositorio.Repositorios
             return true;
         }
 
-        public Material Cadastrar(Material material)
+        public Material CadastrarMateriais(Material material)
         {
             _contexto.Materiais.Add(material);
             _contexto.SaveChanges();
@@ -34,7 +34,7 @@ namespace Repositorio.Repositorios
             return material;
         }
 
-        public void Editar(Material material)
+        public void EditarMateriais(Material material)
         {
             _contexto.Materiais.Update(material);
             _contexto.SaveChanges();

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Materiais;
 
-namespace Aplicacao.Administrador.Controllers
+namespace Aplicacao.Administradores.Controllers
 {
+    [Route("materiais")]
     public class MaterialController : Controller
     {
         private readonly IMaterialService _materialService;
@@ -26,15 +28,34 @@ namespace Aplicacao.Administrador.Controllers
             var materiais = _materialService.ObterTodos().ToList();
             return Ok(materiais);
         }
+        private List<string> ObterMateriais()
+        {
+            return Enum.GetNames<AdministradorEnum>()
+                .OrderBy(x => x)
+                .ToList();
+        }
 
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromBody] MateriaisCadastrarViewModel cadastrarViewModel)
+        [HttpGet("cadastrarmateriais")]
+        public IActionResult CadastrarMateriais()
+        {
+            ViewBag.Fornecedores = ObterMateriais();
+
+            var materialCadastrarViewModel = new MateriaisCadastrarViewModel();
+
+            return View(materialCadastrarViewModel);
+        }
+
+        [HttpPost("cadastrarmateriais")]
+        public IActionResult CadastrarMateriais([FromForm] MateriaisCadastrarViewModel cadastrarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
+            {
+                ViewBag.Materiais = ObterMateriais();
+                return View(cadastrarViewModel);
+            }
 
-            var material = _materialService.Cadastrar(cadastrarViewModel);
-            return Ok(material);
+            _materialService.CadastrarMateriais(cadastrarViewModel);
+            return RedirectToAction("ListarMateriais");
         }
 
         [HttpGet("obterPorId")]
@@ -48,15 +69,35 @@ namespace Aplicacao.Administrador.Controllers
             return Ok(material);
         }
 
-        [HttpPost("editar")]
-        public IActionResult Editar([FromBody] MateriaisEditarViewModel editarViewModel)
+        [HttpGet("editarmateriais")]
+        public IActionResult EditarMateriais([FromQuery] int id)
         {
-            var alterou = _materialService.Editar(editarViewModel);
+            var material = _materialService.ObterPorId(id);
+            var materiais = ObterMateriais();
 
-            if(!alterou)
-                return NotFound();
+            var fornecedorEditarViewModel = new MateriaisEditarViewModel
+            {
+                Id = material.Id,
+                Nome = material.Nome,
+                Sku = material.Sku,
+                DataValidade = material.DataValidade,
+                Descricao = material.Descricao,
+            };
+            ViewBag.Materiais = materiais;
 
-            return Ok();
+            return View(fornecedorEditarViewModel);
+        }
+
+        [HttpPost("editarmateriais")]
+        public IActionResult EditarMateriais([FromForm] MateriaisEditarViewModel editarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Materiais = ObterMateriais();
+                return View(editarViewModel);
+            }
+            _materialService.EditarMateriais(editarViewModel);
+            return RedirectToAction("ListarFornecedor");
         }
 
         [HttpGet("apagar")]
@@ -69,5 +110,6 @@ namespace Aplicacao.Administrador.Controllers
 
             return Ok();
         }
+
     }
 }

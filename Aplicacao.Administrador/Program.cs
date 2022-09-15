@@ -29,6 +29,10 @@ builder.Services
     });
 
 
+builder.Services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
+
 var app = builder.Build();
 
 

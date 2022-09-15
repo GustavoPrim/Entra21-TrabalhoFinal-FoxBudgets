@@ -3,7 +3,7 @@ using Servico.ViewModels.Materiais;
 
 namespace Servico.MapeamentoEntidades
 {
-    internal class MaterialMapeamentoEntidade : IMaterialMapeamentoEntidade
+    public class MaterialMapeamentoEntidade : IMaterialMapeamentoEntidade
     {
         public void AtualizarCom(Material material, MateriaisEditarViewModel viewModel)
         {
