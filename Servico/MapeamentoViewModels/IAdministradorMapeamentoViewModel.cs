@@ -5,6 +5,6 @@ namespace Servico.MapeamentoViewModels
 {
     public interface IAdministradorMapeamentoViewModel
     {
-        AdministradorEditarViewModel ConstruirCom(Administrador administrador);
+        AdministradorEditarViewModel ConstruirCom(Adm administrador);
     }
 }
