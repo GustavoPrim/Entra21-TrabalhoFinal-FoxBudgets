@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.Materiais;
-public class MateriaisViewModel
+public class MateriaisCadastrarViewModel
 {
     [Display(Name = nameof(Nome))]
     [Required(ErrorMessage = "{0} deve ser preenchido")]

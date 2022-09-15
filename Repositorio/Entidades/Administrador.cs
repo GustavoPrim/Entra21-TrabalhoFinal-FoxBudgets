@@ -1,4 +1,6 @@
-﻿namespace Repositorio.Entidades
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Repositorio.Entidades
 {
     public class Adm : EntidadeBase
     {
