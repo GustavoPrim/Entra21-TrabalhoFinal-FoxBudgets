@@ -1,4 +1,4 @@
-﻿namespace Servico.ViewModels.Materiais
+namespace Servico.ViewModels.Materiais
 {
     public class MateriaisEditarViewModel : MateriaisCadastrarViewModel
     {

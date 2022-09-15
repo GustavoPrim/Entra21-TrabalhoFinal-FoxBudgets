@@ -1,11 +1,14 @@
-﻿@model MateriaisCadastrarViewModel
+﻿@model MateriaisEditarViewModel
 @{
-    var materiais = ViewBag.Materiais as List<string>;
+    var materiais = ViewBag.Matreriais as List<string>;
     materiais.Add(string.Empty);
 
     var selectDosMateriais = new SelectList(materiais, string.Empty);
 }
-<form asp-action="cadastrarmaterial" method="POST">
+
+<form asp-action="editar" method="POST">
+    <input type="hidden" asp-for="Id" />
+
     <div>
         <label asp-for="Nome" class="form-label"></label>
         <input asp-for="Nome" class="form-control" />
