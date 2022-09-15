@@ -21,7 +21,7 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _administradorRepositorio.Apagar(id);
 
-        public Administrador Cadastrar(AdministradorCadastrarViewModel viewModel)
+        public Adm Cadastrar(AdministradorCadastrarViewModel viewModel)
         {
             var administrador = _mapeamentoEntidade.ConstruirCom(viewModel);
 
@@ -42,10 +42,10 @@ namespace Servico.Servicos
             return true;
         }
 
-        public Administrador? ObterPorId(int id) =>
+        public Adm? ObterPorId(int id) =>
             _administradorRepositorio.ObterPorId(id);
 
-        public IList<Administrador> ObterTodos() =>
+        public IList<Adm> ObterTodos() =>
             _administradorRepositorio.ObterTodos();
     }
 }

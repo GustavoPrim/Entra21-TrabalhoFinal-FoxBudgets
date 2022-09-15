@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Administrador.Help;
+using Microsoft.AspNetCore.Mvc;
+using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.ViewModels;
 
@@ -7,15 +9,29 @@ namespace Aplicacao.Administradores.Controllers
     public class LoginController : Controller
     {
         private readonly IAdministradorRepositorio _usuarioRepositorio;
-        public LoginController(IAdministradorRepositorio usuarioRepositorio)
+        private readonly ISessao _sessao;
+        public LoginController(IAdministradorRepositorio usuarioRepositorio,
+                                ISessao sessao)
         {
-
+            _usuarioRepositorio = usuarioRepositorio;
+            _sessao = sessao;
         }
         public IActionResult Index()
         {
+            if (_sessao.BuscarSessaoUsuario() != null)
+                return RedirectToAction("index", "Home");
+
 
             return View();
         }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoUsuario();
+
+            return RedirectToAction("Index", "Login");
+        }
+
         [HttpPost]
         public IActionResult Entrar(LoginModel loginModel)
         {
@@ -23,12 +39,15 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var administrador = _usuarioRepositorio.BuscarPorLogin(loginModel.Login); //Verificar com Efraim questão de consulta no banco de dados
+                    Adm administrador = _usuarioRepositorio.BuscarPorLogin(loginModel.Login); //Verificar com Efraim questão de consulta no banco de dados
 
                     if (administrador != null)
                     {
-                        if(administrador.SenhaValida(loginModel.Senha))
-                        return RedirectToAction("Index", "Home");
+                        if (administrador.SenhaValida(loginModel.Senha))
+                        {
+                            _sessao.CriarSessaoUsuario(administrador);
+                            return RedirectToAction("Index", "Home");
+                        }
 
 
                         TempData["MensagemErro"] = $"Senha do usuário é invalida, tente novamente!";

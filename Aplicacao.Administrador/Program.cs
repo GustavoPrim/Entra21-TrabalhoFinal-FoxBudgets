@@ -1,24 +1,33 @@
+using Aplicacao.Administrador.Help;
+using Aplicacao.Administrador.InjecoesDependencia;
+using Aplicacao.Cliente.InjecoesDependencia;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Repositorio.BancoDados;
-using Repositorio.Repositorios;
-using Servico.MapeamentoEntidades;
-using Servico.Servicos;
+using Repositorio.InjecoesDependencia;
+using Servico.InjecoesDependencia;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<OrcamentoContexto>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services
+    .AdicionarServicos()
+    .AdicionarRepositorios()
+    .AdicionarMapeamentoEntidades()
+    .AdicionarNewtonsoftJson()
+    .AdicionarNewtonsoftJson1()
+    .AdicionarNewtonsoftJson2()
+    .AdicionarEntityFramework(builder.Configuration)
+    .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+    .AddScoped<ISessao, Sessao>()
+    .AddSession(o =>
+    {
+        o.Cookie.HttpOnly = true;
+        o.Cookie.IsEssential = true;
+    });
 
-builder.Services.AddScoped<IAdministradorMapeamentoEntidade, AdministradorMapeamentoEntidade>();
-builder.Services.AddScoped<IAdministradorServico, AdministradorServico>();
-builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
-
-builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
-builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
-builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
 
 var app = builder.Build();
 
@@ -45,6 +54,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthorization();
 
 app.UseAuthorization();
 
