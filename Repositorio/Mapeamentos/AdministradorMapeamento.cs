@@ -4,9 +4,9 @@ using Repositorio.Entidades;
 
 namespace Repositorio.Mapeamentos
 {
-    public class AdministradorMapeamento : IEntityTypeConfiguration<Adm>
+    public class AdministradorMapeamento : IEntityTypeConfiguration<Administrador>
     {
-        public void Configure(EntityTypeBuilder<Adm> builder)
+        public void Configure(EntityTypeBuilder<Administrador> builder)
         {
             builder.ToTable("administradores");
 
@@ -48,7 +48,7 @@ namespace Repositorio.Mapeamentos
                 .HasColumnName("telefone");
 
             builder.HasData(
-                new Adm
+                new Administrador
                 {
                     Id = 1,
                     Nome = "Gustavo Prim",
@@ -58,7 +58,7 @@ namespace Repositorio.Mapeamentos
                     Email = "gugahprm@gmail.com",
                     Telefone = "992499565"
                 },
-                new Adm
+                new Administrador
                 {
                     Id = 2,
                     Nome = "Lucas Alves",

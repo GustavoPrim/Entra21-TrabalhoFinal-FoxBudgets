@@ -1,37 +1,37 @@
-﻿using Newtonsoft.Json;
-using Repositorio.Entidades;
+﻿//using Newtonsoft.Json;
+//using Repositorio.Entidades;
 
-namespace Aplicacao.Administrador.Help
-{
-    public class Sessao : ISessao
-    {
-        private readonly IHttpContextAccessor _httpContext;
+//namespace Aplicacao.Administrador.Help
+//{
+//    public class Sessao : ISessao
+//    {
+//        private readonly IHttpContextAccessor _httpContext;
 
-        public Sessao(IHttpContextAccessor httpContext)
-        {
-            _httpContext = httpContext;
-        }
+//        public Sessao(IHttpContextAccessor httpContext)
+//        {
+//            _httpContext = httpContext;
+//        }
 
-        public Adm BuscarSessaoUsuario()
-        {
-            string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
+//        public Repositorio.Entidades.Administrador BuscarSessaoUsuario()
+//        {
+//            string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
 
-            if (string.IsNullOrEmpty(sessaoUsuario))
-                return null;
+//            if (string.IsNullOrEmpty(sessaoUsuario))
+//                return null;
 
-            return JsonConvert.DeserializeObject<Adm>(sessaoUsuario);
-        }
+//            return JsonConvert.DeserializeObject<Repositorio.Entidades.Administrador>(sessaoUsuario);
+//        }
 
-        public void CriarSessaoUsuario(Adm usuarioModel)
-        {
-            string valor = JsonConvert.SerializeObject(usuarioModel);
+//        public void CriarSessaoUsuario(Repositorio.Entidades.Administrador usuarioModel)
+//        {
+//            string valor = JsonConvert.SerializeObject(usuarioModel);
 
-            _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado", valor);
-        }
+//            _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado", valor);
+//        }
 
-        public void RemoverSessaoUsuario()
-        {
-            _httpContext.HttpContext.Session.Remove("sessaoUsuarioLogado");
-        }
-    }
-}
+//        public void RemoverSessaoUsuario()
+//        {
+//            _httpContext.HttpContext.Session.Remove("sessaoUsuarioLogado");
+//        }
+//    }
+//}
