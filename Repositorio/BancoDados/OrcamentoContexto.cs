@@ -6,7 +6,7 @@ namespace Repositorio.BancoDados
 {
     public class OrcamentoContexto : DbContext
     {
-        public DbSet<Administrador> Administradores { get; set; }
+        public DbSet<Adm> Administradores { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Material> Materiais { get; set; }
