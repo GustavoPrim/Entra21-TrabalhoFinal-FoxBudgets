@@ -1,13 +1,12 @@
 using Aplicacao.Administrador.Help;
 using Aplicacao.Administrador.InjecoesDependencia;
 using Aplicacao.Cliente.InjecoesDependencia;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
-using Repositorio.Repositorios;
 using Servico.InjecoesDependencia;
-using Servico.MapeamentoEntidades;
-using Servico.Servicos;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,15 +29,15 @@ builder.Services
         o.Cookie.IsEssential = true;
     });
 
-
-builder.Services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
-builder.Services.AddScoped<IMaterialService, MaterialService>();
-builder.Services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
-
-
 var app = builder.Build();
 
-
+var supportedCultures = new[] { new CultureInfo("pt-BR") };
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
 
 using (var scopo = app.Services.CreateScope())
 {
@@ -55,14 +54,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
 
 app.UseAuthorization();
 
@@ -74,6 +70,5 @@ app.UseEndpoints(endpoint =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-
 
 app.Run();

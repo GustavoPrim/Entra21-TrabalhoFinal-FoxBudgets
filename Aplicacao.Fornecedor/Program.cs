@@ -12,21 +12,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<OrcamentoContexto>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
-
 builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
 builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
 builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
 
 var app = builder.Build();
-
-
-
-using (var scopo = app.Services.CreateScope())
-{
-    var contexto = scopo.ServiceProvider
-        .GetService<OrcamentoContexto>();
-    contexto.Database.Migrate();
-}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -36,9 +26,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -53,6 +42,5 @@ app.UseEndpoints(endpoint =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-
 
 app.Run();
