@@ -17,6 +17,10 @@ builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEn
 builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
 builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
 
+builder.Services.AddScoped<IAdministradorMapeamentoEntidade, AdministradorMapeamentoEntidade>();
+builder.Services.AddScoped<IAdministradorServico, AdministradorServico>();
+builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
+
 var app = builder.Build();
 
 
