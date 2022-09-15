@@ -42,7 +42,8 @@ namespace Repositorio.Repositorios
         }
 
         public Fornecedor? ObterPorId(int id) =>
-            _contexto.Fornecedores.Where(x => x.Id == id)
+            _contexto.Fornecedores
+            .Where(x => x.Id == id)
             .FirstOrDefault();
 
         public IList<Fornecedor> ObterTodos() =>
