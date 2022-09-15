@@ -11,8 +11,9 @@ namespace Repositorio.InjecoesDependencia
         public static IServiceCollection AdicionarRepositorios(this IServiceCollection services)
         {
             services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
-            services.AddScoped<IClienteRepositorio, IClienteRepositorio>();
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
+            services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
 
             return services;
         }

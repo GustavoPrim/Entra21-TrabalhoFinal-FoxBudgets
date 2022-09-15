@@ -11,6 +11,7 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IAdministradorServico, AdministradorServico>();
             services.AddScoped<IFornecedorServico, FornecedorServico>();
+            services.AddScoped<IMaterialService, MaterialService>();
 
             return services;
         }
@@ -20,6 +21,7 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IClienteMapeamentoEntidade, ClienteMapeamentoEntidade>();
             services.AddScoped<IAdministradorMapeamentoEntidade, AdministradorMapeamentoEntidade>();
             services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
+            services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
 
             return services;
         }
