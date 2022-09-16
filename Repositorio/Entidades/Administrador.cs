@@ -10,9 +10,9 @@ namespace Repositorio.Entidades
         public string Email { get; set; }
         public string Telefone { get; set; }
 
-        ////[Required(ErrorMessage = "Digite o login")]
+        //[Required(ErrorMessage = "Digite o login")]
         //public string? Login { get; set; }
-        ////[Required(ErrorMessage = "Digite a senha")]
+        //[Required(ErrorMessage = "Digite a senha")]
         //public string? Senha { get; set; }
         public IList<Administrador> Administradores { get; set; }
 

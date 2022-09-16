@@ -3,9 +3,11 @@ using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 
-namespace Aplicacao.Administradores.Controllers
+
+namespace Aplicacao.Fornecedores.Controllers
+
 {
-    [Route("administradorfornecedor")]
+    [Route("fornecedor")]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
@@ -25,7 +27,7 @@ namespace Aplicacao.Administradores.Controllers
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
         {
-            var fornecedores = _fornecedorServico.ObterTodos();
+            var fornecedores = _fornecedorServico.ObterTodos().ToList();
             return Ok(fornecedores);
         }
         private List<string> ObterFornecedores()
@@ -83,8 +85,7 @@ namespace Aplicacao.Administradores.Controllers
                 Email = fornecedor.Email,
                 Endereco = fornecedor.Endereco,
                 Telefone = fornecedor.Telefone,
-                Cnpj = fornecedor.Cnpj,
-                Categoria = fornecedor.Categoria,
+                Cnpj = fornecedor.Cnpj
             };
             ViewBag.Fornecedores = fornecedores;
 
@@ -109,7 +110,5 @@ namespace Aplicacao.Administradores.Controllers
             _fornecedorServico.Apagar(id);
             return RedirectToAction("ListarFornecedor");
         }
-
-        
     }
 }

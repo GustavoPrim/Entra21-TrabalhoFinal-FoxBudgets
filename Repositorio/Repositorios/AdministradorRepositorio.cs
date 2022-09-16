@@ -53,7 +53,7 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public Administrador ObterPorId(int id) =>
+        public Administrador? ObterPorId(int id) =>
             _contexto.Administradores
             .Include(x => x.Administradores)
             .FirstOrDefault(x => x.Id == id);
