@@ -1,3 +1,4 @@
+using Aplicacao.Administrador.Help;
 using Aplicacao.Administrador.InjecoesDependencia;
 using Aplicacao.Cliente.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
@@ -20,13 +21,9 @@ builder.Services
     .AdicionarNewtonsoftJson1()
     .AdicionarNewtonsoftJson2()
     .AdicionarEntityFramework(builder.Configuration)
-    .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-    //.AddScoped<ISessao, Sessao>()
-    //.AddSession(o =>
-    //{
-    //    o.Cookie.HttpOnly = true;
-    //    o.Cookie.IsEssential = true;
-    //});
+    .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+    .AddScoped<ISessao, Sessao>();
+  
 
 var app = builder.Build();
 

@@ -82,7 +82,9 @@ namespace Repositorio.Migrations
                             Email = "gugahprm@gmail.com",
                             Endereco = "Rua Julio Michel 1130",
                             Nome = "Gustavo Prim",
-                            Telefone = "992499565"
+                            Telefone = "992499565",
+                            Login = "guga",
+                            Senha = "1234"
                         },
                         new
                         {
@@ -92,7 +94,9 @@ namespace Repositorio.Migrations
                             Email = "lucasalves@gmail.com",
                             Endereco = "Rua Água Branca 1234",
                             Nome = "Lucas Alves",
-                            Telefone = "992460586"
+                            Telefone = "992460586",
+                            Login = "Lucas",
+                            Senha = "1234"
                         });
                 });
 

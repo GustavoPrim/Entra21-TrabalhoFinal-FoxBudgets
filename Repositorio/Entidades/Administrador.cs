@@ -11,14 +11,14 @@ namespace Repositorio.Entidades
         public string Telefone { get; set; }
 
         //[Required(ErrorMessage = "Digite o login")]
-        //public string? Login { get; set; }
+        public string? Login { get; set; }
         //[Required(ErrorMessage = "Digite a senha")]
-        //public string? Senha { get; set; }
+        public string? Senha { get; set; }
         public IList<Administrador> Administradores { get; set; }
 
-        //public bool SenhaValida(string senha)
-        //{
-        //    return Senha == senha;
-        //}
+        public bool SenhaValida(string senha)
+        {
+            return Senha == senha;
+        }
     }
 }

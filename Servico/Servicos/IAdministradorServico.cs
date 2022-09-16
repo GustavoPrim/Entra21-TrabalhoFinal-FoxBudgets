@@ -5,6 +5,7 @@ namespace Servico.Servicos
 {
     public interface IAdministradorServico
     {
+        Administrador BuscarPorLogin(string login);
         Administrador Cadastrar(AdministradorCadastrarViewModel viewModel);
         bool Editar(AdministradorEditarViewModel viewModel);
         bool Apagar(int id);
