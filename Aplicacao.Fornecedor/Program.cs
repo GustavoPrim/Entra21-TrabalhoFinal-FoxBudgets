@@ -1,26 +1,48 @@
+using Aplicacao.Fornecedor.InjecoesDependencia;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Repositorio.BancoDados;
-using Repositorio.Repositorios;
-using Servico.MapeamentoEntidades;
-using Servico.Servicos;
+using Repositorio.InjecoesDependencia;
+using Servico.InjecoesDependencia;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<OrcamentoContexto>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
-
-builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
-builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
-builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
-
-builder.Services.AddScoped<IAdministradorMapeamentoEntidade, AdministradorMapeamentoEntidade>();
-builder.Services.AddScoped<IAdministradorServico, AdministradorServico>();
-builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
+builder.Services
+    .AdicionarServicos()
+    .AdicionarRepositorios()
+    .AdicionarMapeamentoEntidades()
+    .AdicionarNewtonsoftJson()
+    .AdicionarNewtonsoftJson()
+    .AdicionarNewtonsoftJson()
+    .AdicionarEntityFramework(builder.Configuration)
+    .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+//.AddScoped<ISessao, Sessao>()
+//.AddSession(o =>
+//{
+//    o.Cookie.HttpOnly = true;
+//    o.Cookie.IsEssential = true;
+//});
 
 var app = builder.Build();
+
+var supportedCultures = new[] { new CultureInfo("pt-BR") };
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
+
+using (var scopo = app.Services.CreateScope())
+{
+    var contexto = scopo.ServiceProvider
+        .GetService<OrcamentoContexto>();
+    contexto.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
