@@ -10,6 +10,7 @@ namespace Repositorio.BancoDados
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Material> Materiais { get; set; }
+        public DbSet<Estoque> Estoque { get; set; }
 
         public OrcamentoContexto(
             DbContextOptions<OrcamentoContexto> options)
