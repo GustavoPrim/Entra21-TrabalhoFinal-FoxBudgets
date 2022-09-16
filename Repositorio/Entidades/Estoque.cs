@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repositorio.Entidades
+﻿namespace Repositorio.Entidades
 {
-    internal class Estoque
+    public class Estoque : EntidadeBase
     {
+        public double Valor { get; set; }
+        public int Quantidade { get; set; }
+        public IList<Estoque> Estoques { get; set; }
     }
 }

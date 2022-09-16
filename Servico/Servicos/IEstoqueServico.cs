@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Repositorio.Entidades;
+using Servico.ViewModels.Estoque;
 
 namespace Servico.Servicos
 {
-    internal interface IEstoqueServico
+    public interface IEstoqueServico
     {
+        Estoque CadastrarValor(EstoqueCadastrarViewModel viewModel);
+        bool Editar(EstoqueEditarViewModel viewModel);
+        bool Apagar(int id);
+        Estoque? ObterPorId(int id);
+        IList<Estoque> ObterTodos();
     }
 }

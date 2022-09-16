@@ -93,7 +93,7 @@ namespace Aplicacao.Cliente.Controllers
         }
         private List<string> ObterClientes()
         {
-            return Enum.GetNames<FornecedorEnum>()
+            return Enum.GetNames<AdministradorEnum>()
                 .OrderBy(x => x)
                 .ToList();
         }
