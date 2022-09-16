@@ -33,6 +33,12 @@ namespace Repositorio.Repositorios
                 .FirstOrDefault();
         }
 
+        //public Administrador BuscarPorLogin(string login)
+        //{
+        //   return _contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+
+        //}
+
         public Administrador Cadastrar(Administrador administrador)
         {
             _contexto.Administradores.Add(administrador);
@@ -47,7 +53,7 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public Administrador ObterPorId(int id) =>
+        public Administrador? ObterPorId(int id) =>
             _contexto.Administradores
             .Include(x => x.Administradores)
             .FirstOrDefault(x => x.Id == id);

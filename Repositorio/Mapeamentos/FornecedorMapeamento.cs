@@ -10,7 +10,7 @@ namespace Repositorio.Mapeamentos
         {
             builder.ToTable("fornecedores");
 
-            builder.HasKey(x => x.Id).HasName("id");
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome)
                 .HasColumnType("VARCHAR")
@@ -24,17 +24,28 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("cnpj");
 
+            builder.Property(x => x.DataFundacao)
+                .HasColumnType("DATETIME2")
+                .IsRequired()
+                .HasColumnName("dataFundacao");
+
             builder.Property(x => x.Endereco)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(50)
                 .IsRequired()
                 .HasColumnName("endereco");
 
-            builder.Property(x => x.DataFundacao)
-                .HasColumnType("DATETIME2")
-                .HasMaxLength(8)
+            builder.Property(x => x.Email)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(25)
                 .IsRequired()
-                .HasColumnName("dataFundacao");
+                .HasColumnName("email");
+
+            builder.Property(X => X.Telefone)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(50)
+                .IsRequired()
+                .HasColumnName("telefone");
 
             builder.Property(x => x.Categoria)
                 .HasColumnType("VARCHAR")
@@ -42,11 +53,29 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("categoria");
 
-            builder.Property(x => x.Email)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(25)
-                .IsRequired()
-                .HasColumnName("email");
+            //builder.HasData(
+            //    new Fornecedor
+            //    {
+            //        Id = 1,
+            //        Nome = "Wolf Tubos e conexões",
+            //        Cnpj = "",
+            //        DataFundacao = new DateTime(2020, 03, 15),
+            //        Endereco = "Rua 2 de Setembro 1890",
+            //        Email = "Willljdev@gmail.com",
+            //        Telefone = "991599314",
+            //        Categoria = AdministradorEnum.MaterialHidraulico.ToString("Material hidráulico")
+            //    },
+            //    new Fornecedor
+            //    {
+            //        Id = 2,
+            //        Nome = "Materiais de construção VG",
+            //        Cnpj = "",
+            //        DataFundacao = new DateTime(2019, 09, 18),
+            //        Endereco = "Rua Alberto Stein 199",
+            //        Email = "budgetsVG@gmail.com",
+            //        Telefone = "3381-7700",
+            //        Categoria = AdministradorEnum.MaterialBruto.ToString("Material Bruto")
+            //    });
         }
     }
 }

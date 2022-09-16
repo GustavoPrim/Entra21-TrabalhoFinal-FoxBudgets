@@ -1,5 +1,6 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
+using System.Data.Entity;
 
 namespace Repositorio.Repositorios
 {
@@ -41,11 +42,14 @@ namespace Repositorio.Repositorios
                 .FirstOrDefault();
         }
 
-        public Fornecedor ObterPorId(int id) =>
-            _contexto.Fornecedores.Where(x => x.Id == id)
+        public Fornecedor? ObterPorId(int id) =>
+            _contexto.Fornecedores
+            .Where(x => x.Id == id)
             .FirstOrDefault();
 
         public IList<Fornecedor> ObterTodos() =>
-            _contexto.Fornecedores.ToList();
+            _contexto.Fornecedores
+            .Include(x => x.Fornecedores)
+            .ToList();
     }
 }

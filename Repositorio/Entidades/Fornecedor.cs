@@ -8,7 +8,6 @@
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Categoria { get; set; }
-
-        public Material Material { get; set; }
+        public IList<Fornecedor> Fornecedores { get; set; }
     }
 }

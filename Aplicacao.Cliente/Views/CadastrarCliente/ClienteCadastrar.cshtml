@@ -1,2 +1,60 @@
-﻿@{
+﻿@using Servico.ViewModels.Clientes
+@model ClienteViewModel
+
+@{
+    var clientes = ViewBag.Clientes as List<string>;
+    clientes.Add(string.Empty);
+
+    var selectDosFornecedores = new SelectList(clientes, string.Empty);
 }
+<p class="h3">Cadastro de Clientes</p>
+<form asp-action="cadastrar" method="POST">
+
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Cpf" class="form-label"></label>
+        <input asp-for="Cpf" class="form-control" />
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DataNascimento" class="form-label"></label>
+        <input asp-for="DataNascimento" class="form-control" />
+        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Endereco" class="form-label"></label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telefone" class="form-label"></label>
+        <input asp-for="Telefone" class="form-control" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Crea" class="form-label"></label>
+        <input asp-for="Crea" class="form-control" />
+        <span asp-validation-for="Crea" class="text-danger"></span>
+    </div>
+
+    <div class="text-end">
+        <a href="/cliente" class="btn btn-outline-danger">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+
+</form>
