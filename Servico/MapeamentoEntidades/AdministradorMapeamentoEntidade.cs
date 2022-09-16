@@ -5,7 +5,7 @@ namespace Servico.MapeamentoEntidades
 {
     public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
-        public void AtualizarCom(Adm administrador, AdministradorEditarViewModel administradorEditarViewModel)
+        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {
             administrador.Nome = administradorEditarViewModel.Nome;
             administrador.Cpf = administradorEditarViewModel.Cpf;
@@ -15,9 +15,9 @@ namespace Servico.MapeamentoEntidades
             administrador.Telefone = administradorEditarViewModel.Telefone;
         }
 
-        public Adm ConstruirCom(AdministradorCadastrarViewModel viewModel)
+        public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel)
         {
-            return new Adm
+            return new Administrador
             {
                 Nome = viewModel.Nome,
                 Telefone = viewModel.Telefone,

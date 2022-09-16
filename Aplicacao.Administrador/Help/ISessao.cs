@@ -1,11 +1,11 @@
-﻿using Repositorio.Entidades;
+﻿//using Repositorio.Entidades;
 
-namespace Aplicacao.Administrador.Help
-{
-    public interface ISessao
-    {
-        void CriarSessaoUsuario(Adm usuarioModel);
-        void RemoverSessaoUsuario();
-        Adm BuscarSessaoUsuario();
-    }
-}
+//namespace Aplicacao.Administrador.Help
+//{
+//    public interface ISessao
+//    {
+//        void CriarSessaoUsuario(Repositorio.Entidades.Administrador usuarioModel);
+//        void RemoverSessaoUsuario();
+//        Repositorio.Entidades.Administrador BuscarSessaoUsuario();
+//    }
+//}
