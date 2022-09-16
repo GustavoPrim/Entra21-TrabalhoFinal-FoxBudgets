@@ -33,7 +33,7 @@ namespace Repositorio.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Material",
+                name: "materiais",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -92,7 +92,7 @@ namespace Repositorio.Migrations
                 name: "fornecedores");
 
             migrationBuilder.DropTable(
-                name: "Material");
+                name: "materiais");
         }
     }
 }

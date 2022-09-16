@@ -55,7 +55,7 @@ namespace Aplicacao.Administradores.Controllers
             }
 
             _materialService.CadastrarMateriais(cadastrarViewModel);
-            return RedirectToAction("ListarMateriais");
+            return RedirectToAction("ListarMaterial");
         }
 
         [HttpGet("obterPorId")]
