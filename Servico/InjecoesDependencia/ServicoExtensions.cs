@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Aplicacao.Administradores;
+using Microsoft.Extensions.DependencyInjection;
 using Servico.MapeamentoEntidades;
 using Servico.Servicos;
+using Servico.Servicos.ClienteServico;
 
 namespace Servico.InjecoesDependencia
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
-using Servico.Servicos;
-using Servico.ViewModels.Clientes;
+using Servico.Servicos.ClienteServico;
+using Servico.ViewModels.ClienteViewModels;
 
 namespace Aplicacao.Cliente.Controllers
 {
@@ -51,8 +51,13 @@ namespace Aplicacao.Cliente.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet("editar")]
         public IActionResult Editar([FromQuery] int id)
+        {
+            return Editar(id);
+        }
+
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id, string endereco)
         {
             var cliente = _clienteService.ObterPorId(id);
             var clientes = ObterClientes();

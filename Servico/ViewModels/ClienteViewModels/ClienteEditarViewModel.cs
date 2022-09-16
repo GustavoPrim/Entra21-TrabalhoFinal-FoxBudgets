@@ -1,17 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Repositorio.Entidades;
+using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.ClienteViewModels
 {
-    public class ClienteEditarViewModel : ClienteViewModel
+    public class ClienteEditarViewModel 
     {
-        int Id { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
         [Required]
-        string Nome { get; set; }
+        public string Cpf { get; set; }
         [Required]
-        string Email { get; set; }
-        DateTime DataNascimento { get; set; }
+        public string Cnpj { get; set; }
         [Required]
-        string Endereco { get; set; }
-        string Telefone { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Endereco { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+        public string Crea { get; set; }
+        public IList<Cliente> Clientes { get; set; }
     }
 }

@@ -26,6 +26,13 @@ namespace Repositorio.Repositorios
             return true;
         }
 
+        public void Atualizar(Cliente clienteParaAlterar)
+        {
+            var administradores = _contexto.Administradores
+                .Where(x => x.Id == clienteParaAlterar.Id)
+                .FirstOrDefault();
+        }
+
         public Cliente Cadastrar(Cliente cliente)
         {
             _contexto.Clientes.Add(cliente);

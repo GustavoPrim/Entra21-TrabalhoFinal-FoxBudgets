@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Servico.ViewModels.ClienteViewModels
 {
-    public class ClienteCadastrarViewModel : ClienteViewModel
+    public class ClienteCadastrarViewModel : ClienteEditarViewModel
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
