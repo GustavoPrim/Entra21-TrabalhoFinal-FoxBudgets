@@ -7,12 +7,27 @@ namespace Servico.MapeamentoEntidades
     {
         public void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            cliente.Nome = viewModel.Nome;
+            cliente.Cpf = viewModel.Cpf;
+            cliente.DataNascimento = viewModel.DataNascimento;
+            cliente.Endereco = viewModel.Endereco;
+            cliente.Email = viewModel.Email;
+            cliente.Telefone = viewModel.Telefone;
+            cliente.Crea = viewModel.Crea;
         }
 
         public Cliente ConstruirCom(ClienteCadastrarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            return new Cliente
+            {
+                Nome = viewModel.Nome,
+                Telefone = viewModel.Telefone,
+                Email = viewModel.Email,
+                DataNascimento = viewModel.DataNascimento,
+                Cpf = viewModel.Cpf,
+                Endereco = viewModel.Endereco,
+                Crea = viewModel.Crea
+            };
         }
     }
 }

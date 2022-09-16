@@ -4,7 +4,10 @@ namespace Servico.ViewModels.Clientes
 {
     public class ClienteViewModel
     {
-        //[Display(Name = "Nome")]
+        [Display(Name = nameof(Nome))]
+        [Required(ErrorMessage = "Selecione um item")]
+        public string Nome { get; set; }
+
         [Display(Name = nameof(Cpf))]
         [Required(ErrorMessage = "Selecione um item")]
         public string Cpf { get; set; }
