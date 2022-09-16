@@ -26,6 +26,12 @@ namespace Repositorio.Repositorios
 
             return true;
         }
+        public void Atualizar(Fornecedor fornecedorAlterar)
+        {
+            var fornecedores = _contexto.Fornecedores
+                .Where(x => x.Id == fornecedorAlterar.Id)
+                .FirstOrDefault();
+        }
 
         public Fornecedor Cadastrar(Fornecedor fornecedor)
         {
@@ -37,19 +43,17 @@ namespace Repositorio.Repositorios
 
         public void Editar(Fornecedor fornecedorParaAlterar)
         {
-            var fornecedor = _contexto.Fornecedores
-                .Where(x => x.Id == fornecedorParaAlterar.Id)
-                .FirstOrDefault();
+            _contexto.Fornecedores.Update(fornecedorParaAlterar);
+            _contexto.SaveChanges();
         }
 
         public Fornecedor? ObterPorId(int id) =>
             _contexto.Fornecedores
-            .Where(x => x.Id == id)
-            .FirstOrDefault();
+            .FirstOrDefault(x => x.Id == id);
 
         public IList<Fornecedor> ObterTodos() =>
+
             _contexto.Fornecedores
-            .Include(x => x.Fornecedores)
             .ToList();
     }
 }

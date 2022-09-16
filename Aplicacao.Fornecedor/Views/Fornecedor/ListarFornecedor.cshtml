@@ -34,7 +34,9 @@
                 <td>@fornecedor.Telefone</td>
                 <td>@fornecedor.Categoria</td>
                 <td>
-                    <a asp-action="editar" asp-route-id="@fornecedor.Id">Editar</a>
+                    <a asp-action="editar" asp-route-id="@fornecedor.Id">
+                        <i class="fa-solid fa-pencil"></i>Editar
+                        </a>
                     <a asp-action="apagar" asp-route-id="@fornecedor.Id">Apagar</a>
                 </td>
             </tr>

@@ -16,9 +16,7 @@ builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-    .AdicionarNewtonsoftJson()
-    .AdicionarNewtonsoftJson1()
-    .AdicionarNewtonsoftJson2()
+    .AdicionarNewtonsoftJson0()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     //.AddScoped<ISessao, Sessao>()

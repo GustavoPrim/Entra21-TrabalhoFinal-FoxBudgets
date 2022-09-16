@@ -25,7 +25,7 @@ namespace Aplicacao.Administradores.Controllers
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
         {
-            var fornecedores = _fornecedorServico.ObterTodos().ToList();
+            var fornecedores = _fornecedorServico.ObterTodos();
             return Ok(fornecedores);
         }
         private List<string> ObterFornecedores()
