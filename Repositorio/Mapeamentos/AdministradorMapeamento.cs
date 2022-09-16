@@ -4,9 +4,9 @@ using Repositorio.Entidades;
 
 namespace Repositorio.Mapeamentos
 {
-    internal class AdministradorMapeamento : IEntityTypeConfiguration<Administrador>
+    public class AdministradorMapeamento : IEntityTypeConfiguration<Adm>
     {
-        public void Configure(EntityTypeBuilder<Administrador> builder)
+        public void Configure(EntityTypeBuilder<Adm> builder)
         {
             builder.ToTable("administradores");
 
@@ -44,9 +44,30 @@ namespace Repositorio.Mapeamentos
             builder.Property(x => x.Telefone)
                 .HasColumnName("INT");
 
-            builder.Property(x => x.Genero)
-                .HasColumnName("BIT")
-                .HasDefaultValue(true);
+                .HasMaxLength(100)
+                .HasColumnName("telefone");
+
+            builder.HasData(
+                new Adm
+                {
+                    Id = 1,
+                    Nome = "Gustavo Prim",
+                    Cpf = "666.999.666-99",
+                    DataNascimento = new DateTime(2001, 04, 23),
+                    Endereco = "Rua Julio Michel 1130",
+                    Email = "gugahprm@gmail.com",
+                    Telefone = "992499565"
+                },
+                new Adm
+                {
+                    Id = 2,
+                    Nome = "Lucas Alves",
+                    Cpf = "123.456.789-10",
+                    DataNascimento = new DateTime(1995, 12, 19),
+                    Endereco = "Rua Água Branca 1234",
+                    Email = "lucasalves@gmail.com",
+                    Telefone = "992460586"
+                });
         }
     }
 }

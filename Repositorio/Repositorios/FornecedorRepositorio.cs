@@ -54,5 +54,13 @@ namespace Repositorio.Repositorios
             var fornecedores = _contexto.Fornecedores.ToList();
             return fornecedores;
         }
+
+        public Fornecedor? ObterPorId(int id) =>
+            _contexto.Fornecedores
+            .Where(x => x.Id == id)
+            .FirstOrDefault();
+
+        public IList<Fornecedor> ObterTodos() =>
+            _contexto.Fornecedores.ToList();
     }
 }

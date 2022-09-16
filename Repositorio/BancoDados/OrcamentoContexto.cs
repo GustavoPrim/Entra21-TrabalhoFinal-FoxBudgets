@@ -6,9 +6,10 @@ namespace Repositorio.BancoDados
 {
     public class OrcamentoContexto : DbContext
     {
-        public DbSet<Administrador> Administradores { get; set; }
+        public DbSet<Adm> Administradores { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Material> Materiais { get; set; }
 
         public OrcamentoContexto(
             DbContextOptions<OrcamentoContexto> options)
@@ -21,6 +22,7 @@ namespace Repositorio.BancoDados
             modelBuilder.ApplyConfiguration(new AdministradorMapeamento());
             modelBuilder.ApplyConfiguration(new FornecedorMapeamento());
             modelBuilder.ApplyConfiguration(new ClienteMapeamento());
+            modelBuilder.ApplyConfiguration(new MaterialMapeamento());
         }
     }
 }

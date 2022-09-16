@@ -1,8 +1,7 @@
-﻿namespace Servico.ViewModels
+﻿namespace Servico.ViewModels;
+
+public class SelectViewModel
 {
-    public class SelectViewModel
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
+    public int Id { get; set; }
+    public string Text { get; set; }
 }

@@ -26,14 +26,20 @@ namespace Repositorio.Repositorios
             return true;
         }
 
-        public void Atualizar(Administrador administradorParaAlterar)
+        public void Atualizar(Adm administradorParaAlterar)
         {
             var administradores = _contexto.Administradores
                 .Where(x => x.Id == administradorParaAlterar.Id)
                 .FirstOrDefault();
         }
 
-        public Administrador Cadastrar(Administrador administrador)
+        public Adm BuscarPorLogin(string login)
+        {
+           return _contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+
+        }
+
+        public Adm Cadastrar(Adm administrador)
         {
             _contexto.Administradores.Add(administrador);
             _contexto.SaveChanges();
@@ -41,19 +47,19 @@ namespace Repositorio.Repositorios
             return administrador;
         }
 
-        public void Editar(Administrador administrador)
+        public void Editar(Adm administrador)
         {
             _contexto.Administradores.Update(administrador);
             _contexto.SaveChanges();
         }
 
-        public Administrador ObterPorId(int id) =>
+        public Adm ObterPorId(int id) =>
             _contexto.Administradores
             .Include(x => x.Administradores)
             .FirstOrDefault(x => x.Id == id);
         
 
-        public IList<Administrador> ObterTodos() =>
+        public IList<Adm> ObterTodos() =>
             _contexto.Administradores
                  .Include(x => x.Administradores)
                  .ToList();

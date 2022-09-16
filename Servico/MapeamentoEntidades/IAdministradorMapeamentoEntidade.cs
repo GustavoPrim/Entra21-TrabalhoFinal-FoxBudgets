@@ -5,7 +5,7 @@ namespace Servico.MapeamentoEntidades
 {
     internal interface IAdministradorMapeamentoEntidade
     {
-        Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel);
-        void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel);
+        Adm ConstruirCom(AdministradorCadastrarViewModel viewModel);
+        void AtualizarCom(Adm administrador, AdministradorEditarViewModel administradorEditarViewModel);
     }
 }

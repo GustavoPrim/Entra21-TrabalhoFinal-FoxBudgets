@@ -8,6 +8,5 @@
         public string Email { get; set; }
         public int Telefone { get; set; }
         public string Categoria { get; set; }
-        public Material Material { get; set; }
     }
 }

@@ -1,7 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using Repositorio.BancoDados;
+using Repositorio.Repositorios;
+using Servico.MapeamentoEntidades;
+using Servico.Servicos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<OrcamentoContexto>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+
+builder.Services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
+builder.Services.AddScoped<IFornecedorServico, FornecedorServico>();
+builder.Services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
+
+builder.Services.AddScoped<IAdministradorMapeamentoEntidade, AdministradorMapeamentoEntidade>();
+builder.Services.AddScoped<IAdministradorServico, AdministradorServico>();
+builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
 
 var app = builder.Build();
 
@@ -14,6 +31,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -21,5 +39,12 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoint =>
+{
+    endpoint.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.Run();

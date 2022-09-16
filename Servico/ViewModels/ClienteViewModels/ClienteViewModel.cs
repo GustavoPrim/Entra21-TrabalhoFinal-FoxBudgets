@@ -28,7 +28,7 @@ namespace Servico.ViewModels.ClienteViewModels
         public string Email { get; set; }
 
         [Display(Name = nameof(Telefone))]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
 
         [Display(Name = nameof(Crea))]
         public string Crea { get; set; }
