@@ -34,21 +34,7 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(200)
                 .HasColumnName("descricao");
 
-            builder.HasData(
-                new Material
-                {
-                    Id = 1,
-                    Nome = "Madeira",
-                    Sku = "MAPI10",
-                    Descricao = "Madeira de Pinos em ótimo estado"
-                },
-                new Material
-                {
-                    Id = 2,
-                    Nome = "Ferro",
-                    Sku = "FEFUBR10",
-                    Descricao = "Ferro fundido branco"
-                });
+            
         }
     }
 }
