@@ -1,0 +1,37 @@
+﻿@model MateriaisCadastrarViewModel
+@{
+    var materiais = ViewBag.Materiais as List<string>;
+    materiais.Add(string.Empty);
+
+    var selectDosMateriais = new SelectList(materiais, string.Empty);
+}
+<p class="h3">Cadastro de Materiais</p>
+<form asp-action="Cadastrar" method="POST">
+    <div>
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Sku" class="form-label"></label>
+        <input asp-for="Sku" class="form-control" />
+        <span asp-validation-for="Sku" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DataValidade" class="form-label"></label>
+        <input asp-for="DataValidade" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+        <input asp-for="Descricao" class="form-control" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="text-end">
+        <a href="/administrador/cadastrarmateriais" class="btn btn-outline-danger">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+</form>

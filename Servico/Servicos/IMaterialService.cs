@@ -5,9 +5,9 @@ namespace Servico.Servicos
 {
     public interface IMaterialService
     {
-        bool EditarMateriais(MateriaisEditarViewModel viewModel);
+        bool Editar(MateriaisEditarViewModel viewModel);
         bool Apagar(int id);
-        Material CadastrarMateriais(MateriaisCadastrarViewModel viewModel);
+        Material Cadastrar(MateriaisCadastrarViewModel viewModel);
         Material? ObterPorId(int id);
         IList<Material> ObterTodos();
     } 

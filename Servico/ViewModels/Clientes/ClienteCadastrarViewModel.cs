@@ -36,11 +36,5 @@ namespace Servico.ViewModels.Clientes
         [MinLength(13, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
         [MaxLength(13, ErrorMessage = "{0} deve conter no máximo {1} dígitos")]
         public string Telefone { get; set; }
-
-        [Display(Name = "Crea")]
-        [MinLength(13, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
-        [MaxLength(13, ErrorMessage = "{0} deve conter no máximo {1} dígitos")]
-        public string Crea { get; set; }
-
     }
 }

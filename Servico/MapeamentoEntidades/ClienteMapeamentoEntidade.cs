@@ -13,7 +13,6 @@ namespace Servico.MapeamentoEntidades
             cliente.Endereco = viewModel.Endereco;
             cliente.Email = viewModel.Email;
             cliente.Telefone = viewModel.Telefone;
-            cliente.Crea = viewModel.Crea;
         }
 
         public Cliente ConstruirCom(ClienteCadastrarViewModel viewModel)
@@ -26,7 +25,6 @@ namespace Servico.MapeamentoEntidades
                 DataNascimento = viewModel.DataNascimento,
                 Cpf = viewModel.Cpf,
                 Endereco = viewModel.Endereco,
-                Crea = viewModel.Crea
             };
         }
     }

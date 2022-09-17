@@ -52,12 +52,6 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
-            builder.Property(x => x.Crea)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(200)
-                .IsRequired()
-                .HasColumnName("crea");
-
             builder.HasData(
                 new Cliente
                 {
@@ -69,7 +63,6 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Julio Michel 1130",
                     Email = "gugahprm@gmail.com",
                     Telefone = "992499565",
-                    Crea = "1234567"
                 },
                 new Cliente
                 {
@@ -81,7 +74,6 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Hermann Tribess 1234",
                     Email = "lucasalves@gmail.com",
                     Telefone = "992380457",
-                    Crea = "7654321"
                 });
         }
     }
