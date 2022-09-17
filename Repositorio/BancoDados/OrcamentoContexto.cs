@@ -16,7 +16,7 @@ namespace Repositorio.BancoDados
             DbContextOptions<OrcamentoContexto> options)
             : base(options)
         {
-            // dotnet ef migrations add AdicionarAdministradorFornecedorTabela --project Repositorio --startup-project .\Aplicacao.Administrador
+            // dotnet ef migrations add AdicionarAdministradorFornecedorTabela --project Repositorio --startup-project .\Aplicacao
 
         }
 
