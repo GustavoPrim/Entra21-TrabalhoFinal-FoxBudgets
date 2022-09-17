@@ -3,11 +3,10 @@ using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 
-
-namespace Aplicacao.Fornecedor.Controllers
-
+namespace Aplicacao.Administrador.Areas.Administrador.Controllers
 {
-    [Route("fornecedor")]
+    [Area("Administrador")]
+    [Route("administrador/fornecedor")]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
@@ -18,16 +17,16 @@ namespace Aplicacao.Fornecedor.Controllers
         }
 
         [HttpGet]
-        public IActionResult ListarFornecedor()
+        public IActionResult Index()
         {
             var fornecedor = _fornecedorServico.ObterTodos();
-            return View("listarfornecedor", fornecedor);
+            return View(fornecedor);
         }
 
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
         {
-            var fornecedores = _fornecedorServico.ObterTodos().ToList();
+            var fornecedores = _fornecedorServico.ObterTodos();
             return Ok(fornecedores);
         }
         private List<string> ObterFornecedores()
@@ -37,8 +36,8 @@ namespace Aplicacao.Fornecedor.Controllers
                 .ToList();
         }
 
-        [HttpGet("cadastrarfornecedor")]
-        public IActionResult CadastrarFornecedor()
+        [HttpGet("cadastrar")]
+        public IActionResult Cadastrar()
         {
             ViewBag.Fornecedores = ObterFornecedores();
 
@@ -47,8 +46,8 @@ namespace Aplicacao.Fornecedor.Controllers
             return View(fornecedorCadastrarViewModel);
         }
 
-        [HttpPost("cadastrarfornecedor")]
-        public IActionResult CadastrarFornecedor([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -57,7 +56,7 @@ namespace Aplicacao.Fornecedor.Controllers
             }
 
             _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel);
-            return RedirectToAction("ListarFornecedor");
+            return RedirectToAction("Index");
         }
 
         [HttpGet("obterPorId")]
@@ -85,7 +84,8 @@ namespace Aplicacao.Fornecedor.Controllers
                 Email = fornecedor.Email,
                 Endereco = fornecedor.Endereco,
                 Telefone = fornecedor.Telefone,
-                Cnpj = fornecedor.Cnpj
+                Cnpj = fornecedor.Cnpj,
+                Categoria = fornecedor.Categoria,
             };
             ViewBag.Fornecedores = fornecedores;
 
@@ -101,14 +101,14 @@ namespace Aplicacao.Fornecedor.Controllers
                 return View(fornecedorEditarViewModel);
             }
             _fornecedorServico.Editar(fornecedorEditarViewModel);
-            return RedirectToAction("ListarFornecedor");
+            return RedirectToAction("Index");
         }
 
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
             _fornecedorServico.Apagar(id);
-            return RedirectToAction("ListarFornecedor");
+            return RedirectToAction("Index");
         }
     }
 }

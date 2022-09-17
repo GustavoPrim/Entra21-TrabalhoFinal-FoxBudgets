@@ -27,8 +27,5 @@ namespace Servico.ViewModels.Clientes
 
         [Display(Name = nameof(Telefone))]
         public string Telefone { get; set; }
-
-        [Display(Name = nameof(Crea))]
-        public string Crea { get; set; }
     }
 }

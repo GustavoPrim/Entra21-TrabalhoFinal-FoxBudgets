@@ -1,6 +1,6 @@
 using Aplicacao.Administrador.InjecoesDependencia;
-using Aplicacao.Cliente.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
@@ -9,14 +9,23 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.Configure<RazorViewEngineOptions>(options =>
+{
+    options.AreaViewLocationFormats.Clear();
+    options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{0}.cshtml");
+    options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{1}/{0}.cshtml");
+    options.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}.cshtml");
+    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
+    options.AreaViewLocationFormats.Add("/Views/{0}.cshtml");
+});
+
+builder.Services.AddControllersWithViews();
 
 builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-    .AdicionarNewtonsoftJson0()
+    .AdicionarNewtonsoftJson()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     //.AddScoped<ISessao, Sessao>()
@@ -59,10 +68,28 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
-
 app.UseEndpoints(endpoint =>
 {
+    endpoint.MapAreaControllerRoute(
+        name: "AreaAdministrador",
+        areaName: "Administrador",
+        pattern: "Administrador/{controller=Home}/{action=Index}/{id?}");
+
+    endpoint.MapAreaControllerRoute(
+        name: "AreaFornecedor",
+        areaName: "Fornecedor",
+        pattern: "Fornecedor/{controller=Home}/{action=Index}/{id?}");
+
+    endpoint.MapAreaControllerRoute(
+        name: "AreaCliente",
+        areaName: "Cliente",
+        pattern: "Cliente/{controller=Home}/{action=Index}/{id?}");
+
+    endpoint.MapAreaControllerRoute(
+        name: "AreaPublico",
+        areaName: "Publico",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
     endpoint.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");

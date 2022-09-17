@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Aplicacao.Cliente.InjecoesDependencia
+namespace Aplicacao.Cliente.InjecaoDependencia
 {
     public static class AplicacaoExtensions
     {
