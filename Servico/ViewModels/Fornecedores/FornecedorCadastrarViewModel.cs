@@ -24,6 +24,7 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Data de fundação")]
         [Required(ErrorMessage = "{0} deve ser preenchida!")]
+        [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         [DataType(DataType.Date)]
         public DateTime DataFundacao { get; set; }
 
@@ -41,8 +42,8 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [MinLength(10, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
-        [MaxLength(11, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
+        [MinLength(14, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
+        [MaxLength(14, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
         public string Telefone { get; set; }
     }
 }
