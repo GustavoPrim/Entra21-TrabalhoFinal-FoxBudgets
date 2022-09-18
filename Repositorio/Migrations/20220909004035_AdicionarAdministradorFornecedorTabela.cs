@@ -20,7 +20,9 @@ namespace Repositorio.Migrations
                     email = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     telefone = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     AdministradorId = table.Column<int>(type: "int", nullable: true),
-                    nome = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false)
+                    nome = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
+                    Login = table.Column<string>(type: "VARCHAR(100)",maxLength: 100, nullable: true),
+                    Senha = table.Column<string>(type: "VARCHAR(100)",maxLength: 100, nullable: true),
                 },
                 constraints: table =>
                 {
