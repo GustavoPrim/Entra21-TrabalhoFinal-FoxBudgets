@@ -22,9 +22,9 @@ namespace Aplicacao.Administrador.Help
             return JsonConvert.DeserializeObject<Repositorio.Entidades.Administrador>(sessaoUsuario);
         }
 
-        public void CriarSessaoUsuario(Repositorio.Entidades.Administrador usuarioModel)
+        public void CriarSessaoUsuario(Repositorio.Entidades.EntidadeBase entidadeBase)
         {
-            string valor = JsonConvert.SerializeObject(usuarioModel);
+            string valor = JsonConvert.SerializeObject(entidadeBase);
 
             _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado", valor);
         }

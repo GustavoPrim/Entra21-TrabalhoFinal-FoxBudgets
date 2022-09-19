@@ -2,7 +2,6 @@
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Administradores;
-using Servico.ViewModels.Fornecedores;
 
 namespace Aplicacao.Areas.Administrador.Controllers
 {

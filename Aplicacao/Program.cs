@@ -1,6 +1,5 @@
 using Aplicacao.Administrador.Help;
-using Aplicacao.Administrador.InjecoesDependencia;
-using Aplicacao.Cliente.InjecoesDependencia;
+using Aplicacao.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -30,8 +29,12 @@ builder.Services
     .AdicionarNewtonsoftJson()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
-    .AddScoped<ISessao, Sessao>();
-  
+    .AddScoped<ISessao, Sessao>()
+    .AddSession(o =>
+    {
+        o.Cookie.HttpOnly = true;
+        o.Cookie.IsEssential = true;
+    });
 
 var app = builder.Build();
 
@@ -64,6 +67,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession();
+
 app.UseAuthorization();
 
 app.UseEndpoints(endpoint =>
@@ -90,6 +95,11 @@ app.UseEndpoints(endpoint =>
 
     endpoint.MapControllerRoute(
         name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    endpoint.MapAreaControllerRoute(
+        name: "Login",
+        areaName: "Publico",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 

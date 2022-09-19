@@ -7,15 +7,21 @@ using Servico.ViewModels;
 
 namespace Aplicacao.Administradores.Controllers
 {
+    [Area("Publico")]
+    [Route("login")]
     public class LoginController : Controller
     {
-        private readonly IAdministradorServico _usuarioRepositorio;
+        private readonly IAdministradorServico _administradorRepositorio;
+        private readonly IFornecedorServico _fornecedorRepositorio;
+        //private readonly IClienteService _clienteRepositorio;
         private readonly ISessao _sessao;
-        public LoginController(IAdministradorServico usuarioRepositorio,
-                                ISessao sessao)
+        public LoginController(IAdministradorServico administradorService,
+                                ISessao sessao,
+                                IFornecedorServico fornecedorService)
         {
-            _usuarioRepositorio = usuarioRepositorio;
+            _administradorRepositorio = administradorService;
             _sessao = sessao;
+            _fornecedorRepositorio = fornecedorService;
         }
         public IActionResult Index()
         {
@@ -26,12 +32,12 @@ namespace Aplicacao.Administradores.Controllers
             return View();
         }
 
-        public IActionResult Sair()
-        {
-            _sessao.RemoverSessaoUsuario();
+        //public IActionResult Sair()
+        //{
+        //    _sessao.RemoverSessaoUsuario();
 
-            return RedirectToAction("Index", "Login");
-        }
+        //    return RedirectToAction("Index", "Login");
+        //}
 
         [HttpPost]
         public IActionResult Entrar(LoginModel loginModel)
@@ -40,20 +46,41 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Repositorio.Entidades.Administrador administrador = _usuarioRepositorio.BuscarPorLogin(loginModel.Login); //Verificar com Efraim questão de consulta no banco de dados
+                    //Repositorio.Entidades.Cliente cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login);
 
+                    //if (cliente != null)
+                    //{
+                    //    if (cliente.SenhaValida(loginModel.Senha))
+                    //    {
+                    //        _sessao.CriarSessaoUsuario(cliente);
+                    //        return RedirectToAction("/administrador/cliente");
+                    //    }
+                    //    TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
+                    //}
+
+                    Repositorio.Entidades.Fornecedor fornecedor = _fornecedorRepositorio.BuscarPorLogin(loginModel.Login);
+                    if (fornecedor != null)
+                    {
+                        if (fornecedor.SenhaValida(loginModel.Senha))
+                        {
+                            _sessao.CriarSessaoUsuario(fornecedor);
+                            return RedirectToAction("", "fornecedor");
+
+                        }
+                        TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
+                    }
+
+                    Repositorio.Entidades.Administrador administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login);
                     if (administrador != null)
                     {
                         if (administrador.SenhaValida(loginModel.Senha))
                         {
                             _sessao.CriarSessaoUsuario(administrador);
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("", "administrador");
                         }
-
-
                         TempData["MensagemErro"] = $"Senha do usuário é invalida, tente novamente!";
                     }
-                    TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
+
                 }
                 return View("Index");
             }
