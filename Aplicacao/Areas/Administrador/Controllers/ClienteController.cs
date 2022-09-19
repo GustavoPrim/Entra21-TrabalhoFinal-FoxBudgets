@@ -20,7 +20,7 @@ namespace Aplicacao.Areas.Administrador.Controllers
         public IActionResult Index()
         {
             var cliente = _clienteService.ObterTodos();
-            return View("index", cliente);
+            return View(cliente);
         }
 
         [HttpGet("cadastrar")]
@@ -38,7 +38,7 @@ namespace Aplicacao.Areas.Administrador.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Administradores = ObterClientes();
+                ViewBag.Clientes = ObterClientes();
                 return View(clienteCadastrarViewModel);
             }
 
@@ -89,8 +89,8 @@ namespace Aplicacao.Areas.Administrador.Controllers
         [HttpGet("obterTodos")]
         public IActionResult Obtertodos()
         {
-            var selectViewModel = _clienteService.ObterTodos();
-            return Ok(selectViewModel);
+            var clientes = _clienteService.ObterTodos();
+            return Ok(clientes);
         }
         private List<string> ObterClientes()
         {

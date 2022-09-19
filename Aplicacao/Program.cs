@@ -1,6 +1,6 @@
 using Aplicacao.Administrador.Help;
-using Aplicacao.Administrador.InjecoesDependencia;
-using Aplicacao.Cliente.InjecoesDependencia;
+//using Aplicacao.Administrador.InjecoesDependencia;
+//using Aplicacao.Cliente.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +27,7 @@ builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-    .AdicionarNewtonsoftJson()
+   // .AdicionarNewtonsoftJson()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
     .AddScoped<ISessao, Sessao>();
