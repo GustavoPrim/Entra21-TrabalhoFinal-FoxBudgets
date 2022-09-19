@@ -22,6 +22,13 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _clienteRepositorio.Apagar(id);
 
+        //public Cliente BuscarPorLogin(string login)
+        //{
+        //    var cliente = _clienteRepositorio.BuscarPorLogin(login);
+
+        //    return cliente;
+        //}
+
         public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
         {
             var cliente = _mapeamento.ConstruirCom(viewModel);

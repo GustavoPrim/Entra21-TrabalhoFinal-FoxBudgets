@@ -53,6 +53,16 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("categoria");
 
+            builder.Property(x => x.Login)
+              .HasColumnName("login")
+              .HasColumnType("VARCHAR")
+              .HasMaxLength(100);
+
+            builder.Property(x => x.Senha)
+               .HasColumnName("senha")
+               .HasColumnType("VARCHAR")
+               .HasMaxLength(100);
+
             //builder.HasData(
             //    new Fornecedor
             //    {
