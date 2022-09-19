@@ -79,7 +79,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Água Branca 1234",
                     Email = "lucasalves@gmail.com",
                     Telefone = "992460586",
-                    Login = "Lucas",
+                    Login = "lucas",
                     Senha = "1234"
                 });
         }
