@@ -3,7 +3,7 @@
 namespace Aplicacao.Areas.Cliente.Controllers
 {
     [Area("Cliente")]
-    [Route("cliente/")]
+    [Route("/cliente/")]
     public class HomeController : Controller
     {
         [HttpGet]

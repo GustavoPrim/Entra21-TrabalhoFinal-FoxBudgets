@@ -96,11 +96,6 @@ app.UseEndpoints(endpoint =>
     endpoint.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    endpoint.MapAreaControllerRoute(
-        name: "Login",
-        areaName: "Publico",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
 app.Run();
