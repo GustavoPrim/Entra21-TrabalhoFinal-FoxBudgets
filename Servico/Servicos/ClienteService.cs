@@ -17,17 +17,15 @@ namespace Servico.Servicos
             _clienteRepositorio = clienteRepositorio;
             _mapeamento = mapeamentoEntidade;
         }
-
-
         public bool Apagar(int id) =>
             _clienteRepositorio.Apagar(id);
 
-        //public Cliente BuscarPorLogin(string login)
-        //{
-        //    var cliente = _clienteRepositorio.BuscarPorLogin(login);
+        public Cliente BuscarPorLogin(string login)
+        {
+            var cliente = _clienteRepositorio.BuscarPorLogin(login);
 
-        //    return cliente;
-        //}
+            return cliente;
+        }
 
         public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
         {
@@ -47,10 +45,8 @@ namespace Servico.Servicos
             _clienteRepositorio.Editar(cliente);
             return true;
         }
-
         public Cliente? ObterPorId(int id) =>
             _clienteRepositorio.ObterPorId(id);
-
         public IList<Cliente> ObterTodos() =>
             _clienteRepositorio.ObterTodos();
     }

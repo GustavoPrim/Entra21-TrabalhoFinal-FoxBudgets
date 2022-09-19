@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositorio.Mapeamentos
 {
@@ -14,7 +9,18 @@ namespace Repositorio.Mapeamentos
         public void Configure(EntityTypeBuilder<Orcamento> builder)
         {
             builder.ToTable("orcamentos");
-            builder.HasKey(x => x.Id);
+
+       builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.ClienteId)
+               .HasColumnType("INT")
+               .IsRequired()
+               .HasColumnName("cliente_id");
+
+            builder.HasOne(x => x.Cliente)
+                .WithMany(x => x.Orcamentos)
+                .HasForeignKey(x => x.ClienteId);
+
 
             builder.Property(x => x.Numero)
                 .HasColumnType("VARCHAR")
@@ -51,6 +57,7 @@ namespace Repositorio.Mapeamentos
                 .HasColumnType("DOUBLE")
                 .IsRequired()
                 .HasColumnName("Valor total do orçamento");
+      
         }
     }
 }

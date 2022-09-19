@@ -26,7 +26,7 @@ builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-    .AdicionarNewtonsoftJson()
+   // .AdicionarNewtonsoftJson()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
     .AddScoped<ISessao, Sessao>()
@@ -95,11 +95,6 @@ app.UseEndpoints(endpoint =>
 
     endpoint.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    endpoint.MapAreaControllerRoute(
-        name: "Login",
-        areaName: "Publico",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 

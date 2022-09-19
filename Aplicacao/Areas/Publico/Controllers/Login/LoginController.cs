@@ -13,15 +13,18 @@ namespace Aplicacao.Administradores.Controllers
     {
         private readonly IAdministradorServico _administradorRepositorio;
         private readonly IFornecedorServico _fornecedorRepositorio;
-        //private readonly IClienteService _clienteRepositorio;
+        private readonly IClienteService _clienteRepositorio;
         private readonly ISessao _sessao;
-        public LoginController(IAdministradorServico administradorService,
-                                ISessao sessao,
-                                IFornecedorServico fornecedorService)
+        public LoginController(
+            IAdministradorServico administradorService,
+            ISessao sessao,
+            IFornecedorServico fornecedorService,
+            IClienteService clienteRepositorio)
         {
             _administradorRepositorio = administradorService;
             _sessao = sessao;
             _fornecedorRepositorio = fornecedorService;
+            _clienteRepositorio = clienteRepositorio;
         }
         public IActionResult Index()
         {
@@ -46,17 +49,17 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //Repositorio.Entidades.Cliente cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login);
+                    var cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login);
 
-                    //if (cliente != null)
-                    //{
-                    //    if (cliente.SenhaValida(loginModel.Senha))
-                    //    {
-                    //        _sessao.CriarSessaoUsuario(cliente);
-                    //        return RedirectToAction("/administrador/cliente");
-                    //    }
-                    //    TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
-                    //}
+                    if (cliente != null)
+                    {
+                        if (cliente.SenhaValida(loginModel.Senha))
+                        {
+                            _sessao.CriarSessaoUsuario(cliente);
+                            return RedirectToAction("", "Home", new { area = "Cliente" });
+                        }
+                        TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
+                    }
 
                     Repositorio.Entidades.Fornecedor fornecedor = _fornecedorRepositorio.BuscarPorLogin(loginModel.Login);
                     if (fornecedor != null)
@@ -70,7 +73,7 @@ namespace Aplicacao.Administradores.Controllers
                         TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
                     }
 
-                    Repositorio.Entidades.Administrador administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login);
+                    var administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login);
                     if (administrador != null)
                     {
                         if (administrador.SenhaValida(loginModel.Senha))

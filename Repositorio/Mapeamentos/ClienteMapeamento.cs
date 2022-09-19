@@ -26,7 +26,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Cnpj)
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(14)
+                .HasMaxLength(18)
                 .IsRequired()
                 .HasColumnName("cnpj");
 
@@ -52,28 +52,37 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
+            builder.Property(x => x.Senha)
+               .HasColumnName("senha")
+               .HasColumnType("VARCHAR")
+               .HasMaxLength(100);
+
             builder.HasData(
                 new Cliente
                 {
                     Id = 1,
-                    Nome = "Gustavo Prim",
+                    Nome = "Guilherme",
                     Cpf = "111.222.111-22",
                     Cnpj = "12.345.678/0001-90",
                     DataNascimento = new DateTime(2000, 08, 18),
                     Endereco = "Rua Julio Michel 1130",
                     Email = "gugahprm@gmail.com",
                     Telefone = "992499565",
+                    Login = "gui",
+                    Senha = "1234"
                 },
                 new Cliente
                 {
                     Id = 2,
-                    Nome = "Lucas Alves",
+                    Nome = "Juliana",
                     Cpf = "444.555.444-55",
                     Cnpj = "77.888.777/0001-10",
                     DataNascimento = new DateTime(1997, 08, 31),
                     Endereco = "Rua Hermann Tribess 1234",
                     Email = "lucasalves@gmail.com",
                     Telefone = "992380457",
+                    Login = "ju",
+                    Senha = "1234"
                 });
         }
     }

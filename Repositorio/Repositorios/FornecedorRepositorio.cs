@@ -56,7 +56,6 @@ namespace Repositorio.Repositorios
             .FirstOrDefault(x => x.Id == id);
 
         public IList<Fornecedor> ObterTodos() =>
-
             _contexto.Fornecedores
             .ToList();
     }
