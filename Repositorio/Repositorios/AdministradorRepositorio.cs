@@ -55,13 +55,11 @@ namespace Repositorio.Repositorios
 
         public Administrador? ObterPorId(int id) =>
             _contexto.Administradores
-            .Include(x => x.Administradores)
             .FirstOrDefault(x => x.Id == id);
         
 
         public IList<Administrador> ObterTodos() =>
             _contexto.Administradores
-                 .Include(x => x.Administradores)
                  .ToList();
     }
 }

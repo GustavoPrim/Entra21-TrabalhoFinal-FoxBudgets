@@ -30,9 +30,7 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "{0} deve ser especificada!")]
-        [MinLength(5, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
-        [MaxLength(20, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
-        public string Categoria { get; set; }
+        public int Categoria { get; set; }
 
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]

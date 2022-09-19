@@ -1,6 +1,5 @@
 using Aplicacao.Administrador.Help;
-//using Aplicacao.Administrador.InjecoesDependencia;
-//using Aplicacao.Cliente.InjecoesDependencia;
+using Aplicacao.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -30,8 +29,12 @@ builder.Services
    // .AdicionarNewtonsoftJson()
     .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
-    .AddScoped<ISessao, Sessao>();
-  
+    .AddScoped<ISessao, Sessao>()
+    .AddSession(o =>
+    {
+        o.Cookie.HttpOnly = true;
+        o.Cookie.IsEssential = true;
+    });
 
 var app = builder.Build();
 
@@ -63,6 +66,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

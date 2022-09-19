@@ -43,19 +43,18 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Telefone)
                 .HasColumnType("VARCHAR")
-
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
             builder.Property(x => x.Login)
+              .HasColumnName("login")
               .HasColumnType("VARCHAR")
-              .HasMaxLength(100)
-              .HasColumnName("login");
+              .HasMaxLength(100);
 
-             builder.Property(x => x.Senha)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(100)
-                .HasColumnName("senha");
+            builder.Property(x => x.Senha)
+               .HasColumnName("senha")
+               .HasColumnType("VARCHAR")
+               .HasMaxLength(100);
 
 
             builder.HasData(
@@ -80,7 +79,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Água Branca 1234",
                     Email = "lucasalves@gmail.com",
                     Telefone = "992460586",
-                    Login = "Lucas",
+                    Login = "lucas",
                     Senha = "1234"
                 });
         }

@@ -21,6 +21,13 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _fornecedorReposistorio.Apagar(id);
 
+        public Fornecedor BuscarPorLogin(string login)
+        {
+            var fornecedor = _fornecedorReposistorio.BuscarPorLogin(login);
+
+            return fornecedor;
+        }
+
         public Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel)
         {
             var fornecedor = _mapeamentoEntidade.ConstruirCom(viewModel);
