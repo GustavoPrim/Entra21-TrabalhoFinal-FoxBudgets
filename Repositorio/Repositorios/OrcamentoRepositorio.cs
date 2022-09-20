@@ -36,13 +36,11 @@ namespace Repositorio.Repositorios
             _contexto.Orcamentos.Update(orcamento);
             _contexto.SaveChanges();
         }
-        public Orcamento ObterPorId(int id) =>
+        public Orcamento? ObterPorId(int id) =>
             _contexto.Orcamentos
-            .Include(x => x.Orcamentos)
             .FirstOrDefault(x => x.Id == id);
         public IList<Orcamento> ObterTodos() =>
             _contexto.Orcamentos
-                .Include(x => x.Orcamentos)
                 .ToList();
         public Orcamento Solicitar(Orcamento orcamento)
         {
