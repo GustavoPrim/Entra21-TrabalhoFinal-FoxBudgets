@@ -19,23 +19,36 @@
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="DataValidade" class="form-label"></label>
-    </div>
-
     <script>
-        function Data(DataValidade){
-            if(Date==1)
-                document.GetElementByld('mymig').style.display='block';
+        function text(x) {
+            if (x == 0)
+                document.getElementById("mycode").style.display = "block";
             else
-                document.GetElementByld('mymig').style.display='none';
+                document.getElementById("mycode").style.display = "none";
+            return;
         }
     </script>
 
-    <div class="wrapper">
-        <div class="radio_tabs">
-            <input type="radio" name="rad1" onclick="Date(1)" checked/> Sim
-            <input type="radio" name="rad1" onclick="Date(0)" /> Não
+    <div class="mb-3">
+        <div class="input-group">
+            <label class="label" name="DataValidade">Possui Data de Validade?</label>
+        </div>
+        <div class="p-t-10">
+            <label class="radio-container m-r-45">
+                Sim
+                <input type="radio" name="DataValidade" value="Sim" onclick="text(0)" checked />
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container m-r-45">
+                Não
+                <input type="radio" name="DataValidade" value="Não" onclick="text(1)" />
+                <span class="checkmark"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="input-group" id="mycode">
+            <input class="input--style-4" class-type="DateTime" type="text" name="dataValidade" id="dataValidade" placeholder="Coloque a Data de Validade" />
+            <span style="color: red" id="DataValidade"></span>
         </div>
     </div>
 
