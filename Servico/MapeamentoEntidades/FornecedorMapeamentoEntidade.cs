@@ -15,7 +15,6 @@ namespace Servico.MapeamentoEntidades
             fornecedor.Telefone = viewModel.Telefone;
             fornecedor.Categoria = viewModel.Categoria;
         }
-
         public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel)
         {
             return new Fornecedor

@@ -12,7 +12,6 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
-
         public bool Apagar(int id)
         {
             var estoque = _contexto.Estoque
@@ -26,7 +25,6 @@ namespace Repositorio.Repositorios
 
             return true;
         }
-
         public Estoque CadastrarQuantidade(Estoque quantidade)
         {
             _contexto.Estoque.Add(quantidade);
@@ -34,7 +32,6 @@ namespace Repositorio.Repositorios
 
             return quantidade;
         }
-
         public Estoque CadastrarValor(Estoque valor)
         {
             _contexto.Estoque.Add(valor);
@@ -42,18 +39,15 @@ namespace Repositorio.Repositorios
 
             return valor;
         }
-
         public void Editar(Estoque estoque)
         {
             _contexto.Estoque.Update(estoque);
             _contexto.SaveChanges();
         }
-
         public Estoque ObterPorId(int id) =>
             _contexto.Estoque
             .Include(x => x.Estoques)
             .FirstOrDefault(x => x.Id == id);
-
         public IList<Estoque> ObterTodos() =>
             _contexto.Estoque
             .Include(x => x.Estoques)

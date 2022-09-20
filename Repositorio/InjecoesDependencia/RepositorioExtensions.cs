@@ -14,10 +14,10 @@ namespace Repositorio.InjecoesDependencia
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
             services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
+            services.AddScoped<IEstoqueRepositorio, EstoqueRepositorio>();
 
             return services;
         }
-
         public static IServiceCollection AdicionarEntityFramework(
             this IServiceCollection services, ConfigurationManager configurationManager)
         {

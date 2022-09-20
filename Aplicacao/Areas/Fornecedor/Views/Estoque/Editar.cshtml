@@ -1,0 +1,24 @@
+﻿@model EstoqueEditarViewModel
+@{
+    var estoques = ViewBag.Estoques as List<string>;
+    estoques.Add(string.Empty);
+
+    var selectDosEstoques = new SelectList(estoques, string.Empty);
+}
+
+<form asp-action="editar" method="POST">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Valor" class="form-label" span-required=""></label>
+        <input asp-for="Valor" class="form-control" />
+        <span asp-validation-for="Valor" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quantidade" class="form-label" span-required=""></label>
+        <input asp-for="Quantidade" class="form-control" />
+        <span asp-validation-for="Quantidade" class="text-danger"></span>
+    </div>
+
+</form>
