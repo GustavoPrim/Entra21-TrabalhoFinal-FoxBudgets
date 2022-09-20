@@ -57,7 +57,7 @@ namespace Repositorio.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
-                    cnpj = table.Column<string>(type: "VARCHAR(14)", maxLength: 14, nullable: false),
+                    cnpj = table.Column<string>(type: "VARCHAR(18)", maxLength: 18, nullable: false),
                     dataFundacao = table.Column<DateTime>(type: "DATETIME2", nullable: false),
                     endereco = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false),
                     email = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
