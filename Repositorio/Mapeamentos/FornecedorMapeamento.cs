@@ -68,7 +68,7 @@ namespace Repositorio.Mapeamentos
                 {
                     Id = 1,
                     Nome = "Wolf Tubos e conexões",
-                    Cnpj = "",
+                    Cnpj = "34.56.789/0001-25",
                     DataFundacao = new DateTime(2020, 03, 15),
                     Endereco = "Rua 2 de Setembro 1890",
                     Email = "Willljdev@gmail.com",
@@ -81,7 +81,7 @@ namespace Repositorio.Mapeamentos
                 {
                     Id = 2,
                     Nome = "Materiais de construção VG",
-                    Cnpj = "",
+                    Cnpj = "12.123.456/0001-78",
                     DataFundacao = new DateTime(2019, 09, 18),
                     Endereco = "Rua Alberto Stein 199",
                     Email = "budgetsVG@gmail.com",

@@ -17,7 +17,6 @@ namespace Servico.Servicos
             _administradorRepositorio = administradorRepositorio;
             _mapeamentoEntidade = mapeamentoEntidade;
         }
-
         public bool Apagar(int id) =>
             _administradorRepositorio.Apagar(id);
 

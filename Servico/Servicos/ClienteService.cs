@@ -17,8 +17,6 @@ namespace Servico.Servicos
             _clienteRepositorio = clienteRepositorio;
             _mapeamento = mapeamentoEntidade;
         }
-
-
         public bool Apagar(int id) =>
             _clienteRepositorio.Apagar(id);
 
@@ -47,10 +45,8 @@ namespace Servico.Servicos
             _clienteRepositorio.Editar(cliente);
             return true;
         }
-
         public Cliente? ObterPorId(int id) =>
             _clienteRepositorio.ObterPorId(id);
-
         public IList<Cliente> ObterTodos() =>
             _clienteRepositorio.ObterTodos();
     }

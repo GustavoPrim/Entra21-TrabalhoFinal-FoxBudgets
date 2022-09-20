@@ -39,15 +39,21 @@ namespace Repositorio.Repositorios
 
         public void Editar(Cliente cliente)
         {
-            _contexto.Clientes.Update(cliente);
+            _contexto.Clientes.Update(clienteParaAlterar);
             _contexto.SaveChanges();
         }
-
+        public void Atualizar(Cliente clienteParaAlterar)
+        {
+            var fornecedores = _contexto.Clientes
+                .Where(x => x.Id == clienteParaAlterar.Id)
+                .FirstOrDefault();
+        }
         public Cliente? ObterPorId(int id) =>
             _contexto.Clientes
             .FirstOrDefault(x => x.Id == id);
 
         public IList<Cliente> ObterTodos() =>
-            _contexto.Clientes.ToList();
+            _contexto.Clientes
+            .ToList();
     }
 }
