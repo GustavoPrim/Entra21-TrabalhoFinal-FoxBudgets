@@ -14,6 +14,7 @@ namespace Repositorio.InjecoesDependencia
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IFornecedorReposistorio, FornecedorRepositorio>();
             services.AddScoped<IMaterialRepositorio, MaterialRepositorio>();
+            services.AddScoped<IOrcamentoRepositorio, OrcamentoRepositorio>();
 
             return services;
         }
