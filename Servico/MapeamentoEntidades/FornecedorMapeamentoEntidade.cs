@@ -13,7 +13,7 @@ namespace Servico.MapeamentoEntidades
             fornecedor.DataFundacao = viewModel.DataFundacao;
             fornecedor.Email = viewModel.Email;
             fornecedor.Telefone = viewModel.Telefone;
-            fornecedor.Categoria = viewModel.Categoria;
+            fornecedor.Categoria = (int)viewModel.Categoria;
         }
         public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel)
         {
@@ -25,7 +25,7 @@ namespace Servico.MapeamentoEntidades
                 DataFundacao = viewModel.DataFundacao,
                 Email = viewModel.Email,
                 Telefone = viewModel.Telefone,
-                Categoria = viewModel.Categoria,
+                Categoria = (int)viewModel.Categoria,
             };
         }
     }

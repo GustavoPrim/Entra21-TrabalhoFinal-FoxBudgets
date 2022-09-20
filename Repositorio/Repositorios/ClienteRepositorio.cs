@@ -26,6 +26,11 @@ namespace Repositorio.Repositorios
             return true;
         }
 
+        public Cliente BuscarPorLogin(string login)
+        {
+            return _contexto.Clientes.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         public Cliente Cadastrar(Cliente cliente)
         {
             _contexto.Clientes.Add(cliente);

@@ -5,6 +5,13 @@ namespace Servico.MapeamentoViewModels
 {
     public interface IEstoqueMapeamentoViewModel
     {
-        EstoqueEditarViewModel ConstruirCom(Estoque estoque);
+        EstoqueEditarViewModel ConstruirCom(Estoque estoque)
+        {
+            return new EstoqueEditarViewModel
+            {
+                Id = estoque.Id,
+                Quantidade = estoque.Quantidade,
+            };
+        }
     }
 }
