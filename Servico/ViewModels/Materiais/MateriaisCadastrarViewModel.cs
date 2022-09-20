@@ -16,8 +16,7 @@ namespace Servico.ViewModels.Materiais
         [MaxLength(16, ErrorMessage = "{0} deve conter apenas {1} caracteres")]
         public string Sku { get; set; }
 
-        [Display(Name = "Data de Validade")]
-        [Required(ErrorMessage = "{0} deve ser preenchida!")]
+        [Display(Name = "Possui Data de Validade?")]
         [DataType(DataType.Date)]
         public DateTime DataValidade { get; set; }
 

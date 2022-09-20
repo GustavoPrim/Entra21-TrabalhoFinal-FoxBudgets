@@ -21,7 +21,22 @@
 
     <div class="mb-3">
         <label asp-for="DataValidade" class="form-label"></label>
-        <input asp-for="DataValidade" class="form-control" />
+    </div>
+
+    <script>
+        function Data(DataValidade){
+            if(Date==1)
+                document.GetElementByld('mymig').style.display='block';
+            else
+                document.GetElementByld('mymig').style.display='none';
+        }
+    </script>
+
+    <div class="wrapper">
+        <div class="radio_tabs">
+            <input type="radio" name="rad1" onclick="Date(1)" checked/> Sim
+            <input type="radio" name="rad1" onclick="Date(0)" /> Não
+        </div>
     </div>
 
     <div class="mb-3">
