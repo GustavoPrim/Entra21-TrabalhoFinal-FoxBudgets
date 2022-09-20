@@ -6,14 +6,14 @@ namespace Servico.ViewModels.Fornecedores
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [MinLength(4, ErrorMessage = "{0} deve conter pelo menos {1} caracteres")]
-        [MaxLength(20, ErrorMessage = "{0} pode conter apenas {1} caracteres")]
+        [RegularExpression(@"^[a-zãçA-Z''-'\s]{1,100}$", ErrorMessage =
+            "Números e caracteres especiais não são permitidos no nome.")]
         public string Nome { get; set; }
 
         [Display(Name = "Cnpj")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [MinLength(14, ErrorMessage = "{0} deve conter 14 dígitos!")]
-        [MaxLength(14, ErrorMessage = "{0} deve conter 14 dígitos!")]
+        [RegularExpression(@"\d{2,3}.\d{3}.\d{3}/\d{4}-\d{2}", ErrorMessage = "Digite um CNPJ válido!")]
+        [MaxLength(18, ErrorMessage = "Digite um CNPJ válido!")]
         public string Cnpj { get; set; }
 
         [Display(Name = "Endereço")]
@@ -24,8 +24,8 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Data de fundação")]
         [Required(ErrorMessage = "{0} deve ser preenchida!")]
-        [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataFundacao { get; set; }
 
         [Display(Name = "Categoria")]
@@ -34,14 +34,12 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [MinLength(6, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
-        [MaxLength(25, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
+        [RegularExpression(@"^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{3}$", ErrorMessage = "Informe um email válido")]
         public string Email { get; set; }
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [MinLength(14, ErrorMessage = "{0} deve conter pelo menos {1} caracteres!")]
-        [MaxLength(14, ErrorMessage = "{0} deve conter no máximo {1} caracteres!")]
+        [RegularExpression("^[(]{1}[0-9]{2}[)]{1}[ ][0-9]{5}[-]{1}[0-9]{4}$", ErrorMessage = "Digite um número de telefone válido")]
         public string Telefone { get; set; }
     }
 }
