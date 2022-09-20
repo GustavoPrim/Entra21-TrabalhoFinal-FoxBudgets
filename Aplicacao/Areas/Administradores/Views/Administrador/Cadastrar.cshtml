@@ -1,10 +1,10 @@
 ﻿@model AdministradorCadastrarViewModel
 
 @{
-    var fornecedores = ViewBag.Administradores as List<string>;
-    fornecedores.Add(string.Empty);
+    var administradores = ViewBag.Administradores as List<string>;
+    administradores.Add(string.Empty);
 
-    var selectDosFornecedores = new SelectList(fornecedores, string.Empty);
+    var selectDosFornecedores = new SelectList(administradores, string.Empty);
 }
 <p class="h3">Cadastro de Administradores</p>
 <form asp-action="cadastrar" method="POST">

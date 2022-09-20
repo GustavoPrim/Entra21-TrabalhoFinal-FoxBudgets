@@ -3,7 +3,7 @@ using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Estoque;
 
-namespace Aplicacao.Areas.Fornecedor.Controllers
+namespace Aplicacao.Areas.Fornecedores.Controllers
 {
     [Route("estoque")]
     public class EstoqueController : Controller

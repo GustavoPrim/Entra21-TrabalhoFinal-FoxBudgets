@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Filtros;
+using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Materiais;
 
-namespace Aplicacao.Areas.Administrador.Controllers
+namespace Aplicacao.Areas.Administradores.Controllers
 {
     [Area("Administrador")]
     [Route("administrador/material")]
+    [UsuarioLogado]
     public class MaterialController : Controller
     {
         private readonly IMaterialService _materialService;

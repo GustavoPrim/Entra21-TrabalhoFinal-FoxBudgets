@@ -21,9 +21,9 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _fornecedorReposistorio.Apagar(id);
 
-        public Fornecedor BuscarPorLogin(string login)
+        public Fornecedor BuscarPorLogin(string login, string senha)
         {
-            var fornecedor = _fornecedorReposistorio.BuscarPorLogin(login);
+            var fornecedor = _fornecedorReposistorio.BuscarPorLogin(login, senha);
 
             return fornecedor;
         }

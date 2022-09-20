@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Aplicacao.Areas.Fornecedor.Controllers
+namespace Aplicacao.Areas.Clientes.Controllers
 {
-    [Area("Fornecedor")]
-    [Route("fornecedor/")]
+    [Area("Cliente")]
+    [Route("/cliente/")]
     public class HomeController : Controller
     {
         [HttpGet]

@@ -22,9 +22,9 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _clienteRepositorio.Apagar(id);
 
-        public Cliente BuscarPorLogin(string login)
+        public Cliente BuscarPorLogin(string login, string senha)
         {
-            var cliente = _clienteRepositorio.BuscarPorLogin(login);
+            var cliente = _clienteRepositorio.BuscarPorLogin(login, senha);
 
             return cliente;
         }

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Filtros;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Aplicacao.Areas.Publico.Controllers
 {
-    [Area("Publico")]
-    [Route("/")]
+    //[Area("Publico")]
+    //[Route("/")]
+    [UsuarioLogado]
     public class HomeController : Controller
     {
         [HttpGet]

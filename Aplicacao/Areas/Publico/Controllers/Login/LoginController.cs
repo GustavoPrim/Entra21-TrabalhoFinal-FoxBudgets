@@ -1,7 +1,5 @@
-﻿using Aplicacao.Administrador.Help;
+﻿using Aplicacao.Help;
 using Microsoft.AspNetCore.Mvc;
-using Repositorio.Entidades;
-using Repositorio.Repositorios;
 using Servico.Servicos;
 using Servico.ViewModels;
 
@@ -28,11 +26,11 @@ namespace Aplicacao.Administradores.Controllers
         }
         public IActionResult Index()
         {
-            //if (_sessao.BuscarSessaoUsuario() != null)
-            //    return RedirectToAction("index", "Home");
+            if (_sessao.BuscarSessaoUsuario() != null)
+                return RedirectToAction("index", "Home");
 
 
-            return View();
+            return View("Login");
         }
 
         //public IActionResult Sair()
@@ -49,38 +47,37 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login);
-
+                    var cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (cliente != null)
                     {
-                        if (cliente.SenhaValida(loginModel.Senha))
-                        {
-                            _sessao.CriarSessaoUsuario(cliente);
-                            return RedirectToAction("", "Home", new { area = "Cliente" });
-                        }
+                        _sessao.CriarSessaoUsuario(cliente);
+                        return RedirectToAction("", "Home", new { area = "Cliente" });
+
+                    }
+                    else
+                    {
                         TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
                     }
 
-                    Repositorio.Entidades.Fornecedor fornecedor = _fornecedorRepositorio.BuscarPorLogin(loginModel.Login);
+                    var fornecedor = _fornecedorRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (fornecedor != null)
                     {
-                        if (fornecedor.SenhaValida(loginModel.Senha))
-                        {
                             _sessao.CriarSessaoUsuario(fornecedor);
-                            return RedirectToAction("", "fornecedor");
-
-                        }
+                            return RedirectToAction("", "Home", new { area = "fornecedor" });
+                    }
+                    else
+                    {
                         TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
                     }
 
-                    var administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login);
+                    var administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (administrador != null)
                     {
-                        if (administrador.SenhaValida(loginModel.Senha))
-                        {
                             _sessao.CriarSessaoUsuario(administrador);
-                            return RedirectToAction("", "administrador");
-                        }
+                            return RedirectToAction("", "Home", new { area = "administrador" });
+                    }
+                    else
+                    {
                         TempData["MensagemErro"] = $"Senha do usuário é invalida, tente novamente!";
                     }
 
