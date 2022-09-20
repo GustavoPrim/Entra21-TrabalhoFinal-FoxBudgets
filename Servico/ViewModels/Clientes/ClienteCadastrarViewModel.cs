@@ -12,7 +12,7 @@ namespace Servico.ViewModels.Clientes
 
         [Display(Name = "Cpf")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
-        [RegularExpression("/^\\d{3}.\\d{3}.\\d{3}-\\d{2}$/", ErrorMessage = "Digite um CPF válido!")]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "Digite um CPF válido!")]
         [MaxLength(14, ErrorMessage = "Digite um CPF válido!")]
         public string Cpf { get; set; }
 
