@@ -1,4 +1,4 @@
-using Aplicacao.Administrador.Help;
+using Aplicacao.Help;
 using Aplicacao.InjecoesDependencia;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;

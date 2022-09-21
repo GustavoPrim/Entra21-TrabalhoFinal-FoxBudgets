@@ -26,10 +26,8 @@ namespace Repositorio.Repositorios
             return true;
         }
 
-        public Cliente BuscarPorLogin(string login)
-        {
-            return _contexto.Clientes.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
-        }
+        public Cliente? BuscarPorLogin(string login, string senha) =>
+             _contexto.Clientes.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha);
 
         public Cliente Cadastrar(Cliente cliente)
         {
@@ -38,7 +36,8 @@ namespace Repositorio.Repositorios
 
             return cliente;
         }
-        public void Editar(Cliente clienteParaAlterar)
+
+        public void Editar(Cliente cliente)
         {
             _contexto.Clientes.Update(clienteParaAlterar);
             _contexto.SaveChanges();

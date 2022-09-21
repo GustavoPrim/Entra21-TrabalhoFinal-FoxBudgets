@@ -4,7 +4,7 @@ namespace Repositorio.Repositorios
 {
     public interface IFornecedorReposistorio
     {
-        Fornecedor BuscarPorLogin(string login);
+        Fornecedor BuscarPorLogin(string login, string senha);
         bool Apagar(int id);
         Fornecedor Cadastrar(Fornecedor fornecedor);
         void Editar(Fornecedor fornecedorParaAlterar);

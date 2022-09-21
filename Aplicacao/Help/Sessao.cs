@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Repositorio.Entidades;
 
-namespace Aplicacao.Administrador.Help
+namespace Aplicacao.Help
 {
     public class Sessao : ISessao
     {
