@@ -13,7 +13,7 @@ namespace Aplicacao.Filtros
 
             if (string.IsNullOrEmpty(sessaoUsuario))
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary { {"controller", "Login"}, {"action", "index"} });
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
             }
             else
             {
@@ -23,18 +23,18 @@ namespace Aplicacao.Filtros
 
                 if (usuario == null)
                 {
-                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "index" } });
+                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "area", "Publico" }, { "action", "index" } });
                 }
                 else if (usuarioFornecedor == null)
                 {
-                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "index" } });
+                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "area", "Publico" }, { "action", "index" } });
                 }
                 else if (usuarioCliente == null)
                 {
-                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "index" } });
+                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "area", "Publico" }, { "action", "index" } });
                 }
             }
-            
+
             base.OnActionExecuting(context);
         }
     }
