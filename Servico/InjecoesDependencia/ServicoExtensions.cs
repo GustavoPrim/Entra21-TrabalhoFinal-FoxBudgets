@@ -13,6 +13,7 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IFornecedorServico, FornecedorServico>();
             services.AddScoped<IMaterialService, MaterialService>();
             services.AddScoped<IEstoqueServico, EstoqueServico>();
+            services.AddScoped<IOrcamentoServico, OrcamentoServico>();
 
             return services;
         }
@@ -24,6 +25,8 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IFornecedorMapeamentoEntidade, FornecedorMapeamentoEntidade>();
             services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
             services.AddScoped<IEstoqueMapeamentoEntidade, EstoqueMapeamentoEntidade>();
+            services.AddScoped<IOrcamentoMapeamentoEntidade, OrcamentoMapeamentoEntidade>();
+            
             return services;
         }
     }
