@@ -100,7 +100,6 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 .OrderBy(x => x)
                 .ToList();
         }
-
         private List<string> ObterFornecedores()
         {
             return Enum.GetNames<AdministradorEnum>()
