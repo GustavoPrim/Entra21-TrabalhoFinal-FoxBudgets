@@ -5,7 +5,7 @@ namespace Servico.Servicos
 {
     public interface IFornecedorServico
     {
-        Fornecedor BuscarPorLogin(string login);
+        Fornecedor BuscarPorLogin(string login, string senha);
         bool Apagar(int id);
         Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel);
         bool Editar(FornecedorEditarViewModel viewModel);

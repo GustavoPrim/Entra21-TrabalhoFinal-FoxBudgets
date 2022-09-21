@@ -47,9 +47,9 @@ namespace Servico.Servicos
         public IList<Administrador> ObterTodos() =>
             _administradorRepositorio.ObterTodos();
 
-        public Administrador BuscarPorLogin(string login)
+        public Administrador BuscarPorLogin(string login, string senha)
         {
-            var administrador = _administradorRepositorio.BuscarPorLogin(login);
+            var administrador = _administradorRepositorio.BuscarPorLogin(login, senha);
 
             return administrador;
         }

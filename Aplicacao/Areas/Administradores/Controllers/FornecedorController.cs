@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Filtros;
+using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Fornecedores;
 
-namespace Aplicacao.Areas.Administrador.Controllers
+namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/fornecedor")]
+    [UsuarioLogado]
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
