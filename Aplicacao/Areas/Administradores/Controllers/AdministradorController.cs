@@ -6,7 +6,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/administrador")]
     [UsuarioLogado]
     public class AdministradorController : Controller
@@ -100,7 +100,6 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 .OrderBy(x => x)
                 .ToList();
         }
-
         private List<string> ObterFornecedores()
         {
             return Enum.GetNames<AdministradorEnum>()

@@ -6,7 +6,7 @@ using Servico.ViewModels.Clientes;
 
 namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/cliente")]
     [UsuarioLogado]
     public class ClienteController : Controller

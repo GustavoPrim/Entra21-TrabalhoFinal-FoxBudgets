@@ -39,7 +39,7 @@ namespace Repositorio.Repositorios
 
         public void Editar(Cliente cliente)
         {
-            _contexto.Clientes.Update(clienteParaAlterar);
+            //_contexto.Clientes.Update(clienteParaAlterar);
             _contexto.SaveChanges();
         }
         public void Atualizar(Cliente clienteParaAlterar)

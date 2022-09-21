@@ -9,7 +9,6 @@ namespace Servico.MapeamentoEntidades
         {
             estoque.Quantidade = estoqueEditarViewModel.Quantidade;
         }
-
         public Estoque ConstruirCom(EstoqueCadastrarViewModel viewModel)
         {
             return new Estoque
