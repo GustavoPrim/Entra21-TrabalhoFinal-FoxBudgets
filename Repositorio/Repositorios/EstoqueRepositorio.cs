@@ -51,12 +51,10 @@ namespace Repositorio.Repositorios
 
         public Estoque ObterPorId(int id) =>
             _contexto.Estoque
-            .Include(x => x.Estoques)
             .FirstOrDefault(x => x.Id == id);
 
         public IList<Estoque> ObterTodos() =>
             _contexto.Estoque
-            .Include(x => x.Estoques)
             .ToList();
     }
 }

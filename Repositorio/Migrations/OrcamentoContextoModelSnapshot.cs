@@ -30,9 +30,6 @@ namespace Repositorio.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AdministradorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -55,11 +52,23 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(200)")
                         .HasColumnName("endereco");
 
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("login");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("nome");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("senha");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
@@ -68,8 +77,6 @@ namespace Repositorio.Migrations
                         .HasColumnName("telefone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdministradorId");
 
                     b.ToTable("administradores", (string)null);
 
@@ -81,10 +88,10 @@ namespace Repositorio.Migrations
                             DataNascimento = new DateTime(2001, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "gugahprm@gmail.com",
                             Endereco = "Rua Julio Michel 1130",
-                            Nome = "Gustavo Prim",
-                            Telefone = "992499565",
                             Login = "guga",
-                            Senha = "1234"
+                            Nome = "Gustavo Prim",
+                            Senha = "1234",
+                            Telefone = "992499565"
                         },
                         new
                         {
@@ -93,11 +100,131 @@ namespace Repositorio.Migrations
                             DataNascimento = new DateTime(1995, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lucasalves@gmail.com",
                             Endereco = "Rua Água Branca 1234",
+                            Login = "lucas",
                             Nome = "Lucas Alves",
-                            Telefone = "992460586",
-                            Login = "Lucas",
-                            Senha = "1234"
+                            Senha = "1234",
+                            Telefone = "992460586"
                         });
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Cnpj")
+                        .IsRequired()
+                        .HasMaxLength(18)
+                        .HasColumnType("VARCHAR(18)")
+                        .HasColumnName("cnpj");
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasMaxLength(18)
+                        .HasColumnType("VARCHAR(18)")
+                        .HasColumnName("cpf");
+
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("DATETIME2")
+                        .HasColumnName("DataNascimento");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("email");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("VARCHAR(200)")
+                        .HasColumnName("endereco");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("nome");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("senha");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("telefone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("clientes", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Cnpj = "12.345.678/0001-90",
+                            Cpf = "111.222.111-22",
+                            DataNascimento = new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "gugahprm@gmail.com",
+                            Endereco = "Rua Julio Michel 1130",
+                            Login = "gui",
+                            Nome = "Guilherme",
+                            Senha = "1234",
+                            Telefone = "992499565"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Cnpj = "77.888.777/0001-10",
+                            Cpf = "444.555.444-55",
+                            DataNascimento = new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "lucasalves@gmail.com",
+                            Endereco = "Rua Hermann Tribess 1234",
+                            Login = "ju",
+                            Nome = "Juliana",
+                            Senha = "1234",
+                            Telefone = "992380457"
+                        });
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FornecedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FornecedorId");
+
+                    b.HasIndex("MaterialId");
+
+                    b.ToTable("Estoque");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Fornecedor", b =>
@@ -108,10 +235,8 @@ namespace Repositorio.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Categoria")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("VARCHAR(20)")
+                    b.Property<int>("Categoria")
+                        .HasColumnType("INT")
                         .HasColumnName("categoria");
 
                     b.Property<string>("Cnpj")
@@ -121,7 +246,6 @@ namespace Repositorio.Migrations
                         .HasColumnName("cnpj");
 
                     b.Property<DateTime>("DataFundacao")
-                        .HasMaxLength(8)
                         .HasColumnType("DATETIME2")
                         .HasColumnName("dataFundacao");
 
@@ -137,20 +261,61 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(50)")
                         .HasColumnName("endereco");
 
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("login");
+
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("VARCHAR(20)")
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
                         .HasColumnName("nome");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("senha");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("VARCHAR(50)")
+                        .HasColumnName("telefone");
 
-                    b.HasKey("Id")
-                        .HasName("id");
+                    b.HasKey("Id");
 
                     b.ToTable("fornecedores", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Categoria = 1,
+                            Cnpj = "",
+                            DataFundacao = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Willljdev@gmail.com",
+                            Endereco = "Rua 2 de Setembro 1890",
+                            Login = "will",
+                            Nome = "Wolf Tubos e conexões",
+                            Senha = "1234",
+                            Telefone = "991599314"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Categoria = 4,
+                            Cnpj = "",
+                            DataFundacao = new DateTime(2019, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "budgetsVG@gmail.com",
+                            Endereco = "Rua Alberto Stein 199",
+                            Login = "vg",
+                            Nome = "Materiais de construção VG",
+                            Senha = "1234",
+                            Telefone = "3381-7700"
+                        });
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Material", b =>
@@ -162,35 +327,145 @@ namespace Repositorio.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("DataValidade")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DATETIME2")
+                        .HasColumnName("DataValidade");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("VARCHAR(200)")
+                        .HasColumnName("descricao");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Sku")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("VARCHAR(16)")
+                        .HasColumnName("sku");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Material");
+                    b.ToTable("materiais", (string)null);
                 });
 
-            modelBuilder.Entity("Repositorio.Entidades.Administrador", b =>
+            modelBuilder.Entity("Repositorio.Entidades.Orcamento", b =>
                 {
-                    b.HasOne("Repositorio.Entidades.Administrador", null)
-                        .WithMany("Administradores")
-                        .HasForeignKey("AdministradorId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("Orcamento");
                 });
 
-            modelBuilder.Entity("Repositorio.Entidades.Administrador", b =>
+            modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>
                 {
-                    b.Navigation("Administradores");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrcamentoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MaterialId");
+
+                    b.HasIndex("OrcamentoId");
+
+                    b.ToTable("OrcamentoMaterial");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>
+                {
+                    b.HasOne("Repositorio.Entidades.Fornecedor", "Fornecedor")
+                        .WithMany("Estoques")
+                        .HasForeignKey("FornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Repositorio.Entidades.Material", "Material")
+                        .WithMany("Estoques")
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fornecedor");
+
+                    b.Navigation("Material");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Orcamento", b =>
+                {
+                    b.HasOne("Repositorio.Entidades.Cliente", "Cliente")
+                        .WithMany("Orcamentos")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>
+                {
+                    b.HasOne("Repositorio.Entidades.Material", "Material")
+                        .WithMany("OrcamentoMateriais")
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Repositorio.Entidades.Orcamento", "Orcamento")
+                        .WithMany("OrcamentoMateriais")
+                        .HasForeignKey("OrcamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Material");
+
+                    b.Navigation("Orcamento");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Cliente", b =>
+                {
+                    b.Navigation("Orcamentos");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Fornecedor", b =>
+                {
+                    b.Navigation("Estoques");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Material", b =>
+                {
+                    b.Navigation("Estoques");
+
+                    b.Navigation("OrcamentoMateriais");
+                });
+
+            modelBuilder.Entity("Repositorio.Entidades.Orcamento", b =>
+                {
+                    b.Navigation("OrcamentoMateriais");
                 });
 #pragma warning restore 612, 618
         }

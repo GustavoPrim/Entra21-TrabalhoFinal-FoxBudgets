@@ -1,0 +1,46 @@
+﻿@model List<Cliente>
+
+<p class="h3">Lista de Clientes</p>
+
+<div class="row mb-3">
+    <div class="text-end">
+        <a asp-action="cadastrar" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>Cadastrar
+        </a>
+    </div>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+
+    <tr>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Data de Nascimento</th>
+        <th>Endereço</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Cpf</td>
+                <td>@cliente.DataNascimento.Date</td>
+                <td>@cliente.Endereco</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Telefone</td>
+                <td>
+                   <a class="btn btn-primary" asp-action="editar" asp-route-id="@cliente.Id">
+                    <i class="fa-solid fa-pencil"></i> Editar
+                </a>
+                <a class="btn btn-outline-danger" asp-action="apagar" asp-route-id="@cliente.Id">
+                    <i class="fa-solid fa-trash"></i> Apagar
+                </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

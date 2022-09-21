@@ -1,6 +1,6 @@
 ﻿using Repositorio.Entidades;
 
-namespace Aplicacao.Administrador.Help
+namespace Aplicacao.Help
 {
     public interface ISessao
     {
