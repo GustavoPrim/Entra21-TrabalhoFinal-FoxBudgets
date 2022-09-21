@@ -6,7 +6,7 @@ using Servico.ViewModels.Fornecedores;
 
 namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/fornecedor")]
     [UsuarioLogado]
     public class FornecedorController : Controller

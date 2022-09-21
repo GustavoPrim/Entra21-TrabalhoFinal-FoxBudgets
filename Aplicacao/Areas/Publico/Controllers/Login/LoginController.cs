@@ -30,7 +30,7 @@ namespace Aplicacao.Administradores.Controllers
                 return RedirectToAction("index", "Home");
 
 
-            return View("Login");
+            return View();
         }
 
         //public IActionResult Sair()

@@ -6,7 +6,7 @@ using Servico.ViewModels.Materiais;
 
 namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/material")]
     [UsuarioLogado]
     public class MaterialController : Controller
