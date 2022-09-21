@@ -2,7 +2,7 @@
 
 namespace Aplicacao.Areas.Clientes.Controllers
 {
-    [Area("Cliente")]
+    [Area("Clientes")]
     [Route("/cliente/")]
     public class HomeController : Controller
     {

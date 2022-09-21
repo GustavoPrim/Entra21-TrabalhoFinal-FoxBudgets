@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
-    [Route("administrador/")]
+    [Area("Administradores")]
+    [Route("/administrador/")]
     [UsuarioLogado]
     public class HomeController : Controller
     {

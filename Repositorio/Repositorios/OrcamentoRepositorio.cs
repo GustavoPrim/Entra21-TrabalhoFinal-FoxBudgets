@@ -38,11 +38,11 @@ namespace Repositorio.Repositorios
         }
         public Orcamento ObterPorId(int id) =>
             _contexto.Orcamentos
-            .Include(x => x.Orcamentos)
+            .Include(x => x.OrcamentoMateriais)
             .FirstOrDefault(x => x.Id == id);
         public IList<Orcamento> ObterTodos() =>
             _contexto.Orcamentos
-                .Include(x => x.Orcamentos)
+                .Include(x => x.OrcamentoMateriais)
                 .ToList();
         public Orcamento Solicitar(Orcamento orcamento)
         {

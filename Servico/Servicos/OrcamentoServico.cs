@@ -1,17 +1,14 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
+using Servico.MapeamentoEntidades;
 using Servico.ViewModels.Orcamentos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servico.Servicos
 {
     public class OrcamentoServico : IOrcamentoServico
     {
         private readonly IOrcamentoRepositorio _orcamentoRepositorio;
+        private readonly IOrcamentoMapeamentoEntidade _mapeamentoEntidade;
         
         public OrcamentoServico(
             IOrcamentoRepositorio orcamentoRepositorio)
