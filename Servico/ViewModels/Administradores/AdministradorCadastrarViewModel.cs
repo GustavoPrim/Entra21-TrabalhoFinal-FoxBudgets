@@ -36,5 +36,9 @@ namespace Servico.ViewModels.Administradores
         [MaxLength(13, ErrorMessage = "{0} deve conter no máximo {1} dígitos")]
         public string Telefone { get; set; }
 
+        [Display(Name = "Senha")]
+        [Required(ErrorMessage = "{0} deve ser preenchido")]
+        [MinLength(1, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
+        public string Senha { get; set; }
     }
 }
