@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Aplicacao.Help
+namespace Servico.Servicos
 {
     public static class Criptografia
     {
@@ -24,3 +24,4 @@ namespace Aplicacao.Help
         }
     }
 }
+
