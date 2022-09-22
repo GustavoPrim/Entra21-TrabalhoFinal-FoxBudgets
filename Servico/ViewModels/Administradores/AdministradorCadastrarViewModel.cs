@@ -6,8 +6,8 @@ namespace Servico.ViewModels.Administradores
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
-        [MinLength(3, ErrorMessage = "{0} deve conter no mínimo {1}")]
-        [MaxLength(30, ErrorMessage = "{0} deve conter no máximo {1}")]
+        [RegularExpression(@"^[a-zãçA-Z''-'\s]{1,100}$", ErrorMessage =
+            "Números e caracteres especiais não são permitidos no nome.")]
         public string Nome { get; set; }
 
         [Display(Name = "Cpf")]
@@ -18,6 +18,7 @@ namespace Servico.ViewModels.Administradores
         [Display(Name = "DataNascimento")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Endereco")]
@@ -28,13 +29,12 @@ namespace Servico.ViewModels.Administradores
 
         [Display(Name = "E-mail")]
         [EmailAddress(ErrorMessage = "{0} deve ser preenchido")]
-        [MinLength(3, ErrorMessage = "{0} deve ter no mínimo {1} caracteres")]
+        [RegularExpression(@"^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{3}$", ErrorMessage = "Informe um email válido")]
         public string Email { get; set; }
 
         [Display(Name = "Telefone")]
-        [MinLength(13, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
-        [MaxLength(13, ErrorMessage = "{0} deve conter no máximo {1} dígitos")]
+        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        [RegularExpression("^[(]{1}[0-9]{2}[)]{1}[ ][0-9]{5}[-]{1}[0-9]{4}$", ErrorMessage = "Digite um número de telefone válido")]
         public string Telefone { get; set; }
-
     }
 }
