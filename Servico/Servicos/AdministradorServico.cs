@@ -22,6 +22,8 @@ namespace Servico.Servicos
 
         public Administrador Cadastrar(AdministradorCadastrarViewModel viewModel)
         {
+            //viewModel.Senha = viewModel.Senha.GerarHash();
+
             var administrador = _mapeamentoEntidade.ConstruirCom(viewModel);
 
             _administradorRepositorio.Cadastrar(administrador);
