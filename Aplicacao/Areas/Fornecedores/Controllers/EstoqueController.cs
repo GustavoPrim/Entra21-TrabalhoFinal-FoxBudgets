@@ -64,7 +64,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
 
             var estoqueEditarViewModel = new EstoqueEditarViewModel
             {
-                Valor = estoque.Valor,
+                //Valor = estoque.Valor,
                 Quantidade = estoque.Quantidade 
             };
             ViewBag.Estoques = estoques;

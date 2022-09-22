@@ -10,9 +10,9 @@ namespace Servico.MapeamentoViewModels
             return new EstoqueEditarViewModel
             {
                 Id = estoque.Id,
-                Nome = estoque.Nome,
+                //Nome = estoque.Nome,
                 Quantidade = estoque.Quantidade,
-                Valor = estoque.Valor
+                //Valor = estoque.Valor
             };
         }
     }

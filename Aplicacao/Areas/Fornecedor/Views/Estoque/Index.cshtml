@@ -1,4 +1,5 @@
-﻿@model List<Estoque>
+﻿@using Repositorio.Entidades
+@model List<Estoque>
 
 <p class="h3">Lista de Estoques</p>
 
@@ -22,7 +23,7 @@
         @foreach (var estoque in Model)
         {
             <tr>
-                <td>@estoque.Valor</td>
+                <!--<td@estoque.Valor</td>-->
                 <td>@estoque.Quantidade</td>
                 <td>
                     <a class="btn btn-primary" asp-action="editar" asp-route-id="@estoque.Id">
