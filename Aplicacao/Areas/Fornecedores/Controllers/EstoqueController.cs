@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico.Servicos;
-using Servico.ViewModels.Administradores;
 using Servico.ViewModels.Estoque;
-using Servico.ViewModels.Fornecedores;
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
@@ -64,8 +62,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
 
             var estoqueEditarViewModel = new EstoqueEditarViewModel
             {
-                Valor = estoque.Valor,
-                Quantidade = estoque.Quantidade 
+                Quantidade = estoque.Quantidade
             };
             ViewBag.Estoques = estoques;
 
