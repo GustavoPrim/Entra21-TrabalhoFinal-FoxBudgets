@@ -1,0 +1,66 @@
+﻿@model MateriaisCadastrarViewModel
+@{
+    var materiais = ViewBag.Materiais as List<string>;
+    materiais.Add(string.Empty);
+
+    var selectDosMateriais = new SelectList(materiais, string.Empty);
+}
+<p class="h3">Cadastro de Materiais</p>
+<form asp-action="Cadastrar" method="POST">
+    <div>
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Sku" class="form-label"></label>
+        <input asp-for="Sku" class="form-control" />
+        <span asp-validation-for="Sku" class="text-danger"></span>
+    </div>
+
+    <script>
+        function text(x) {
+            if (x == 0)
+                document.getElementById("mycode").style.display = "block";
+            else
+                document.getElementById("mycode").style.display = "none";
+            return;
+        }
+    </script>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <label class="label" name="DataValidade">Possui Data de Validade?</label>
+        </div>
+        <div class="p-t-10">
+            <label class="radio-container m-r-45">
+                Sim
+                <input type="radio" name="possuiDataValidade" value="1" onclick="text(0)" checked />
+                <span class="checkmark"></span>
+            </label>
+            <input type="radio" name="possuiDataValidade" value="0" onclick="text(1)" />
+            <span class="checkmark"></span>
+            <label class="radio-container m-r-45">
+                Não
+            </label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="input-group" id="mycode">
+            <input class="input--style-4" class-type="DateTime" type="text" name="dataValidade" id="dataValidade" placeholder="Coloque a Data de Validade" />
+            <span style="color: red" id="DataValidade"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+        <input asp-for="Descricao" class="form-control" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="text-end">
+        <a href="/administrador/cadastrarmateriais" class="btn btn-outline-danger">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+</form>

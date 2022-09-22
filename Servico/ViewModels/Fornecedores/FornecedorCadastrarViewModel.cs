@@ -24,7 +24,7 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Data de fundação")]
         [Required(ErrorMessage = "{0} deve ser preenchida!")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataFundacao { get; set; }
 

@@ -12,7 +12,6 @@ namespace Repositorio.Entidades
         public string Telefone { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
-
         public bool SenhaValida(string senha)
         {
             return Senha == senha;

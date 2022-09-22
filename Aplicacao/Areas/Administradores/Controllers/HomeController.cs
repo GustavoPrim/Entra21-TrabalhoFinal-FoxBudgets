@@ -1,10 +1,10 @@
 ﻿using Aplicacao.Filtros;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Aplicacao.Areas.Publico.Controllers
+namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Publico")]
-    [Route("/")]
+    [Area("Administradores")]
+    [Route("/administrador/")]
     [UsuarioLogado]
     public class HomeController : Controller
     {

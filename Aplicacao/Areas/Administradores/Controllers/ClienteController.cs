@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Filtros;
+using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Clientes;
 
-namespace Aplicacao.Areas.Administrador.Controllers
+namespace Aplicacao.Areas.Administradores.Controllers
 {
-    [Area("Administrador")]
+    [Area("Administradores")]
     [Route("administrador/cliente")]
+    [UsuarioLogado]
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;

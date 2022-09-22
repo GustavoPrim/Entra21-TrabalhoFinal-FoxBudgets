@@ -2,11 +2,6 @@
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.ViewModels.Orcamentos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servico.Servicos
 {
@@ -14,6 +9,7 @@ namespace Servico.Servicos
     {
         private readonly IOrcamentoRepositorio _orcamentoRepositorio;
         private readonly IOrcamentoMapeamentoEntidade _mapeamentoEntidade;
+        
         public OrcamentoServico(
             IOrcamentoRepositorio orcamentoRepositorio)
         {

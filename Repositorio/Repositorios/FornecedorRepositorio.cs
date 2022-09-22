@@ -32,12 +32,10 @@ namespace Repositorio.Repositorios
                 .FirstOrDefault();
         }
 
-        public Fornecedor BuscarPorLogin(string login)
-        {
-            return _contexto.Fornecedores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
-        }
+        public Fornecedor? BuscarPorLogin(string login, string senha) =>
+            _contexto.Fornecedores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha);
 
-        public Fornecedor Cadastrar(Fornecedor fornecedor)
+            public Fornecedor Cadastrar(Fornecedor fornecedor)
         {
             _contexto.Fornecedores.Add(fornecedor);
             _contexto.SaveChanges();
