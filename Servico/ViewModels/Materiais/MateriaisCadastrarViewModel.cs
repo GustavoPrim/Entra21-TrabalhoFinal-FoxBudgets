@@ -17,8 +17,11 @@ namespace Servico.ViewModels.Materiais
         public string Sku { get; set; }
 
         [Display(Name = "Possui Data de Validade?")]
+        public bool PossuiDataValidade { get; set; }
+
+
         [DataType(DataType.Date)]
-        public DateTime DataValidade { get; set; }
+        public DateTime? DataValidade { get; set; }
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "Informe uma descrição sobre o material")]
