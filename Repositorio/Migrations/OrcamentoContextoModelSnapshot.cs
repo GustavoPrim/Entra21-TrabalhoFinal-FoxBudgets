@@ -294,7 +294,7 @@ namespace Repositorio.Migrations
                         {
                             Id = 1,
                             Categoria = 1,
-                            Cnpj = "",
+                            Cnpj = "34.56.789/0001-25",
                             DataFundacao = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Willljdev@gmail.com",
                             Endereco = "Rua 2 de Setembro 1890",
@@ -307,7 +307,7 @@ namespace Repositorio.Migrations
                         {
                             Id = 2,
                             Categoria = 4,
-                            Cnpj = "",
+                            Cnpj = "12.123.456/0001-78",
                             DataFundacao = new DateTime(2019, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "budgetsVG@gmail.com",
                             Endereco = "Rua Alberto Stein 199",
@@ -364,11 +364,32 @@ namespace Repositorio.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DataOrcamento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Item")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ValorTotalItem")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorTotalOrcamento")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorUnitarioItem")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Orcamento");
+                    b.ToTable("Orcamentos");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>

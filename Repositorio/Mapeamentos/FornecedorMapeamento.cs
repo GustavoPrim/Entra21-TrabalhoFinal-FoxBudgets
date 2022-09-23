@@ -21,7 +21,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Cnpj)
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(14)
+                .HasMaxLength(18)
                 .IsRequired()
                 .HasColumnName("cnpj");
 
