@@ -342,6 +342,10 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("nome");
 
+                    b.Property<bool>("PossuiDataValidade")
+                        .HasColumnType("BIT")
+                        .HasColumnName("PossuiDataValidade");
+
                     b.Property<string>("Sku")
                         .IsRequired()
                         .HasMaxLength(16)

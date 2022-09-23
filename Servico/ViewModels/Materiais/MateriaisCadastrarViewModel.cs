@@ -19,8 +19,8 @@ namespace Servico.ViewModels.Materiais
         [Display(Name = "Possui Data de Validade?")]
         public bool PossuiDataValidade { get; set; }
 
-
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Insira a data de validade")]
         public DateTime? DataValidade { get; set; }
 
         [Display(Name = "Descrição")]

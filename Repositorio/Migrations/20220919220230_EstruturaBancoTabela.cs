@@ -79,8 +79,9 @@ namespace Repositorio.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     sku = table.Column<string>(type: "VARCHAR(16)", maxLength: 16, nullable: false),
-                    DataValidade = table.Column<DateTime>(type: "DATETIME2", nullable: false),
-                    descricao = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false)
+                    DataValidade = table.Column<DateTime>(type: "DATETIME2", nullable: true),
+                    descricao = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false),
+                    PossuiDataValidade = table.Column<bool>(type: "BIT", nullable: true)
                 },
                 constraints: table =>
                 {
