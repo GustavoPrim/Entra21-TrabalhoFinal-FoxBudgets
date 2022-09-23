@@ -9,7 +9,7 @@ namespace Servico.MapeamentoEntidades
         {
             material.Nome = viewModel.Nome;
             material.Sku = viewModel.Sku;
-            material.DataValidade = viewModel.DataValidade;
+            material.DataValidade = viewModel.DataValidade.GetValueOrDefault();
             material.Descricao = viewModel.Descricao;
         }
 
@@ -19,7 +19,7 @@ namespace Servico.MapeamentoEntidades
             {
                 Nome = viewModel.Nome,
                 Sku = viewModel.Sku,
-                DataValidade = viewModel.DataValidade,
+                DataValidade = viewModel.DataValidade.GetValueOrDefault(),
                 Descricao = viewModel.Descricao
             };
         }

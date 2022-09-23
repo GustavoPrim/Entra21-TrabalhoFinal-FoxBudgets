@@ -5,7 +5,8 @@ using Servico.ViewModels.Estoque;
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
-    [Route("estoque")]
+    [Area("Fornecedor")]
+    [Route("fornecedor/estoque")]
     public class EstoqueController : Controller
     {
         private readonly IEstoqueServico _estoqueServico;
@@ -21,7 +22,6 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             var estoque = _estoqueServico.ObterTodos();
             return View("index", estoque);
         }
-
         [HttpGet("cadastrar")]
         public IActionResult Cadastrar()
         {
@@ -31,14 +31,54 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
 
             return View(estoqueCadastrarViewModel);
         }
-
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromForm] EstoqueCadastrarViewModel estoqueCadastrarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Administradores = ObterEstoques();
+                return View(estoqueCadastrarViewModel);
+            }
+            _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
+            return RedirectToAction("Index");
+        }
+        [HttpGet("apagar")]
+        public IActionResult Apagar([FromQuery] int id)
+        {
+            _estoqueServico.Apagar(id);
+            return RedirectToAction("Index");
+        }
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
         {
             var selectViewModel = _estoqueServico.ObterTodos();
             return Ok(selectViewModel);
         }
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id)
+        {
+            var estoque = _estoqueServico.ObterPorId(id);
+            var estoques = ObterEstoques();
 
+            var estoqueEditarViewModel = new EstoqueEditarViewModel
+            {
+                Quantidade = estoque.Quantidade
+            };
+            ViewBag.Estoques = estoques;
+
+            return View(estoqueEditarViewModel);
+        }
+        [HttpPost("editar")]
+        public IActionResult Editar([FromForm] EstoqueEditarViewModel estoqueEditarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Estoques = ObterEstoques();
+                return View(estoqueEditarViewModel);
+            }
+            _estoqueServico.Editar(estoqueEditarViewModel);
+            return RedirectToAction("Index");
+        }
         private List<string> ObterEstoques()
         {
             return Enum.GetNames<EstoqueEnum>()

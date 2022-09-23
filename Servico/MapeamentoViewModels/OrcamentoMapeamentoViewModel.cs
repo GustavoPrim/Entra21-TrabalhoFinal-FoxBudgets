@@ -11,7 +11,7 @@ namespace Servico.MapeamentoViewModels
             {
                 Id = orcamento.Id,
                 DataOrcamento = orcamento.DataOrcamento,
-                Item = orcamento.Item,
+                //Item = orcamento.Item,
                 Quantidade = orcamento.Quantidade,
             };
         }
