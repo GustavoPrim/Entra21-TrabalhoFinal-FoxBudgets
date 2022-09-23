@@ -7,7 +7,7 @@ using Servico.ViewModels.Orcamentos;
 namespace Aplicacao.Areas.Orcamento.Controllers
 {
     [Area("Orcamento")]
-    [Route("Cotar")]
+    [Route("cotacao/cotacao")]
     [UsuarioLogado]
     public class CotacaoController : Controller
     {
@@ -22,15 +22,15 @@ namespace Aplicacao.Areas.Orcamento.Controllers
             var orcamento = _orcamentoServico.ObterTodos();
             return View("index", orcamento);
         }
-        [HttpGet("cadastrar")]
-        public IActionResult Cadastrar()
+        [HttpGet("cotar")]
+        public IActionResult Cotar()
         {
             ViewBag.Orcamentos = ObterOrcamentos();
             var orcamentoCadastrarViewMOdel = new OrcamentoCadastrarViewModel();
             return View(orcamentoCadastrarViewMOdel);
         }
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        [HttpPost("cotar")]
+        public IActionResult Cotar([FromForm] OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace Aplicacao.Areas.Orcamento.Controllers
                 return View(orcamentoCadastrarViewModel);
             }
 
-            _orcamentoServico.Solicitar(orcamentoCadastrarViewModel);
+            _orcamentoServico.Cotar(orcamentoCadastrarViewModel);
             return RedirectToAction("Index");
         }
         [HttpGet("apagar")]

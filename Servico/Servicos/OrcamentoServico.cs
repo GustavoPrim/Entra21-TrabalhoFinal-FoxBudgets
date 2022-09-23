@@ -38,11 +38,11 @@ namespace Servico.Servicos
         public IList<Orcamento> ObterTodos() =>
             _orcamentoRepositorio.ObterTodos();
 
-        public Orcamento Solicitar(OrcamentoCadastrarViewModel viewModel)
+        public Orcamento Cotar(OrcamentoCadastrarViewModel viewModel)
         {
             var orcamento = _mapeamentoEntidade.ConstruirCom(viewModel);
 
-            _orcamentoRepositorio.Solicitar(orcamento);
+            _orcamentoRepositorio.Cotar(orcamento);
             return orcamento;
         }
     }
