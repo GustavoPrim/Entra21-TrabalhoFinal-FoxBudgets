@@ -41,5 +41,10 @@ namespace Servico.ViewModels.Fornecedores
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
         [RegularExpression("^[(]{1}[0-9]{2}[)]{1}[ ][0-9]{5}[-]{1}[0-9]{4}$", ErrorMessage = "Digite um número de telefone válido")]
         public string Telefone { get; set; }
+        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        public string Login { get; set; }
+        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        public string Senha { get; set; }
+
     }
 }

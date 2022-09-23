@@ -7,7 +7,12 @@ namespace Servico.MapeamentoViewModels
     {
         public EstoqueEditarViewModel ConstruirCom(Estoque estoque)
         {
-            throw new NotImplementedException();
+            return new EstoqueEditarViewModel
+            {
+                Id = estoque.Id,
+                Quantidade = estoque.Quantidade
+
+            };
         }
     }
 }
