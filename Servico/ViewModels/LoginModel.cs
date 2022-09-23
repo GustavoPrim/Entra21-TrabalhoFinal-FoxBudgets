@@ -1,12 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Servico.ViewModels
+﻿namespace Servico.ViewModels
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Digite o login.")]
+        //public string Email { get; set; }
         public string Login { get; set; }
-        [Required(ErrorMessage = "Digite a senha.")]
+        //public string Cpf { get; set; }
         public string Senha { get; set; }
+        //public string ConfirmarSenha { get; set; }
     }
 }
