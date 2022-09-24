@@ -7,7 +7,7 @@ using Servico.ViewModels.Orcamentos;
 namespace Aplicacao.Areas.Orcamento.Controllers
 {
     [Area("Orcamento")]
-    [Route("cotacao/cotacao")]
+    [Route("cotacao")]
     [UsuarioLogado]
     public class CotacaoController : Controller
     {
