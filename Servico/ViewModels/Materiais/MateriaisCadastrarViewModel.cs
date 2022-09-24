@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.Materiais
 {
@@ -6,8 +6,8 @@ namespace Servico.ViewModels.Materiais
     {
         [Display(Name = "Nome do produto")]
         [Required(ErrorMessage = "Informe nome do Material")]
-        [MinLength(3, ErrorMessage = "{0} deve conter pelo menos {1} caracteres")]
-        [MaxLength(20, ErrorMessage = "{0} deve conter apenas {1} caracteres")]
+        [RegularExpression(@"^[a-zãçA-Z''-'\s]{1,100}$", ErrorMessage =
+            "Números e caracteres especiais não são permitidos no nome.")]
         public string Nome { get; set; }
 
         [Display(Name = "Código Sku")]
@@ -19,8 +19,11 @@ namespace Servico.ViewModels.Materiais
         [Display(Name = "Possui Data de Validade?")]
         public bool PossuiDataValidade { get; set; }
 
-        [DataType(DataType.Date)]
+
         [Required(ErrorMessage = "Insira a data de validade")]
+        [Display(Name = "Data de validade")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataValidade { get; set; }
 
         [Display(Name = "Descrição")]

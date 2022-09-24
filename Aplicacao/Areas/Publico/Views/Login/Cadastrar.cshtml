@@ -1,21 +1,55 @@
-﻿@{
-    Layout = "_LayoutDeslogado";
-    ViewData["Title"] = "Cadastrar";
+﻿@using Servico.ViewModels
+@model LoginModel
+
+@{
+	Layout = "_LayoutDeslogado";
+	ViewData["Title"] = "Cadastrar";
 }
 
 <form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Endereço de email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
-        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+	<div class="page-content vertical-align-middle">
+		<div class="panel">
+			<div class="panel-body">
+				<form asp-controller="Login" asp-action="Registrar" method="POST">
+
+					@*<div class="form-group form-material floating" data-plugin="formMaterial">
+						<input asp-for="Email" type="email" class="form-control" />
+						<label asp-for="Email" class="floating-label"></label>
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>*@
+
+					<div class="form-group form-material floating" data-plugin="formMaterial">
+						<input asp-for="Login" type="text" class="form-control" />
+						<label asp-for="Login" class="floating-label"></label>
+						<span asp-validation-for="Login" class="text-danger"></span>
+					</div>
+
+					@*<div class="form-group form-material floating" data-plugin="formMaterial">
+						<input asp-for="Cpf" type="text" class="form-control" />
+						<label asp-for="Cpf" class="floating-label"></label>
+						<span asp-validation-for="Cpf" class="text-danger"></span>
+					</div>*@
+
+					<div class="form-group form-material floating" data-plugin="formMaterial">
+						<input asp-for="Senha" type="password" class="form-control" />
+						<label asp-for="Senha" class="floating-label"></label>
+						<span asp-validation-for="Senha" class="text-danger"></span>
+					</div>
+
+					@*<div class="form-group form-material floating" data-plugin="formMaterial">
+						<input asp-for="ConfirmarSenha" type="password" class="form-control" />
+						<label asp-for="ConfirmarSenha" class="floating-label"></label>
+						<span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+					</div>*@
+					@if (TempData["Message"] != null)
+					{
+						<p class="text-danger">@TempData["Message"]</p>
+					}
+					<button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Criar conta</button>
+				</form>
+				<Por>JÃ¡ possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
+			</div>
+		</div>
+	</div>
+	</div>
 </form>

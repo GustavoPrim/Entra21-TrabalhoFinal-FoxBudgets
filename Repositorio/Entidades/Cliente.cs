@@ -14,9 +14,5 @@
 
         public IList<Orcamento> Orcamentos { get; set; }
 
-        public bool SenhaValida(string senha)
-        {
-            return Senha == senha;
-        }
     }
 }

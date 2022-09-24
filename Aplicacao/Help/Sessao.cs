@@ -12,17 +12,17 @@ namespace Aplicacao.Help
             _httpContext = httpContext;
         }
 
-        public Repositorio.Entidades.Administrador BuscarSessaoUsuario()
+        public Administrador BuscarSessaoUsuario()
         {
             string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
 
             if (string.IsNullOrEmpty(sessaoUsuario))
                 return null;
 
-            return JsonConvert.DeserializeObject<Repositorio.Entidades.Administrador>(sessaoUsuario);
+            return JsonConvert.DeserializeObject<Administrador>(sessaoUsuario);
         }
 
-        public void CriarSessaoUsuario(Repositorio.Entidades.EntidadeBase entidadeBase)
+        public void CriarSessaoUsuario(EntidadeBase entidadeBase)
         {
             string valor = JsonConvert.SerializeObject(entidadeBase);
 

@@ -36,7 +36,7 @@ namespace Repositorio.Repositorios
             _contexto.Orcamentos.Update(orcamento);
             _contexto.SaveChanges();
         }
-        public Orcamento ObterPorId(int id) =>
+        public Orcamento? ObterPorId(int id) =>
             _contexto.Orcamentos
             .Include(x => x.OrcamentoMateriais)
             .FirstOrDefault(x => x.Id == id);
@@ -44,7 +44,7 @@ namespace Repositorio.Repositorios
             _contexto.Orcamentos
                 .Include(x => x.OrcamentoMateriais)
                 .ToList();
-        public Orcamento Solicitar(Orcamento orcamento)
+        public Orcamento Cotar(Orcamento orcamento)
         {
             _contexto.Orcamentos.Add(orcamento);
             _contexto.SaveChanges();
