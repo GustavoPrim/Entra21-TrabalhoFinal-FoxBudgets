@@ -7,6 +7,7 @@ using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
 using Servico.InjecoesDependencia;
 using System.Globalization;
+using Repositorio.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -24,9 +24,12 @@ namespace Repositorio.Mapeamentos
                 .IsRequired()
                 .HasColumnName("sku");
 
+            builder.Property(x => x.PossuiDataValidade)
+                .HasColumnType("BIT")
+                .HasColumnName("PossuiDataValidade");
+
             builder.Property(x => x.DataValidade)
                 .HasColumnType("DATETIME2")
-                .IsRequired()
                 .HasColumnName("DataValidade");
 
             builder.Property(x => x.Descricao)

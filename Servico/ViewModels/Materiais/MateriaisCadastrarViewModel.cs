@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.Materiais
 {
@@ -19,6 +19,8 @@ namespace Servico.ViewModels.Materiais
         [Display(Name = "Possui Data de Validade?")]
         public bool PossuiDataValidade { get; set; }
 
+
+        [Required(ErrorMessage = "Insira a data de validade")]
         [Display(Name = "Data de validade")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]

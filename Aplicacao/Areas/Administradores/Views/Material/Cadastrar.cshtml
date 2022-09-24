@@ -36,10 +36,11 @@
         <div class="p-t-10">
             <label class="radio-container m-r-45">
                 Sim
-                <input type="radio" name="possuiDataValidade" value="1" onclick="text(0)" checked />
+                <input type="radio" name="possuiDataValidade" value="true" onclick="text(0)" checked />
                 <span class="checkmark"></span>
+                <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
             </label>
-            <input type="radio" name="possuiDataValidade" value="0" onclick="text(1)" />
+            <input type="radio" name="possuiDataValidade" value="false" onclick="text(1)" />
             <span class="checkmark"></span>
             <label class="radio-container m-r-45">
                 Não
@@ -48,8 +49,8 @@
     </div>
     <div class="mb-3">
         <div class="input-group" id="mycode">
-            <input class="input--style-4" class-type="DateTime" type="text" name="dataValidade" id="dataValidade" placeholder="Coloque a Data de Validade" />
-            <span style="color: red" id="DataValidade"></span>
+            <input class="input--style-4" asp-for="DataValidade" class="form-control" />
+            <span style="color: black" id="DataValidade"></span>
         </div>
     </div>
 
