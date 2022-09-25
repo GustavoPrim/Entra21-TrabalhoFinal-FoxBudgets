@@ -29,7 +29,7 @@
         </div>
 
         <div class="navbar-brand text-center text-lg-left">
-            <a href="index.html" class="d-inline-block">
+            <a href="/fornecedor" class="d-inline-block">
                 <img src="~/Tema/global_assets/images/FOXXtest.png" class="layout-imagem d-none d-sm-block" alt="">
                 <img src="~/Tema/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="">
             </a>
@@ -104,11 +104,6 @@
     <div class="page-header mb-2">
         <div class="breadcrumb-line header-elements-lg-inline border-bottom">
             <div class="d-flex">
-                <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                    <span class="breadcrumb-item active">Dashboard</span>
-                </div>
-
                 <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
             </div>
 
@@ -184,7 +179,7 @@
                                 title="Main"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active" style="background-color: darkorange">
+                            <a href="/fornecedor" class="nav-link active" style="background-color: darkorange">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -193,13 +188,12 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <!-- <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Operações</span></a>-->
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Estoque</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
 
                                 <li class="nav-item">
-                                    <a asp-controller="Fornecedor" asp-action="Editar" class="nav-link">Editar Materiais</a>
+                                    <a asp-controller="Fornecedor" asp-action="Editar" class="nav-link">Materiais</a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-controller="Estoque" asp-action="a" class="nav-link">Saída</a>
