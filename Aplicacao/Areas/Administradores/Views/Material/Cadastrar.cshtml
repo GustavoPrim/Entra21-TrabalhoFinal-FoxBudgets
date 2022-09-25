@@ -36,25 +36,19 @@
         <div class="p-t-10">
             <label class="radio-container m-r-45">
                 Sim
-                <input type="radio" name="possuiDataValidade" value="true" onclick="text(0)" checked />
-                <font color="white"></font>
-                <input for-type="radio" theme="dark" />
+                <input type="radio" name="possuiDataValidade" value="false" onclick="text(0)" checked />
                 <span class="checkmark"></span>
                 <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
-            </label>
-            <input type="radio" name="possuiDataValidade" value="false" onclick="text(1)" />
-            <font color="white"></font>
-            <input for-type="radio" theme="dark" />
-            <span class="checkmark"></span>
-            <label class="radio-container m-r-45">
+            </label>    <label class="radio-container m-r-45">
                 Não
             </label>
+            <span class="checkmark"></span>
+            <input type="radio" name="possuiDataValidade" value="true" onclick="text(1)" />
         </div>
     </div>
     <div class="mb-3">
         <div class="input-group" id="mycode">
-            <input class="input--style-4" asp-for="DataValidade" class="form-control" />
-            <span style="color: black" id="DataValidade"></span>
+            <input class="input--style-black" asp-for="DataValidade" class="form-control" />
         </div>
     </div>
 
