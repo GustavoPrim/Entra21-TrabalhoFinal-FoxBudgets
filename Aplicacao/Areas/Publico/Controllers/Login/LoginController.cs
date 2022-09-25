@@ -6,7 +6,7 @@ using Servico.ViewModels;
 namespace Aplicacao.Administradores.Controllers
 {
     [Area("Publico")]
-    [Route("login")]
+    [Route("Login")]
     public class LoginController : Controller
     {
         private readonly IAdministradorServico _administradorRepositorio;
@@ -52,7 +52,6 @@ namespace Aplicacao.Administradores.Controllers
                     {
                         _sessao.CriarSessaoUsuario(cliente);
                         return RedirectToAction("", "Home", new { area = "Cliente" });
-
                     }
                     else
                     {
@@ -89,6 +88,13 @@ namespace Aplicacao.Administradores.Controllers
                 TempData["MensagemErro"] = $"Ops, não conseguimos realizar o seu login, tente novamente, detalhe do erro {erro.Message}";
                 return RedirectToAction("Index");
             }
+        }
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar()
+        {
+            var viewModel = new CadastrarUsuarioViewModel();
+
+            return View(viewModel);
         }
     }
 }
