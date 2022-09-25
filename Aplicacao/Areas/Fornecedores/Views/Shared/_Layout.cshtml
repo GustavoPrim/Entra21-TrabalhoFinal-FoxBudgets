@@ -26,9 +26,6 @@
             <button type="button" class="navbar-toggler sidebar-mobile-main-toggle">
                 <i class="icon-transmission"></i>
             </button>
-            <button data-target="#navbar_search" type="button" class="navbar-toggler" data-toggle="collapse">
-                <i class="icon-search4"></i>
-            </button>
         </div>
 
         <div class="navbar-brand text-center text-lg-left">
@@ -37,21 +34,10 @@
                 <img src="~/Tema/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="">
             </a>
         </div>
-
-        <div class="collapse navbar-collapse order-2 order-lg-1" id="navbar_search">
-            <div class="navbar-search d-flex align-items-center py-3 py-lg-0">
-                <div class="form-group-feedback form-group-feedback-left flex-grow-1">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="form-control-feedback">
-                        <i class="icon-search4 text-white opacity-50"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
             <span class="badge badge-success d-none d-lg-inline-block mr-3">Active</span>
 
+            <ul class="navbar-nav flex-row align-items-center h-100">
             <ul class="navbar-nav flex-row align-items-center h-100">
                 <li class="nav-item nav-item-dropdown-lg dropdown">
                     <a href="#" class="navbar-nav-link navbar-nav-link-toggler" data-toggle="modal"
@@ -95,7 +81,7 @@
 
                         <div class="dropdown-item d-flex py-2">
                             <div class="flex-1">
-                                <div class="font-weight-semibold">Payments</div>
+                                <div class="font-weight-semibold">Pagamentos</div>
                                 <span class="text-muted font-size-sm">Expenses, subscription</span>
                             </div>
                             <span
@@ -103,12 +89,6 @@
                                 <i class="icon-arrow-right8"></i>
                             </span>
                         </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Settings</div>
-                                <span class="text-muted font-size-sm">Security, app config</span>
-                            </div>
                             <span
                                 class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
                                 <i class="icon-arrow-right8"></i>
@@ -138,19 +118,10 @@
                         <i class="icon-comment-discussion mr-2"></i>
                         Support
                     </a>
-
-                    <div class="breadcrumb-elements-item dropdown p-0">
-                        <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-gear mr-2"></i>
-                            Settings
-                        </a>
-
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-                            <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-                            <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
+                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+                            <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
                         </div>
                     </div>
                 </div>
