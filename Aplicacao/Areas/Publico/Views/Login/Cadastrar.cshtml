@@ -47,16 +47,15 @@
         <input asp-for="Telefone" class="form-control" />
         <span asp-validation-for="Telefone" class="text-danger"></span>
     </div>
-
-    <div class="text-end">
-        <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
-        <button type="submit" class="btn btn-success">Salvar</button>
-    </div>		
 					@if (TempData["Message"] != null)
 					{
 						<p class="text-danger">@TempData["Message"]</p>
 					}
 					<button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Criar conta</button>
+                    
+    <div class="text-end">
+        <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
+    </div>		
 				</form>
 				<Por>Já possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
 			</div>
