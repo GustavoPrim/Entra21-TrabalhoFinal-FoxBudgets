@@ -45,6 +45,18 @@
         <span asp-validation-for="Telefone" class="text-danger"></span>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="Login" class="form-label" span-required=""></label>
+        <input type="text" asp-for="Login" class="form-control" id="login" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Senha" class="form-label" span-required=""></label>
+        <input type="password" asp-for="Senha" class="form-control" id="senha" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+
     <div class="text-end">
         <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
         <button type="submit" class="btn btn-success">Salvar</button>
