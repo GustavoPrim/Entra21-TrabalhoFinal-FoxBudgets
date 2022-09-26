@@ -1,4 +1,4 @@
-﻿@model MateriaisEditarViewModel
+@model MateriaisEditarViewModel
 @{
     var materiais = ViewBag.Materiais as List<string>;
     materiais.Add(string.Empty);
@@ -19,11 +19,6 @@
         <label asp-for="Sku" class="form-label" span-required=""></label>
         <input asp-for="Sku" class="form-control" />
         <span asp-validation-for="Sku" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="DataValidade" class="form-label" span-required=""></label>
-        <input asp-for="DataValidade" class="form-control" />
     </div>
 
     <div class="mb-3">
