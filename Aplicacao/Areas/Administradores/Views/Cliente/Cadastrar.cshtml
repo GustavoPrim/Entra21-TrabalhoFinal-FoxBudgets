@@ -21,6 +21,12 @@
         <span asp-validation-for="Cpf" class="text-danger"></span>
     </div>
 
+      <div class="mb-3">
+        <label asp-for="Cnpj" class="form-label" span-required=""></label>
+        <input asp-for="Cnpj" class="form-control" />
+        <span asp-validation-for="Cnpj" class="text-danger"></span>
+    </div>
+
     <div class="mb-3">
         <label asp-for="DataNascimento" class="form-label" span-required=""></label>
         <input asp-for="DataNascimento" class="form-control" />
@@ -43,6 +49,18 @@
         <label asp-for="Telefone" class="form-label" span-required=""></label>
         <input asp-for="Telefone" class="form-control" />
         <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Login" class="form-label" span-required=""></label>
+        <input type="text" asp-for="Login" class="form-control" id="login" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Senha" class="form-label" span-required=""></label>
+        <input type="password" asp-for="Senha" class="form-control" id="senha" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
     </div>
 
     <div class="text-end">

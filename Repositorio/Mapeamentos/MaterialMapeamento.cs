@@ -37,7 +37,6 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(200)
                 .HasColumnName("descricao");
 
-            
         }
     }
 }
