@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Repositorio.Repositorios;
 
 #nullable disable
 
@@ -176,8 +177,8 @@ namespace Repositorio.Migrations
                 columns: new[] { "Id", "cnpj", "cpf", "DataNascimento", "email", "endereco", "Login", "nome", "senha", "telefone" },
                 values: new object[,]
                 {
-                    { 1, "12.345.678/0001-90", "111.222.111-22", new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "gui", "Guilherme", "1234", "992499565" },
-                    { 2, "77.888.777/0001-10", "444.555.444-55", new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Hermann Tribess 1234", "ju", "Juliana", "1234", "992380457" }
+                    { 1, "12.345.678/0001-90", "111.222.111-22", new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "gui", "Guilherme", "1234".GerarHash(), "992499565" },
+                    { 2, "77.888.777/0001-10", "444.555.444-55", new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Hermann Tribess 1234", "ju", "Juliana", "1234".GerarHash(), "992380457" }
                 });
 
             migrationBuilder.InsertData(

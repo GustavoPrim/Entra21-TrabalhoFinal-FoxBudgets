@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
+using Repositorio.Repositorios;
 
 #nullable disable
 
@@ -90,7 +91,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Julio Michel 1130",
                             Login = "guga",
                             Nome = "Gustavo Prim",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "992499565"
                         },
                         new
@@ -102,7 +103,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Água Branca 1234",
                             Login = "lucas",
                             Nome = "Lucas Alves",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "992460586"
                         });
                 });
@@ -178,9 +179,9 @@ namespace Repositorio.Migrations
                             DataNascimento = new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "gugahprm@gmail.com",
                             Endereco = "Rua Julio Michel 1130",
-                            Login = "gui",
+                            Login = "gui".GerarHash(),
                             Nome = "Guilherme",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "992499565"
                         },
                         new
@@ -191,9 +192,9 @@ namespace Repositorio.Migrations
                             DataNascimento = new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lucasalves@gmail.com",
                             Endereco = "Rua Hermann Tribess 1234",
-                            Login = "ju",
+                            Login = "ju".GerarHash(),
                             Nome = "Juliana",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "992380457"
                         });
                 });
@@ -300,7 +301,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua 2 de Setembro 1890",
                             Login = "will",
                             Nome = "Wolf Tubos e conexões",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "991599314"
                         },
                         new
@@ -313,7 +314,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Alberto Stein 199",
                             Login = "vg",
                             Nome = "Materiais de construção VG",
-                            Senha = "1234",
+                            Senha = "1234".GerarHash(),
                             Telefone = "3381-7700"
                         });
                 });
