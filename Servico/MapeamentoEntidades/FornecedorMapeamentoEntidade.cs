@@ -1,9 +1,10 @@
 ﻿using Repositorio.Entidades;
+using Repositorio.Repositorios;
 using Servico.ViewModels.Fornecedores;
 
 namespace Servico.MapeamentoEntidades
 {
-    public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
+	public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
     {
         public void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel)
         {
@@ -14,6 +15,8 @@ namespace Servico.MapeamentoEntidades
             fornecedor.Email = viewModel.Email;
             fornecedor.Telefone = viewModel.Telefone;
             fornecedor.Categoria = (int)viewModel.Categoria;
+            fornecedor.Login = viewModel.Login;
+            fornecedor.Senha = viewModel.Senha;
         }
         public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel)
         {
@@ -26,6 +29,8 @@ namespace Servico.MapeamentoEntidades
                 Email = viewModel.Email,
                 Telefone = viewModel.Telefone,
                 Categoria = (int)viewModel.Categoria,
+                Login = viewModel.Login,
+                Senha = viewModel.Senha.GerarHash()
             };
         }
     }
