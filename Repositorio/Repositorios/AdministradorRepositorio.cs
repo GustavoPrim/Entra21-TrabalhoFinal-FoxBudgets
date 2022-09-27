@@ -34,8 +34,7 @@ namespace Repositorio.Repositorios
         }
 
         public Administrador? BuscarPorLogin(string login, string senha) =>
-            _contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha);
-
+            _contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha.GerarHash());
 
         public Administrador Cadastrar(Administrador administrador)
         {

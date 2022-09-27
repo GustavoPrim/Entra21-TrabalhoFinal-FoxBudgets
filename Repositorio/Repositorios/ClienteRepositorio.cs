@@ -27,7 +27,7 @@ namespace Repositorio.Repositorios
         }
 
         public Cliente? BuscarPorLogin(string login, string senha) =>
-             _contexto.Clientes.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha);
+             _contexto.Clientes.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha.GerarHash());
 
         public Cliente Cadastrar(Cliente cliente)
         {

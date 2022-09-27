@@ -52,7 +52,6 @@ namespace Aplicacao.Administradores.Controllers
                     {
                         _sessao.CriarSessaoUsuario(cliente);
                         return RedirectToAction("", "Home", new { area = "Cliente" });
-
                     }
                     else
                     {
@@ -90,7 +89,7 @@ namespace Aplicacao.Administradores.Controllers
                 return RedirectToAction("Index");
             }
         }
-        [HttpGet("cadastrar")]
+        [HttpPost("cadastrar")]
         public IActionResult Cadastrar()
         {
             var viewModel = new CadastrarUsuarioViewModel();

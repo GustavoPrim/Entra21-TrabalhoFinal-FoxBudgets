@@ -15,6 +15,8 @@ namespace Servico.MapeamentoViewModels
                 Endereco = cliente.Endereco,
                 Email = cliente.Email,
                 Telefone = cliente.Telefone,
+                Login = cliente.Login,
+                Senha = cliente.Senha
             };
         }
     }

@@ -33,7 +33,7 @@ namespace Repositorio.Repositorios
         }
 
         public Fornecedor? BuscarPorLogin(string login, string senha) =>
-            _contexto.Fornecedores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha);
+            _contexto.Fornecedores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha.GerarHash());
 
             public Fornecedor Cadastrar(Fornecedor fornecedor)
         {

@@ -47,11 +47,6 @@
         <input asp-for="Telefone" class="form-control" />
         <span asp-validation-for="Telefone" class="text-danger"></span>
     </div>
-
-    <div class="text-end">
-        <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
-        <button type="submit" class="btn btn-success">Salvar</button>
-    </div>		
 					@if (TempData["Message"] != null)
 					{
 						<p class="text-danger">@TempData["Message"]</p>

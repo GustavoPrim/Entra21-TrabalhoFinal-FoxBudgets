@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
+using Repositorio.Repositorios;
 
 namespace Repositorio.Mapeamentos
 {
@@ -52,6 +53,11 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
+           builder.Property(x => x.Login)
+            .HasColumnName("login")
+            .HasColumnType("VARCHAR")
+            .HasMaxLength(100);
+
             builder.Property(x => x.Senha)
                .HasColumnName("senha")
                .HasColumnType("VARCHAR")
@@ -69,7 +75,7 @@ namespace Repositorio.Mapeamentos
                     Email = "gugahprm@gmail.com",
                     Telefone = "992499565",
                     Login = "gui",
-                    Senha = "1234"
+                    Senha = "1234".GerarHash()
                 },
                 new Cliente
                 {
@@ -82,8 +88,8 @@ namespace Repositorio.Mapeamentos
                     Email = "lucasalves@gmail.com",
                     Telefone = "992380457",
                     Login = "ju",
-                    Senha = "1234"
-                });
+                    Senha = "1234".GerarHash()
+                }); ;
         }
     }
 }

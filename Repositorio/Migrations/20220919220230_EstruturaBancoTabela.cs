@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Repositorio.Repositorios;
 
 #nullable disable
 
@@ -167,8 +168,8 @@ namespace Repositorio.Migrations
                 columns: new[] { "Id", "cpf", "DataNascimento", "email", "endereco", "login", "nome", "senha", "telefone" },
                 values: new object[,]
                 {
-                    { 1, "666.999.666-99", new DateTime(2001, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "guga", "Gustavo Prim", "1234", "992499565" },
-                    { 2, "123.456.789-10", new DateTime(1995, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Água Branca 1234", "lucas", "Lucas Alves", "1234", "992460586" }
+                    { 1, "666.999.666-99", new DateTime(2001, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "guga", "Gustavo Prim", "1234".GerarHash(), "992499565" },
+                    { 2, "123.456.789-10", new DateTime(1995, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Água Branca 1234", "lucas", "Lucas Alves", "1234".GerarHash(), "992460586" }
                 });
 
             migrationBuilder.InsertData(
@@ -176,8 +177,8 @@ namespace Repositorio.Migrations
                 columns: new[] { "Id", "cnpj", "cpf", "DataNascimento", "email", "endereco", "Login", "nome", "senha", "telefone" },
                 values: new object[,]
                 {
-                    { 1, "12.345.678/0001-90", "111.222.111-22", new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "gui", "Guilherme", "1234", "992499565" },
-                    { 2, "77.888.777/0001-10", "444.555.444-55", new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Hermann Tribess 1234", "ju", "Juliana", "1234", "992380457" }
+                    { 1, "12.345.678/0001-90", "111.222.111-22", new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "gugahprm@gmail.com", "Rua Julio Michel 1130", "gui", "Guilherme", "1234".GerarHash(), "992499565" },
+                    { 2, "77.888.777/0001-10", "444.555.444-55", new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "lucasalves@gmail.com", "Rua Hermann Tribess 1234", "ju", "Juliana", "1234".GerarHash(), "992380457" }
                 });
 
             migrationBuilder.InsertData(
@@ -185,8 +186,8 @@ namespace Repositorio.Migrations
                 columns: new[] { "Id", "categoria", "cnpj", "dataFundacao", "email", "endereco", "login", "nome", "senha", "telefone" },
                 values: new object[,]
                 {
-                    { 1, 1, "", new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Willljdev@gmail.com", "Rua 2 de Setembro 1890", "will", "Wolf Tubos e conexões", "1234", "991599314" },
-                    { 2, 4, "", new DateTime(2019, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "budgetsVG@gmail.com", "Rua Alberto Stein 199", "vg", "Materiais de construção VG", "1234", "3381-7700" }
+                    { 1, 1, "", new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Willljdev@gmail.com", "Rua 2 de Setembro 1890", "will", "Wolf Tubos e conexões", "1234".GerarHash(), "991599314" },
+                    { 2, 4, "", new DateTime(2019, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "budgetsVG@gmail.com", "Rua Alberto Stein 199", "vg", "Materiais de construção VG", "1234".GerarHash(), "3381-7700" }
                 });
 
             migrationBuilder.CreateIndex(
