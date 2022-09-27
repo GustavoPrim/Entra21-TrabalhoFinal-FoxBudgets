@@ -6,7 +6,7 @@
 	ViewData["Title"] = "Cadastrar";
 }
 
-<form>
+<form method="POST">
 	<div class="page-content vertical-align-middle">
 		<div class="panel">
 			<div class="panel-body">
@@ -56,7 +56,11 @@
 					{
 						<p class="text-danger">@TempData["Message"]</p>
 					}
-					<button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Criar conta</button>
+					<button type="submit" asp-controller="Administrador" asp-action="Cadastrar" class="btn btn-primary btn-block btn-lg mt-40">Criar conta</button>
+                    
+    <div class="text-end">
+        <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
+    </div>		
 				</form>
 				<Por>Já possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
 			</div>
