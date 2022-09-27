@@ -9,21 +9,22 @@
 <form asp-action="cotar" method="POST">
 
     <div class="mb-3">
-        <label asp-for="DataOrcamento" class="form-label" span-required=""></label>
-        <input asp-for="DataOrcamento" class="form-control" />
+        <label asp-for="DataOrcamento" class="form-label" span-required="">Data do orçamento</label>
+        <input asp-for="DataOrcamento" class="form-control w-50" />
         <span asp-validation-for="DataOrcamento" class="text-danger"></span>
     </div>
+    <div class="row">
+        <div class="mb-3 p-2">
+            <label asp-for="Item" class="form-label" span-required=""></label>
+            <input asp-for="Item" class="form-control" />
+            <span asp-validation-for="Item" class="text-danger"></span>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="Item" class="form-label" span-required=""></label>
-        <input asp-for="Item" class="form-control" />
-        <span asp-validation-for="Item" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Quantidade" class="form-label" span-required=""></label>
-        <input asp-for="Quantidade" class="form-control" />
-        <span asp-validation-for="Quantidade" class="text-danger"></span>
+        <div class="p-2">
+            <label asp-for="Quantidade" class="form-label" span-required=""></label>
+            <input asp-for="Quantidade" class="form-control w-50" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
     </div>
 
     <div class="text-end">
