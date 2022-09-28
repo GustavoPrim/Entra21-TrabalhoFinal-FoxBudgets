@@ -6,8 +6,8 @@ namespace Servico.ViewModels.Estoque
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
-        [MinLength(3, ErrorMessage = "{0} deve conter no mínimo {1}")]
-        [MaxLength(30, ErrorMessage = "{0} deve conter no máximo {1}")]
+        [RegularExpression(@"^[a-zãçA-Z''-'\s]{3,30}$", ErrorMessage =
+            "Números e caracteres especiais não são permitidos no nome.")]
         public string Nome { get; set; }
 
         [Display(Name = "Valor")]
