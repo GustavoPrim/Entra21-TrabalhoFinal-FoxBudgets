@@ -1,9 +1,9 @@
 ﻿@model OrcamentoCadastrarViewModel
 @{
-    var orcamentos = ViewBag.Orcamentos as List<string>;
-    orcamentos.Add(string.Empty);
+    var material = ViewBag.Materiais as List<string>;
+    material.Add(string.Empty);
 
-    var selectDosOrcamentos = new SelectList(orcamentos, string.Empty);
+    var selectDosMateriais = new SelectList(material, string.Empty);
 }
 <p class="h3">Novo orçamento</p>
 <form asp-action="cotar" method="POST">
@@ -16,7 +16,8 @@
     <div class="row">
         <div class="mb-3 p-2">
             <label asp-for="Item" class="form-label" span-required=""></label>
-            <input asp-for="Item" class="form-control" />
+            <select asp-for="Item" asp-items="selectDosMateriais"
+                class="form-select"></select>
             <span asp-validation-for="Item" class="text-danger"></span>
         </div>
 

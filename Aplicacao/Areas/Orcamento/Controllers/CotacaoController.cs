@@ -55,7 +55,7 @@ namespace Aplicacao.Areas.Orcamento.Controllers
             var orcamentoEditarViewModel = new OrcamentoEditarViewModel
             {
                 Id = orcamento.Id,
-                DataOrcamento = orcamento.DataOrcamento,
+                //DataOrcamento = orcamento.,
                 Quantidade = orcamento.Quantidade,
                 //Item = orcamento.Item
             };

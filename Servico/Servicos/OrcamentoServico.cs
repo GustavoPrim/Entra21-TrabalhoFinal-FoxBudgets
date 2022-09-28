@@ -32,13 +32,13 @@ namespace Servico.Servicos
             return true;
         }
 
-        public Orcamento ObterPorId(int id) =>
+        public OrcamentoMaterial ObterPorId(int id) =>
             _orcamentoRepositorio.ObterPorId(id);
 
-        public IList<Orcamento> ObterTodos() =>
+        public List<OrcamentoMaterial> ObterTodos() =>
             _orcamentoRepositorio.ObterTodos();
 
-        public Orcamento Cotar(OrcamentoCadastrarViewModel viewModel)
+        public OrcamentoMaterial Cotar(OrcamentoCadastrarViewModel viewModel)
         {
             var orcamento = _mapeamentoEntidade.ConstruirCom(viewModel);
 

@@ -10,7 +10,7 @@ namespace Servico.MapeamentoEntidades
 {
     public interface IOrcamentoMapeamentoEntidade
     {
-        Orcamento ConstruirCom(OrcamentoCadastrarViewModel viewModel);
-        void AtualizarCom(Orcamento orcamento, OrcamentoEditarViewModel viewModel);
+        OrcamentoMaterial ConstruirCom(OrcamentoCadastrarViewModel viewModel);
+        void AtualizarCom(OrcamentoMaterial orcamento, OrcamentoEditarViewModel viewModel);
     }
 }
