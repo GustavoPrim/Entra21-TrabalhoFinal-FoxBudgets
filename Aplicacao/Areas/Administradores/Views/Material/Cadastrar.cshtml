@@ -22,7 +22,7 @@
     <script>
         function text(x) {
             if (x == 0)
-                document.getElementById("mycode").style.display = "block";
+                document.getElementById("mycode").style.display = "";
             else
                 document.getElementById("mycode").style.display = "none";
             return;
@@ -48,7 +48,7 @@
     </div>
     <div class="mb-3">
         <div class="input-group" id="mycode">
-            <input class="input--style-black" asp-for="DataValidade" class="form-control" />
+            <input asp-for="DataValidade" class="form-control" />
         </div>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div class="text-end">
-        <a href="/administrador/cadastrarmateriais" class="btn btn-outline-danger">Cancelar</a>
+        <a href="/administrador/index" class="btn btn-outline-danger">Cancelar</a>
         <button type="submit" class="btn btn-success">Salvar</button>
     </div>
 </form>
