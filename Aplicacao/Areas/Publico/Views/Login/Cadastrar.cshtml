@@ -11,6 +11,13 @@
             <div class="panel-body">
                 <form asp-controller="Login" asp-action="Cadastrar" method="POST">
 
+<form method="POST">
+	<div class="page-content vertical-align-middle">
+		<div class="panel">
+			<div class="panel-body">
+				<form asp-controller="Login" asp-action="Cadastrar" method="POST">
+
+
                     <div class="mb-3">
                         <label asp-for="Nome" class="form-label" span-required=""></label>
                         <input asp-for="Nome" class="form-control" />
@@ -61,4 +68,20 @@
         </div>
     </div>
     </div>
+
+					@if (TempData["Message"] != null)
+					{
+						<p class="text-danger">@TempData["Message"]</p>
+					}
+					<button type="submit" asp-controller="Administrador" asp-action="Cadastrar" class="btn btn-primary btn-block btn-lg mt-40">Criar conta</button>
+                    
+    <div class="text-end">
+        <a href="/administrador" class="btn btn-outline-danger">Cancelar</a>
+    </div>		
+				</form>
+				<Por>Já possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
+			</div>
+		</div>
+	</div>
+	</div>
 </form>

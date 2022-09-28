@@ -9,9 +9,9 @@ namespace Aplicacao.Administradores.Controllers
     [Route("Login")]
     public class LoginController : Controller
     {
-        private readonly IAdministradorServico _administradorRepositorio;
-        private readonly IFornecedorServico _fornecedorRepositorio;
-        private readonly IClienteService _clienteRepositorio;
+        private readonly IAdministradorServico _administradorService;
+        private readonly IFornecedorServico _fornecedorService;
+        private readonly IClienteService _clienteService;
         private readonly ISessao _sessao;
         public LoginController(
             IAdministradorServico administradorService,
@@ -19,10 +19,10 @@ namespace Aplicacao.Administradores.Controllers
             IFornecedorServico fornecedorService,
             IClienteService clienteRepositorio)
         {
-            _administradorRepositorio = administradorService;
+            _administradorService = administradorService;
             _sessao = sessao;
-            _fornecedorRepositorio = fornecedorService;
-            _clienteRepositorio = clienteRepositorio;
+            _fornecedorService = fornecedorService;
+            _clienteService = clienteRepositorio;
         }
         public IActionResult Index()
         {
@@ -47,7 +47,7 @@ namespace Aplicacao.Administradores.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var cliente = _clienteRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
+                    var cliente = _clienteService.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (cliente != null)
                     {
                         _sessao.CriarSessaoUsuario(cliente);
@@ -58,7 +58,7 @@ namespace Aplicacao.Administradores.Controllers
                         TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
                     }
 
-                    var fornecedor = _fornecedorRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
+                    var fornecedor = _fornecedorService.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (fornecedor != null)
                     {
                             _sessao.CriarSessaoUsuario(fornecedor);
@@ -69,7 +69,7 @@ namespace Aplicacao.Administradores.Controllers
                         TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Por favor, tente novamente!";
                     }
 
-                    var administrador = _administradorRepositorio.BuscarPorLogin(loginModel.Login, loginModel.Senha);
+                    var administrador = _administradorService.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (administrador != null)
                     {
                             _sessao.CriarSessaoUsuario(administrador);
@@ -95,6 +95,14 @@ namespace Aplicacao.Administradores.Controllers
             var viewModel = new CadastrarUsuarioViewModel();
 
             return View(viewModel);
+        }
+        
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel)
+        {
+          //   _clienteService.();
+
+            return View();
         }
     }
 }
