@@ -5,33 +5,59 @@ namespace Aplicacao.Help
 {
     public class Sessao : ISessao
     {
-        private readonly IHttpContextAccessor _httpContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public Sessao(IHttpContextAccessor httpContext)
+        public Sessao(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContext = httpContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public Administrador BuscarSessaoUsuario()
+        private const string SessionKeyAdministrator = "administratorSession";
+        private const string SessionKeyClient = "clientSession";
+        private const string SessionKeySupplier = "supplierSession";
+
+        public void CriarSessaoUsuario<TEntidade>(TEntidade userBase) where TEntidade : Usuario
         {
-            string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
+            var userBaseString = JsonConvert.SerializeObject(userBase);
 
-            if (string.IsNullOrEmpty(sessaoUsuario))
-                return null;
+            var sessionKey = GetSessionKey<TEntidade>();
 
-            return JsonConvert.DeserializeObject<Administrador>(sessaoUsuario);
+            GetSession().SetString(sessionKey, userBaseString);
         }
 
-        public void CriarSessaoUsuario(EntidadeBase entidadeBase)
+        public TEntidade? BuscarSessaoUsuario<TEntidade>() where TEntidade : Usuario
         {
-            string valor = JsonConvert.SerializeObject(entidadeBase);
+            var sessionKey = GetSessionKey<TEntidade>();
 
-            _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado", valor);
+            var session = GetSession().GetString(sessionKey);
+
+            if (string.IsNullOrEmpty(session))
+                return default;
+
+            return JsonConvert.DeserializeObject<TEntidade>(session);
         }
 
-        public void RemoverSessaoUsuario()
+        public void RemoverSessaoUsuario<TEntidade>() where TEntidade : Usuario
         {
-            _httpContext.HttpContext.Session.Remove("sessaoUsuarioLogado");
+            var sessionKey = GetSessionKey<TEntidade>();
+
+            GetSession().Remove(sessionKey);
         }
+
+        private string GetSessionKey<TEntidade>() where TEntidade : Usuario
+        {
+            var type = typeof(TEntidade);
+
+            if (type == typeof(Administrador))
+                return SessionKeyAdministrator;
+
+            if (type == typeof(Cliente))
+                return SessionKeyClient;
+
+            return SessionKeySupplier;
+        }
+
+        private ISession GetSession() =>
+            _httpContextAccessor.HttpContext.Session;
     }
 }

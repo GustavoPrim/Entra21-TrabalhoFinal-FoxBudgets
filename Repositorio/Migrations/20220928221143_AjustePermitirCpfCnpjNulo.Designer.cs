@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
 
@@ -11,9 +12,10 @@ using Repositorio.BancoDados;
 namespace Repositorio.Migrations
 {
     [DbContext(typeof(OrcamentoContexto))]
-    partial class OrcamentoContextoModelSnapshot : ModelSnapshot
+    [Migration("20220928221143_AjustePermitirCpfCnpjNulo")]
+    partial class AjustePermitirCpfCnpjNulo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,7 +92,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Julio Michel 1130",
                             Login = "guga",
                             Nome = "Gustavo Prim",
-                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+                            Senha = "1234",
                             Telefone = "992499565"
                         },
                         new
@@ -102,7 +104,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Água Branca 1234",
                             Login = "lucas",
                             Nome = "Lucas Alves",
-                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+                            Senha = "1234",
                             Telefone = "992460586"
                         });
                 });
@@ -300,7 +302,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua 2 de Setembro 1890",
                             Login = "will",
                             Nome = "Wolf Tubos e conexões",
-                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+                            Senha = "1234",
                             Telefone = "991599314"
                         },
                         new
@@ -313,7 +315,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Alberto Stein 199",
                             Login = "vg",
                             Nome = "Materiais de construção VG",
-                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+                            Senha = "1234",
                             Telefone = "3381-7700"
                         });
                 });

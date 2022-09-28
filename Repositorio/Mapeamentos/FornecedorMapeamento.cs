@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
 using Repositorio.Enuns;
+using Repositorio.Repositorios;
 
 namespace Repositorio.Mapeamentos
 {
@@ -75,7 +76,7 @@ namespace Repositorio.Mapeamentos
                     Telefone = "991599314",
                     Categoria = (int)AdministradorEnum.MaterialHidraulico,
                     Login = "will",
-                    Senha = "1234"
+                    Senha = "1234".GerarHash()
                 },
                 new Fornecedor
                 {
@@ -88,7 +89,7 @@ namespace Repositorio.Mapeamentos
                     Telefone = "3381-7700",
                     Categoria = (int)AdministradorEnum.MaterialBruto,
                     Login = "vg",
-                    Senha = "1234"
+                    Senha = "1234".GerarHash()
                 });
         }
     }
