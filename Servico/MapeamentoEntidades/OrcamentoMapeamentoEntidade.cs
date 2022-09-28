@@ -10,12 +10,12 @@ namespace Servico.MapeamentoEntidades
 {
     public class OrcamentoMapeamentoEntidade : IOrcamentoMapeamentoEntidade
     {
-        public void AtualizarCom(Orcamento orcamento, OrcamentoEditarViewModel viewModel)
+        public void AtualizarCom(OrcamentoMaterial orcamento, OrcamentoEditarViewModel viewModel)
         {
             throw new NotImplementedException();
         }
 
-        public Orcamento ConstruirCom(OrcamentoCadastrarViewModel viewModel)
+        public OrcamentoMaterial ConstruirCom(OrcamentoCadastrarViewModel viewModel)
         {
             throw new NotImplementedException();
         }
