@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\Publico\Views\Home\_LayoutDeslogado.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\Publico\Views\Home\_LayoutDeslogado.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
     <ProjectReference Include="..\Servico\Servico.csproj" />
   </ItemGroup>
