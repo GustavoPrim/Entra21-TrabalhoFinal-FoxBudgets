@@ -9,10 +9,10 @@ namespace Repositorio.Repositorios
 {
     public interface IOrcamentoRepositorio
     {
-        Orcamento Cotar(Orcamento orcamento);
-        void Editar(Orcamento orcamento);
-        Orcamento ObterPorId(int id);
-        IList<Orcamento> ObterTodos();
+        OrcamentoMaterial Cotar(OrcamentoMaterial orcamentoMaterial);
+        void Editar(OrcamentoMaterial orcamentoMaterial);
+        OrcamentoMaterial ObterPorId(int id);
+        List<OrcamentoMaterial> ObterTodos();
         bool Apagar(int id);
     }
 }

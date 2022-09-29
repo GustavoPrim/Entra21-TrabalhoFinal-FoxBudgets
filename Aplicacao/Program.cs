@@ -1,5 +1,6 @@
 using Aplicacao.Help;
 using Aplicacao.InjecoesDependencia;
+using Aplicacao.Middleware;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
     options.AreaViewLocationFormats.Add("/Views/{0}.cshtml");
 });
+
 
 builder.Services.AddControllersWithViews();
 
@@ -68,6 +70,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
+
+app.UseMiddleware<LoginMiddleware>();
 
 app.UseAuthorization();
 

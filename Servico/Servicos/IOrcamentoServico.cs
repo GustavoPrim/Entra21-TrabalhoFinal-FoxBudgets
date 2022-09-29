@@ -10,10 +10,10 @@ namespace Servico.Servicos
 {
     public interface IOrcamentoServico
     {
-        Orcamento Cotar(OrcamentoCadastrarViewModel viewModel);
+        OrcamentoMaterial Cotar(OrcamentoCadastrarViewModel viewModel);
         bool Editar(OrcamentoEditarViewModel viewModel);
-        Orcamento ObterPorId(int id);
-        IList<Orcamento> ObterTodos();
+        OrcamentoMaterial ObterPorId(int id);
+        List<OrcamentoMaterial> ObterTodos();
         bool Apagar(int id);
     }
 }

@@ -1,22 +1,17 @@
 ﻿@model OrcamentoCadastrarViewModel
-@{
-    var orcamentos = ViewBag.Orcamentos as List<string>;
-    orcamentos.Add(string.Empty);
 
-    var selectDosOrcamentos = new SelectList(orcamentos, string.Empty);
-}
 <p class="h3">Novo orçamento</p>
 <form asp-action="cotar" method="POST">
 
-    <div class="mb-3">
+    <div class="mb-3 col-4">
         <label asp-for="DataOrcamento" class="form-label" span-required="">Data do orçamento</label>
         <input asp-for="DataOrcamento" class="form-control w-50" />
         <span asp-validation-for="DataOrcamento" class="text-danger"></span>
     </div>
     <div class="row">
-        <div class="mb-3 p-2">
+        <div class="col-6 p-2">
             <label asp-for="Item" class="form-label" span-required=""></label>
-            <input asp-for="Item" class="form-control" />
+            <select asp-for="Item" class="form-select"></select>
             <span asp-validation-for="Item" class="text-danger"></span>
         </div>
 
@@ -29,7 +24,11 @@
 
     <div class="float-right">
         <a href="/cliente" class="btn btn-outline-danger">Cancelar</a>
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success">Orçar</button>
     </div>
 
 </form>
+
+@section Scripts{
+    <script src="~/js/clientes/orcamento/cotar-select2.js"></script>
+}
