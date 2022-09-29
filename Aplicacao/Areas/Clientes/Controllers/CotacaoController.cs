@@ -4,17 +4,19 @@ using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Orcamentos;
 
-namespace Aplicacao.Areas.Orcamento.Controllers
+namespace Aplicacao.Areas.Clientes.Controllers
 {
-    [Area("Orcamento")]
-    [Route("cotacao")]
+    [Area("Clientes")]
+    [Route("cliente/cotacao")]
     [UsuarioLogado]
     public class CotacaoController : Controller
     {
         private readonly IOrcamentoServico _orcamentoServico;
-        public CotacaoController(IOrcamentoServico orcamentoServico)
+        private readonly IMaterialService _materiaServico;
+        public CotacaoController(IOrcamentoServico orcamentoServico, IMaterialService materiaServico)
         {
             _orcamentoServico = orcamentoServico;
+            _materiaServico = materiaServico;
         }
         [HttpGet]
         public IActionResult Index()
@@ -22,18 +24,22 @@ namespace Aplicacao.Areas.Orcamento.Controllers
             var orcamento = _orcamentoServico.ObterTodos();
             return View("index", orcamento);
         }
+
         [HttpGet("cotar")]
         public IActionResult Cotar()
         {
             ViewBag.Orcamentos = ObterOrcamentos();
+            ViewBag.Materiais = _materiaServico.ObterTodos();
             var orcamentoCadastrarViewMOdel = new OrcamentoCadastrarViewModel();
             return View(orcamentoCadastrarViewMOdel);
         }
+
         [HttpPost("cotar")]
         public IActionResult Cotar([FromForm] OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Materiais = _materiaServico.ObterTodos();
                 ViewBag.Administradores = ObterOrcamentos();
                 return View(orcamentoCadastrarViewModel);
             }
