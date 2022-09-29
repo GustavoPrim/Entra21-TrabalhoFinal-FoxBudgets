@@ -1,18 +1,40 @@
 ﻿@using Servico.ViewModels.Estoque
+@using Repositorio.BancoDados
 @model EstoqueCadastrarViewModel
-
 @{
     var estoques = ViewBag.Estoques as List<string>;
     estoques.Add(string.Empty);
 
+    var fornecedor = ViewBag.Fornecedores as List<string>;
+    fornecedor.Add(string.Empty);
+
     var selectDosEstoques = new SelectList(estoques, string.Empty);
+    var selectDosFornecedores = new SelectList(fornecedor, string.Empty);
 }
 
 <p class="h3">Cadastro de Estoque</p>
 <form asp-action="cadastrar" method="POST">
 
     <div class="mb-3">
-        <label asp-for="Quantidade" class="form-label" span-required=""></label>
+        <label asp-for="Fornecedor" class="form-label" span-required="">Qual o Fornecedor?</label>
+        <input asp-for="Fornecedor" class="form-control" />
+        <span asp-validation-for="Fornecedor" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Item" class="form-label" span-required="">Informe o Material</label>
+        <input asp-for="Item" class="form-control" />
+        <span asp-validation-for="Item" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Categoria" class="form-label" span-required="">Qual a Categoria do Material?</label>
+        <input asp-for="Categoria" class="form-control" />
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quantidade" class="form-label" span-required="">Informe a quantidade do Material</label>
         <input asp-for="Quantidade" class="form-control" />
         <span asp-validation-for="Quantidade" class="text-danger"></span>
     </div>
