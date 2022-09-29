@@ -21,14 +21,12 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Cpf)
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(18)
-                .IsRequired()
+                .HasMaxLength(14)
                 .HasColumnName("cpf");
 
             builder.Property(x => x.Cnpj)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(18)
-                .IsRequired()
                 .HasColumnName("cnpj");
 
             builder.Property(x => x.DataNascimento)

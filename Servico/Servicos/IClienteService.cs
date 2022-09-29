@@ -1,4 +1,5 @@
 ﻿using Repositorio.Entidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
@@ -7,7 +8,7 @@ namespace Servico.Servicos
     {
         Cliente BuscarPorLogin(string login, string senha);
         bool Apagar(int id);
-        Cliente Cadastrar(ClienteCadastrarViewModel viewModel);
+        Cliente Cadastrar(CadastrarUsuarioViewModel viewModel);
         bool Editar(ClienteEditarViewModel viewModel);
         Cliente? ObterPorId(int id);
         IList<Cliente> ObterTodos();

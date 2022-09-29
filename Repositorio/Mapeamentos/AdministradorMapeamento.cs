@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Repositorio.Entidades;
+using Repositorio.Repositorios;
 
 namespace Repositorio.Mapeamentos
 {
@@ -68,7 +69,7 @@ namespace Repositorio.Mapeamentos
                     Email = "gugahprm@gmail.com",
                     Telefone = "992499565",
                     Login = "guga",
-                    Senha = "1234"
+                    Senha = "1234".GerarHash()
                 },
                 new Administrador
                 {
@@ -80,7 +81,7 @@ namespace Repositorio.Mapeamentos
                     Email = "lucasalves@gmail.com",
                     Telefone = "992460586",
                     Login = "lucas",
-                    Senha = "1234"
+                    Senha = "1234".GerarHash()
                 });
         }
     }

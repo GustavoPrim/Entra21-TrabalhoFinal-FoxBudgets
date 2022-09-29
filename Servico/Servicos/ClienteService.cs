@@ -1,6 +1,7 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Clientes;
 
 namespace Servico.Servicos
@@ -27,7 +28,7 @@ namespace Servico.Servicos
             return cliente;
         }
 
-        public Cliente Cadastrar(ClienteCadastrarViewModel viewModel)
+        public Cliente Cadastrar(CadastrarUsuarioViewModel viewModel)
         {
             var cliente = _mapeamento.ConstruirCom(viewModel);
             _clienteRepositorio.Cadastrar(cliente);

@@ -47,6 +47,23 @@
                     <input asp-for="Telefone" class="form-control" />
                     <span asp-validation-for="Telefone" class="text-danger"></span>
                 </div>
+
+
+
+                <div class="mb-3">
+                    <label asp-for="Login" class="form-label" span-required=""></label>
+                    <input asp-for="Login" class="form-control" />
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Senha" class="form-label" span-required=""></label>
+                    <input asp-for="Senha" class="form-control" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+
+
                 @if (TempData["Message"] != null)
                 {
                     <p class="text-danger">@TempData["Message"]</p>

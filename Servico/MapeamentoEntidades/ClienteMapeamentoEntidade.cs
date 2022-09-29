@@ -1,5 +1,6 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
+using Servico.ViewModels;
 using Servico.ViewModels.Clientes;
 
 namespace Servico.MapeamentoEntidades
@@ -19,7 +20,7 @@ namespace Servico.MapeamentoEntidades
             cliente.Senha = viewModel.Senha;
         }
 
-        public Cliente ConstruirCom(ClienteCadastrarViewModel viewModel)
+        public Cliente ConstruirCom(CadastrarUsuarioViewModel viewModel)
         {
             return new Cliente
             {
