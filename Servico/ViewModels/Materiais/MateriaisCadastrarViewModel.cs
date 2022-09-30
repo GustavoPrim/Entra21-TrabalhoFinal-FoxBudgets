@@ -6,8 +6,7 @@ namespace Servico.ViewModels.Materiais
     {
         [Display(Name = "Nome do produto")]
         [Required(ErrorMessage = "Informe nome do Material")]
-        [RegularExpression(@"^[a-zãçA-Z''-'\s]{1,100}$", ErrorMessage =
-            "Números e caracteres especiais não são permitidos no nome.")]
+        
         public string Nome { get; set; }
 
         [Display(Name = "Código Sku")]
