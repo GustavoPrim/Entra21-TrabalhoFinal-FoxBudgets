@@ -18,7 +18,6 @@ namespace Servico.ViewModels.Materiais
 
         public bool PossuiDataValidade { get; set; }
 
-        [Required(ErrorMessage = "Insira a data de validade")]
         [Display(Name = "Data de validade")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]

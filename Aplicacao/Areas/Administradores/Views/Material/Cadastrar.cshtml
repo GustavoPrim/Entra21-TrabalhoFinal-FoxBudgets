@@ -23,9 +23,9 @@
         function text(x) {
             if (x == 0)
                 document.getElementById("mycode").style.display = "";
-            else 
+            else
                 document.getElementById("mycode").style.display = "none";
-            
+
             return;
         }
     </script>
@@ -42,9 +42,9 @@
                 <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
             </label>    <label class="radio-container m-r-45">
                 Não
+                <input type="radio" name="possuiDataValidade" value="true" onclick="text(1)" />
+                <span class="checkmark"></span>
             </label>
-            <span class="checkmark"></span>
-            <input type="radio" name="possuiDataValidade" value="true" onclick="text(1)" />
         </div>
     </div>
     <div class="mb-3">
