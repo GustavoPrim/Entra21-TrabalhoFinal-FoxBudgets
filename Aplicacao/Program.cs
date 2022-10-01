@@ -83,8 +83,8 @@ app.UseEndpoints(endpoint =>
         pattern: "Administrador/{controller=Home}/{action=Index}/{id?}");
 
     endpoint.MapAreaControllerRoute(
-        name: "AreaFornecedor",
-        areaName: "Fornecedor",
+        name: "AreaFornecedores",
+        areaName: "Fornecedores",
         pattern: "Fornecedor/{controller=Home}/{action=Index}/{id?}");
 
     endpoint.MapAreaControllerRoute(

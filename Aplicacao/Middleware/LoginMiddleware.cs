@@ -22,7 +22,7 @@ namespace Aplicacao.Middleware
             var administrador = sessao.BuscarSessaoUsuario<Administrador>();
 
             if(IsNotAuthenticatedAndRightAccessToArea(cliente, area, "Clientes") ||
-                IsNotAuthenticatedAndRightAccessToArea(fornecedor, area, "Fornecedor") ||
+                IsNotAuthenticatedAndRightAccessToArea(fornecedor, area, "Fornecedores") ||
                 IsNotAuthenticatedAndRightAccessToArea(administrador, area, "Administradores"))
             {
                 httpContext.Response.Redirect("/login");
