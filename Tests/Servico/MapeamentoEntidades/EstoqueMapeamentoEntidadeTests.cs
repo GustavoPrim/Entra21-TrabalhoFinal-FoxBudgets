@@ -22,7 +22,7 @@ namespace Tests.Servico.MapeamentoEntidades
             var viewModel = new EstoqueCadastrarViewModel
             {
                 Quantidade = 1,
-                Valor = 10
+                Valor = 200
             };
             //Act
             var estoque = _estoqueMapeamentoEntidade.ConstruirCom(viewModel);
@@ -50,6 +50,8 @@ namespace Tests.Servico.MapeamentoEntidades
             //Act
             _estoqueMapeamentoEntidade.AtualizarCom(estoque, estoqueEditar);
             //Assert
+            estoque.Valor.Should().Be(estoqueEditar.Valor);
+            estoque.Quantidade.Should().Be(estoqueEditar.Quantidade);
         }
     }
 }
