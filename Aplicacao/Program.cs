@@ -1,5 +1,6 @@
 using Aplicacao.Help;
 using Aplicacao.InjecoesDependencia;
+using Aplicacao.Middleware;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,6 @@ using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
 using Servico.InjecoesDependencia;
 using System.Globalization;
-using Repositorio.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,14 +21,15 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.AreaViewLocationFormats.Add("/Views/{0}.cshtml");
 });
 
+
 builder.Services.AddControllersWithViews();
 
 builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-   // .AdicionarNewtonsoftJson()
-    .AdicionarEntityFramework(builder.Configuration)
+	.AdicionarNewtonsoftJson()
+	.AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
     .AddScoped<ISessao, Sessao>()
     .AddSession(o =>
@@ -70,6 +71,8 @@ app.UseRouting();
 
 app.UseSession();
 
+app.UseMiddleware<LoginMiddleware>();
+
 app.UseAuthorization();
 
 app.UseEndpoints(endpoint =>
@@ -80,8 +83,8 @@ app.UseEndpoints(endpoint =>
         pattern: "Administrador/{controller=Home}/{action=Index}/{id?}");
 
     endpoint.MapAreaControllerRoute(
-        name: "AreaFornecedor",
-        areaName: "Fornecedor",
+        name: "AreaFornecedores",
+        areaName: "Fornecedores",
         pattern: "Fornecedor/{controller=Home}/{action=Index}/{id?}");
 
     endpoint.MapAreaControllerRoute(

@@ -4,8 +4,8 @@ namespace Aplicacao.Help
 {
     public interface ISessao
     {
-        void CriarSessaoUsuario(Repositorio.Entidades.EntidadeBase entidadeBase);
-        void RemoverSessaoUsuario();
-        Repositorio.Entidades.Administrador BuscarSessaoUsuario();
+        void CriarSessaoUsuario<TEntidade>(TEntidade entidadeBase) where TEntidade : Usuario;
+        void RemoverSessaoUsuario<TEntidade>() where TEntidade : Usuario;
+        TEntidade BuscarSessaoUsuario<TEntidade>() where TEntidade: Usuario;
     }
 }

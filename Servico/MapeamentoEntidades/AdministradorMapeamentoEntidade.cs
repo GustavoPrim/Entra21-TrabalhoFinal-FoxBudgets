@@ -1,10 +1,10 @@
 ﻿using Repositorio.Entidades;
-using Servico.Servicos;
+using Repositorio.Repositorios;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.MapeamentoEntidades
 {
-    public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
+	public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
         public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {
@@ -14,6 +14,7 @@ namespace Servico.MapeamentoEntidades
             administrador.Endereco = administradorEditarViewModel.Endereco;
             administrador.Email = administradorEditarViewModel.Email;
             administrador.Telefone = administradorEditarViewModel.Telefone;
+            administrador.Login = administradorEditarViewModel.Login;
             administrador.Senha = administradorEditarViewModel.Senha;
         }
 
@@ -27,6 +28,7 @@ namespace Servico.MapeamentoEntidades
                 DataNascimento = viewModel.DataNascimento,
                 Cpf = viewModel.Cpf,
                 Endereco = viewModel.Endereco,
+                Login = viewModel.Login,
                 Senha = viewModel.Senha.GerarHash()
             };
         }

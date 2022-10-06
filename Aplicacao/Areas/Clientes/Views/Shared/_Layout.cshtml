@@ -15,7 +15,8 @@
     <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
     <link rel="shortcut icon" href="~/Tema/global_assets/images/Fox-Ico.png" />
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/css/clientes/Site.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -45,35 +46,20 @@
         </div>
 
         <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-            <span class="badge badge-success d-none d-lg-inline-block mr-3">Active</span>
-
             <ul class="navbar-nav flex-row align-items-center h-100">
-                <li class="nav-item nav-item-dropdown-lg dropdown">
-                    <a href="#" class="navbar-nav-link navbar-nav-link-toggler" data-toggle="modal"
-                        data-target="#notifications">
-                        <i class="icon-bell2"></i>
-                        <span class="badge badge-yellow badge-pill">3</span>
-                    </a>
-                </li>
-
                 <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
                         data-toggle="dropdown">
                         <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
                             height="34" alt="">
-                        <span class="d-none d-lg-inline-block ml-2">Victoria</span>
+                        <span class="d-none d-lg-inline-block ml-2">@ViewBag.ClienteNome</span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
                         <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Account summary</div>
-                                <span class="text-muted font-size-sm">Profile, overview</span>
-                            </div>
                             <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
+                          
                             </span>
                         </div>
 
@@ -99,8 +85,7 @@
                             </span>
                         </div>
                             <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
+                           
                             </span>
                         </div>
                     </div>
@@ -165,8 +150,7 @@
                         </a>
 
                         <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-weight-semibold">William Lima</div>
-                            <div class="font-size-sm line-height-sm text-muted">
+                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
                                 Cliente
                             </div>
                         </div>
@@ -244,12 +228,10 @@
             </span>
 
             <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item"><a href="https://demo.interface.club/limitless/docs/" class="navbar-nav-link"
-                        target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
                 <li class="nav-item"><a
-                        href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov"
+                        href="https://www.kabum.com.br/carrinho"
                         class="navbar-nav-link font-weight-semibold"><span class="text-pink"><i
-                                class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+                                class="icon-cart2 mr-2"></i> Carrinho</span></a></li>
             </ul>
         </div>
     </div>
@@ -425,6 +407,7 @@
     <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/heatmaps.js"></script>
     <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
     <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- /theme JS files -->
     <!-- /notifications -->
     @await RenderSectionAsync("Scripts", required: false)

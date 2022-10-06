@@ -1,6 +1,6 @@
 ﻿@model List<Material>
 
-<p class="h3">Lista de Materiais</p>
+<p class="h3">Materiais</p>
 
 <div class="row mb-3">
     <div class="text-end">
@@ -25,7 +25,7 @@
             <tr>
                 <td>@material.Nome</td>
                 <td>@material.Sku</td>
-                <td>@material.DataValidade.Date</td>
+                <td>@material.DataValidade</td>
                 <td>@material.Descricao</td>
                 <td>
                     <a asp-action="editar" asp-route-id="@material.Id">Editar</a>

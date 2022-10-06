@@ -2,6 +2,7 @@
 {
     public class OrcamentoMaterial : EntidadeBase
     {
+        public int Item { get; set; }
         public int OrcamentoId { get; set; }
         public int MaterialId { get; set; }
         public int Quantidade { get; set; }

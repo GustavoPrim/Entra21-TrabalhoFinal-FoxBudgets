@@ -6,8 +6,7 @@ namespace Servico.ViewModels.Materiais
     {
         [Display(Name = "Nome do produto")]
         [Required(ErrorMessage = "Informe nome do Material")]
-        [RegularExpression(@"^[a-zãçA-Z''-'\s]{1,100}$", ErrorMessage =
-            "Números e caracteres especiais não são permitidos no nome.")]
+        
         public string Nome { get; set; }
 
         [Display(Name = "Código Sku")]
@@ -16,11 +15,8 @@ namespace Servico.ViewModels.Materiais
         [MaxLength(16, ErrorMessage = "{0} deve conter apenas {1} caracteres")]
         public string Sku { get; set; }
 
-        [Display(Name = "Possui Data de Validade?")]
         public bool PossuiDataValidade { get; set; }
 
-
-        [Required(ErrorMessage = "Insira a data de validade")]
         [Display(Name = "Data de validade")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]

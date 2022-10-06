@@ -25,28 +25,28 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return View(cliente);
         }
 
-        [HttpGet("cadastrar")]
-        public IActionResult Cadastrar()
-        {
-            ViewBag.Clientes = ObterClientes();
+        //[HttpGet("cadastrar")]
+        //public IActionResult Cadastrar()
+        //{
+        //    ViewBag.Clientes = ObterClientes();
 
-            var clienteCadastrarViewModel = new ClienteCadastrarViewModel();
+        //    var clienteCadastrarViewModel = new ClienteCadastrarViewModel();
 
-            return View(clienteCadastrarViewModel);
-        }
+        //    return View(clienteCadastrarViewModel);
+        //}
 
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] ClienteCadastrarViewModel clienteCadastrarViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Clientes = ObterClientes();
-                return View(clienteCadastrarViewModel);
-            }
+        //[HttpPost("cadastrar")]
+        //public IActionResult Cadastrar([FromForm] ClienteCadastrarViewModel clienteCadastrarViewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ViewBag.Clientes = ObterClientes();
+        //        return View(clienteCadastrarViewModel);
+        //    }
 
-            _clienteService.Cadastrar(clienteCadastrarViewModel);
-            return RedirectToAction("Index");
-        }
+        //    _clienteService.Cadastrar(clienteCadastrarViewModel);
+        //    return RedirectToAction("Index");
+        //}
 
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)

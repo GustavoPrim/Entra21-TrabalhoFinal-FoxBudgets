@@ -25,30 +25,31 @@ namespace Repositorio.Repositorios
 
             return true;
         }
-        public void Atualizar(Orcamento orcamentoParaAlterar)
+        public void Atualizar(OrcamentoMaterial orcamentoParaAlterar)
         {
             var orcamentos = _contexto.Orcamentos
                 .Where(x => x.Id == orcamentoParaAlterar.Id)
                 .FirstOrDefault();
         }
-        public void Editar(Orcamento orcamento)
+        public void Editar(OrcamentoMaterial orcamento)
         {
             _contexto.Orcamentos.Update(orcamento);
             _contexto.SaveChanges();
         }
-        public Orcamento? ObterPorId(int id) =>
-            _contexto.Orcamentos
-            .Include(x => x.OrcamentoMateriais)
-            .FirstOrDefault(x => x.Id == id);
-        public IList<Orcamento> ObterTodos() =>
-            _contexto.Orcamentos
-                .Include(x => x.OrcamentoMateriais)
-                .ToList();
-        public Orcamento Cotar(Orcamento orcamento)
+        public OrcamentoMaterial? ObterPorId(int id) 
         {
-            _contexto.Orcamentos.Add(orcamento);
-            _contexto.SaveChanges();
+            var orcamento = _contexto.Orcamentos.Where(x => x.Id == id).FirstOrDefault();
+            return orcamento;
+        }
+        public List<OrcamentoMaterial> ObterTodos() 
+        {
+            var orcamentos = _contexto.Orcamentos.ToList();
+            return orcamentos;
+        }
 
+        public OrcamentoMaterial Cotar(OrcamentoMaterial orcamento)
+        {
+            //fazer lógica do método cotar
             return orcamento;
         }
     }

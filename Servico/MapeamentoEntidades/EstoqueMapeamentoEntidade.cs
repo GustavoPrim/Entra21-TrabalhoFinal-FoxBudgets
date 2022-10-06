@@ -3,7 +3,7 @@ using Servico.ViewModels.Estoque;
 
 namespace Servico.MapeamentoEntidades
 {
-    internal class EstoqueMapeamentoEntidade : IEstoqueMapeamentoEntidade
+    public class EstoqueMapeamentoEntidade : IEstoqueMapeamentoEntidade
     {
         public void AtualizarCom(Estoque estoque, EstoqueEditarViewModel estoqueEditarViewModel)
         {

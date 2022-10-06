@@ -90,7 +90,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Julio Michel 1130",
                             Login = "guga",
                             Nome = "Gustavo Prim",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992499565"
                         },
                         new
@@ -102,7 +102,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Água Branca 1234",
                             Login = "lucas",
                             Nome = "Lucas Alves",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992460586"
                         });
                 });
@@ -116,15 +116,13 @@ namespace Repositorio.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Cnpj")
-                        .IsRequired()
                         .HasMaxLength(18)
                         .HasColumnType("VARCHAR(18)")
                         .HasColumnName("cnpj");
 
                     b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasMaxLength(18)
-                        .HasColumnType("VARCHAR(18)")
+                        .HasMaxLength(14)
+                        .HasColumnType("VARCHAR(14)")
                         .HasColumnName("cpf");
 
                     b.Property<DateTime>("DataNascimento")
@@ -145,7 +143,9 @@ namespace Repositorio.Migrations
 
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("login");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -180,7 +180,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Julio Michel 1130",
                             Login = "gui",
                             Nome = "Guilherme",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992499565"
                         },
                         new
@@ -193,7 +193,7 @@ namespace Repositorio.Migrations
                             Endereco = "Rua Hermann Tribess 1234",
                             Login = "ju",
                             Nome = "Juliana",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992380457"
                         });
                 });
@@ -294,26 +294,26 @@ namespace Repositorio.Migrations
                         {
                             Id = 1,
                             Categoria = 1,
-                            Cnpj = "",
+                            Cnpj = "34.56.789/0001-25",
                             DataFundacao = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Willljdev@gmail.com",
                             Endereco = "Rua 2 de Setembro 1890",
                             Login = "will",
                             Nome = "Wolf Tubos e conexões",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "991599314"
                         },
                         new
                         {
                             Id = 2,
                             Categoria = 4,
-                            Cnpj = "",
+                            Cnpj = "12.123.456/0001-78",
                             DataFundacao = new DateTime(2019, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "budgetsVG@gmail.com",
                             Endereco = "Rua Alberto Stein 199",
                             Login = "vg",
                             Nome = "Materiais de construção VG",
-                            Senha = "1234",
+                            Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "3381-7700"
                         });
                 });
@@ -368,11 +368,33 @@ namespace Repositorio.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DataOrcamento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ValorTotalItem")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorTotalOrcamento")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorUnitarioItem")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Orcamento");
+                    b.ToTable("Orcamentos");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>

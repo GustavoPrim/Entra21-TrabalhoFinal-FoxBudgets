@@ -13,7 +13,7 @@
     <link href="~/Tema/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
     <link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
-    <link href="~/css/site.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
     <link rel="shortcut icon" href="~/Tema/global_assets/images/Fox-Ico.png" />
 </head>
@@ -45,15 +45,8 @@
         </div>
 
         <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-            <span class="badge badge-success d-none d-lg-inline-block mr-3">Active</span>
-
             <ul class="navbar-nav flex-row align-items-center h-100">
                 <li class="nav-item nav-item-dropdown-lg dropdown">
-                    <a href="#" class="navbar-nav-link navbar-nav-link-toggler" data-toggle="modal"
-                        data-target="#notifications">
-                        <i class="icon-bell2"></i>
-                        <span class="badge badge-yellow badge-pill">3</span>
-                    </a>
                 </li>
 
                 <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
@@ -62,51 +55,38 @@
                         data-toggle="dropdown">
                         <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
                             height="34" alt="">
-                        <span class="d-none d-lg-inline-block ml-2">Administrador</span>
+                        <span class="d-none d-lg-inline-block ml-2">Administrador</aspan>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
                         <div class="dropdown-item d-flex py-2">
                             <div class="flex-1">
                                 <div class="font-weight-semibold">Perfil</div>
-                                <span class="text-muted font-size-sm">Seu perfil</span>
                             </div>
                             <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
+                               
                             </span>
                         </div>
 
                         <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Privacy</div>
-                                <span class="text-muted font-size-sm">Access, permissions</span>
-                            </div>
-                            <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
+                     
                         </div>
 
                         <div class="dropdown-item d-flex py-2">
                             <div class="flex-1">
                                 <div class="font-weight-semibold">Redefinir senha</div>
-                                <span class="text-muted font-size-sm">Redefina sua senha</span>
                             </div>
                             <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
+                                
                             </span>
                         </div>
 
                         <div class="dropdown-item d-flex py-2">
                             <div class="flex-1">
-                                <div class="font-weight-semibold">Sair da conta</div>
-                                <span class="text-muted font-size-sm">Ir para tela de Login</span>
+                                <a href="/login" hrediv class="font-weight-semibold">Sair da conta</adiv>
                             </div>
                             <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
+                              
                             </span>
                         </div>
                     </div>
@@ -172,8 +152,7 @@
                         </a>
 
                         <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-weight-semibold">Perez</div>
-                            <div class="font-size-sm line-height-sm text-muted">
+                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
                                 Administrador
                             </div>
                         </div>
@@ -261,184 +240,6 @@
 
     </div>
     <!-- /page content -->
-    <!-- Footer -->
-    <div class="navbar navbar-expand-lg navbar-light">
-        <div class="text-center d-lg-none w-100">
-            <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
-                data-target="#navbar-footer">
-                <i class="icon-unfold mr-2"></i>
-                Footer
-            </button>
-        </div>
-
-        <div class="navbar-collapse collapse" id="navbar-footer">
-            <span class="navbar-text">
-                &copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a
-                    href="https://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
-            </span>
-
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item"><a href="https://demo.interface.club/limitless/docs/" class="navbar-nav-link"
-                        target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
-                <li class="nav-item"><a
-                        href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov"
-                        class="navbar-nav-link font-weight-semibold"><span class="text-pink"><i
-                                class="icon-cart2 mr-2"></i> Purchase</span></a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /footer -->
-    <!-- Notifications -->
-    <div id="notifications" class="modal modal-right fade" tabindex="-1" aria-modal="true" role="dialog">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-transparent border-0 align-items-center">
-                    <h5 class="modal-title font-weight-semibold">Notifications</h5>
-                    <button type="button" class="btn btn-icon btn-light btn-sm border-0 rounded-pill ml-auto"
-                        data-dismiss="modal"><i class="icon-cross2"></i></button>
-                </div>
-
-                <div class="modal-body p-0">
-                    <div class="bg-light text-muted py-2 px-3">New notifications</div>
-                    <div class="p-3">
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
-                            <div class="flex-1">
-                                <a href="#" class="font-weight-semibold">James</a> has completed the task <a
-                                    href="#">Submit documents</a> from <a href="#">Onboarding</a> list
-
-                                <div class="bg-light border rounded p-2 mt-2">
-                                    <label class="custom-control custom-checkbox custom-control-inline mx-1">
-                                        <input type="checkbox" class="custom-control-input" checked disabled>
-                                        <del class="custom-control-label">Submit personal documents</del>
-                                    </label>
-                                </div>
-
-                                <div class="font-size-sm text-muted mt-1">2 hours ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
-                            <div class="flex-1">
-                                <a href="#" class="font-weight-semibold">Margo</a> was added to <span
-                                    class="font-weight-semibold">Customer enablement</span> channel by <a
-                                    href="#">William Whitney</a>
-
-                                <div class="font-size-sm text-muted mt-1">3 hours ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <div class="mr-3">
-                                <div class="bg-danger-100 text-black rounded-pill">
-                                    <i class="icon-undo position-static p-2"></i>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                Subscription <a href="#">#466573</a> from 10.12.2021 has been cancelled. Refund case <a
-                                    href="#">#4492</a> created
-
-                                <div class="font-size-sm text-muted mt-1">4 hours ago</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-light text-muted py-2 px-3">Older notifications</div>
-                    <div class="p-3">
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
-                            <div class="flex-1">
-                                <a href="#" class="font-weight-semibold">Christine</a> commented on your community <a
-                                    href="#">post</a> from 10.12.2021
-
-                                <div class="font-size-sm text-muted mt-1">2 days ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
-                            <div class="flex-1">
-                                <a href="#" class="font-weight-semibold">Mike</a> added 1 new file(s) to <a
-                                    href="#">Product management</a> project
-
-                                <div class="bg-light rounded p-2 mt-2">
-                                    <div class="d-flex align-items-center mx-1">
-                                        <div class="mr-2">
-                                            <i class="icon-file-pdf text-danger icon-2x position-static"></i>
-                                        </div>
-                                        <div class="flex-1">
-                                            new_contract.pdf
-                                            <div class="font-size-sm text-muted">112KB</div>
-                                        </div>
-                                        <div class="ml-2">
-                                            <a href="#"
-                                                class="btn btn-dark-100 text-body btn-icon btn-sm border-transparent rounded-pill">
-                                                <i class="icon-arrow-down8"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="font-size-sm text-muted mt-1">1 day ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-3">
-                            <div class="mr-3">
-                                <div class="bg-success-100 text-black rounded-pill">
-                                    <i class="icon-calendar3 position-static p-2"></i>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                All hands meeting will take place coming Thursday at 13:45. <a href="#">Add to
-                                    calendar</a>
-
-                                <div class="font-size-sm text-muted mt-1">2 days ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
-                            <div class="flex-1">
-                                <div class="font-size-sm text-muted mt-1">3 days ago</div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <div class="mr-3">
-                                <div class="bg-primary-100 text-black rounded-pill">
-                                    <i class="icon-people position-static p-2"></i>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <span class="font-weight-semibold">HR department</span> requested you to complete
-                                internal survey by Friday
-
-                                <div class="font-size-sm text-muted mt-1">3 days ago</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Core JS files -->
     <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
@@ -463,7 +264,6 @@
     <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
     <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
     <!-- /theme JS files -->
-    <!-- /notifications -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

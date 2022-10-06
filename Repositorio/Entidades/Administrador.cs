@@ -2,7 +2,7 @@
 
 namespace Repositorio.Entidades
 {
-    public class Administrador : EntidadeBase
+    public class Administrador : Usuario
     {
         public string Nome { get; set; }
         public string Cpf { get; set; }
@@ -10,8 +10,5 @@ namespace Repositorio.Entidades
         public string Endereco { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
-   
     }
 }

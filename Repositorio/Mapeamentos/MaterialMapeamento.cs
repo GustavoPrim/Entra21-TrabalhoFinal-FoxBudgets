@@ -30,6 +30,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.DataValidade)
                 .HasColumnType("DATETIME2")
+                .IsRequired()
                 .HasColumnName("DataValidade");
 
             builder.Property(x => x.Descricao)
@@ -37,7 +38,6 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(200)
                 .HasColumnName("descricao");
 
-            
         }
     }
 }

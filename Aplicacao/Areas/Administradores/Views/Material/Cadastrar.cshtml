@@ -22,9 +22,10 @@
     <script>
         function text(x) {
             if (x == 0)
-                document.getElementById("mycode").style.display = "block";
+                document.getElementById("mycode").style.display = "";
             else
                 document.getElementById("mycode").style.display = "none";
+
             return;
         }
     </script>
@@ -36,32 +37,30 @@
         <div class="p-t-10">
             <label class="radio-container m-r-45">
                 Sim
-                <input type="radio" name="possuiDataValidade" value="true" onclick="text(0)" checked />
+                <input type="radio" name="possuiDataValidade" value="false" onclick="text(0)" checked />
                 <span class="checkmark"></span>
                 <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
-            </label>
-            <input type="radio" name="possuiDataValidade" value="false" onclick="text(1)" />
-            <span class="checkmark"></span>
-            <label class="radio-container m-r-45">
+            </label>    <label class="radio-container m-r-45">
                 Não
+                <input type="radio" name="possuiDataValidade" value="true" onclick="text(1)" />
+                <span class="checkmark"></span>
             </label>
         </div>
     </div>
     <div class="mb-3">
         <div class="input-group" id="mycode">
-            <input class="input--style-4" asp-for="DataValidade" class="form-control" />
-            <span style="color: black" id="DataValidade"></span>
+            <input asp-for="DataValidade" class="form-control" />
         </div>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Descricao" class="form-label" span-required=""></label>
+        <label asp-for="Descricao" class="form-label" span-required="Descrição"></label>
         <input asp-for="Descricao" class="form-control" />
         <span asp-validation-for="Descricao" class="text-danger"></span>
     </div>
 
     <div class="text-end">
-        <a href="/administrador/cadastrarmateriais" class="btn btn-outline-danger">Cancelar</a>
+        <a href="/administrador/index" class="btn btn-outline-danger">Cancelar</a>
         <button type="submit" class="btn btn-success">Salvar</button>
     </div>
 </form>
