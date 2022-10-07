@@ -12,10 +12,14 @@ namespace Aplicacao.Areas.Administradores.Controllers
     public class AdministradorController : Controller
     {
         private readonly IAdministradorServico _administradorServico;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AdministradorController(IAdministradorServico administradorServico)
+        public AdministradorController(
+            IAdministradorServico administradorServico,
+            IWebHostEnvironment webHostEnvironment)
         {
             _administradorServico = administradorServico;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -44,7 +48,7 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 return View(administradorCadastrarViewModel);
             }
 
-            _administradorServico.Cadastrar(administradorCadastrarViewModel);
+            _administradorServico.Cadastrar(administradorCadastrarViewModel, _webHostEnvironment.WebRootPath);
             return RedirectToAction("Index");
         }
 
@@ -58,34 +62,23 @@ namespace Aplicacao.Areas.Administradores.Controllers
         [HttpGet("editar")]
         public IActionResult Editar([FromQuery] int id)
         {
-            var administrador = _administradorServico.ObterPorId(id);
-            var administradores = ObterAdministradores();
+            var apagou = _administradorServico.Apagar(id);
 
-            var administradorEditarViewModel = new AdministradorEditarViewModel
-            {
-                Id = administrador.Id,
-                Nome = administrador.Nome,
-                DataNascimento = administrador.DataNascimento,
-                Email = administrador.Email,
-                Endereco = administrador.Endereco,
-                Telefone = administrador.Telefone,
-                Cpf = administrador.Cpf
-            };
-            ViewBag.Administradores = administradores;
+            if (!apagou)
+                return NotFound();
 
-            return View(administradorEditarViewModel);
+            return Ok();
         }
 
         [HttpPost("editar")]
         public IActionResult Editar([FromForm] AdministradorEditarViewModel administradorEditarViewModel)
         {
             if (!ModelState.IsValid)
-            {
-                ViewBag.Administradores = ObterAdministradores();
-                return View(administradorEditarViewModel);
-            }
-            _administradorServico.Editar(administradorEditarViewModel);
-            return RedirectToAction("Index");
+                return UnprocessableEntity(ModelState);
+
+            var atualizou = _administradorServico.Editar(administradorEditarViewModel, _webHostEnvironment.WebRootPath);
+
+            return Ok(new { status = atualizou });
         }
 
         [HttpGet("obterTodos")]
