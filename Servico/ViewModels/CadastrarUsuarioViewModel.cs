@@ -48,12 +48,8 @@ namespace Servico.ViewModels
         [Required(ErrorMessage = "{0} deve ser preenchido")]
         [MinLength(4, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
         public string Senha { get; set; } = "";
-
-        //[DataType(DataType.Password)]
-        //[Display(Name = "ConfirmarSenha")]
-        //[Required(ErrorMessage = "{0} deve ser preenchido")]
-        //[MinLength(4, ErrorMessage = "{0} deve conter no mínimo {1} dígitos")]
-        //public string ConfirmarSenha { get; set; }
+        public Guid Token { get; set; }
+        public DateTime DataInspiracaoToken { get; set; }
 
         [Display(Name = "Login")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]

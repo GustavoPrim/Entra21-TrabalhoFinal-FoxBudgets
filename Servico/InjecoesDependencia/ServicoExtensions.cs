@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Entra21.CSharp.Area21.Service.Email;
+using Microsoft.Extensions.DependencyInjection;
+using Servico.Email;
 using Servico.MapeamentoEntidades;
 using Servico.Servicos;
 
@@ -14,6 +16,7 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IMaterialService, MaterialService>();
             services.AddScoped<IEstoqueServico, EstoqueServico>();
             services.AddScoped<IOrcamentoServico, OrcamentoServico>();
+            services.AddScoped<IEmail, EmailService>();
 
             return services;
         }
