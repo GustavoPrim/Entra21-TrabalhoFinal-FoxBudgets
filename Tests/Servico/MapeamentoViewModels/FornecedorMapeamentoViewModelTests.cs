@@ -5,7 +5,7 @@ namespace Tests.Servico.MapeamentoViewModels
 {
     public class FornecedorMapeamentoViewModelTests
     {
-        private readonly IAdministradorMapeamentoViewModel _fornecedorMapeamentoViewModel;
+        private readonly IFornecedorMapeamentoViewModel _fornecedorMapeamentoViewModel;
 
         public FornecedorMapeamentoViewModelTests()
         {
@@ -13,6 +13,9 @@ namespace Tests.Servico.MapeamentoViewModels
         }
 
         [Fact]
-        public void 
+        public void Test_construirCom_semEstoque()
+        {
+
+        }
     }
 }
