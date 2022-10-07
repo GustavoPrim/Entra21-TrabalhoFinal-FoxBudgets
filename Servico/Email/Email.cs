@@ -1,10 +1,54 @@
-﻿namespace Servico.Email
+﻿using Microsoft.Extensions.Configuration;
+using Servico.Email;
+using System.Net;
+using System.Net.Mail;
+
+namespace Entra21.CSharp.Area21.Service.Email
 {
-    internal class Email : IEmail
+    public class Email : IEmail
     {
-        public bool Enviar(string email, string assunto, string mensagem)
+        private readonly IConfiguration _configuration;
+
+        public Email(IConfiguration configuration)
         {
-            throw new NotImplementedException();
+            _configuration = configuration;
+        }
+
+        public bool Enviar(string email, string subject, string message)
+        {
+            try
+            {
+                var host = _configuration.GetValue<string>("SMTP:Host");
+                var name = _configuration.GetValue<string>("SMTP:Name");
+                var password = _configuration.GetValue<string>("SMTP:Password");
+                var username = _configuration.GetValue<string>("SMTP:Username");
+                var port = _configuration.GetValue<int>("SMTP:Port");
+
+                var mail = new MailMessage()
+                {
+                    From = new MailAddress(username, name)
+                };
+
+                mail.To.Add(email);
+                mail.Subject = subject;
+                mail.Body = message;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
+
+                using (SmtpClient smtp = new SmtpClient(host, port))
+                {
+                    smtp.Credentials = new NetworkCredential(username, password);
+                    smtp.EnableSsl = true;
+
+                    smtp.Send(mail);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

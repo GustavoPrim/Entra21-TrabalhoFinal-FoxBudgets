@@ -34,10 +34,4 @@
 	  <ProjectReference Include="..\Servico\Servico.csproj" />
 	</ItemGroup>
 
-
-
-	<ItemGroup>
-	  <Folder Include="Servico\MapeamentoViewModels\" />
-	</ItemGroup>
-
 </Project>
