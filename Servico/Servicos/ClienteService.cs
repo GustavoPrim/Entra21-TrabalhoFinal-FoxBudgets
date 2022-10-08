@@ -50,5 +50,25 @@ namespace Servico.Servicos
             _clienteRepositorio.ObterPorId(id);
         public IList<Cliente> ObterTodos() =>
             _clienteRepositorio.ObterTodos();
+
+        public bool VerificarEmail(string email)
+        {
+            if (_clienteRepositorio.GetActiveUsers().Where(x => x.Email == email).ToList().Count > 0)
+                return false;
+
+            return true;
+        }
+
+        public Cliente AtualizarVerificarEmail(int id)
+        {
+            var user = _clienteRepositorio.ObterPorId(id);
+
+            user.EmailConfirmado = true;
+
+            _clienteRepositorio.Editar(user);
+
+            return user;
+        }
+
     }
 }

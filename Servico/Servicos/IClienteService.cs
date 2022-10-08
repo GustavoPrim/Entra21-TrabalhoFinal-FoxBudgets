@@ -10,6 +10,8 @@ namespace Servico.Servicos
         bool Apagar(int id);
         Cliente Cadastrar(CadastrarUsuarioViewModel viewModel);
         bool Editar(ClienteEditarViewModel viewModel);
+        bool VerificarEmail(string email);
+        Cliente AtualizarVerificarEmail(int id);
         Cliente? ObterPorId(int id);
         IList<Cliente> ObterTodos();
     }
