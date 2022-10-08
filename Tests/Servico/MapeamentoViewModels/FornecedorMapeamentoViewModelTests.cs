@@ -1,4 +1,5 @@
 ﻿using Servico.MapeamentoViewModels;
+using Servico.ViewModels.Fornecedores;
 using Xunit;
 
 namespace Tests.Servico.MapeamentoViewModels
@@ -13,9 +14,16 @@ namespace Tests.Servico.MapeamentoViewModels
         }
 
         [Fact]
-        public void Test_construirCom_semEstoque()
+        public void Test_ConstruirCom()
         {
-
+            //Arrange
+            var viewModel = new FornecedorCadastrarViewModel
+            {
+                Nome = "João",
+                Cnpj = "11.111.111/1111-22"
+            };
+            //Act
+            //Assert
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Net.Mail;
 
 namespace Entra21.CSharp.Area21.Service.Email
 {
-    public class Email : IEmail
+    public class EmailService : IEmail
     {
         private readonly IConfiguration _configuration;
 
-        public Email(IConfiguration configuration)
+        public EmailService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -19,10 +19,10 @@ namespace Entra21.CSharp.Area21.Service.Email
             try
             {
                 var host = _configuration.GetValue<string>("SMTP:Host");
-                var name = _configuration.GetValue<string>("SMTP:Name");
-                var password = _configuration.GetValue<string>("SMTP:Password");
+                var name = _configuration.GetValue<string>("SMTP:Nome");
+                var password = _configuration.GetValue<string>("SMTP:Senha");
                 var username = _configuration.GetValue<string>("SMTP:Username");
-                var port = _configuration.GetValue<int>("SMTP:Port");
+                var port = _configuration.GetValue<int>("SMTP:Porta");
 
                 var mail = new MailMessage()
                 {
