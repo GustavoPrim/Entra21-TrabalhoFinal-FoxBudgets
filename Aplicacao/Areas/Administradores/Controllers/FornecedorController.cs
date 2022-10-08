@@ -12,10 +12,14 @@ namespace Aplicacao.Areas.Administradores.Controllers
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public FornecedorController(IFornecedorServico fornecedorServico)
+        public FornecedorController(
+            IFornecedorServico fornecedorServico,
+            IWebHostEnvironment webHostEnvironment)
         {
             _fornecedorServico = fornecedorServico;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -52,13 +56,11 @@ namespace Aplicacao.Areas.Administradores.Controllers
         public IActionResult Cadastrar([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
         {
             if (!ModelState.IsValid)
-            {
-                ViewBag.Fornecedores = ObterFornecedores();
-                return View(fornecedorCadastrarViewModel);
-            }
+                return UnprocessableEntity(ModelState);
 
-            _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel);
-            return RedirectToAction("Index");
+            var fornecedor = _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel, _webHostEnvironment.WebRootPath);
+
+            return Ok(fornecedor);
         }
 
         [HttpGet("obterPorId")]
@@ -98,12 +100,10 @@ namespace Aplicacao.Areas.Administradores.Controllers
         public IActionResult Editar([FromForm] FornecedorEditarViewModel fornecedorEditarViewModel)
         {
             if (!ModelState.IsValid)
-            {
-                ViewBag.Fornecedores = ObterFornecedores();
-                return View(fornecedorEditarViewModel);
-            }
-            _fornecedorServico.Editar(fornecedorEditarViewModel);
-            return RedirectToAction("Index");
+                return UnprocessableEntity(ModelState);
+
+            var atualizou = _fornecedorServico.Editar(fornecedorEditarViewModel, _webHostEnvironment.WebRootPath);
+            return Ok(new { status = atualizou });
         }
 
         [HttpGet("apagar")]
