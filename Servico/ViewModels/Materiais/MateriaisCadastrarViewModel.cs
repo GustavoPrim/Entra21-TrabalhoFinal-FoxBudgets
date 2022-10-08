@@ -12,7 +12,7 @@ namespace Servico.ViewModels.Materiais
         [Display(Name = "Código Sku")]
         [Required(ErrorMessage = "Informe o código do Material")]
         [MinLength(5, ErrorMessage = "{0} deve conter pelo menos {1} caracteres")]
-        [MaxLength(16, ErrorMessage = "{0} deve conter apenas {1} caracteres")]
+        [MaxLength(11, ErrorMessage = "{0} deve conter apenas {1} caracteres")]
         public string Sku { get; set; }
 
         public bool PossuiDataValidade { get; set; }

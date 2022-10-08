@@ -15,7 +15,7 @@
 
     <div class="mb-3">
         <label asp-for="Sku" class="form-label" span-required=""></label>
-        <input asp-for="Sku" class="form-control" />
+        <input type="text" class="form-control sku-mask" placeholder="XXYY25KK">
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
 
