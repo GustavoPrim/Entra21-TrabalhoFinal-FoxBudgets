@@ -1,6 +1,5 @@
 ﻿using Aplicacao.Help;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Win32;
 using Repositorio.Entidades;
 using Servico.Email;
 using Servico.Servicos;
@@ -35,6 +34,8 @@ namespace Aplicacao.Administradores.Controllers
         {
             return View();
         }
+
+        [Route("Sair")]
         [HttpGet]
         public IActionResult Sair()
         {
