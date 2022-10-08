@@ -10,7 +10,6 @@ namespace Servico.Servicos
     {
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
-        private IAdministradorRepositorio administradorRepositorio;
 
         public AdministradorServico(
             IAdministradorRepositorio administradorRepositorio,
@@ -18,11 +17,6 @@ namespace Servico.Servicos
         {
             _administradorRepositorio = administradorRepositorio;
             _mapeamentoEntidade = mapeamentoEntidade;
-        }
-
-        public AdministradorServico(IAdministradorRepositorio administradorRepositorio)
-        {
-            this.administradorRepositorio = administradorRepositorio;
         }
 
         public bool Apagar(int id) =>

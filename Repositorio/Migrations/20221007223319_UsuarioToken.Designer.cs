@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
 
@@ -11,9 +12,10 @@ using Repositorio.BancoDados;
 namespace Repositorio.Migrations
 {
     [DbContext(typeof(OrcamentoContexto))]
-    partial class OrcamentoContextoModelSnapshot : ModelSnapshot
+    [Migration("20221007223319_UsuarioToken")]
+    partial class UsuarioToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,8 +128,7 @@ namespace Repositorio.Migrations
                         .HasColumnName("cpf");
 
                     b.Property<DateTime>("DataInspiracaoToken")
-                        .HasColumnType("DATETIME2")
-                        .HasColumnName("data_Inspiracao_Token");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("DATETIME2")
@@ -172,11 +173,8 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("telefone");
 
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("token");
+                    b.Property<Guid>("Token")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -197,7 +195,7 @@ namespace Repositorio.Migrations
                             Nome = "Guilherme",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992499565",
-                            Token = "00000000-0000-0000-0000-000000000000"
+                            Token = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
@@ -213,7 +211,7 @@ namespace Repositorio.Migrations
                             Nome = "Juliana",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
                             Telefone = "992380457",
-                            Token = "00000000-0000-0000-0000-000000000000"
+                            Token = new Guid("00000000-0000-0000-0000-000000000000")
                         });
                 });
 
