@@ -28,7 +28,7 @@ namespace Servico.Servicos
             return fornecedor;
         }
 
-        public Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel)
+        public Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel, string caminhoArquivo)
         {
             var fornecedor = _mapeamentoEntidade.ConstruirCom(viewModel);
 
@@ -37,7 +37,7 @@ namespace Servico.Servicos
             return fornecedor;
         }
 
-        public bool Editar(FornecedorEditarViewModel viewModel)
+        public bool Editar(FornecedorEditarViewModel viewModel, string caminhoArquivo)
         {
             var fornecedor = _fornecedorReposistorio.ObterPorId(viewModel.Id);
 
