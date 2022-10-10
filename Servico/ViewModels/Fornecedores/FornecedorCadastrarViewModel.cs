@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace Servico.ViewModels.Fornecedores
 {
@@ -51,5 +52,7 @@ namespace Servico.ViewModels.Fornecedores
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
         [MinLength(4, ErrorMessage = "{0} deve conter no mínimo {1} dígitos!")]
         public string Senha { get; set; }
+
+        public IFormFile? Arquivo { get; set; }
     }
 }

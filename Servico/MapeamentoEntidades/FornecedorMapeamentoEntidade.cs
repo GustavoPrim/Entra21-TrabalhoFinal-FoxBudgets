@@ -6,7 +6,7 @@ namespace Servico.MapeamentoEntidades
 {
 	public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
     {
-        public void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel)
+        public void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel, string caminho)
         {
             fornecedor.Nome = viewModel.Nome;
             fornecedor.Cnpj = viewModel.Cnpj;
@@ -17,8 +17,11 @@ namespace Servico.MapeamentoEntidades
             fornecedor.Categoria = (int)viewModel.Categoria;
             fornecedor.Login = viewModel.Login;
             fornecedor.Senha = viewModel.Senha;
+
+            if (!string.IsNullOrEmpty(caminho))
+                fornecedor.CaminhoArquivo = caminho;
         }
-        public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel)
+        public Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel, string caminho)
         {
             return new Fornecedor
             {
@@ -30,7 +33,8 @@ namespace Servico.MapeamentoEntidades
                 Telefone = viewModel.Telefone,
                 Categoria = (int)viewModel.Categoria,
                 Login = viewModel.Login,
-                Senha = viewModel.Senha.GerarHash()
+                Senha = viewModel.Senha.GerarHash(),
+                CaminhoArquivo = caminho,
             };
         }
     }
