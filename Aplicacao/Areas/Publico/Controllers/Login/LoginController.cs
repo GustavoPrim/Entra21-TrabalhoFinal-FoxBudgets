@@ -94,7 +94,7 @@ namespace Aplicacao.Administradores.Controllers
         }
 
         [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel)
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel, string caminhoArquivo)
         {
 
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Aplicacao.Administradores.Controllers
 
             cadastrarUsuarioViewModel.Token = token;
 
-            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel);
+            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
 
             var confirmationLink = Url.Action("ConfirmEmail", "Login",
                 new { id = user.Id, token }, Request.Scheme);
@@ -128,7 +128,7 @@ namespace Aplicacao.Administradores.Controllers
             TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
             return View(nameof(ConfirmEmail));
 
-            _clienteService.Cadastrar(cadastrarUsuarioViewModel);
+            _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
 
             return View();
 

@@ -74,27 +74,27 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return Ok(fornecedor);
         }
 
-        [HttpGet("editar")]
-        public IActionResult Editar([FromQuery] int id)
-        {
-            var fornecedor = _fornecedorServico.ObterPorId(id);
-            var fornecedores = ObterFornecedores();
+        //[HttpGet("editar")]
+        //public IActionResult Editar([FromQuery] int id)
+        //{
+        //    var fornecedor = _fornecedorServico.ObterPorId(id);
+        //    var fornecedores = ObterFornecedores();
 
-            var fornecedorEditarViewModel = new FornecedorEditarViewModel
-            {
-                Id = fornecedor.Id,
-                Nome = fornecedor.Nome,
-                DataFundacao = fornecedor.DataFundacao,
-                Email = fornecedor.Email,
-                Endereco = fornecedor.Endereco,
-                Telefone = fornecedor.Telefone,
-                Cnpj = fornecedor.Cnpj,
-                Categoria = fornecedor.Categoria,
-            };
-            ViewBag.Fornecedores = fornecedores;
+        //    var fornecedorEditarViewModel = new FornecedorEditarViewModel
+        //    {
+        //        Id = fornecedor.Id,
+        //        Nome = fornecedor.Nome,
+        //        DataFundacao = fornecedor.DataFundacao,
+        //        Email = fornecedor.Email,
+        //        Endereco = fornecedor.Endereco,
+        //        Telefone = fornecedor.Telefone,
+        //        Cnpj = fornecedor.Cnpj,
+        //        Categoria = fornecedor.Categoria,
+        //    };
+        //    ViewBag.Fornecedores = fornecedores;
 
-            return View(fornecedorEditarViewModel);
-        }
+        //    return View(fornecedorEditarViewModel);
+        //}
 
         [HttpPost("editar")]
         public IActionResult Editar([FromForm] FornecedorEditarViewModel fornecedorEditarViewModel)
@@ -103,7 +103,7 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 return UnprocessableEntity(ModelState);
 
             var atualizou = _fornecedorServico.Editar(fornecedorEditarViewModel, _webHostEnvironment.WebRootPath);
-            return Ok(new { status = atualizou });
+            return RedirectToAction("Index");
         }
 
         [HttpGet("apagar")]
