@@ -49,8 +49,6 @@ namespace Servico.ViewModels.Administradores
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
         [MinLength(4, ErrorMessage = "{0} deve conter no mínimo {1} dígitos!")]
         public string Senha { get; set; }
-
-
         public IFormFile? Arquivo { get; set; }
     }
 }

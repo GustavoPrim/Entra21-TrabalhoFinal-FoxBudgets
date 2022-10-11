@@ -1,4 +1,5 @@
 ﻿using Repositorio.Entidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
@@ -11,5 +12,6 @@ namespace Servico.Servicos
         bool Apagar(int id);
         Administrador? ObterPorId(int id);
         IList<Administrador> ObterTodos();
+        Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha);
     }
 }

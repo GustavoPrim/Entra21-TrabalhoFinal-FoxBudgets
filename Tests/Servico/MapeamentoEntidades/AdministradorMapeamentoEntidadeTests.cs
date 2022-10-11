@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using NSubstitute.ReturnsExtensions;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
@@ -29,7 +30,8 @@ namespace Tests.Servico.MapeamentoEntidades
                 Endereco = "Rua Thomé de Souza 157",
                 Telefone = "99772-1079",
                 Login = "ccc",
-                Senha = "123456".GerarHash()
+                Senha = "123456".GerarHash(),
+                Arquivo = null
             };
             //Act
             var administrador = _administradorMapeamentoEntidades.ConstruirCom(viewModel);
@@ -43,6 +45,7 @@ namespace Tests.Servico.MapeamentoEntidades
             administrador.Telefone.Should().Be(viewModel.Telefone);
             administrador.Login.Should().Be(viewModel.Login);
             administrador.Senha.Should().Be(viewModel.Senha.GerarHash());
+            administrador.Arquivo.Should().Be(null);
         }
 
         [Fact]

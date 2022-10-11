@@ -2,6 +2,7 @@
 using Repositorio.Repositorios;
 using Servico.Helpers;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
@@ -39,7 +40,7 @@ namespace Servico.Servicos
             if (administrador == null)
                 return false;
 
-            var caminho = SalvarArquivo(viewModel, caminhoArquivos, administrador.CaminhoArquivo);
+            var caminho = SalvarArquivo(viewModel, caminhoArquivos, administrador.Arquivo);
 
             _mapeamentoEntidade.AtualizarCom(administrador, viewModel, caminho);
             _administradorRepositorio.Editar(administrador);
@@ -92,5 +93,14 @@ namespace Servico.Servicos
 
             return administrador;
         }
+
+        //public Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha, string login, string senha)
+        //{
+        //    var administrador = BuscarPorLogin(login,senha);
+        //    if (administrador != null)
+        //    {
+        //        _sessao.CriarSessaoUsuario(administrador);
+        //    }
+        //}
     }
 }

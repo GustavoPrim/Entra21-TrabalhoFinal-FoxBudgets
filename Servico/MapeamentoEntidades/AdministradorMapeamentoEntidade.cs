@@ -18,7 +18,7 @@ namespace Servico.MapeamentoEntidades
             administrador.Senha = administradorEditarViewModel.Senha;
 
             if (!string.IsNullOrEmpty(caminho))
-                administrador.CaminhoArquivo = caminho;
+                administrador.Arquivo = caminho;
         }
 
         public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel, string caminho)
@@ -33,7 +33,7 @@ namespace Servico.MapeamentoEntidades
                 Endereco = viewModel.Endereco,
                 Login = viewModel.Login,
                 Senha = viewModel.Senha.GerarHash(),
-                CaminhoArquivo = caminho
+                Arquivo = caminho
             };
         }
     }
