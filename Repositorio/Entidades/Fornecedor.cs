@@ -10,7 +10,6 @@
         public string Telefone { get; set; }
         public int Categoria { get; set; }
 
-        public string? CaminhoArquivo { get; set; }
 
         public IList<Estoque> Estoques { get; set; }
     }
