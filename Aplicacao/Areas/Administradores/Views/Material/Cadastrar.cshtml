@@ -6,7 +6,7 @@
     var selectDosMateriais = new SelectList(materiais, string.Empty);
 }
 <p class="h3">Cadastro de Materiais</p>
-<form asp-action="Cadastrar" method="POST">
+<form asp-action="cadastrar" method="POST" class="row g-3">
     <div>
         <label asp-for="Nome" class="form-label" span-required=""></label>
         <input asp-for="Nome" class="form-control" />
@@ -15,7 +15,7 @@
 
     <div class="mb-3">
         <label asp-for="Sku" class="form-label" span-required=""></label>
-        <input type="text" class="form-control sku-mask" placeholder="XXYY25KK">
+        <input type="text" class="form-control sku-mask" placeholder="XXYY99KK">
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
 
