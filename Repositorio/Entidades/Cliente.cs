@@ -15,8 +15,6 @@ public class Cliente : Usuario
     public bool EmailConfirmado { get; set; }
     public DateTime DataInspiracaoToken { get; set; }
 
+
     public IList<Orcamento> Orcamentos { get; set; }
-
-
-    public string? CaminhoArquivo { get; set; }
 }

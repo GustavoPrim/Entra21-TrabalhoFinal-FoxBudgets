@@ -6,7 +6,7 @@ namespace Servico.MapeamentoEntidades
 {
 	public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
-        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel, string caminho)
+        public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {
             administrador.Nome = administradorEditarViewModel.Nome;
             administrador.Cpf = administradorEditarViewModel.Cpf;
@@ -16,12 +16,9 @@ namespace Servico.MapeamentoEntidades
             administrador.Telefone = administradorEditarViewModel.Telefone;
             administrador.Login = administradorEditarViewModel.Login;
             administrador.Senha = administradorEditarViewModel.Senha;
-
-            if (!string.IsNullOrEmpty(caminho))
-                administrador.Arquivo = caminho;
         }
 
-        public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel, string caminho)
+        public Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel)
         {
             return new Administrador
             {
@@ -33,7 +30,6 @@ namespace Servico.MapeamentoEntidades
                 Endereco = viewModel.Endereco,
                 Login = viewModel.Login,
                 Senha = viewModel.Senha.GerarHash(),
-                Arquivo = caminho
             };
         }
     }

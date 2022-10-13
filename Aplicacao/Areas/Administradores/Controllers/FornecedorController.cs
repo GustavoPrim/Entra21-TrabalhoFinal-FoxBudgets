@@ -12,14 +12,10 @@ namespace Aplicacao.Areas.Administradores.Controllers
     public class FornecedorController : Controller
     {
         private readonly IFornecedorServico _fornecedorServico;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public FornecedorController(
-            IFornecedorServico fornecedorServico,
-            IWebHostEnvironment webHostEnvironment)
+        public FornecedorController(IFornecedorServico fornecedorServico)
         {
             _fornecedorServico = fornecedorServico;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -56,11 +52,13 @@ namespace Aplicacao.Areas.Administradores.Controllers
         public IActionResult Cadastrar([FromForm] FornecedorCadastrarViewModel fornecedorCadastrarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorCadastrarViewModel);
+            }
 
-            var fornecedor = _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel, _webHostEnvironment.WebRootPath);
-
-            return Ok(fornecedor);
+            _fornecedorServico.CadastrarFornecedor(fornecedorCadastrarViewModel);
+            return RedirectToAction("Index");
         }
 
         [HttpGet("obterPorId")]
@@ -74,35 +72,37 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return Ok(fornecedor);
         }
 
-        //[HttpGet("editar")]
-        //public IActionResult Editar([FromQuery] int id)
-        //{
-        //    var fornecedor = _fornecedorServico.ObterPorId(id);
-        //    var fornecedores = ObterFornecedores();
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id)
+        {
+            var fornecedor = _fornecedorServico.ObterPorId(id);
+            var fornecedores = ObterFornecedores();
 
-        //    var fornecedorEditarViewModel = new FornecedorEditarViewModel
-        //    {
-        //        Id = fornecedor.Id,
-        //        Nome = fornecedor.Nome,
-        //        DataFundacao = fornecedor.DataFundacao,
-        //        Email = fornecedor.Email,
-        //        Endereco = fornecedor.Endereco,
-        //        Telefone = fornecedor.Telefone,
-        //        Cnpj = fornecedor.Cnpj,
-        //        Categoria = fornecedor.Categoria,
-        //    };
-        //    ViewBag.Fornecedores = fornecedores;
+            var fornecedorEditarViewModel = new FornecedorEditarViewModel
+            {
+                Id = fornecedor.Id,
+                Nome = fornecedor.Nome,
+                DataFundacao = fornecedor.DataFundacao,
+                Email = fornecedor.Email,
+                Endereco = fornecedor.Endereco,
+                Telefone = fornecedor.Telefone,
+                Cnpj = fornecedor.Cnpj,
+                Categoria = fornecedor.Categoria,
+            };
+            ViewBag.Fornecedores = fornecedores;
 
-        //    return View(fornecedorEditarViewModel);
-        //}
+            return View(fornecedorEditarViewModel);
+        }
 
         [HttpPost("editar")]
         public IActionResult Editar([FromForm] FornecedorEditarViewModel fornecedorEditarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
-            var atualizou = _fornecedorServico.Editar(fornecedorEditarViewModel, _webHostEnvironment.WebRootPath);
+            {
+                ViewBag.Fornecedores = ObterFornecedores();
+                return View(fornecedorEditarViewModel);
+            }
+            _fornecedorServico.Editar(fornecedorEditarViewModel);
             return RedirectToAction("Index");
         }
 
