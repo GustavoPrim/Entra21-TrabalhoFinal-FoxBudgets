@@ -1,5 +1,7 @@
-﻿using Repositorio.BancoDados;
+﻿using Microsoft.AspNetCore.Http;
+using Repositorio.BancoDados;
 using Repositorio.Entidades;
+using Servico.ViewModels;
 using System.Data.Entity;
 
 namespace Repositorio.Repositorios
@@ -12,6 +14,7 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
+
         public bool Apagar(int id)
         {
             var administrador = _contexto.Administradores

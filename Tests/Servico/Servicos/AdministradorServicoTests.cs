@@ -2,6 +2,8 @@
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.Servicos;
+using Servico.ViewModels.Administradores;
+using Xunit;
 
 namespace Tests.Servico.Servicos
 {
@@ -18,9 +20,36 @@ namespace Tests.Servico.Servicos
 
             _administradorMapeamentoEntidade = Substitute.For<IAdministradorMapeamentoEntidade>();
 
-            _administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade);
+            //_administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade);
+        }
+        [Fact]
+        public void Test_Apagar()
+        {
+            //Arrange
+            var id = 30;
+
+            //Act
+            _administradorServico.Apagar(id);
+
+            //Assert
+            _administradorRepositorio.Received().Apagar(Arg.Is(30));
         }
 
+        [Fact]
+        public void Test_Cadastrar()
+        {
+            var viewModel = new AdministradorCadastrarViewModel
+            {
+                Nome = "Pedro",
+                Cpf = "122.222.312-12",
+                Email = "jose@gmail.com",
+                DataNascimento = Convert.ToDateTime("2001/03/03"),
+                Endereco = "rua palmeiras 201",
+                Telefone = "99772-1079",
+                Login = "navio",
+                Senha = "calabresa"
+            };
+        }
 
     }
 }
