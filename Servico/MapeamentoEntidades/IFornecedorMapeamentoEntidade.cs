@@ -5,7 +5,7 @@ namespace Servico.MapeamentoEntidades
 {
     public interface IFornecedorMapeamentoEntidade
     {
-        Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel);
-        void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel);
+        Fornecedor ConstruirCom(FornecedorCadastrarViewModel viewModel, string caminho);
+        void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel, string caminho);
     }
 }

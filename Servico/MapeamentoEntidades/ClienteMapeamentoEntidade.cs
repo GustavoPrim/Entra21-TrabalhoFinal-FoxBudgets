@@ -7,7 +7,7 @@ namespace Servico.MapeamentoEntidades
 {
 	public class ClienteMapeamentoEntidade : IClienteMapeamentoEntidade
     {
-        public void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel)
+        public void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel, string caminho)
         {
             cliente.Nome = viewModel.Nome;
             cliente.Cpf = viewModel.Cpf;
@@ -18,9 +18,12 @@ namespace Servico.MapeamentoEntidades
             cliente.Telefone = viewModel.Telefone;
             cliente.Login = viewModel.Login;
             cliente.Senha = viewModel.Senha;
+
+            if (!string.IsNullOrEmpty(caminho))
+                cliente.CaminhoArquivo = caminho;
         }
 
-        public Cliente ConstruirCom(CadastrarUsuarioViewModel viewModel)
+        public Cliente ConstruirCom(CadastrarUsuarioViewModel viewModel, string caminho)
         {
             return new Cliente
             {
@@ -32,7 +35,8 @@ namespace Servico.MapeamentoEntidades
                 Cnpj = viewModel.Cnpj,
                 Endereco = viewModel.Endereco,
                 Login = viewModel.Login,
-                Senha = viewModel.Senha.GerarHash()
+                Senha = viewModel.Senha.GerarHash(),
+                CaminhoArquivo = caminho
             };
         }
     }
