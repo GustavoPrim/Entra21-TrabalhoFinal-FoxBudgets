@@ -1,27 +1,41 @@
 ﻿{
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-.center{
+
+.center {
     display: flex;
     flex-wrap: wrap;
-    max-width:1280px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding:0 2%;
+    padding: 0 2%;
 }
-header{
+
+header {
     padding: 20px 0;
 }
-.logo{
-    width:50%;
+
+.logo {
+    width: 50%;
 }
-.menu{
-    width:50%;
+
+.menu {
+    width: 50%;
     text-align: right;
 }
-.menu a{
-    color:darkorange;
+
+.menu a {
+    color: darkorange;
     text-decoration: none;
     font-weight: bold;
+}
+.tamanho {
+    width: 10%;
+.nav-limk {
+    background-color: darkorange;
+}
+
+a:active {
+    background-color: darkorange;
 }

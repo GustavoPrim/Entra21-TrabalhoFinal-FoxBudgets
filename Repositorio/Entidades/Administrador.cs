@@ -10,6 +10,6 @@ namespace Repositorio.Entidades
         public string Endereco { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-   
+        public string? CaminhoArquivo { get; set; }
     }
 }

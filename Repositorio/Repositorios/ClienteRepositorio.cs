@@ -55,5 +55,11 @@ namespace Repositorio.Repositorios
         public IList<Cliente> ObterTodos() =>
             _contexto.Clientes
             .ToList();
+
+        public Cliente? GetByEmailAndPassword(string email, string password) =>
+            _contexto.Clientes.FirstOrDefault(x => x.Email == email && x.Senha == password.GerarHash() && x.EmailConfirmado == true);
+
+        public IList<Cliente>? GetActiveUsers() =>
+            _contexto.Clientes.Where(x => x.EmailConfirmado == true).ToList();
     }
 }

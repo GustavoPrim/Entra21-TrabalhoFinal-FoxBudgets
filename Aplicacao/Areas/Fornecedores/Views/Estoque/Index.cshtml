@@ -15,6 +15,7 @@
     <thead>
 
         <tr>
+            <th>Item</th>
             <th>Quantidade</th>
         </tr>
     </thead>
@@ -22,6 +23,7 @@
         @foreach (var estoque in Model)
         {
             <tr>
+                <td>@estoque.MaterialId</td>
                 <td>@estoque.Quantidade</td>
                 <td>
                     <a class="btn btn-primary" asp-action="editar" asp-route-id="@estoque.Id">

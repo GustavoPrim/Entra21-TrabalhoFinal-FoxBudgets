@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Servico\Servico.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Orcamento\Controllers\" />
+  </ItemGroup>
+
 </Project>

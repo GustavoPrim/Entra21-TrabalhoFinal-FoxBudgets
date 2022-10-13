@@ -5,7 +5,7 @@ using Servico.ViewModels.Estoque;
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
-    [Area("Fornecedor")]
+    [Area("Fornecedores")]
     [Route("fornecedor/estoque")]
     public class EstoqueController : Controller
     {

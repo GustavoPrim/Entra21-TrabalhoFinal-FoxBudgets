@@ -1,6 +1,5 @@
 ﻿@using Servico.ViewModels.Estoque
 @model EstoqueCadastrarViewModel
-
 @{
     var estoques = ViewBag.Estoques as List<string>;
     estoques.Add(string.Empty);
@@ -11,8 +10,14 @@
 <p class="h3">Cadastro de Estoque</p>
 <form asp-action="cadastrar" method="POST">
 
+@*    <div class="mb-3">
+        <label asp-for="Item" class="form-label" span-required="">Informe o Material</label>
+        <input asp-for="Item" class="form-control" />
+        <span asp-validation-for="Item" class="text-danger"></span>
+    </div>*@
+
     <div class="mb-3">
-        <label asp-for="Quantidade" class="form-label" span-required=""></label>
+        <label asp-for="Quantidade" class="form-label" span-required="">Informe a quantidade do Material</label>
         <input asp-for="Quantidade" class="form-control" />
         <span asp-validation-for="Quantidade" class="text-danger"></span>
     </div>

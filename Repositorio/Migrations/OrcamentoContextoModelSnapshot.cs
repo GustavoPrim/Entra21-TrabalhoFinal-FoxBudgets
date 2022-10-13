@@ -125,6 +125,10 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(14)")
                         .HasColumnName("cpf");
 
+                    b.Property<DateTime>("DataInspiracaoToken")
+                        .HasColumnType("DATETIME2")
+                        .HasColumnName("data_Inspiracao_Token");
+
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("DATETIME2")
                         .HasColumnName("DataNascimento");
@@ -134,6 +138,9 @@ namespace Repositorio.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("email");
+
+                    b.Property<bool>("EmailConfirmado")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -165,6 +172,12 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("telefone");
 
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("token");
+
                     b.HasKey("Id");
 
                     b.ToTable("clientes", (string)null);
@@ -175,26 +188,32 @@ namespace Repositorio.Migrations
                             Id = 1,
                             Cnpj = "12.345.678/0001-90",
                             Cpf = "111.222.111-22",
+                            DataInspiracaoToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataNascimento = new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "gugahprm@gmail.com",
+                            EmailConfirmado = false,
                             Endereco = "Rua Julio Michel 1130",
                             Login = "gui",
                             Nome = "Guilherme",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-                            Telefone = "992499565"
+                            Telefone = "992499565",
+                            Token = "00000000-0000-0000-0000-000000000000"
                         },
                         new
                         {
                             Id = 2,
                             Cnpj = "77.888.777/0001-10",
                             Cpf = "444.555.444-55",
+                            DataInspiracaoToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataNascimento = new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lucasalves@gmail.com",
+                            EmailConfirmado = false,
                             Endereco = "Rua Hermann Tribess 1234",
                             Login = "ju",
                             Nome = "Juliana",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-                            Telefone = "992380457"
+                            Telefone = "992380457",
+                            Token = "00000000-0000-0000-0000-000000000000"
                         });
                 });
 
@@ -217,6 +236,9 @@ namespace Repositorio.Migrations
 
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -371,9 +393,8 @@ namespace Repositorio.Migrations
                     b.Property<DateTime>("DataOrcamento")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Item")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Item")
+                        .HasColumnType("int");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
@@ -394,7 +415,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Orcamentos");
+                    b.ToTable("Orcamento");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>
@@ -404,6 +425,9 @@ namespace Repositorio.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Item")
+                        .HasColumnType("int");
 
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
@@ -420,7 +444,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("OrcamentoId");
 
-                    b.ToTable("OrcamentoMaterial");
+                    b.ToTable("Orcamentos");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>

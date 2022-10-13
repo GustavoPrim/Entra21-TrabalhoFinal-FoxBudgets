@@ -8,6 +8,8 @@ namespace Repositorio.Repositorios
         bool Apagar(int id);
         Cliente Cadastrar(Cliente cliente);
         void Editar(Cliente clienteParaAlterar);
+        Cliente? GetByEmailAndPassword(string email, string password);
+        IList<Cliente>? GetActiveUsers();
         Cliente? ObterPorId(int id);
         IList<Cliente> ObterTodos();
     }

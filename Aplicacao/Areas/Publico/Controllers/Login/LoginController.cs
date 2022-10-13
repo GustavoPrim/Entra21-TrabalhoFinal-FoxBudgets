@@ -1,5 +1,7 @@
 ﻿using Aplicacao.Help;
 using Microsoft.AspNetCore.Mvc;
+using Repositorio.Entidades;
+using Servico.Email;
 using Servico.Servicos;
 using Servico.ViewModels;
 
@@ -12,17 +14,20 @@ namespace Aplicacao.Administradores.Controllers
         private readonly IAdministradorServico _administradorService;
         private readonly IFornecedorServico _fornecedorService;
         private readonly IClienteService _clienteService;
+        private readonly IEmail _email;
         private readonly ISessao _sessao;
         public LoginController(
             IAdministradorServico administradorService,
             ISessao sessao,
             IFornecedorServico fornecedorService,
+            IEmail emailService,
             IClienteService clienteRepositorio)
         {
             _administradorService = administradorService;
             _sessao = sessao;
             _fornecedorService = fornecedorService;
             _clienteService = clienteRepositorio;
+            _email = emailService;
         }
 
         public IActionResult Index()
@@ -30,12 +35,16 @@ namespace Aplicacao.Administradores.Controllers
             return View();
         }
 
-        //public IActionResult Sair()
-        //{
-        //    _sessao.RemoverSessaoUsuario();
+        [Route("Sair")]
+        [HttpGet]
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoUsuario<Administrador>();
+            _sessao.RemoverSessaoUsuario<Fornecedor>();
+            _sessao.RemoverSessaoUsuario<Cliente>();
 
-        //    return RedirectToAction("Index", "Login");
-        //}
+            return RedirectToAction("Index", "Login");
+        }
 
         [HttpPost]
         public IActionResult Entrar(LoginModel loginModel)
@@ -85,11 +94,67 @@ namespace Aplicacao.Administradores.Controllers
         }
 
         [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel)
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel, string caminhoArquivo)
         {
-            _clienteService.Cadastrar(cadastrarUsuarioViewModel);
+
+            if (!ModelState.IsValid)
+                return View(cadastrarUsuarioViewModel);
+
+            if (_clienteService.VerificarEmail(cadastrarUsuarioViewModel.Email) == false)
+            {
+                TempData["Message"] = "Já existe uma conta com esse email, tente novamente";
+
+                return RedirectToAction(nameof(Cadastrar));
+            }
+
+            var token = Guid.NewGuid();
+
+            cadastrarUsuarioViewModel.Token = token;
+
+            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
+
+            var confirmationLink = Url.Action("ConfirmEmail", "Login",
+                new { id = user.Id, token }, Request.Scheme);
+
+            var email = _email.Enviar(user.Email, "Confirmação de email",
+                @$"<p>Olá, {user.Nome}, como você está?
+                <br>
+                Confirme seu cadastro <a href='{confirmationLink}'>aqui</a>
+                <br>
+                Caso você não seja redirecionado, acesse pelo link abaixo:
+                <br>
+                {confirmationLink}<p>");
+
+            TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
+            return View(nameof(ConfirmEmail));
+
+            _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
 
             return View();
+
+        }
+
+        [HttpGet("confirmarEmail")]
+        public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
+        {
+            var user = _clienteService.ObterPorId(id);
+
+            if (user == null || user.Token != token)
+                TempData["Confirm"] = "Não existe nenhum usuário referido!";
+
+            else if (user.EmailConfirmado == true)
+                TempData["Confirm"] = "O usuário já possui o link confirmado!";
+
+            else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
+                TempData["Confirm"] = "O link foi espirado! Tente criar outra conta";
+
+            else
+            {
+                TempData["Confirm"] = "O usuário foi confirmado!";
+                _clienteService.AtualizarVerificarEmail(user.Id);
+            }
+
+            return View(nameof(ConfirmEmail));
         }
     }
 }

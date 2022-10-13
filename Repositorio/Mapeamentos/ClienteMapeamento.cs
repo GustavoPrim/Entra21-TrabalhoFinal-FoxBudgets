@@ -51,15 +51,24 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(100)
                 .HasColumnName("telefone");
 
-           builder.Property(x => x.Login)
-            .HasColumnName("login")
-            .HasColumnType("VARCHAR")
-            .HasMaxLength(100);
+            builder.Property(x => x.Login)
+             .HasColumnName("login")
+             .HasColumnType("VARCHAR")
+             .HasMaxLength(100);
 
             builder.Property(x => x.Senha)
                .HasColumnName("senha")
                .HasColumnType("VARCHAR")
                .HasMaxLength(100);
+
+            builder.Property(x => x.Token)
+               .HasColumnName("token")
+               .HasColumnType("VARCHAR")
+               .HasMaxLength(100);
+
+            builder.Property(x => x.DataInspiracaoToken)
+              .HasColumnName("data_Inspiracao_Token")
+               .HasColumnType("DATETIME2");
 
             builder.HasData(
                 new Cliente

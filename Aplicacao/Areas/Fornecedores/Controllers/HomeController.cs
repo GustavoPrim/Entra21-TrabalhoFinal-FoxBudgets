@@ -2,7 +2,7 @@
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
-    [Area("Fornecedor")]
+    [Area("Fornecedores")]
     [Route("/fornecedor/")]
     public class HomeController : Controller
     {

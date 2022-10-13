@@ -56,7 +56,6 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 ViewBag.Materiais = ObterMateriais();
                 return View(cadastrarViewModel);
             }
-
             _materialService.Cadastrar(cadastrarViewModel);
             return RedirectToAction("Index");
         }
@@ -83,7 +82,6 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 Id = material.Id,
                 Nome = material.Nome,
                 Sku = material.Sku,
-                DataValidade = material.DataValidade,
                 Descricao = material.Descricao,
             };
             ViewBag.Materiais = materiais;

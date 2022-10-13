@@ -1,6 +1,7 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Materiais;
 
 namespace Servico.Servicos
@@ -46,5 +47,20 @@ namespace Servico.Servicos
 
         public IList<Material> ObterTodos() =>
             _materialRepositorio.ObterTodos();
+
+        public IList<SelectViewModel> ObterTodosSelect2()
+        {
+            var pets = _materialRepositorio.ObterTodos();
+
+            var selectViewModels = pets
+                .Select(x => new SelectViewModel
+                {
+                    Id = x.Id,
+                    Text = x.Nome
+                })
+                .ToList();
+
+            return selectViewModels;
+        }
     }
 }
