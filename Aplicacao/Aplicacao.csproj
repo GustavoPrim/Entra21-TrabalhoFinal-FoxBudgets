@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Publico\Controllers\AlterarSenhaController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Areas\Publico\Views\Home\_LayoutDeslogado.cshtml" />
   </ItemGroup>
 

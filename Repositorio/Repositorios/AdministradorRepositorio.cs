@@ -15,21 +15,6 @@ namespace Repositorio.Repositorios
             _contexto = contexto;
         }
 
-        //public Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha, Usuario usuario, )
-        //{
-        //    // BUSCAR DO BANCO COM LOGIN E SENHA
-
-        //    //Administrador? BuscarPorLogin(string login, string senha) =>
-        //    //_contexto.Administradores.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Senha == senha.GerarHash());
-
-
-        //    // VERIFICAR SE ENCONTROU O ADMINISTRADOR
-          
-
-        //    // PREENCHER A SENHA DO ADMINISTRADOR ENCONTRADO COM A NOVA SENHA, LEMBRAR DE GERAR HASH
-        //    // CHAMA O ATUALIZAR DO EF
-        //}
-
         public bool Apagar(int id)
         {
             var administrador = _contexto.Administradores

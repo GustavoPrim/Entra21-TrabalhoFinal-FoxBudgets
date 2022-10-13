@@ -1,4 +1,5 @@
-﻿using Repositorio.Entidades;
+﻿using Repositorio.BancoDados;
+using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.Helpers;
 using Servico.MapeamentoEntidades;
@@ -11,13 +12,17 @@ namespace Servico.Servicos
     {
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
+        private readonly OrcamentoContexto _contexto;
+        
 
         public AdministradorServico(
             IAdministradorRepositorio administradorRepositorio,
-            IAdministradorMapeamentoEntidade mapeamentoEntidade)
+            IAdministradorMapeamentoEntidade mapeamentoEntidade,
+            OrcamentoContexto contexto)
         {
             _administradorRepositorio = administradorRepositorio;
             _mapeamentoEntidade = mapeamentoEntidade;
+            _contexto = contexto;
         }
 
         public bool Apagar(int id) =>
@@ -93,14 +98,5 @@ namespace Servico.Servicos
 
             return administrador;
         }
-
-        //public Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha, string login, string senha)
-        //{
-        //    var administrador = BuscarPorLogin(login,senha);
-        //    if (administrador != null)
-        //    {
-        //        _sessao.CriarSessaoUsuario(administrador);
-        //    }
-        //}
     }
 }

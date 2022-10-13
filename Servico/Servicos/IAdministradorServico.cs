@@ -12,6 +12,5 @@ namespace Servico.Servicos
         bool Apagar(int id);
         Administrador? ObterPorId(int id);
         IList<Administrador> ObterTodos();
-        Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha);
     }
 }
