@@ -1,9 +1,10 @@
-﻿//using FluentAssertions;
-//using Repositorio.Entidades;
-//using Repositorio.Repositorios;
-//using Servico.MapeamentoEntidades;
-//using Servico.ViewModels.Administradores;
-//using Xunit;
+﻿using FluentAssertions;
+using NSubstitute.ReturnsExtensions;
+using Repositorio.Entidades;
+using Repositorio.Repositorios;
+using Servico.MapeamentoEntidades;
+using Servico.ViewModels.Administradores;
+using Xunit;
 
 //namespace Tests.Servico.MapeamentoEntidades
 //{
@@ -16,34 +17,36 @@
 //            _administradorMapeamentoEntidades = new AdministradorMapeamentoEntidade();
 //        }
 
-//        [Fact]
-//        public void Test_construirCom()
-//        {
-//            //Arrange
-//            var viewModel = new AdministradorCadastrarViewModel
-//            {
-//                Nome = "João",
-//                Cpf = "138.117.329-27",
-//                DataNascimento = Convert.ToDateTime("2022/02/22"),
-//                Email = "administrador@gmail.com",
-//                Endereco = "Rua Thomé de Souza 157",
-//                Telefone = "99772-1079",
-//                Login = "ccc",
-//                Senha = "123456".GerarHash()
-//            };
-//            //Act
-//            var administrador = _administradorMapeamentoEntidades.ConstruirCom(viewModel);
+        [Fact]
+        public void Test_construirCom()
+        {
+            //Arrange
+            var viewModel = new AdministradorCadastrarViewModel
+            {
+                Nome = "João",
+                Cpf = "138.117.329-27",
+                DataNascimento = Convert.ToDateTime("2022/02/22"),
+                Email = "administrador@gmail.com",
+                Endereco = "Rua Thomé de Souza 157",
+                Telefone = "99772-1079",
+                Login = "ccc",
+                Senha = "123456".GerarHash(),
+                Arquivo = null
+            };
+            //Act
+            var administrador = _administradorMapeamentoEntidades.ConstruirCom(viewModel);
 
-//            //Assert
-//            administrador.Nome.Should().Be(viewModel.Nome);
-//            administrador.Cpf.Should().Be(viewModel.Cpf);
-//            administrador.DataNascimento.Should().Be(viewModel.DataNascimento);
-//            administrador.Email.Should().Be(viewModel.Email);
-//            administrador.Endereco.Should().Be(viewModel.Endereco);
-//            administrador.Telefone.Should().Be(viewModel.Telefone);
-//            administrador.Login.Should().Be(viewModel.Login);
-//            administrador.Senha.Should().Be(viewModel.Senha.GerarHash());
-//        }
+            //Assert
+            administrador.Nome.Should().Be(viewModel.Nome);
+            administrador.Cpf.Should().Be(viewModel.Cpf);
+            administrador.DataNascimento.Should().Be(viewModel.DataNascimento);
+            administrador.Email.Should().Be(viewModel.Email);
+            administrador.Endereco.Should().Be(viewModel.Endereco);
+            administrador.Telefone.Should().Be(viewModel.Telefone);
+            administrador.Login.Should().Be(viewModel.Login);
+            administrador.Senha.Should().Be(viewModel.Senha.GerarHash());
+            administrador.Arquivo.Should().Be(null);
+        }
 
 //        [Fact]
 //        public void Test_atualizarCom()
