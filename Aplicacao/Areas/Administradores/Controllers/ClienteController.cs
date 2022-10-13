@@ -13,14 +13,11 @@ namespace Aplicacao.Areas.Administradores.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ClienteController(
-            IClienteService clienteService,
-            IWebHostEnvironment webHostEnvironment)
+            IClienteService clienteService)
         {
             _clienteService = clienteService;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -30,24 +27,27 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return View(cliente);
         }
 
-        //[HttpGet("cadastrar")]
-        //public IActionResult Cadastrar()
-        //{
-        //    ViewBag.Clientes = ObterClientes();
+        [HttpGet("cadastrar")]
+        public IActionResult Cadastrar()
+        {
+            ViewBag.Clientes = ObterClientes();
 
-        //    var clienteCadastrarViewModel = new ClienteCadastrarViewModel();
+            var clienteCadastrarViewModel = new CadastrarUsuarioViewModel();
 
-        //    return View(clienteCadastrarViewModel);
-        //}
+            return View(clienteCadastrarViewModel);
+        }
 
         [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel)
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel clienteCadastrarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
+            {
+                ViewBag.Clientes = ObterClientes();
+                return View(clienteCadastrarViewModel);
+            }
 
-            var cliente = _clienteService.Cadastrar(cadastrarUsuarioViewModel, _webHostEnvironment.WebRootPath);
-            return Ok(cliente);
+            _clienteService.Cadastrar(clienteCadastrarViewModel);
+            return RedirectToAction("Index");
         }
 
         [HttpGet("apagar")]
@@ -57,34 +57,36 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpGet("editar")]
-        //public IActionResult Editar([FromQuery] int id)
-        //{
-        //    var cliente = _clienteService.ObterPorId(id);
-        //    var clientes = ObterClientes();
+        [HttpGet("editar")]
+        public IActionResult Editar([FromQuery] int id)
+        {
+            var cliente = _clienteService.ObterPorId(id);
+            var clientes = ObterClientes();
 
-        //    var clienteEditarViewModel = new ClienteEditarViewModel
-        //    {
-        //        Id = cliente.Id,
-        //        Cpf = cliente.Cpf,
-        //        Cnpj = cliente.Cnpj,
-        //        DataNascimento = cliente.DataNascimento,
-        //        Endereco = cliente.Endereco,
-        //        Email = cliente.Email,
-        //        Telefone = cliente.Telefone,
-        //    };
-        //    ViewBag.Clientes = clientes;
+            var clienteEditarViewModel = new ClienteEditarViewModel
+            {
+                Id = cliente.Id,
+                Cpf = cliente.Cpf,
+                Cnpj = cliente.Cnpj,
+                DataNascimento = cliente.DataNascimento,
+                Endereco = cliente.Endereco,
+                Email = cliente.Email,
+                Telefone = cliente.Telefone,
+            };
+            ViewBag.Clientes = clientes;
 
-        //    return View(clienteEditarViewModel);
-        //}
+            return View(clienteEditarViewModel);
+        }
 
         [HttpPost("editar")]
         public IActionResult Editar([FromForm] ClienteEditarViewModel clienteEditarViewModel)
         {
             if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
-            var cliente = _clienteService.Editar(clienteEditarViewModel, _webHostEnvironment.WebRootPath);
+            {
+                ViewBag.Clientes = ObterClientes();
+                return View(clienteEditarViewModel);
+            }
+            _clienteService.Editar(clienteEditarViewModel);
 
             return RedirectToAction("Index");
         }
