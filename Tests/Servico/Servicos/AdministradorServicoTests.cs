@@ -1,4 +1,6 @@
-﻿using NSubstitute;
+﻿using FluentAssertions;
+using NSubstitute;
+using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.Servicos;
@@ -38,6 +40,7 @@ namespace Tests.Servico.Servicos
         [Fact]
         public void Test_Cadastrar()
         {
+            //Arrange
             var viewModel = new AdministradorCadastrarViewModel
             {
                 Nome = "Pedro",
@@ -47,8 +50,23 @@ namespace Tests.Servico.Servicos
                 Endereco = "rua palmeiras 201",
                 Telefone = "99772-1079",
                 Login = "navio",
-                Senha = "calabresa"
+                Senha = "calabresa",
             };
+            //Act
+            _administradorServico.Cadastrar(viewModel);
+
+            //Assert
+            _administradorRepositorio.Received(1).Cadastrar(Arg.Is<Administrador>(
+                administrador => ValidarAdministrador(administrador, viewModel)));
+        }
+
+
+
+        private bool ValidarAdministrador(Administrador administrador, AdministradorCadastrarViewModel viewModel)
+        {
+            administrador.Nome.Should().Be(viewModel.Nome);
+
+            return true;
         }
 
     }

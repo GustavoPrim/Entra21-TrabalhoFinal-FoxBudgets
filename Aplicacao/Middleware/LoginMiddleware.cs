@@ -1,4 +1,5 @@
-﻿using Aplicacao.Help;
+﻿using Aplicacao.Filtros;
+using Aplicacao.Help;
 using Repositorio.Entidades;
 
 namespace Aplicacao.Middleware
@@ -52,6 +53,13 @@ namespace Aplicacao.Middleware
             {
                 httpContext.Response.Redirect("/administrador");
                 return;
+            }
+
+            var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>;
+
+            if(usuarioLogado != null)
+            {
+                httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
             }
 
             await _next(httpContext);

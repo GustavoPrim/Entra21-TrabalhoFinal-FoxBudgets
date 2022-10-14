@@ -7,8 +7,8 @@ namespace Servico.Servicos
     public interface IAdministradorServico
     {
         Administrador BuscarPorLogin(string login, string senha);
-        Administrador Cadastrar(AdministradorCadastrarViewModel viewModel, string caminhoArquivos);
-        bool Editar(AdministradorEditarViewModel viewModel, string caminhoArquivos);
+        Administrador Cadastrar(AdministradorCadastrarViewModel viewModel);
+        bool Editar(AdministradorEditarViewModel viewModel);
         bool Apagar(int id);
         Administrador? ObterPorId(int id);
         IList<Administrador> ObterTodos();
