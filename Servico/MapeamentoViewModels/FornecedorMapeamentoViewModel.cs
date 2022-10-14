@@ -5,9 +5,8 @@ namespace Servico.MapeamentoViewModels
 {
     public class FornecedorMapeamentoViewModel : IFornecedorMapeamentoViewModel
     {
-        public FornecedorEditarViewModel ConstruirCom(Fornecedor fornecedor)
+        public FornecedorCadastrarViewModel ConstruirCom(Fornecedor fornecedor)
         {
-
             return new FornecedorEditarViewModel
             {
                 Id = fornecedor.Id,
