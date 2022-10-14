@@ -59,7 +59,7 @@ namespace Aplicacao.Middleware
 
             if(usuarioLogado != null)
             {
-                httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
+                //httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
             }
 
             await _next(httpContext);

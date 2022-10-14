@@ -1,5 +1,4 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels;
 
 namespace Repositorio.Repositorios
 {
@@ -11,6 +10,5 @@ namespace Repositorio.Repositorios
         void Editar(Administrador administrador);
         Administrador ObterPorId(int id);
         IList<Administrador> ObterTodos();
-        //Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha);
     }
 }

@@ -23,6 +23,7 @@
         <label for="Senha" class="form-label">Senha</label>
         <input type="password" asp-for="Senha" class="form-control" id="senha" style="text-align: center">
         @Html.ValidationMessageFor(x => x.Senha)
+        <div id="icon"></div>
     <div class="float-right">
     <button type="submit" class="btn btn-primary">Entrar</button>
     <a class="btn btn-primary" asp-controller="Login" asp-action="cadastrar">Cadastrar-se</a>
