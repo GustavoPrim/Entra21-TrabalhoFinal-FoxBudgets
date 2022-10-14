@@ -55,12 +55,14 @@ namespace Aplicacao.Middleware
                 return;
             }
 
-            var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>;
+            var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
 
-            if(usuarioLogado != null)
+            if (usuarioLogado != null)
             {
                 //httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
             }
+
+            await _next(httpContext);
 
             await _next(httpContext);
         }

@@ -6,16 +6,16 @@
     var selectDosMateriais = new SelectList(materiais, string.Empty);
 }
 <p class="h3">Cadastro de Materiais</p>
-<form asp-action="Cadastrar" method="POST">
-    <div>
+<form asp-action="cadastrar" method="POST" class="row g-3">
+    <div class="col-lg-12">
         <label asp-for="Nome" class="form-label" span-required=""></label>
-        <input asp-for="Nome" class="form-control" />
+        <input asp-for="Nome" class="form-control" style="text-align: center" />
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="col-lg-12">
         <label asp-for="Sku" class="form-label" span-required=""></label>
-        <input asp-for="Sku" class="form-control" />
+        <input asp-for="Sku" type="text" class="form-control sku-mask" placeholder="XXYY99KK" style="text-align: center" />
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
 
@@ -30,32 +30,32 @@
         }
     </script>
 
-    <div class="mb-3">
+    <div class="col-lg-12">
         <div class="input-group">
             <label class="label" name="DataValidade">Possui Data de Validade?</label>
         </div>
-        <div class="p-t-10">
+        <div class="col-lg-12">
             <label class="radio-container m-r-45">
                 Sim
-                <input type="radio" name="possuiDataValidade" value="false" onclick="text(0)" checked />
+                <input type="radio" name="possuiDataValidade" value="true" onclick="text(0)" checked />
                 <span class="checkmark"></span>
                 <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
             </label>    <label class="radio-container m-r-45">
                 Não
-                <input type="radio" name="possuiDataValidade" value="true" onclick="text(1)" />
+                <input type="radio" name="possuiDataValidade" value="false" onclick="text(1)" />
                 <span class="checkmark"></span>
             </label>
         </div>
     </div>
-    <div class="mb-3">
+    <div class="col-lg-12">
         <div class="input-group" id="mycode">
-            <input asp-for="DataValidade" class="form-control" />
+            <input asp-for="DataValidade" class="form-control" style="text-align: center" />
         </div>
     </div>
 
-    <div class="mb-3">
+    <div class="col-lg-12">
         <label asp-for="Descricao" class="form-label" span-required="Descrição"></label>
-        <input asp-for="Descricao" class="form-control" />
+        <input asp-for="Descricao" class="form-control" style="text-align: center" />
         <span asp-validation-for="Descricao" class="text-danger"></span>
     </div>
 

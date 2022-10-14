@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using NSubstitute.ReturnsExtensions;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
@@ -78,6 +77,8 @@ namespace Tests.Servico.MapeamentoEntidades
             //Act
             _administradorMapeamentoEntidades.AtualizarCom(administrador, administradorEditar);
 
+            //Act
+            _administradorMapeamentoEntidades.AtualizarCom(administrador, administradorEditar);
 
             //Assert
             administrador.Id.Should().Be(administradorEditar.Id);

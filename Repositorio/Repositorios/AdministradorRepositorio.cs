@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using System.Data.Entity;
@@ -55,7 +54,7 @@ namespace Repositorio.Repositorios
         public Administrador? ObterPorId(int id) =>
             _contexto.Administradores
             .FirstOrDefault(x => x.Id == id);
-        
+
 
         public IList<Administrador> ObterTodos() =>
             _contexto.Administradores
