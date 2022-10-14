@@ -1,11 +1,11 @@
-﻿    using Repositorio.Entidades;
+﻿using Repositorio.Entidades;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.MapeamentoEntidades
 {
     public interface IAdministradorMapeamentoEntidade
     {
-        Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel, string caminho);
-        void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel, string caminho);
+        Administrador ConstruirCom(AdministradorCadastrarViewModel viewModel);
+        void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel);
     }
 }

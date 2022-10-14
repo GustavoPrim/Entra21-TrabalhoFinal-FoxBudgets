@@ -7,8 +7,8 @@ namespace Servico.Servicos
     {
         Fornecedor BuscarPorLogin(string login, string senha);
         bool Apagar(int id);
-        Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel, string caminhoArquivo);
-        bool Editar(FornecedorEditarViewModel viewModel, string caminhoArquivo);
+        Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel);
+        bool Editar(FornecedorEditarViewModel viewModel);
         Fornecedor? ObterPorId(int id);
         IList<Fornecedor> ObterTodos();
     }
