@@ -15,6 +15,9 @@
 //        }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2a5f136931a35bde7e30d6f8f1301b9be1eaed38
         //[Fact]
         //public void Test_ConstruirCom()
         //{

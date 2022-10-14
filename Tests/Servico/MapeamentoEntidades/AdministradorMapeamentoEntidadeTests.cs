@@ -80,7 +80,10 @@ namespace Tests.Servico.MapeamentoEntidades
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
+=======
 >>>>>>> 5d94284bbcdff9e41a73e6015460075ba4bb0490
+>>>>>>> 2a5f136931a35bde7e30d6f8f1301b9be1eaed38
             //Assert
             administrador.Id.Should().Be(administradorEditar.Id);
             administrador.Nome.Should().Be(administradorEditar.Nome);
@@ -96,5 +99,9 @@ namespace Tests.Servico.MapeamentoEntidades
 <<<<<<< HEAD
 }
 =======
+<<<<<<< HEAD
+}
+=======
 }
 >>>>>>> 5d94284bbcdff9e41a73e6015460075ba4bb0490
+>>>>>>> 2a5f136931a35bde7e30d6f8f1301b9be1eaed38
