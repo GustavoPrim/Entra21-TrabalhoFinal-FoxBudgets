@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Repositorio.BancoDados;
 using Repositorio.Entidades;
-using Servico.ViewModels;
 using System.Data.Entity;
 
 namespace Repositorio.Repositorios
