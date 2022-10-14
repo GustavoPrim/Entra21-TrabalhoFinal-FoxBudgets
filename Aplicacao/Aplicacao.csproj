@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Publico\Views\AlterarSenha\**" />
+    <Content Remove="Areas\Publico\Views\AlterarSenha\**" />
+    <EmbeddedResource Remove="Areas\Publico\Views\AlterarSenha\**" />
+    <None Remove="Areas\Publico\Views\AlterarSenha\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Areas\Publico\Controllers\AlterarSenhaController.cs" />
   </ItemGroup>
 

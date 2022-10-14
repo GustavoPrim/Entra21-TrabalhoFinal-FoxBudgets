@@ -31,7 +31,7 @@ namespace Tests.Servico.MapeamentoEntidades
                 Login = "ccc",
                 Senha = "123456".GerarHash(),
             };
-            //Act
+           // Act
             var administrador = _administradorMapeamentoEntidades.ConstruirCom(viewModel);
 
             //Assert
@@ -77,6 +77,10 @@ namespace Tests.Servico.MapeamentoEntidades
             //Act
             _administradorMapeamentoEntidades.AtualizarCom(administrador, administradorEditar);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d94284bbcdff9e41a73e6015460075ba4bb0490
             //Assert
             administrador.Id.Should().Be(administradorEditar.Id);
             administrador.Nome.Should().Be(administradorEditar.Nome);
@@ -89,4 +93,8 @@ namespace Tests.Servico.MapeamentoEntidades
             administrador.Senha.Should().Be(administradorEditar.Senha);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5d94284bbcdff9e41a73e6015460075ba4bb0490

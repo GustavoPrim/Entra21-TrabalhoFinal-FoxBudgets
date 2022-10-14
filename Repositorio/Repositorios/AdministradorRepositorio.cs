@@ -1,5 +1,9 @@
 ﻿using Repositorio.BancoDados;
 using Repositorio.Entidades;
+<<<<<<< HEAD
+=======
+using System.Data.Entity;
+>>>>>>> 5d94284bbcdff9e41a73e6015460075ba4bb0490
 
 namespace Repositorio.Repositorios
 {

@@ -2,7 +2,6 @@
 {
     public class Fornecedor : Usuario
     {
-        public string Nome { get; set; }
         public string Cnpj { get; set; }
         public DateTime DataFundacao { get; set; }
         public string Endereco { get; set; }
