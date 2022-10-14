@@ -9,11 +9,11 @@ namespace Aplicacao.Areas.Clientes.Controllers
     [Area("Clientes")]
     [Route("cliente/material")]
     [UsuarioLogado]
-    public class MaterialController : Controller
+    public class MaterialControllerCliente : Controller
     {
         private readonly IMaterialService _materialService;
 
-        public MaterialController(IMaterialService materialService)
+        public MaterialControllerCliente(IMaterialService materialService)
         {
             _materialService = materialService;
         }

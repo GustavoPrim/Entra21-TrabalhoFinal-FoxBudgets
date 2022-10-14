@@ -1,5 +1,4 @@
 ﻿using Repositorio.Entidades;
-using Servico.ViewModels;
 
 namespace Repositorio.Repositorios
 {
