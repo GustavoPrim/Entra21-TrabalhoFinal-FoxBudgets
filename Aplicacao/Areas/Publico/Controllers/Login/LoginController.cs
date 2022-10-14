@@ -94,7 +94,7 @@ namespace Aplicacao.Administradores.Controllers
         }
 
         [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel, string caminhoArquivo)
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel cadastrarUsuarioViewModel)
         {
 
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Aplicacao.Administradores.Controllers
 
             cadastrarUsuarioViewModel.Token = token;
 
-            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
+            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel);
 
             var confirmationLink = Url.Action("ConfirmEmail", "Login",
                 new { id = user.Id, token }, Request.Scheme);
@@ -128,9 +128,11 @@ namespace Aplicacao.Administradores.Controllers
             TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
             return View(nameof(ConfirmEmail));
 
-            _clienteService.Cadastrar(cadastrarUsuarioViewModel, caminhoArquivo);
+            _clienteService.Cadastrar(cadastrarUsuarioViewModel);
 
-            return View();
+            TempData["mensagem"] = "Email enviado com sucesso!! Confirme o seu email";
+
+            return View("Alerta/Index");
 
         }
 
@@ -140,21 +142,21 @@ namespace Aplicacao.Administradores.Controllers
             var user = _clienteService.ObterPorId(id);
 
             if (user == null || user.Token != token)
-                TempData["Confirm"] = "Não existe nenhum usuário referido!";
+                TempData["mensagem"] = "Não existe nenhum usuário referido!";
 
             else if (user.EmailConfirmado == true)
-                TempData["Confirm"] = "O usuário já possui o link confirmado!";
+                TempData["mensagem"] = "O usuário já possui o link confirmado!";
 
             else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
-                TempData["Confirm"] = "O link foi espirado! Tente criar outra conta";
+                TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
 
             else
             {
-                TempData["Confirm"] = "O usuário foi confirmado!";
+                TempData["mensagem"] = "O usuário foi confirmado!";
                 _clienteService.AtualizarVerificarEmail(user.Id);
             }
 
-            return View(nameof(ConfirmEmail));
+            return View("Alerta/Index");
         }
     }
 }

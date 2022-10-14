@@ -22,7 +22,7 @@ namespace Aplicacao.Areas.Publico.Controllers
                 }
                 return View("Index", alterarSenha);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 TempData["MensagemErro"] = "Ops, não conseguimos alterar a sua senha, tente novamente!!";
                 return View("Index", alterarSenha);

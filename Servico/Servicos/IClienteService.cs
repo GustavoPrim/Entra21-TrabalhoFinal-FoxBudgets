@@ -8,8 +8,8 @@ namespace Servico.Servicos
     {
         Cliente BuscarPorLogin(string login, string senha);
         bool Apagar(int id);
-        Cliente Cadastrar(CadastrarUsuarioViewModel viewModel, string caminhoArquivo);
-        bool Editar(ClienteEditarViewModel viewModelEditar, string caminhoArquivo);
+        Cliente Cadastrar(CadastrarUsuarioViewModel viewModel);
+        bool Editar(ClienteEditarViewModel viewModelEditar);
         bool VerificarEmail(string email);
         Cliente AtualizarVerificarEmail(int id);
         Cliente? ObterPorId(int id);

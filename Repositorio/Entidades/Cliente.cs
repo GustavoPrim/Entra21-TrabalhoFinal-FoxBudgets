@@ -4,7 +4,6 @@ namespace Repositorio.Entidades;
 
 public class Cliente : Usuario
 {
-    public string Nome { get; set; }
     public string? Cpf { get; set; }
     public string? Cnpj { get; set; }
     public DateTime DataNascimento { get; set; }
@@ -15,8 +14,6 @@ public class Cliente : Usuario
     public bool EmailConfirmado { get; set; }
     public DateTime DataInspiracaoToken { get; set; }
 
+
     public IList<Orcamento> Orcamentos { get; set; }
-
-
-    public string? CaminhoArquivo { get; set; }
 }

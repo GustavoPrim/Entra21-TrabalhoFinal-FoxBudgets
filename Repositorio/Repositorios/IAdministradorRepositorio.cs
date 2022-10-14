@@ -10,5 +10,6 @@ namespace Repositorio.Repositorios
         void Editar(Administrador administrador);
         Administrador ObterPorId(int id);
         IList<Administrador> ObterTodos();
+        //Administrador AlterarSenha(AlterarSenhaViewModel alterarSenha);
     }
 }
