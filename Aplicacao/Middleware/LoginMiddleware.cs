@@ -63,8 +63,6 @@ namespace Aplicacao.Middleware
             }
 
             await _next(httpContext);
-
-            await _next(httpContext);
         }
 
         private bool IsNotAuthenticatedAndRightAccessToArea(Usuario usuario, string area, string areaDesejada)

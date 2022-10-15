@@ -17,8 +17,6 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{0}.cshtml");
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{1}/{0}.cshtml");
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}.cshtml");
-    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-    options.AreaViewLocationFormats.Add("/Views/{0}.cshtml");
 });
 
 
