@@ -17,7 +17,7 @@
 
 	<div class="col-md-6">
 		<label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-		<input asp-for="Cpf" class="form-control" placeholder="___.___.___-__" style="text-align: center" />
+		<input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" style="text-align: center" oninput="mascara(this)" />
 		<span asp-validation-for="Cpf" class="text-danger"></span>
 	</div>
 
@@ -61,4 +61,6 @@
 		<a href="/administrador/administrador" class="btn btn-outline-danger">Cancelar</a>
 		<button type="submit" class="btn btn-success">Salvar</button>
 	</div>
+
+	<script src="~/js/usuarios/usuarioValidacao.js"></script>
 </form>
