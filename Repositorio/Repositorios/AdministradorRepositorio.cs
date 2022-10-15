@@ -1,6 +1,5 @@
-﻿using Repositorio.BancoDados;
+using Repositorio.BancoDados;
 using Repositorio.Entidades;
-
 
 namespace Repositorio.Repositorios
 {
