@@ -22,7 +22,7 @@ namespace Tests.Servico.Servicos
 
             _administradorMapeamentoEntidade = Substitute.For<IAdministradorMapeamentoEntidade>();
 
-            //_administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade);
+            _administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade);
         }
         [Fact]
         public void Test_Apagar()
