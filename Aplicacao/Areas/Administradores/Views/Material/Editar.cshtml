@@ -11,19 +11,24 @@
 
     <div>
         <label asp-for="Nome" class="form-label" span-required=""></label>
-        <input asp-for="Nome" class="form-control" />
+        <input asp-for="Nome" class="form-control" style="text-align: center" />
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
+        <label asp-for="DataValidade" class="form-label"></label>
+        <input asp-for="DataValidade" class="form-control" style="text-align: center" />
+    </div>
+
+    <div class="mb-3">
         <label asp-for="Sku" class="form-label" span-required=""></label>
-        <input asp-for="Sku" class="form-control" />
+        <input asp-for="Sku" class="form-control" style="text-align: center" />
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Descricao" class="form-label" span-required="">Descrição</label>
-        <input asp-for="Descricao" class="form-control" />
+        <input asp-for="Descricao" class="form-control" style="text-align: center" />
         <span asp-validation-for="Descricao" class="text-danger"></span>
     </div>
 
