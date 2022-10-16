@@ -39,19 +39,23 @@
         <div class="input-group">
             <label class="label" name="DataValidade">Possui Data de Validade?</label>
         </div>
+
         <div class="col-lg-12">
             <label class="radio-container m-r-45">
                 Sim
                 <input type="radio" name="possuiDataValidade" value="true" onclick="text(0)" checked />
                 <span class="checkmark"></span>
                 <span asp-validation-for="PossuiDataValidade" class="text-danger"></span>
-            </label>    <label class="radio-container m-r-45">
+            </label>
+            
+            <label class="radio-container m-r-45">
                 Não
                 <input type="radio" name="possuiDataValidade" value="false" onclick="text(1)" />
                 <span class="checkmark"></span>
             </label>
         </div>
     </div>
+
     <div class="col-lg-12">
         <div class="input-group" id="mycode">
             <input asp-for="DataValidade" class="form-control" style="text-align: center" />
