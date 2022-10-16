@@ -26,13 +26,16 @@
                                 <input type="radio" id="radio-cnpj" value="Cnpj" name="campo-tipo" />
                                 <label for="radio-cnpj">CNPJ</label>
                             </div>
+
                             <div id="div-cpf" style="block">
                                 <label for="Cpf">CPF: </label>
-                                <input asp-for="Cpf" class="form-control cpf-mask" style="text-align:center;" placeholder="999.999.999-99" />
+                                <input asp-for="Cpf" class="form-control cpf-mask" style="text-align:center;" placeholder="___.___.___-__" />
                                 <span asp-validation-for="Cpf" class="text-danger"></span>
-                            </div>  <div id="div-cnpj" style="none">
+                            </div>  
+                            
+                            <div id="div-cnpj" style="none">
                                 <label for="Cnpj">CNPJ: </label>
-                                <input asp-for="Cnpj" class="form-control cnpj-mask" style="text-align:center;" placeholder="99.999.999/0001-99" />
+                                <input asp-for="Cnpj" class="form-control cnpj-mask" style="text-align:center;" placeholder="__.___.___/____-__" />
                                 <span asp-validation-for="Cnpj" class="text-danger"></span>
                             </div>
 
@@ -56,7 +59,7 @@
 
                             <div class="form-group form-material floating">
                                 <label asp-for="Telefone" class="form-label" span-required=""></label>
-                                <input asp-for="Telefone" class="form-control telefone-mask" style="text-align:center;" placeholder="(47) 91111-1111" />
+                                <input asp-for="Telefone" class="form-control telefone-mask" style="text-align:center;" placeholder="(__) _____-____" />
                                 <span asp-validation-for="Telefone" class="text-danger"></span>
                             </div>
 
