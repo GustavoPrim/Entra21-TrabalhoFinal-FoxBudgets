@@ -175,11 +175,21 @@ namespace Aplicacao.Administradores.Controllers
         {
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            var claims = result.Principal.AddIdentities.FirstOrDefaults().Claims.Select(claim => new
+            var claims = result.Principal.AddIdentities
+                .FirstOrDefault().Claims.Select(claim => new
             {
                 claim.Issuer,
-                claim
+                claim.OriginalIssuer,
+                claim.Type,
+                claim.Value,
             });
+            return Json(claims);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
         }
     }
 }
