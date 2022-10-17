@@ -22,21 +22,21 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}.cshtml");
 });
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddAuthentication(options =>
-    {
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-    })
-        .AddCookie()
-        .AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
-        {
-            options.ClientId = Configuration["Authentication:Google:ClientId"];
-            options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
-        });
-}
+//public void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddAuthentication(options =>
+//    {
+//        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//        options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+//    })
+        //.AddCookie()
+        //.AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+        //{
+        //    options.ClientId = Configuration["Authentication:Google:ClientId"];
+        //    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+        //    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+        //});
+//}
 
 
 builder.Services.AddControllersWithViews();

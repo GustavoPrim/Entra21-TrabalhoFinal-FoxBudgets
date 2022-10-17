@@ -171,20 +171,20 @@ namespace Aplicacao.Administradores.Controllers
             });
         }
 
-        public async Task<IActionResult> RespostaGoogle()
-        {
-            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //public async Task<IActionResult> RespostaGoogle()
+        //{
+        //    var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            var claims = result.Principal.AddIdentities
-                .FirstOrDefault().Claims.Select(claim => new
-            {
-                claim.Issuer,
-                claim.OriginalIssuer,
-                claim.Type,
-                claim.Value,
-            });
-            return Json(claims);
-        }
+        //    //var claims = result.Principal.AddIdentities
+        //    //    .FirstOrDefault().Claims.Select(claim => new
+        //    //{
+        //    //    claim.Issuer,
+        //    //    claim.OriginalIssuer,
+        //    //    claim.Type,
+        //    //    claim.Value,
+        //    //});
+        //    //return Json(claims);
+        //}
 
         public async Task<IActionResult> Logout()
         {
