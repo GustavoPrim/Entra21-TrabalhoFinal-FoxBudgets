@@ -11,9 +11,3 @@
     if (v.length == 3 || v.length == 7) i.value += ".";
     if (v.length == 11) i.value += "-";
 }
-
-function mascaraTelefone(i) {
-    var v = i.value;
-
-    
-}
