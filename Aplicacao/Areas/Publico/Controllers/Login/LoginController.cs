@@ -1,4 +1,7 @@
 ﻿using Aplicacao.Help;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Servico.Email;
@@ -62,7 +65,7 @@ namespace Aplicacao.Administradores.Controllers
 
                     var fornecedor = _fornecedorService.BuscarPorLogin(loginModel.Login, loginModel.Senha);
                     if (fornecedor != null)
-                    {   
+                    {
                         _sessao.CriarSessaoUsuario(fornecedor);
                         return RedirectToAction("", "Home", new { area = "fornecedor" });
                     }
@@ -157,6 +160,26 @@ namespace Aplicacao.Administradores.Controllers
             }
 
             return View("Alerta/Index");
+        }
+
+        [Route("login-google")]
+        public async Task LoginComGoogle()
+        {
+            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
+            {
+                RedirectUri = Url.Action("GoogleResponse")
+            });
+        }
+
+        public async Task<IActionResult> RespostaGoogle()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var claims = result.Principal.AddIdentities.FirstOrDefaults().Claims.Select(claim => new
+            {
+                claim.Issuer,
+                claim
+            });
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using NSubstitute;
+using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
@@ -14,6 +15,7 @@ namespace Tests.Servico.Servicos
         private readonly IAdministradorServico _administradorServico;
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _administradorMapeamentoEntidade;
+        private readonly OrcamentoContexto _contexto;
 
 
         public AdministradorServicoTests()
@@ -22,19 +24,21 @@ namespace Tests.Servico.Servicos
 
             _administradorMapeamentoEntidade = Substitute.For<IAdministradorMapeamentoEntidade>();
 
-            _administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade);
+            //_contexto = Substitute.For<OrcamentoContexto>();
+
+            _administradorServico = new AdministradorServico(_administradorRepositorio, _administradorMapeamentoEntidade, _contexto);
         }
         [Fact]
         public void Test_Apagar()
         {
             //Arrange
-            var id = 30;
+            var id = 10;
 
             //Act
             _administradorServico.Apagar(id);
 
             //Assert
-            _administradorRepositorio.Received().Apagar(Arg.Is(30));
+            _administradorRepositorio.Received().Apagar(Arg.Is(10));
         }
 
         [Fact]
@@ -65,6 +69,13 @@ namespace Tests.Servico.Servicos
         private bool ValidarAdministrador(Administrador administrador, AdministradorCadastrarViewModel viewModel)
         {
             administrador.Nome.Should().Be(viewModel.Nome);
+            administrador.Cpf.Should().Be(viewModel.Cpf);
+            administrador.Email.Should().Be(viewModel.Email);
+            administrador.DataNascimento.Should().Be(viewModel.DataNascimento);
+            administrador.Endereco.Should().Be(viewModel.Endereco);
+            administrador.Telefone.Should().Be(viewModel.Telefone);
+            administrador.Login.Should().Be(viewModel.Login);
+            administrador.Senha.Should().Be(viewModel.Senha);
 
             return true;
         }

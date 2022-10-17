@@ -56,10 +56,9 @@ namespace Aplicacao.Middleware
             }
 
             var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
-
             if (usuarioLogado != null)
             {
-                //httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
+                httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
             }
 
             await _next(httpContext);
