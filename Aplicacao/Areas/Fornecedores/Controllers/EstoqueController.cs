@@ -22,6 +22,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             var estoque = _estoqueServico.ObterTodos();
             return View("index", estoque);
         }
+
         [HttpGet("cadastrar")]
         public IActionResult Cadastrar()
         {
@@ -31,6 +32,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
 
             return View(estoqueCadastrarViewModel);
         }
+
         [HttpPost("cadastrar")]
         public IActionResult Cadastrar([FromForm] EstoqueCadastrarViewModel estoqueCadastrarViewModel)
         {
@@ -42,18 +44,21 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
             return RedirectToAction("Index");
         }
+
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
             _estoqueServico.Apagar(id);
             return RedirectToAction("Index");
         }
+
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
         {
             var selectViewModel = _estoqueServico.ObterTodos();
             return Ok(selectViewModel);
         }
+
         [HttpGet("editar")]
         public IActionResult Editar([FromQuery] int id)
         {
@@ -68,6 +73,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
 
             return View(estoqueEditarViewModel);
         }
+
         [HttpPost("editar")]
         public IActionResult Editar([FromForm] EstoqueEditarViewModel estoqueEditarViewModel)
         {
