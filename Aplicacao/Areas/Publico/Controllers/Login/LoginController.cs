@@ -100,63 +100,63 @@ namespace Aplicacao.Administradores.Controllers
             if (!ModelState.IsValid)
                 return View(cadastrarUsuarioViewModel);
 
-            if (_clienteService.VerificarEmail(cadastrarUsuarioViewModel.Email) == false)
-            {
-                TempData["Message"] = "Já existe uma conta com esse email, tente novamente";
+            //if (_clienteService.VerificarEmail(cadastrarUsuarioViewModel.Email) == false)
+            //{
+            //    TempData["Message"] = "Já existe uma conta com esse email, tente novamente";
 
-                return RedirectToAction(nameof(Cadastrar));
-            }
+            //    return RedirectToAction(nameof(Cadastrar));
+            //}
 
-            var token = Guid.NewGuid();
+            //var token = Guid.NewGuid();
 
-            cadastrarUsuarioViewModel.Token = token;
+            //cadastrarUsuarioViewModel.Token = token;
 
-            var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel);
+            //var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel);
 
-            var confirmationLink = Url.Action("ConfirmEmail", "Login",
-                new { id = user.Id, token }, Request.Scheme);
+            //var confirmationLink = Url.Action("ConfirmEmail", "Login",
+            //    new { id = user.Id, token }, Request.Scheme);
 
-            var email = _email.Enviar(user.Email, "Confirmação de email",
-                @$"<p>Olá, {user.Nome}, como você está?
-                <br>
-                Confirme seu cadastro <a href='{confirmationLink}'>aqui</a>
-                <br>
-                Caso você não seja redirecionado, acesse pelo link abaixo:
-                <br>
-                {confirmationLink}<p>");
+            //var email = _email.Enviar(user.Email, "Confirmação de email",
+            //    @$"<p>Olá, {user.Nome}, como você está?
+            //    <br>
+            //    Confirme seu cadastro <a href='{confirmationLink}'>aqui</a>
+            //    <br>
+            //    Caso você não seja redirecionado, acesse pelo link abaixo:
+            //    <br>
+            //    {confirmationLink}<p>");
 
-            TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
-            return View(nameof(ConfirmEmail));
+            //TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
+            //return View(nameof(ConfirmEmail));
 
             _clienteService.Cadastrar(cadastrarUsuarioViewModel);
 
-            TempData["mensagem"] = "Email enviado com sucesso!! Confirme o seu email";
+            //TempData["mensagem"] = "Email enviado com sucesso!! Confirme o seu email";
 
-            return View("Alerta/Index");
+            return View("Index");
 
         }
 
-        [HttpGet("confirmarEmail")]
-        public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
-        {
-            var user = _clienteService.ObterPorId(id);
+        //[HttpGet("confirmarEmail")]
+        //public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
+        //{
+        //    var user = _clienteService.ObterPorId(id);
 
-            if (user == null || user.Token != token)
-                TempData["mensagem"] = "Não existe nenhum usuário referido!";
+        //    if (user == null || user.Token != token)
+        //        TempData["mensagem"] = "Não existe nenhum usuário referido!";
 
-            else if (user.EmailConfirmado == true)
-                TempData["mensagem"] = "O usuário já possui o link confirmado!";
+        //    else if (user.EmailConfirmado == true)
+        //        TempData["mensagem"] = "O usuário já possui o link confirmado!";
 
-            else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
-                TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
+        //    else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
+        //        TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
 
-            else
-            {
-                TempData["mensagem"] = "O usuário foi confirmado!";
-                _clienteService.AtualizarVerificarEmail(user.Id);
-            }
+        //    else
+        //    {
+        //        TempData["mensagem"] = "O usuário foi confirmado!";
+        //        _clienteService.AtualizarVerificarEmail(user.Id);
+        //    }
 
-            return View("Alerta/Index");
-        }
+        //    return View("Alerta/Index");
+        //}
     }
 }
