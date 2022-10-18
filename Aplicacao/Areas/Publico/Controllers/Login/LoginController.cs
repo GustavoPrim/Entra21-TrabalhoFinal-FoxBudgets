@@ -161,14 +161,14 @@ namespace Aplicacao.Administradores.Controllers
             return View("Alerta/Index");
         }
 
-        [Route("login-google")]
-        public async Task LoginComGoogle()
-        {
-            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
-            {
-                RedirectUri = Url.Action("GoogleResponse")
-            });
-        }
+        //[Route("login-google")]
+        //public async Task LoginComGoogle()
+        //{
+        //    await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
+        //    {
+        //        RedirectUri = Url.Action("GoogleResponse")
+        //    });
+        //}
 
         //public async Task<IActionResult> RespostaGoogle()
         //{
@@ -185,11 +185,11 @@ namespace Aplicacao.Administradores.Controllers
         //    //return Json(claims);
         //}
 
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync();
-            return RedirectToAction("Login");
-        }
-=======
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await HttpContext.SignOutAsync();
+        //    return RedirectToAction("Login");
+        //}
+
         //    return View("Alerta/Index");
         //}
