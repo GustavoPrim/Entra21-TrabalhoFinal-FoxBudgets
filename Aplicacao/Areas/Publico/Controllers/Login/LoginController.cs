@@ -158,8 +158,8 @@ namespace Aplicacao.Administradores.Controllers
         //        TempData["mensagem"] = "O usuário foi confirmado!";
         //        _clienteService.AtualizarVerificarEmail(user.Id);
         //    }
-            return View("Alerta/Index");
-        }
+        //    return View("Alerta/Index");
+        //}
 
         [Route("login-google")]
         public async Task LoginComGoogle()
@@ -190,6 +190,8 @@ namespace Aplicacao.Administradores.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login");
         }
-=======
+
         //    return View("Alerta/Index");
         //}
+    }
+}
