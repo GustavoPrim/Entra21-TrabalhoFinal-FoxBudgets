@@ -51,7 +51,8 @@ namespace Aplicacao.Areas.Clientes.Controllers
             var clienteId = _sessao.BuscarSessaoUsuario<Cliente>().Id;
 
             _orcamentoServico.Cotar(orcamentoCadastrarViewModel, clienteId);
-            return RedirectToAction("Index");
+
+            return Ok();
         }
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
