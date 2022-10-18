@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
 
@@ -11,9 +12,10 @@ using Repositorio.BancoDados;
 namespace Repositorio.Migrations
 {
     [DbContext(typeof(OrcamentoContexto))]
-    partial class OrcamentoContextoModelSnapshot : ModelSnapshot
+    [Migration("20221018011214_AdicionarTabelaOrcamentoMaterial")]
+    partial class AdicionarTabelaOrcamentoMaterial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,10 +127,6 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(14)")
                         .HasColumnName("cpf");
 
-                    b.Property<DateTime>("DataInspiracaoToken")
-                        .HasColumnType("DATETIME2")
-                        .HasColumnName("data_Inspiracao_Token");
-
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("DATETIME2")
                         .HasColumnName("DataNascimento");
@@ -138,9 +136,6 @@ namespace Repositorio.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("email");
-
-                    b.Property<bool>("EmailConfirmado")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -172,12 +167,6 @@ namespace Repositorio.Migrations
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("telefone");
 
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("token");
-
                     b.HasKey("Id");
 
                     b.ToTable("clientes", (string)null);
@@ -188,32 +177,26 @@ namespace Repositorio.Migrations
                             Id = 1,
                             Cnpj = "12.345.678/0001-90",
                             Cpf = "111.222.111-22",
-                            DataInspiracaoToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataNascimento = new DateTime(2000, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "gugahprm@gmail.com",
-                            EmailConfirmado = false,
                             Endereco = "Rua Julio Michel 1130",
                             Login = "gui",
                             Nome = "Guilherme",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-                            Telefone = "992499565",
-                            Token = "00000000-0000-0000-0000-000000000000"
+                            Telefone = "992499565"
                         },
                         new
                         {
                             Id = 2,
                             Cnpj = "77.888.777/0001-10",
                             Cpf = "444.555.444-55",
-                            DataInspiracaoToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DataNascimento = new DateTime(1997, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lucasalves@gmail.com",
-                            EmailConfirmado = false,
                             Endereco = "Rua Hermann Tribess 1234",
                             Login = "ju",
                             Nome = "Juliana",
                             Senha = "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-                            Telefone = "992380457",
-                            Token = "00000000-0000-0000-0000-000000000000"
+                            Telefone = "992380457"
                         });
                 });
 
@@ -390,7 +373,6 @@ namespace Repositorio.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
@@ -398,7 +380,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Orcamento");
+                    b.ToTable("Orcamentos");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>
@@ -408,9 +390,6 @@ namespace Repositorio.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Item")
-                        .HasColumnType("int");
 
                     b.Property<int>("MaterialId")
                         .HasColumnType("INT")
@@ -430,9 +409,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("OrcamentoId");
 
-
                     b.ToTable("orcamentos_materiais", (string)null);
-
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>
