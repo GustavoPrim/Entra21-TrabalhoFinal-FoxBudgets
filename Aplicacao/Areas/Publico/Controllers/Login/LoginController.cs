@@ -1,7 +1,4 @@
 ﻿using Aplicacao.Help;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Servico.Email;
@@ -103,37 +100,8 @@ namespace Aplicacao.Administradores.Controllers
             if (!ModelState.IsValid)
                 return View(cadastrarUsuarioViewModel);
 
-            //if (_clienteService.VerificarEmail(cadastrarUsuarioViewModel.Email) == false)
-            //{
-            //    TempData["Message"] = "Já existe uma conta com esse email, tente novamente";
-
-            //    return RedirectToAction(nameof(Cadastrar));
-            //}
-
-            //var token = Guid.NewGuid();
-
-            //cadastrarUsuarioViewModel.Token = token;
-
-            //var user = _clienteService.Cadastrar(cadastrarUsuarioViewModel);
-
-            //var confirmationLink = Url.Action("ConfirmEmail", "Login",
-            //    new { id = user.Id, token }, Request.Scheme);
-
-            //var email = _email.Enviar(user.Email, "Confirmação de email",
-            //    @$"<p>Olá, {user.Nome}, como você está?
-            //    <br>
-            //    Confirme seu cadastro <a href='{confirmationLink}'>aqui</a>
-            //    <br>
-            //    Caso você não seja redirecionado, acesse pelo link abaixo:
-            //    <br>
-            //    {confirmationLink}<p>");
-
-            //TempData["Confirm"] = "Enviamos um email para você confirmar o seu login e se juntar ao nosso sistema!!!";
-            //return View(nameof(ConfirmEmail));
 
             _clienteService.Cadastrar(cadastrarUsuarioViewModel);
-
-            //TempData["mensagem"] = "Email enviado com sucesso!! Confirme o seu email";
 
             return View("Index");
 
@@ -193,5 +161,6 @@ namespace Aplicacao.Administradores.Controllers
 
         //    return View("Alerta/Index");
         //}
+
     }
 }
