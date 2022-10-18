@@ -1,4 +1,4 @@
-﻿$('#Item').select2({
+﻿$('#orcamentoItem').select2({
     ajax: {
         url: '/cliente/material/obterTodosSelect2',
         dataType: 'json',

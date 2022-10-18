@@ -15,8 +15,10 @@ namespace Servico.MapeamentoEntidades
         {
             return new OrcamentoMaterial
             {
-                Item = viewModel.Item,
-                Quantidade = viewModel.Quantidade,
+
+                MaterialId = viewModel.Item,
+                Quantidade = viewModel.Quantidade
+
             };
         }
     }

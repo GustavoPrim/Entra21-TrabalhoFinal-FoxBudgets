@@ -1,6 +1,6 @@
 ﻿let adicionarItem = () => {
-    let item = document.getElementById("campo-item").value;
-    let quantidade = document.getElementById("campo-quantidade").value;
+    let item = document.getElementById("orcamentoItem").value;
+    let quantidade = document.getElementById("orcamentoQuantidade").value;
 
     let dados = new FormData();
     dados.append("item", item);

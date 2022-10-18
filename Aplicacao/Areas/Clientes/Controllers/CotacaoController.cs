@@ -1,5 +1,7 @@
 ﻿using Aplicacao.Filtros;
+using Aplicacao.Help;
 using Microsoft.AspNetCore.Mvc;
+using Repositorio.Entidades;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Orcamentos;
@@ -13,10 +15,12 @@ namespace Aplicacao.Areas.Clientes.Controllers
     {
         private readonly IOrcamentoServico _orcamentoServico;
         private readonly IMaterialService _materiaServico;
-        public CotacaoController(IOrcamentoServico orcamentoServico, IMaterialService materiaServico)
+        private readonly ISessao _sessao;
+        public CotacaoController(IOrcamentoServico orcamentoServico, IMaterialService materiaServico, ISessao sessao)
         {
             _orcamentoServico = orcamentoServico;
             _materiaServico = materiaServico;
+            _sessao = sessao;
         }
         [HttpGet]
         public IActionResult Index()
@@ -35,7 +39,7 @@ namespace Aplicacao.Areas.Clientes.Controllers
         }
 
         [HttpPost("cotar")]
-        public IActionResult Cotar([FromForm] OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        public IActionResult Cotar(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +48,9 @@ namespace Aplicacao.Areas.Clientes.Controllers
                 return View(orcamentoCadastrarViewModel);
             }
 
-            _orcamentoServico.Cotar(orcamentoCadastrarViewModel);
+            var clienteId = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+
+            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, clienteId);
             return RedirectToAction("Index");
         }
         [HttpGet("apagar")]
@@ -62,7 +68,7 @@ namespace Aplicacao.Areas.Clientes.Controllers
             {
                 Id = orcamento.Id,
                 //DataOrcamento = orcamento.,
-                Quantidade = orcamento.Quantidade,
+                //Quantidade = orcamento.Quantidade,
                 //Item = orcamento.Item
             };
             ViewBag.Orcamentos = orcamentos;
