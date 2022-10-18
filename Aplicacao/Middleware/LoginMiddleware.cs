@@ -13,7 +13,6 @@ namespace Aplicacao.Middleware
             _next = next;
         }
 
-        // IMyScopedService is injected into InvokeAsync
         public async Task InvokeAsync(HttpContext httpContext, ISessao sessao)
         {
             var area = httpContext.GetRouteData().Values["area"]?.ToString() ?? string.Empty ;
@@ -55,11 +54,6 @@ namespace Aplicacao.Middleware
                 return;
             }
 
-            var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
-            if (usuarioLogado != null)
-            {
-                httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
-            }
             //var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
 
             //if (usuarioLogado != null)
