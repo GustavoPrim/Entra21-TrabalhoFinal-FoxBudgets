@@ -1,0 +1,88 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Select extension
+ *
+ *  Adds item selection capabilities to a DataTable
+ *
+ * ---------------------------------------------------------------------------- */
+
+// Check if component is enabled
+@if $enable-datatable-select {
+
+    // Highlight selected row
+    .dataTable {
+        tbody > tr {
+            &.selected,
+            > .selected {
+                background-color: $dt-ext-select-active-row-bg;
+            }
+
+        }
+    }
+
+    // Item select
+    .dataTables_wrapper {
+        .select-info,
+        .select-item {
+            margin-left: $element-spacer-x;
+
+            // On mobile
+            @include media-breakpoint-down(sm) {
+                margin-left: 0;
+                display: block;
+            }
+        }
+    }
+
+    // Checkbox
+    .dataTable tbody {
+
+        // Chcckbox base
+        .select-checkbox {
+            position: relative;
+
+            // Checkbox base
+            &:before,
+            &:after {
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                cursor: pointer;
+                width: $custom-control-indicator-size;
+                height: $custom-control-indicator-size;
+                transform: translate(-50%, -50%);
+            }
+
+            // Box
+            &:before {
+                content: '';
+                background-color: $custom-control-indicator-bg;
+                border: $custom-control-indicator-border-width solid $custom-control-indicator-border-color;
+                @include border-radius($border-radius-sm);
+                @include transition(border-color ease-in-out $component-transition-timer, background-color ease-in-out $component-transition-timer);
+            }
+
+            &:after {
+                content: '';
+                background: escape-svg($custom-checkbox-indicator-icon-checked) no-repeat 50% / #{$custom-control-indicator-bg-size};
+                opacity: 0;
+                @include transition(opacity ease-in-out $component-transition-timer);
+            }
+        }
+
+        // Checked state
+        .selected .select-checkbox {
+            &:before,
+            &:after {
+                border-color: $custom-control-indicator-checked-border-color;
+            }
+            &:before {
+                @include gradient-bg($custom-control-indicator-checked-bg);
+            }
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+}
