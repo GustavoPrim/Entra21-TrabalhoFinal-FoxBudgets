@@ -1,8 +1,8 @@
-﻿using Repositorio.BancoDados;
+﻿using Microsoft.EntityFrameworkCore;
+using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +12,12 @@ namespace Repositorio.Repositorios
     public class OrcamentoRepositorio : IOrcamentoRepositorio
     {
         private readonly OrcamentoContexto _contexto;
+
+        public OrcamentoRepositorio(OrcamentoContexto contexto)
+        {
+            _contexto = contexto;
+        }
+
         public bool Apagar(int id)
         {
             var orcamento = _contexto.Orcamentos
@@ -31,26 +37,48 @@ namespace Repositorio.Repositorios
                 .Where(x => x.Id == orcamentoParaAlterar.Id)
                 .FirstOrDefault();
         }
-        public void Editar(OrcamentoMaterial orcamento)
+        public void Editar(Orcamento orcamento)
         {
             _contexto.Orcamentos.Update(orcamento);
             _contexto.SaveChanges();
         }
-        public OrcamentoMaterial? ObterPorId(int id) 
+
+
+        public Orcamento? ObterPorClienteId(int idCliente)
+        {
+            var orcamento = _contexto.Orcamentos
+                .Where(x => x.ClienteId == idCliente)
+                .Include(x => x.OrcamentoMateriais)
+                .ThenInclude(x => x.Material)
+                .FirstOrDefault();
+            return orcamento;
+        }
+
+        public Orcamento? ObterPorId(int id) 
         {
             var orcamento = _contexto.Orcamentos.Where(x => x.Id == id).FirstOrDefault();
             return orcamento;
         }
-        public List<OrcamentoMaterial> ObterTodos() 
+        public List<Orcamento> ObterTodos() 
         {
             var orcamentos = _contexto.Orcamentos.ToList();
             return orcamentos;
         }
 
-        public OrcamentoMaterial Cotar(OrcamentoMaterial orcamento)
+        public Orcamento Cotar(Orcamento orcamento)
         {
             //fazer lógica do método cotar
             return orcamento;
+        }
+
+        public void CrirOuAtualizar(Orcamento orcamento)
+        {
+            if (orcamento.Id == 0)
+                _contexto.Orcamentos.Add(orcamento);
+            else
+                _contexto.Orcamentos.Update(orcamento);
+
+            _contexto.SaveChanges();
         }
     }
 }

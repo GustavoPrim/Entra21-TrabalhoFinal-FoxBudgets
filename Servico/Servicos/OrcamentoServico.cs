@@ -9,40 +9,54 @@ namespace Servico.Servicos
     {
         private readonly IOrcamentoRepositorio _orcamentoRepositorio;
         private readonly IOrcamentoMapeamentoEntidade _mapeamentoEntidade;
-        
+
         public OrcamentoServico(
-            IOrcamentoRepositorio orcamentoRepositorio)
+            IOrcamentoRepositorio orcamentoRepositorio, IOrcamentoMapeamentoEntidade mapeamentoEntidade)
         {
             _orcamentoRepositorio = orcamentoRepositorio;
+            _mapeamentoEntidade = mapeamentoEntidade;
         }
         public bool Apagar(int id) =>
             _orcamentoRepositorio.Apagar(id);
-        
+
 
         public bool Editar(OrcamentoEditarViewModel viewModel)
         {
-            var orcamento = _orcamentoRepositorio.ObterPorId(viewModel.Id);
+            //var orcamento = _orcamentoRepositorio.ObterPorId(viewModel.Id);
 
-            if (orcamento == null)
-                return false;
+            //if (orcamento == null)
+            //    return false;
 
-            _mapeamentoEntidade.AtualizarCom(orcamento, viewModel);
-            _orcamentoRepositorio.Editar(orcamento);
+            //_mapeamentoEntidade.AtualizarCom(orcamento, viewModel);
+            //_orcamentoRepositorio.Editar(orcamento);
 
             return true;
         }
 
-        public OrcamentoMaterial ObterPorId(int id) =>
+        public Orcamento ObterPorId(int id) =>
             _orcamentoRepositorio.ObterPorId(id);
 
-        public List<OrcamentoMaterial> ObterTodos() =>
+        public List<Orcamento> ObterTodos() =>
             _orcamentoRepositorio.ObterTodos();
 
-        public OrcamentoMaterial Cotar(OrcamentoCadastrarViewModel viewModel)
+        public Orcamento Cotar(OrcamentoCadastrarViewModel viewModel, int clienteId)
         {
-            var orcamento = _mapeamentoEntidade.ConstruirCom(viewModel);
 
-            _orcamentoRepositorio.Cotar(orcamento);
+            var orcamento = _orcamentoRepositorio.ObterPorClienteId(clienteId);
+
+            if (orcamento == null)
+                orcamento = new Orcamento
+                {
+                    ClienteId = clienteId,
+                    OrcamentoMateriais = new List<OrcamentoMaterial>()
+                };
+
+            var orcamentoMaterial = _mapeamentoEntidade.ConstruirCom(viewModel);
+
+            orcamento.OrcamentoMateriais.Add(orcamentoMaterial);
+
+            _orcamentoRepositorio.CrirOuAtualizar(orcamento);
+
             return orcamento;
         }
     }

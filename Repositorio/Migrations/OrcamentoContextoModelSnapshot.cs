@@ -390,26 +390,9 @@ namespace Repositorio.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataOrcamento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Item")
-                        .HasColumnType("int");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.Property<double>("ValorTotalItem")
-                        .HasColumnType("float");
-
-                    b.Property<double>("ValorTotalOrcamento")
-                        .HasColumnType("float");
-
-                    b.Property<double>("ValorUnitarioItem")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -430,13 +413,16 @@ namespace Repositorio.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("MaterialId")
-                        .HasColumnType("int");
+                        .HasColumnType("INT")
+                        .HasColumnName("material_id");
 
                     b.Property<int>("OrcamentoId")
-                        .HasColumnType("int");
+                        .HasColumnType("INT")
+                        .HasColumnName("orcamento_id");
 
                     b.Property<int>("Quantidade")
-                        .HasColumnType("int");
+                        .HasColumnType("INT")
+                        .HasColumnName("quantidade_id");
 
                     b.HasKey("Id");
 
@@ -444,7 +430,9 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("OrcamentoId");
 
-                    b.ToTable("Orcamentos");
+
+                    b.ToTable("orcamentos_materiais", (string)null);
+
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>
