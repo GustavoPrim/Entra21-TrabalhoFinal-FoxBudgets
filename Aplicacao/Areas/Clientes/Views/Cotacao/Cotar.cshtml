@@ -1,25 +1,26 @@
 ﻿@model OrcamentoCadastrarViewModel
 
 <p class="h3">Novo orçamento</p>
-<form asp-action="cotar" method="POST">
 
-	<div class="row">
-		<div class="col-6 p-2">
-			<label asp-for="Item" class="form-label" span-required=""></label>
-			<select asp-for="Item" class="form-select"></select>
-			<span asp-validation-for="Item" class="text-danger"></span>
+	<div class="row modal-body">
+		<div class="col-6 p-2 form-group">
+			<label for="orcamentoItem" class="form-label" span-required="">Item</label>
+			<select id="orcamentoItem" class="form-select"></select>
 		</div>
 
-		<div class="p-2 tamanho">
-			<label asp-for="Quantidade" class="form-label" span-required=""></label>
-			<input asp-for="Quantidade" class="form-control w-50" />
-			<span asp-validation-for="Quantidade" class="text-danger"></span>
+		<div class="p-2 tamanho form-group">
+			<label for="orcamentoQuantidade" class="form-label" span-required="">Quantidade</label>
+			<input id="orcamentoQuantidade" class="form-control w-50" />
 		</div>
 
-		<div class="p-2">
+		@*<div class="p-2">
 			<button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#cadastroPetModal">
 				<i class="fa-solid fa-plus"></i> Adicionar
 			</button>
+		</div>*@
+
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary" id="botao-adicionar-item">Adicionar</button>
 		</div>
 
 
@@ -39,11 +40,8 @@
 		<button type="submit" class="btn btn-success">Cotar</button>
 	</div>
 
-	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" id="botao-adicionar-item">Adicionar</button>
-    </div>
+	
 
-</form>
 
 
 @section Scripts{

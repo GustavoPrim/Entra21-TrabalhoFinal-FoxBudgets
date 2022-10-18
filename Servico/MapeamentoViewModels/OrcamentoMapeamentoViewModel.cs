@@ -10,9 +10,8 @@ namespace Servico.MapeamentoViewModels
             return new OrcamentoEditarViewModel
             {
                 Id = orcamento.Id,
-                DataOrcamento = orcamento.DataOrcamento,
                 //Item = orcamento.Item,
-                Quantidade = orcamento.Quantidade,
+                //Quantidade = orcamento.Quantidade,
             };
         }
     }

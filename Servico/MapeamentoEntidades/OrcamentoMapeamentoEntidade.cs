@@ -17,7 +17,11 @@ namespace Servico.MapeamentoEntidades
 
         public OrcamentoMaterial ConstruirCom(OrcamentoCadastrarViewModel viewModel)
         {
-            throw new NotImplementedException();
+            return new OrcamentoMaterial
+            {
+                MaterialId = viewModel.Item,
+                Quantidade = viewModel.Quantidade
+            };
         }
     }
 }

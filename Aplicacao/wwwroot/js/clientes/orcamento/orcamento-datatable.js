@@ -1,4 +1,4 @@
-﻿$('#orcamento-table').DataTable({
+﻿$('#tabela-itens').DataTable({
     language: {
         url: 'https://raw.githubusercontent.com/DataTables/Plugins/master/i18n/pt-BR.json'
     },
@@ -8,19 +8,7 @@
     },
     processing: true,
     columns: [
-        {
-            //class: 'text-center',
-            //data: null,
-            //width: '10%',
-            //render: function (data, type, pet) {
-            //    if(pet.caminhoArquivo !== ''){
-            //        return `<img class="img-pet" src="/Uploads/Pets/${pet.caminhoArquivo}" alt="dog"/>`;
-            //    }
-
-            //    return `<img class="img-pet" src="/images/pet.png" alt="dog"/>`;
-            //}
-        },
-        {data: 'material.material'},
+        {data: 'item'},
         {data: 'quantidade'},
         {
             data: null,

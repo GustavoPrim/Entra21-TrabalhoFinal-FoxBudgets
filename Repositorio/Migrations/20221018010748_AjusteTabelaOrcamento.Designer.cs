@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
 
@@ -11,9 +12,10 @@ using Repositorio.BancoDados;
 namespace Repositorio.Migrations
 {
     [DbContext(typeof(OrcamentoContexto))]
-    partial class OrcamentoContextoModelSnapshot : ModelSnapshot
+    [Migration("20221018010748_AjusteTabelaOrcamento")]
+    partial class AjusteTabelaOrcamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -390,16 +392,13 @@ namespace Repositorio.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("MaterialId")
-                        .HasColumnType("INT")
-                        .HasColumnName("material_id");
+                        .HasColumnType("int");
 
                     b.Property<int>("OrcamentoId")
-                        .HasColumnType("INT")
-                        .HasColumnName("orcamento_id");
+                        .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
-                        .HasColumnType("INT")
-                        .HasColumnName("quantidade_id");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -407,7 +406,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("OrcamentoId");
 
-                    b.ToTable("orcamentos_materiais", (string)null);
+                    b.ToTable("OrcamentoMaterial");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>
