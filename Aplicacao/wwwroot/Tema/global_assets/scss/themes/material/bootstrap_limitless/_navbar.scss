@@ -1,0 +1,874 @@
+/* ------------------------------------------------------------------------------
+ *
+ *  # Navbar component
+ *
+ *  Overrides for navbar component
+ *
+ * ---------------------------------------------------------------------------- */
+
+
+// Base styles
+// ------------------------------
+
+// Base class
+.navbar {
+    align-items: stretch;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    @include box-shadow($navbar-box-shadow);
+}
+
+
+//
+// Default navbar components
+//
+
+// Navbar brand
+.navbar-brand {
+    margin: 0;
+
+    // Logo image
+    img {
+        height: $navbar-brand-image-size;
+    }
+}
+
+// Navbar text
+.navbar-text {
+    padding-top: $navbar-link-padding-y;
+    padding-bottom: $navbar-link-padding-y;
+}
+
+// Search
+.navbar-search {
+    width: 100%;
+
+    // Re-style default inputs
+    .form-control {
+        border: 0;
+        box-shadow: none;
+        border-radius: $rounded-pill;
+    }
+
+    // In dark navbar
+    .navbar-dark & {
+        .form-control {
+            color: $white;
+            background-color: rgba($black, 0.25);
+
+            &:focus {
+                background-color: rgba($black, 0.3);
+                box-shadow: none;
+            }
+
+            &::placeholder {
+                color: rgba($white, 0.5);
+            }
+        }
+    }
+
+    // In light navbar
+    .navbar-light & {
+        .form-control {
+            background-color: $gray-300;
+
+            &:focus {
+                background-color: $gray-400;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+
+//
+// Navbar nav
+//
+
+// Base
+.navbar-nav {
+
+    // Tricky one - by default Bootstrap doesn't support navs within navs (mega menu, tags in dropdowns etc).
+    // We need to override default behaviour and use our own solution
+    .nav-link {
+        padding-left: $nav-link-padding-x;
+        padding-right: $nav-link-padding-x;
+    }
+}
+
+// Navbar nav links (our solution)
+.navbar-nav-link {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: $navbar-link-padding-y $navbar-link-padding-x;
+    outline: 0;
+    @include transition(all ease-in-out $component-transition-timer);
+
+    // Highlight
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        height: $navbar-link-highlight-size;
+    }
+
+    // Highlight color
+    .navbar-light &.active:before {
+        background-color: $navbar-light-link-highlight-color;
+    }
+    .navbar-dark &.active:before {
+        background-color: $navbar-dark-link-highlight-color;
+    }
+
+    // Disabled state
+    &.disabled {
+        cursor: $cursor-disabled;
+
+        // Badges and images
+        .badge,
+        img {
+            opacity: 0.5;
+        }
+    }
+
+    // Badges
+    .badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        // Badge mark
+        &-mark {
+            top: $navbar-link-padding-y / 2;
+            right: $navbar-link-padding-x / 2;
+        }
+    }
+}
+
+
+//
+// Responsive navbar
+//
+
+// Button for toggling the navbar when in its collapsed state
+.navbar-toggler {
+    position: relative;
+    border: 0;
+    line-height: $line-height-base;
+    padding-left: map-get($spacers, 2);
+    padding-right: map-get($spacers, 2);
+    cursor: pointer;
+    @include transition(all ease-in-out $component-transition-timer);
+
+    // Hover state
+    @include hover-focus {
+        outline: 0;
+    }
+
+    // Badges
+    .badge {
+        position: absolute;
+        top: 0;
+        right: -(map-get($spacers, 1));
+    }
+
+    // In dark navbar
+    .navbar-dark & {
+        @include hover-focus {
+            color: $navbar-dark-hover-color;
+        }
+    }
+
+    // In light navbar
+    .navbar-light & {
+        color: $navbar-light-color;
+
+        // Hover and expanded states
+        &:hover,
+        &:focus,
+        &[aria-expanded=true] {
+            color: $navbar-light-hover-color;
+        }
+    }
+}
+
+// Generate series of `.navbar-expand-*` responsive classes for configuring
+// where your navbar collapses.
+.navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                &:not(.navbar-expand) {
+                    padding-left: $navbar-padding-x / 2;
+                    padding-right: $navbar-padding-x / 2;
+                }
+
+                // Navbar nav link as toggler
+                .navbar-nav-link-toggler {
+                    padding-left: $navbar-toggler-padding-x;
+                    padding-right: $navbar-toggler-padding-x;
+
+                    .badge-mark {
+                        right: $badge-mark-size / 2;
+                    }
+
+                    &.dropdown-toggle:after {
+                        content: none;
+                    }
+                }
+
+                // Collapsible content
+                .navbar-collapse {
+                    padding-left: $navbar-padding-x;
+                    padding-right: $navbar-padding-x;
+                    margin-left: -($navbar-padding-x / 2);
+                    margin-right: -($navbar-padding-x / 2);
+
+                    // Add top spacing to the first nav item
+                    .navbar-nav:first-child > .nav-item:first-child {
+                        margin-top: ($navbar-padding-x / 2);
+                    }
+
+                    // Add bottom spacing to the last nav item
+                    .navbar-nav:last-child > .nav-item:not(.show):last-child {
+                        margin-bottom: ($navbar-padding-x / 2);
+                    }
+
+                    // Navbar nav link has 100% width
+                    .navbar-nav-link {
+                        display: flex;
+                        align-items: center;
+                        margin-left: -$navbar-padding-x;
+                        margin-right: -$navbar-padding-x;
+                        padding-left: $navbar-padding-x;
+                        padding-right: $navbar-padding-x;
+
+                        // Highlight
+                        &:before {
+                            right: auto;
+                            top: 0;
+                            height: auto;
+                            width: $navbar-link-highlight-size;
+                        }
+
+                        // Display badge on the right side
+                        .badge {
+                            &:not(.position-static) {
+                                position: static;
+                            }
+                        }
+
+                        // Display direction arrow on the right
+                        &.dropdown-toggle {
+                            padding-right: ($navbar-padding-x * 2);
+
+                            // Stick icon
+                            &:after {
+                                position: absolute;
+                                top: 50%;
+                                right: $navbar-padding-x;
+                                margin: 0;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+
+                    // Add vertical spacing to dropdowns
+                    .navbar-nav > .nav-item {
+                        > .dropdown-menu {
+                            margin-top: $navbar-padding-x;
+                            margin-bottom: $navbar-padding-x;
+                        }
+                    }
+
+                    // Override dropdown submanus
+                    .dropdown-submenu {
+
+                        // Change arrow icon direction
+                        .dropdown-toggle:after {
+                            content: $icon-menu-arrow-down;
+                        }
+
+                        // Make them stacked
+                        &,
+                        &.dropdown-submenu-left {
+                            .dropdown-menu {
+                                margin: 0;
+                                border-width: 0;
+                                box-shadow: none;
+                                @include border-radius(0);
+                            }
+                        }
+
+                        // Third level
+                        > .dropdown-menu > .dropdown-item,
+                        > .dropdown-menu > .dropdown-submenu > .dropdown-item {
+                            padding-left: ($dropdown-item-padding-x * 2);
+                        }
+
+                        // Fourth level
+                        > .dropdown-menu > .dropdown-submenu > .dropdown-menu > .dropdown-item,
+                        > .dropdown-menu > .dropdown-submenu > .dropdown-menu > .dropdown-submenu > .dropdown-item {
+                            padding-left: ($dropdown-item-padding-x * 3);
+                        }
+                    }
+                }
+
+                // Add top borders for better visual separation
+                &.navbar-dark .navbar-collapse {
+                    border-top: $navbar-dark-collapse-border-width solid $navbar-dark-collapse-border-color;
+                }
+                &.navbar-light .navbar-collapse {
+                    border-top: $navbar-light-collapse-border-width solid $navbar-light-collapse-border-color;
+                }
+            }
+
+            @include media-breakpoint-up($next) {
+
+                // Logo
+                .navbar-brand {
+                    min-width: $sidebar-base-width - $navbar-padding-x;
+                }
+
+                // Search
+                .navbar-search {
+                    max-width: 30rem;
+                }
+            }
+        }
+    }
+}
+
+// Helper class to keep dropdowns behave like dropdowns on mobile.
+// Add this class to dropdown parent container
+.nav-item-dropdown {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                position: static;
+
+                // Keep dropdowns on top
+                > .dropdown-menu {
+                    position: absolute;
+                    left: $content-container-padding-x !important;
+                    right: $content-container-padding-x !important;
+                }
+            }
+        }
+    }
+}
+
+
+//
+// Navbar themes
+//
+
+// Dark links against a white background
+.navbar-light {
+    color: $navbar-light-color;
+    background-color: $navbar-light-bg;
+
+    // Navbar nav
+    // Again, override default BS styles since they affect
+    // other navs (tabs, menus, navs, pills etc)
+    .navbar-nav {
+        .nav-link {
+            color: $nav-link-color;
+
+            // Hover state
+            @include hover-focus {
+                color: $nav-link-hover-color;
+            }
+
+            // Disabled state
+            &.disabled {
+                color: $nav-link-disabled-color;
+            }
+        }
+
+        // Active state
+        .show > .nav-link,
+        .active > .nav-link,
+        .nav-link.show,
+        .nav-link.active {
+            color: $nav-link-active-color;
+        }
+    }
+
+    // Navbar nav link
+    .navbar-nav-link {
+        color: $navbar-light-color;
+
+        // Hover state
+        @include hover-focus {
+            color: $navbar-light-hover-color;
+            background-color: $navbar-light-hover-bg;
+        }
+
+        // Disabled state
+        &.disabled {
+            color: $navbar-light-disabled-color;
+            background-color: $navbar-light-link-disabled-bg;
+        }
+    }
+
+    // Active state
+    .show > .navbar-nav-link,
+    .active > .navbar-nav-link,
+    .navbar-nav-link.show,
+    .navbar-nav-link.active {
+        color: $navbar-light-active-color;
+        background-color: $navbar-light-link-active-bg;
+    }
+
+    // Text
+    .navbar-text {
+        a {
+            color: $link-color;
+
+            // Make sure links have correct colors
+            @include hover-focus {
+                color: $link-hover-color;
+            }
+        }
+    }
+}
+
+// White links against a dark background
+.navbar-dark {
+    color: $navbar-dark-color;
+    background-color: $navbar-dark-bg;
+
+    // Navbar nav
+    // Again, override default BS styles since they affect
+    // other navs (tabs, menus, navs, pills etc)
+    .navbar-nav {
+        .nav-link {
+            color: $nav-link-color;
+
+            // Hover state
+            @include hover-focus {
+                color: $nav-link-hover-color;
+            }
+
+            // Disabled state
+            &.disabled {
+                color: $nav-link-disabled-color;
+            }
+        }
+
+        // Active state
+        .show > .nav-link,
+        .active > .nav-link,
+        .nav-link.show,
+        .nav-link.active {
+            color: $nav-link-active-color;            
+        }
+    }
+
+    // Navbar nav link
+    .navbar-nav-link {
+        color: $navbar-dark-color;
+
+        // Hover state
+        @include hover-focus {
+            color: $navbar-dark-hover-color;
+            background-color: $navbar-dark-hover-bg;
+        }
+
+        // Disabled state
+        &.disabled {
+            color: $navbar-dark-disabled-color;
+            background-color: $navbar-dark-link-disabled-bg;
+        }
+    }
+
+    // Active state
+    .show > .navbar-nav-link,
+    .active > .navbar-nav-link,
+    .navbar-nav-link.show,
+    .navbar-nav-link.active {
+        color: $navbar-dark-active-color;
+        background-color: $navbar-dark-link-active-bg;
+    }
+}
+
+
+
+// Extra navbar components
+// ------------------------------
+
+// Tabs and pills
+.navbar-nav {
+
+    // Tabs
+    .nav-tabs {
+
+        // Links
+        .nav-link {
+            color: $nav-tabs-link-color;
+
+            // Hover state
+            @include hover-focus {
+                color: $nav-tabs-link-hover-color;
+            }
+
+            // Disabled state
+            &.disabled {
+                color: $nav-link-disabled-color;
+            }
+        }
+
+        // Active state
+        .show > .nav-link,
+        .active > .nav-link,
+        .nav-link.show,
+        .nav-link.active {
+            color: $nav-tabs-link-active-color;
+        }
+    }
+
+    // Sadly this needs to be duplicated to override
+    // default BS behaviour
+    .nav-pills {
+        .nav-link {
+            color: $nav-pills-link-color;
+
+            // Hover state
+            &:not(.active) {
+                @include hover-focus {
+                    color: $nav-pills-link-hover-color;
+                }
+            }
+
+            // Colrs in active state
+            &.active,
+            .show:not(.navbar-collapse) > & {
+                color: $nav-pills-link-active-color;
+            }
+
+            // Disabled state
+            &.disabled {
+                @include hover-focus {
+                    color: $nav-link-disabled-color;
+                }
+            }
+        }
+    }
+}
+
+// Button dropdown
+.navbar {
+    .btn-group {
+      .dropdown-menu-right {
+        /*rtl:begin:ignore*/
+        right: 0;
+        left: auto; // Reset the default from `.dropdown-menu`
+        /*rtl:end:ignore*/
+      }
+    }
+}
+
+// User dropdown
+.dropdown-user {
+    .navbar-nav-link {
+
+        // Re-define vertical padding
+        &,
+        > span {
+            padding-top: ($navbar-link-padding-y / 2);
+            padding-bottom: ($navbar-link-padding-y / 2);
+        }
+    }
+}
+
+// Flag image in language selector
+.img-flag {
+    height: $font-size-lg;
+    margin-top: ($line-height-computed - $font-size-lg) / 2;
+    vertical-align: top;
+    align-self: flex-start;
+}
+
+
+//
+// Mega menu
+//
+
+// Left and right alignment
+.mega-menu {
+
+    // Left alignment
+    &-left {
+        > .dropdown-menu {
+            /*rtl:ignore*/
+            left: auto;
+        }
+    }
+
+    // Right alignment
+    &-right {
+        > .dropdown-menu {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+// Full width
+.mega-menu-full {
+    > .dropdown-menu {
+        left: $navbar-padding-x;
+        right: $navbar-padding-x;
+
+        // In navbar component
+        .navbar-component & {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+// Menu header
+.dropdown-content-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: $dropdown-content-body-padding-x;
+    padding-right: $dropdown-content-body-padding-x;
+    @include border-top-radius($dropdown-border-radius - rem-calc($dropdown-border-width));
+
+    // If header has no background classes
+    &:not([class*=bg-]) {
+        padding-top: $dropdown-content-body-padding-y;
+        padding-bottom: $dropdown-content-body-padding-y;
+    }
+
+    // If header has background classes
+    &[class*=bg-] {
+        padding-top: $dropdown-content-header-padding-y;
+        padding-bottom: $dropdown-content-header-padding-y;
+    }
+
+    // Add top border if used with the table
+    + .table-responsive,
+    + .table {
+        border-top: $table-border-width solid $table-border-color;
+    }
+}
+
+// Menu container
+.dropdown-content {
+    &:not(ul) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+// Menu body
+.dropdown-content-body {
+    padding: $dropdown-content-body-padding-y $dropdown-content-body-padding-x;
+
+    // Remove top padding if header has no background
+    .dropdown-content-header:not([class*=bg-]) + & {
+        padding-top: 0;
+    }
+}
+
+// Menu footer
+.dropdown-content-footer {
+    display: flex;
+    align-items: center;
+    padding: $dropdown-content-footer-padding-y $dropdown-content-body-padding-x;
+    border-top: $dropdown-content-footer-border-width solid $dropdown-content-footer-border-color;
+    @include border-bottom-radius($dropdown-border-radius - rem-calc($dropdown-border-width));
+}
+
+
+// Fixed navbar setup (works only in static layout)
+// -------------------------
+
+// Top placement
+.navbar {
+    &-top {
+        padding-top: $nav-link-height;
+    }
+    &-lg-top {
+        padding-top: $nav-link-height-lg;
+    }
+    &-sm-top {
+        padding-top: $nav-link-height-sm;
+    }
+
+    &-lg-lg-top {
+        padding-top: $nav-link-height-lg * 2;
+    }
+    &-lg-md-top {
+        padding-top: $nav-link-height-lg + $nav-link-height;
+    }
+    &-md-md-top {
+        padding-top: $nav-link-height * 2;
+    }
+    &-md-sm-top {
+        padding-top: $nav-link-height + $nav-link-height-sm;
+    }
+}
+
+// Bottom placement
+.navbar {
+    &-bottom {
+        padding-bottom: $nav-link-height;
+    }
+    &-lg-bottom {
+        padding-bottom: $nav-link-height-lg;
+    }
+    &-sm-bottom {
+        padding-bottom: $nav-link-height-sm;
+    }
+
+    &-lg-lg-bottom {
+        padding-bottom: $nav-link-height-lg * 2;
+    }
+    &-lg-md-bottom {
+        padding-bottom: $nav-link-height-lg + $nav-link-height;
+    }
+    &-md-md-bottom {
+        padding-bottom: $nav-link-height * 2;
+    }
+    &-md-sm-bottom {
+        padding-bottom: $nav-link-height + $nav-link-height-sm;
+    }
+}
+
+
+// Optional sizing
+// ------------------------------
+
+// Large
+.navbar-lg {
+
+    // Brand
+    .navbar-brand {
+        padding-top: $navbar-brand-padding-y-lg;
+        padding-bottom: $navbar-brand-padding-y-lg;
+    }
+
+    // Mobile toggler
+    .navbar-toggler {
+        padding-top: $navbar-link-padding-y-lg;
+        padding-bottom: $navbar-link-padding-y-lg;
+    }
+
+    // Nav links
+    .navbar-nav-link {
+        padding: $navbar-link-padding-y-lg $navbar-link-padding-x-lg;
+
+        // Badge
+        .badge-mark {
+            top: $navbar-link-padding-y-lg / 2;
+            right: $navbar-link-padding-x-lg / 2;
+        }
+    }
+
+    // Text
+    .navbar-text {
+        padding-top: $navbar-link-padding-y-lg;
+        padding-bottom: $navbar-link-padding-y-lg;
+    }
+
+    // User dropdown
+    .dropdown-user {
+        > .navbar-nav-link {
+
+            // Set vertical padding
+            &,
+            > span {
+                padding-top: ($navbar-link-padding-y-lg / 2);
+                padding-bottom: ($navbar-link-padding-y-lg / 2);
+            }
+
+            // User image
+            > img {
+                max-height: ($font-size-base * $line-height-base) + ($navbar-link-padding-y-lg / 2) + ($navbar-link-padding-y-lg / 2);
+            }
+        }
+    }
+}
+
+// Small
+.navbar-sm {
+
+    // Brand
+    .navbar-brand {
+        padding-top: $navbar-brand-padding-y-sm;
+        padding-bottom: $navbar-brand-padding-y-sm;
+    }
+
+    // Mobile toggler
+    .navbar-toggler {
+        padding-top: $navbar-link-padding-y-sm;
+        padding-bottom: $navbar-link-padding-y-sm;
+    }
+
+    // Items
+    .navbar-nav-link {
+        padding: $navbar-link-padding-y-sm $navbar-link-padding-x-sm;
+
+        // Badge
+        .badge-mark {
+            top: $navbar-link-padding-y-sm / 2;
+            right: $navbar-link-padding-x-sm / 2;
+        }
+    }
+
+    // Text
+    .navbar-text {
+        padding-top: $navbar-link-padding-y-sm;
+        padding-bottom: $navbar-link-padding-y-sm;
+    }
+
+    // User dropdown
+    .dropdown-user {
+        > .navbar-nav-link {
+
+            // Set vertical padding
+            &,
+            > span {
+                padding-top: ($navbar-link-padding-y-sm / 2);
+                padding-bottom: ($navbar-link-padding-y-sm / 2);
+            }
+
+            // User image
+            > img {
+                max-height: ($font-size-base * $line-height-base) + ($navbar-link-padding-y-sm / 2) + ($navbar-link-padding-y-sm / 2);
+            }
+        }
+    }
+}
+
+
+
+// Misc
+// ------------------------------
+
+// Fix for static navbar to appear on top of sidebar
+.navbar-static {
+    z-index: ($zindex-sticky + 4);
+
+    & + & {
+        z-index: ($zindex-sticky + 3);
+    }
+
+    .content-wrapper & {
+        z-index: ($zindex-sticky + 1);
+    }
+}
