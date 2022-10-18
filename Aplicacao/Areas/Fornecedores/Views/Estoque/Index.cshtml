@@ -26,10 +26,10 @@
                 <td>@estoque.MaterialId</td>
                 <td>@estoque.Quantidade</td>
                 <td>
-                    <a class="btn btn-primary" asp-action="editar" asp-route-id="@estoque.Id">
+                    <a class="btn btn-primary" asp-controller="EstoqueController" asp-action="editar" asp-route-id="@estoque.Id">
                         <i class="fa-solid fa-pencil"></i> Editar
                     </a>
-                    <a class="btn btn-outline-danger" asp-action="apagar" asp-route-id="@estoque.Id">
+                    <a class="btn btn-outline-danger" asp-controller="EstoqueController" asp-action="apagar" asp-route-id="@estoque.Id">
                         <i class="fa-solid fa-trash"></i> Apagar
                     </a>
                 </td>
