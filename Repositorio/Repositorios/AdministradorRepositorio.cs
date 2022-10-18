@@ -1,4 +1,4 @@
-﻿using Repositorio.BancoDados;
+using Repositorio.BancoDados;
 using Repositorio.Entidades;
 using System.Data.Entity;
 
@@ -12,6 +12,7 @@ namespace Repositorio.Repositorios
         {
             _contexto = contexto;
         }
+
         public bool Apagar(int id)
         {
             var administrador = _contexto.Administradores
@@ -53,7 +54,7 @@ namespace Repositorio.Repositorios
         public Administrador? ObterPorId(int id) =>
             _contexto.Administradores
             .FirstOrDefault(x => x.Id == id);
-        
+
 
         public IList<Administrador> ObterTodos() =>
             _contexto.Administradores

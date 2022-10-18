@@ -2,11 +2,10 @@
 using Servico.ViewModels;
 using Servico.ViewModels.Clientes;
 
-namespace Servico.MapeamentoEntidades
+namespace Servico.MapeamentoEntidades;
+
+public interface IClienteMapeamentoEntidade
 {
-    public interface IClienteMapeamentoEntidade
-    {
-        Cliente ConstruirCom(CadastrarUsuarioViewModel viewModel);
-        void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel);
-    }
+    Cliente ConstruirCom(CadastrarUsuarioViewModel viewModel);
+    void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel);
 }

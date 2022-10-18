@@ -19,7 +19,7 @@ namespace Tests.Servico.MapeamentoEntidades
         [Fact]
         public void Test_construirCom()
         {
-            //Arrange
+           // Arrange
             var viewModel = new AdministradorCadastrarViewModel
             {
                 Nome = "João",
@@ -29,9 +29,9 @@ namespace Tests.Servico.MapeamentoEntidades
                 Endereco = "Rua Thomé de Souza 157",
                 Telefone = "99772-1079",
                 Login = "ccc",
-                Senha = "123456".GerarHash()
+                Senha = "123456".GerarHash(),
             };
-            //Act
+           // Act
             var administrador = _administradorMapeamentoEntidades.ConstruirCom(viewModel);
 
             //Assert
@@ -77,6 +77,8 @@ namespace Tests.Servico.MapeamentoEntidades
             //Act
             _administradorMapeamentoEntidades.AtualizarCom(administrador, administradorEditar);
 
+            //Act
+            _administradorMapeamentoEntidades.AtualizarCom(administrador, administradorEditar);
 
             //Assert
             administrador.Id.Should().Be(administradorEditar.Id);

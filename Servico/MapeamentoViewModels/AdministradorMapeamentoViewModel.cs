@@ -16,7 +16,6 @@ namespace Servico.MapeamentoViewModels
                 Telefone = administrador.Telefone,
 				Login = administrador.Login,
 				Senha = administrador.Senha,
-				//Administradores = administrador.Administradores
 			};
         }
     }

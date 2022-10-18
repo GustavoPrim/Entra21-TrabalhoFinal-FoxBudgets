@@ -1,6 +1,8 @@
-﻿using Repositorio.Entidades;
+﻿using Repositorio.BancoDados;
+using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
@@ -9,21 +11,24 @@ namespace Servico.Servicos
     {
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
+        private readonly OrcamentoContexto _contexto;
+        
 
         public AdministradorServico(
             IAdministradorRepositorio administradorRepositorio,
-            IAdministradorMapeamentoEntidade mapeamentoEntidade)
+            IAdministradorMapeamentoEntidade mapeamentoEntidade,
+            OrcamentoContexto contexto)
         {
             _administradorRepositorio = administradorRepositorio;
             _mapeamentoEntidade = mapeamentoEntidade;
+            _contexto = contexto;
         }
+
         public bool Apagar(int id) =>
             _administradorRepositorio.Apagar(id);
 
         public Administrador Cadastrar(AdministradorCadastrarViewModel viewModel)
         {
-            //viewModel.Senha = viewModel.Senha.GerarHash();
-
             var administrador = _mapeamentoEntidade.ConstruirCom(viewModel);
 
             _administradorRepositorio.Cadastrar(administrador);

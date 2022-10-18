@@ -1,4 +1,4 @@
-﻿    using Repositorio.Entidades;
+﻿using Repositorio.Entidades;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.MapeamentoEntidades

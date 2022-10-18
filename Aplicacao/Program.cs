@@ -8,6 +8,9 @@ using Repositorio.BancoDados;
 using Repositorio.InjecoesDependencia;
 using Servico.InjecoesDependencia;
 using System.Globalization;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +20,23 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{0}.cshtml");
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{1}/{0}.cshtml");
     options.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}.cshtml");
-    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-    options.AreaViewLocationFormats.Add("/Views/{0}.cshtml");
 });
+
+//public void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddAuthentication(options =>
+//    {
+//        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//        options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+//    })
+        //.AddCookie()
+        //.AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+        //{
+        //    options.ClientId = Configuration["Authentication:Google:ClientId"];
+        //    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+        //    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+        //});
+//}
 
 
 builder.Services.AddControllersWithViews();
@@ -28,8 +45,8 @@ builder.Services
     .AdicionarServicos()
     .AdicionarRepositorios()
     .AdicionarMapeamentoEntidades()
-	.AdicionarNewtonsoftJson()
-	.AdicionarEntityFramework(builder.Configuration)
+    .AdicionarNewtonsoftJson()
+    .AdicionarEntityFramework(builder.Configuration)
     .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
     .AddScoped<ISessao, Sessao>()
     .AddSession(o =>
@@ -68,6 +85,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseSession();
 

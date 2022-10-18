@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Enuns;
 using Servico.Servicos;
+using Servico.ViewModels;
 using Servico.ViewModels.Clientes;
 
 namespace Aplicacao.Areas.Administradores.Controllers
@@ -13,7 +14,8 @@ namespace Aplicacao.Areas.Administradores.Controllers
     {
         private readonly IClienteService _clienteService;
 
-        public ClienteController(IClienteService clienteService)
+        public ClienteController(
+            IClienteService clienteService)
         {
             _clienteService = clienteService;
         }
@@ -25,28 +27,28 @@ namespace Aplicacao.Areas.Administradores.Controllers
             return View(cliente);
         }
 
-        //[HttpGet("cadastrar")]
-        //public IActionResult Cadastrar()
-        //{
-        //    ViewBag.Clientes = ObterClientes();
+        [HttpGet("cadastrar")]
+        public IActionResult Cadastrar()
+        {
+            ViewBag.Clientes = ObterClientes();
 
-        //    var clienteCadastrarViewModel = new ClienteCadastrarViewModel();
+            var clienteCadastrarViewModel = new CadastrarUsuarioViewModel();
 
-        //    return View(clienteCadastrarViewModel);
-        //}
+            return View(clienteCadastrarViewModel);
+        }
 
-        //[HttpPost("cadastrar")]
-        //public IActionResult Cadastrar([FromForm] ClienteCadastrarViewModel clienteCadastrarViewModel)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        ViewBag.Clientes = ObterClientes();
-        //        return View(clienteCadastrarViewModel);
-        //    }
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar([FromForm] CadastrarUsuarioViewModel clienteCadastrarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Clientes = ObterClientes();
+                return View(clienteCadastrarViewModel);
+            }
 
-        //    _clienteService.Cadastrar(clienteCadastrarViewModel);
-        //    return RedirectToAction("Index");
-        //}
+            _clienteService.Cadastrar(clienteCadastrarViewModel);
+            return RedirectToAction("Index");
+        }
 
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
@@ -85,6 +87,7 @@ namespace Aplicacao.Areas.Administradores.Controllers
                 return View(clienteEditarViewModel);
             }
             _clienteService.Editar(clienteEditarViewModel);
+
             return RedirectToAction("Index");
         }
 

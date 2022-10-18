@@ -55,14 +55,11 @@
                         data-toggle="dropdown">
                         <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
                             height="34" alt="">
-                        <span class="d-none d-lg-inline-block ml-2">Administrador</aspan>
+                            <p>@Context.Items["UsuarioNome"]</p>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
                         <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Perfil</div>
-                            </div>
                             <span
                                
                             </span>
@@ -73,21 +70,13 @@
                         </div>
 
                         <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Redefinir senha</div>
-                            </div>
-                            <span
-                                
-                            </span>
                         </div>
 
                         <div class="dropdown-item d-flex py-2">
                             <div class="flex-1">
-                                <a href="/login" hrediv class="font-weight-semibold">Sair da conta</adiv>
+                                <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
+                                    class="font-weight-semibold">Sair da conta</a>
                             </div>
-                            <span
-                              
-                            </span>
                         </div>
                     </div>
                 </li>
@@ -209,7 +198,8 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
 
-                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Sair"
+                                <li class="nav-item">
+                                    <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
                                         class="nav-link">Sair da conta</a></li>
                             </ul>
                         </li>

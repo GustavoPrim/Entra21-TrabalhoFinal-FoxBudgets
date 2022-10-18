@@ -9,7 +9,7 @@
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
-        type="text/css">
+          type="text/css">
     <link href="~/Tema/global_assets/images/Fox-Ico.png" rel="stylesheet" type="text/css">
     <link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
@@ -45,59 +45,54 @@
         </div>
 
         <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-            <span class="badge badge-success d-none d-lg-inline-block mr-3">Active</span>
 
-                <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
-                        data-toggle="dropdown">
-                        <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                            height="34" alt="">
-                        <span class="d-none d-lg-inline-block ml-2">Victoria</span>
-                    </a>
+            <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
+                <a href="#"
+                   class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
+                   data-toggle="dropdown">
+                    <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
+                         height="34" alt="">
+                    <p>@Context.Items["UsuarioNome"]</p>
+                </a>
 
-                    <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Account summary</div>
-                                <span class="text-muted font-size-sm">Profile, overview</span>
-                            </div>
-                            <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
+                <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
+                    <div class="dropdown-item d-flex py-2">
+                        <div class="flex-1">
+                            <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
+                               class="font-weight-semibold">Sair da conta</a>
                         </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Privacy</div>
-                                <span class="text-muted font-size-sm">Access, permissions</span>
-                            </div>
-                            <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
-                        </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Pagamentos</div>
-                                <span class="text-muted font-size-sm">Expenses, subscription</span>
-                            </div>
-                            <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
-                        </div>
-                            <span
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
-                        </div>
+                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
+                            <i class="icon-arrow-right8"></i>
+                        </span>
                     </div>
-                </li>
-            </ul>
+
+                    <div class="dropdown-item d-flex py-2">
+                        <div class="flex-1">
+                            <div class="font-weight-semibold">Privacy</div>
+                            <span class="text-muted font-size-sm">Access, permissions</span>
+                        </div>
+                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
+                            <i class="icon-arrow-right8"></i>
+                        </span>
+                    </div>
+
+                    <div class="dropdown-item d-flex py-2">
+                        <div class="flex-1">
+                            <div class="font-weight-semibold">Pagamentos</div>
+                            <span class="text-muted font-size-sm">Expenses, subscription</span>
+                        </div>
+                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
+                            <i class="icon-arrow-right8"></i>
+                        </span>
+                    </div>
+                    <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
+                        <i class="icon-arrow-right8"></i>
+                    </span>
+                </div>
         </div>
+        </li>
+        </ul>
+    </div>
     </div>
     <!-- /main navbar -->
     <!-- Page header -->
@@ -113,15 +108,17 @@
                         <i class="icon-comment-discussion mr-2"></i>
                         Support
                     </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
-                        </div>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> Suporte</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
     <!-- /page header -->
@@ -140,12 +137,12 @@
                         <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
                         <div>
                             <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
                                 <i class="icon-transmission"></i>
                             </button>
 
                             <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
+                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
                                 <i class="icon-cross2"></i>
                             </button>
                         </div>
@@ -157,7 +154,7 @@
                     <div class="sidebar-section-body d-flex justify-content-center">
                         <a href="#">
                             <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                alt="">
+                                 alt="">
                         </a>
 
                         <div class="sidebar-resize-hide flex-1 ml-3">
@@ -175,7 +172,7 @@
                         <!-- Main -->
                         <li class="nav-item-header pt-0">
                             <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu"
-                                title="Main"></i>
+                                                                                              title="Main"></i>
                         </li>
                         <li class="nav-item">
                             <a href="/fornecedor" class="nav-link active" style="background-color: darkorange">
@@ -192,13 +189,13 @@
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
 
                                 <li class="nav-item">
-                                    <a asp-controller="Fornecedor" asp-action="Editar" class="nav-link">Materiais</a>
+                                    <a asp-controller="Estoque" asp-action="Cadastrar" class="nav-link">Materiais</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="Estoque" asp-action="a" class="nav-link">Saída</a>
+                                    <a asp-controller="Estoque" asp-action="saida" class="nav-link">Saída</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="material" asp-action="Consulta" class="nav-link">Consulta</a>
+                                    <a asp-controller="Estoque" asp-action="" class="nav-link">Consulta</a>
                                 </li>
                             </ul>
                         </li>
@@ -231,15 +228,15 @@
     <!-- /page content -->
     <!-- Footer -->
     <div class="navbar navbar-expand-lg navbar-light">
-                <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" class="navbar-nav-link" target="_blank">
-                        <i class="icon-lifebuoy mr-2"></i> Suporte </a></li>
-            </ul>
+        <li class="nav-item">
+            <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" class="navbar-nav-link" target="_blank">
+                <i class="icon-lifebuoy mr-2"></i> Suporte
+            </a>
+        </li>
+        </ul>
         </>
     </div>
     <!-- /footer -->
-
-
     <!-- Core JS files -->
     <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
     <script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>

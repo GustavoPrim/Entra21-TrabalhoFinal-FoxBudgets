@@ -29,7 +29,7 @@ namespace Servico.MapeamentoEntidades
                 Cpf = viewModel.Cpf,
                 Endereco = viewModel.Endereco,
                 Login = viewModel.Login,
-                Senha = viewModel.Senha.GerarHash()
+                Senha = viewModel.Senha.GerarHash(),
             };
         }
     }

@@ -1,4 +1,5 @@
-﻿using Aplicacao.Help;
+﻿using Aplicacao.Filtros;
+using Aplicacao.Help;
 using Repositorio.Entidades;
 
 namespace Aplicacao.Middleware
@@ -16,6 +17,8 @@ namespace Aplicacao.Middleware
         public async Task InvokeAsync(HttpContext httpContext, ISessao sessao)
         {
             var area = httpContext.GetRouteData().Values["area"]?.ToString() ?? string.Empty ;
+            var action = httpContext.GetRouteData().Values["action"]?.ToString() ?? string.Empty ;
+            var controller = httpContext.GetRouteData().Values["controller"]?.ToString() ?? string.Empty ;
 
             var cliente = sessao.BuscarSessaoUsuario<Cliente>();
             var fornecedor = sessao.BuscarSessaoUsuario<Fornecedor>();
@@ -27,6 +30,11 @@ namespace Aplicacao.Middleware
             {
                 httpContext.Response.Redirect("/login");
                 return;
+            }
+
+            if(area == "Publico" && controller == "Login" && action == "Sair")
+            {
+                await _next(httpContext);
             }
 
             if (IsAuthenticatedAndRightAccessToArea(cliente, area))
@@ -46,6 +54,19 @@ namespace Aplicacao.Middleware
                 httpContext.Response.Redirect("/administrador");
                 return;
             }
+
+            var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
+            if (usuarioLogado != null)
+            {
+                httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
+            }
+            //var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
+
+            //if (usuarioLogado != null)
+            //{
+            //    httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
+            //}
+
 
             await _next(httpContext);
         }

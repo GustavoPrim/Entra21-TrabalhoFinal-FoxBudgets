@@ -7,16 +7,18 @@ namespace Servico.MapeamentoViewModels
     {
         public FornecedorEditarViewModel ConstruirCom(Fornecedor fornecedor)
         {
-
             return new FornecedorEditarViewModel
             {
                 Id = fornecedor.Id,
+                Nome = fornecedor.Nome,
                 Cnpj = fornecedor.Cnpj,
                 DataFundacao = fornecedor.DataFundacao,
                 Endereco = fornecedor.Endereco,
                 Email = fornecedor.Email,
                 Telefone = fornecedor.Telefone,
-                Categoria = fornecedor.Categoria
+                Categoria = fornecedor.Categoria,
+                Login = fornecedor.Login,
+                Senha = fornecedor.Senha,
             };
         }
     }

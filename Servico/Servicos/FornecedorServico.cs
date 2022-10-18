@@ -46,7 +46,6 @@ namespace Servico.Servicos
 
             _mapeamentoEntidade.AtualizarCampos(fornecedor, viewModel);
             _fornecedorReposistorio.Editar(fornecedor);
-
             return true;
         }
 

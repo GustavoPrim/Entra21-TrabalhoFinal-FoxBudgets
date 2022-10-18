@@ -30,7 +30,7 @@ namespace Servico.MapeamentoEntidades
                 Telefone = viewModel.Telefone,
                 Categoria = (int)viewModel.Categoria,
                 Login = viewModel.Login,
-                Senha = viewModel.Senha.GerarHash()
+                Senha = viewModel.Senha.GerarHash(),
             };
         }
     }

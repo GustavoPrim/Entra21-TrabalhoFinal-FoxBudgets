@@ -104,11 +104,7 @@ namespace Aplicacao.Areas.Administradores.Controllers
         [HttpGet("apagar")]
         public IActionResult Apagar([FromQuery] int id)
         {
-            var apagou = _materialService.Apagar(id);
-
-            if (!apagou)
-                return NotFound();
-
+            _materialService.Apagar(id);
             return RedirectToAction("Index");
         }
     }
