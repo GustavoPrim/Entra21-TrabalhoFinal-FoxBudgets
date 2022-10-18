@@ -10,12 +10,12 @@
 <p class="h3">Cadastro de Estoque</p>
 <form asp-action="cadastrar" method="POST">
 
-    	<div class="row">
-		<div class="col-6 p-2">
-			<label asp-for="Item" class="form-label" span-required=""></label>
-			<select asp-for="Item" class="form-select"></select>
-			<span asp-validation-for="Item" class="text-danger"></span>
-		</div>
+    <div class="row">
+        <div class="col-6 p-2">
+            <label asp-for="Item" class="form-label" span-required=""></label>
+            <select asp-for="Item" class="form-select"></select>
+            <span asp-validation-for="Item" class="text-danger"></span>
+        </div>
 
     <div class="mb-3">
         <label asp-for="Quantidade" class="form-label" span-required="">Informe a quantidade do Material</label>

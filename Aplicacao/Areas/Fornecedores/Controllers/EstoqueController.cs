@@ -59,6 +59,13 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             return Ok(selectViewModel);
         }
 
+        [HttpGet("saida")]
+        public IActionResult ObterSaida()
+        {
+            var saida = _estoqueServico.ObterTodos();
+            return View("Saida", saida);
+        }
+
         [HttpGet("editar")]
         public IActionResult Editar([FromQuery] int id)
         {
