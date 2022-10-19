@@ -5,7 +5,7 @@
   
 ## Objetivo :dart:
 
-O objetivo da Fox Budgets e da equipe foi inovar e ser pioneira de orçamentos rápidos onlines. [Francisco Lucas Sens](https://github.com/franciscosens) no primeiro trabalho em grupo do curso de C# Noturno do Entra21 edição 2022
+O objetivo da Fox Budgets e da equipe foi inovar e ser pioneira de orçamentos rápidos onlines. [Francisco Lucas Sens](https://github.com/franciscosens).
 
   
 ## Tecnologias :globe_with_meridians:
