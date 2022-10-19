@@ -1,4 +1,6 @@
 ﻿using Aplicacao.Help;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Servico.Email;

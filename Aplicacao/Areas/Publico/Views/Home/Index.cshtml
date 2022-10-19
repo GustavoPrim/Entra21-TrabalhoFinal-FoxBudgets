@@ -1,416 +1,337 @@
 @{
-	ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home page";
 }
 
 <link rel="shortcut icon" href="~/Tema/global_assets/images/Fox-Ico.png" />
 
 <html>
 <head>
-	<title>Fox Budgets</title>
-	<link hrfe="css/style.scss" rel="stylessheet" />
-	<meta name="viewport" context="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Fox Budgets</title>
+    <link hrfe="css/style.scss" rel="stylessheet" />
+    <meta name="viewport" context="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 </head>
 <!-- body -->
 <body class="main-layout">
-	<!-- header -->
-	<header class="full_bg">
-		<!-- banner -->
-		<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-indicators">
-				<button type="button" data-target="#myCarousel" data-slide-to="0" class="active"></button>
-				<button type="button" data-target="#myCarousel" data-slide-to="1"></button>
-				<button type="button" data-target="#myCarousel" data-slide-to="2"></button>
-			</div>
-			<!--Feito-->
-			<div class="carousel-inner">
-				<div class="carousel-item">
-					<img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio3.jpg" preserveAspectRatio="xMidYMid slice">
-					<div class="container">
-						<div class="carousel-caption">
-							A Fox Budgets é uma empresa pioneira no ramo de Orçamentos Onlines! Escolhe a Fox Budgets, faça parte de um sonho.
-						</div>
-					</div>
-				</div>
-				<!--Pronto-->
-				<div class="carousel-item active">
-					<img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio2.jpg" preserveAspectRatio="xMidYMid slice">
-					<div class="container">
-						<div class="carousel-caption">
-                              A Fox Budgets tem a visão de ser sólida, lucrativa e inovadora, que proporcione qualidade de vida aos clientes e que promova a transformação da sociedade a partir das novas tecnologias.
-						</div>
-					</div>
-				</div>
-				<!--Pronto-->
-				<div class="carousel-item">
-					<img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-					<div class="container">
-						<div class="carousel-caption">
-						Esforçamos para fornecer aos nossos clientes um serviço superior e solução de qualidade, que traga resultados e garantia de satisfação dos nossos clientes.
-						</div>
-					</div>
-				</div>
+    <!-- header -->
+    <header class="full_bg">
+        <!-- banner -->
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-target="#myCarousel" data-slide-to="0" class="active"></button>
+                <button type="button" data-target="#myCarousel" data-slide-to="1"></button>
+                <button type="button" data-target="#myCarousel" data-slide-to="2"></button>
+            </div>
 
-			</div>
-			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-				<i class="fa fa-angle-left" aria-hidden="true"></i>
-				<span class="sr-only">Prévia</span>
-			</a>
-			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-				<i class="fa fa-angle-right" aria-hidden="true"></i>
-				<span class="sr-only">Próximo</span>
-			</a>
-		</div>
-	</header>
-	<!-- end banner -->
-	<!-- three_box -->
-	<div class="three_box">
-		<div class="container" style="margin-top: 75px;">
-			<div class="row">
-				<div class="col-md-4">
-					<div id="text_hover" class="const text_align_center">
-						<i><img src="~/rhino-html/images/ser1.png" alt="#" /></i>
-						<span>SERVIÇOS DE ORÇAMENTOS</span>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div id="text_hover" class="const text_align_center">
-						<i><img src="~/rhino-html/images/ser2.png" alt="#" /></i>
-						<span>VARIEDADES DE MATERIAIS</span>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div id="text_hover" class="const text_align_center">
-						<i><img src="~/rhino-html/images/ser3.png" alt="#" /></i>
-						<span>VARIEDADES DE FORNECEDORES</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end three_box -->
-	<!-- about -->
-	<div class="about">
-		<div class="container-fluid" style="margin-top: 75px;">
-			<div class="row d_flex">
-				<div class="col-md-6">
-					<div class="titlepage">
-						<h2>Sobre nós</h2>
-						<span>Conectamos com nossos clientes, nossas comunidades e nossa empresa. Isso nos torna diferentes. Isso nos faz melhor.
-							Nossa Missão é oferecer serviços e soluções customizadas, de alta qualidade e excelência, concretizando o retorno do investimento de nossos clientes.
-							Nossa Visão é ser uma empresa sólida, lucrativa e inovadora, que proporcione qualidade de vida aos colaboradores e promova a transformação da sociedade a partir das novas tecnologias de orçamentos.
-						</span>
-						<a class="read_more" href="Javascript:void(0)"> Read More</a>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="about_img">
-						<figure><img src="~/rhino-html/images/about.png" alt="#" /></figure>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end about -->
-	<!-- choose -->
-	<div class="choose">
-		<div class="container" style="margin-top: 75px;">
-			<div class="row">
-				<div class="col-lg-6">
-					<h2>Por que escolher a Fox Budgets?</h2>
-					<p>  A Fox Budgets é uma empresa especializada em serviços e soluções de alta tecnologia focada em Orçamentos Digitais, com um melhor desempenho e rápidez, no intuito de agregar valor e melhorias para os nossos clientes.
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img class="bd-placeholder-img" width="100%" height="25%" src="~/rhino-html/images/FoxBudgetsCarrosel.jpeg" preserveAspectRatio="xMidYMid slice">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            A Fox Budgets é uma empresa pioneira no ramo de Orçamentos Onlines! Escolhe a Fox Budgets, faça parte de um sonho.
+                        </div>
+                    </div>
+                </div>
 
-Veja algumas razões pelas quais você deve escolher a Fox Budgets para apoiar nos projetos de Orçamentos e na sua Proteção de dados, reduzindo custos e mantendo um alto nível de segurança e confiabilidade.</p>
-				</div>
-				<div class="col-lg-6">
-					<div class="titlepage">
-						<div class="award">
-							<div id="awa_ho" class="award_icon text_align_center">
-								<i>
-									<img src="~/rhino-html/images/ch1.png" alt="#" />
-								</i>
-								<strong>Garantimos Sua Satisfação</strong>
-							</div>
-							<div id="awa_ho" class="award_icon text_align_center">
-								<i><img src="~/rhino-html/images/ch2.png" alt="#" /></i>
-								<strong>Melhores Preços</strong>
-							</div>
-							<div id="awa_ho" class="award_icon" style="margin-top: 10px;">
-								<i><img src="~/rhino-html/images/ch3.png" alt="#" /></i>
-								<strong>Site Confiável</strong>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	<!-- end choose -->
-	<!-- staff -->
-	<div class="container">
-		<div class="container_staff" style="margin-top: 75px;">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="titlepage">
-						<h2>Nossos Administradores</h2>
-						<span> THE DREAM THAT FITS IN YOUR POCKET </span>
-					</div>
-				</div>
-				<div class="col-sm-2,5">
-					<div class="staff">
-						<div class="man">
-							<i><img src="~/rhino-html/images/man.png" alt="#" /></i>
-						</div>
-						<div style="text-align: center; font-size: large;">Guilherme Mueller</div>
-						<ul class="social_icon_main">
-							<li><a href="https://github.com/GuilhermeDMueller"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/guilherme-dzesigaleski-mueller2603/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-							<li><a href="https://www.facebook.com/guilherme.dzesigaleski"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-2,5">
-					<div class="staff">
-						<div class="man">
-							<i><img src="~/rhino-html/images/man.png" alt="#" /></i>
-						</div>
-						<div class="social_icon_main">
-							<div style="text-align: center; font-size: large;">Gustavo Prim</div>
-							<ul class="social_icon_staff text_align_center">
-								<li><a href="https://github.com/GustavoPrim"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="https://instagram.com/gustavopriim?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-2,5">
-					<div class="staff">
-						<div class="man">
-							<i><img src="~/rhino-html/images/man.png" alt="#" /></i>
-						</div>
-						<div class="social_icon_main">
-							<div style="text-align: center; font-size: large;">Juliana Forbici</div>
-							<ul class="social_icon_staff text_align_center  ">
-								<li><a href="https://github.com/JulianaForbici"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/juliana-forbici/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="https://instagram.com/juforbici?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-2,5">
-					<div class="staff">
-						<div class="man">
-							<i><img src="~/rhino-html/images/man.png" alt="#" /></i>
-						</div>
-						<div class="social_icon_main">
-							<div style="text-align: center; font-size: large;">Lucas Perez</div>
-							<ul class="social_icon_staff text_align_center  ">
-								<li><a href="https://github.com/LucasPerezAlves"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="https://instagram.com/lucas_perez334?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-2,5">
-					<div class="staff">
-						<div class="man">
-							<i><img src="~/rhino-html/images/man.png" alt="#" /></i>
-						</div>
-						<div class="social_icon_main">
-							<div style="text-align: center; font-size: large;">William Lima</div>
-							<ul class="social_icon_staff text_align_center  ">
-								<li><a href="https://github.com/Willljdev"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/william-lima-de-jesus-desenvolvedor/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.instagram.com/wlimaj_/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end staff -->
-	<div class="truck">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-6 jkhgkj">
-					<div class="truck_img1">
-						<img src="~/rhino-html/images/truck.png" alt="#" />
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="truck_img1">
-						<img src="~/rhino-html/images/jcb.png" alt="#" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- clients -->
-			<div class="row">
-				<div class="col-md-8 offset-md-2">
-					<div class="testimo_ban_bg">
-						<div id="testimo" class="carousel slide testimo_ban" data-ride="carousel">
-							<ol class="carousel-indicators">
-								<li data-target="#testimo" data-slide-to="0" class="active"></li>
-								<li data-target="#testimo" data-slide-to="1"></li>
-								<li data-target="#testimo" data-slide-to="2"></li>
-							</ol>
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<div class="container parile0">
-										<div class="carousel-caption relative2">
-											<div class="row d_flex">
-												<div class="col-md-12">
-													<i><img class="qusright" src="~/rhino-html/images/t.png" alt="#" /><img src="~/rhino-html/images/tes.png" alt="#" /><img class="qusleft" src="~/rhino-html/images/t.png" alt="#" /></i>
-													<div class="consect">
-														<span>consectetur</span>
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="container parile0">
-										<div class="carousel-caption relative2">
-											<div class="row d_flex">
-												<div class="col-md-12">
-													<i><img class="qusright" src="~/rhino-html/images/t.png" alt="#" /><img src="~/rhino-html/images/tes.png" alt="#" /><img class="qusleft" src="~/rhino-html/images/t.png" alt="#" /></i>
-													<div class="consect">
-														<span>consectetur</span>
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="container parile0">
-										<div class="carousel-caption relative2">
-											<div class="row d_flex">
-												<div class="col-md-12">
-													<i><img class="qusright" src="~/rhino-html/images/t.png" alt="#" /><img src="~/rhino-html/images/tes.png" alt="#" /><img class="qusleft" src="~/rhino-html/images/t.png" alt="#" /></i>
-													<div class="consect">
-														<span>consectetur</span>
-														<p>Variedades e preços ótimos, é o sonho que cabe em seu bolso!</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<a class="carousel-control-prev" href="#testimo" role="button" data-slide="prev">
-									<i class="fa fa-arrow-left" aria-hidden="true"></i>
-									<span class="sr-only">Prévia</span>
-								</a>
-								<a class="carousel-control-next" href="#testimo" role="button" data-slide="next">
-									<i class="fa fa-arrow-right" aria-hidden="true"></i>
-									<span class="sr-only">Próximo</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end clients -->
-	  <div class="contact">
-         <div class="container">
+                <div class="carousel-item active">
+                    <img class="bd-placeholder-img" width="100%" height="25%" src="~/Tema/Imagens/predio2.jpg" preserveAspectRatio="xMidYMid slice">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            A Fox Budgets tem a visão de ser sólida, lucrativa e inovadora, que proporcione qualidade de vida aos clientes e que promova a transformação da sociedade a partir das novas tecnologias.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img class="bd-placeholder-img" width="100%" height="25%" src="~/Tema/Imagens/predio.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            Esforçamos para fornecer aos nossos clientes um serviço superior e solução de qualidade, que traga resultados e garantia de satisfação dos nossos clientes.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+    </header>
+    <!-- end banner -->
+    <!-- three_box -->
+    <div class="three_box">
+        <div class="container" style="margin-top: 75px;">
             <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Suporte</h2>
-                  </div>
-               </div>
+                <div class="col-md-4">
+                    <div id="text_hover" class="const text_align_center">
+                        <i><img src="~/rhino-html/images/ser1.png" alt="#" /></i>
+                        <span>SERVIÇOS DE ORÇAMENTOS</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="text_hover" class="const text_align_center">
+                        <i><img src="~/rhino-html/images/ser2.png" alt="#" /></i>
+                        <span>VARIEDADES DE MATERIAIS</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="text_hover" class="const text_align_center">
+                        <i><img src="~/rhino-html/images/ser3.png" alt="#" /></i>
+                        <span>VARIEDADES DE FORNECEDORES</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end three_box -->
+    <!-- about -->
+    <div class="about">
+        <div class="container-fluid" style="margin-top: 75px;">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div class="titlepage">
+                        <h2 style="text-align: center; font-family: none; font-size: xx-large">Sobre nós</h2>
+                        <span style="font-size: xx-large; font-family: none;">
+                            Conectamos com nossos clientes, nossas comunidades e nossa empresa. Isso nos torna diferentes. Isso nos faz melhor.
+                            Nossa Missão é oferecer serviços e soluções customizadas, de alta qualidade e excelência, concretizando o retorno do investimento de nossos clientes.
+                            Nossa Visão é ser uma empresa sólida, lucrativa e inovadora, que proporcione qualidade de vida aos colaboradores e promova a transformação da sociedade a partir das novas tecnologias de orçamentos.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about_img">
+                        <figure><img src="~/rhino-html/images/about.png" alt="#" /></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about -->
+    <!-- choose -->
+    <div class="choose">
+        <div class="all" style="margin-top: 75px;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 style="text-align: center; font-family: none; font-size: xx-large"> Por que escolher a Fox Budgets? </h2>
+                    <p style="font-size: xx-large; font-family: none;">
+                        A Fox Budgets é uma empresa especializada em serviços e soluções de alta tecnologia focada em Orçamentos Digitais, com um melhor desempenho e rápidez, no intuito de agregar valor e melhorias para os nossos clientes.
+
+                        Veja algumas razões pelas quais você deve escolher a Fox Budgets para apoiar nos projetos de Orçamentos e na sua Proteção de dados, reduzindo custos e mantendo um alto nível de segurança e confiabilidade.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="titlepage">
+                        <div class="award">
+                            <div id="awa_ho" class="award_icon" style="text-align: center;">
+                                <i>
+                                    <img src="~/rhino-html/images/ch1.png" alt="#" />
+                                </i>
+                                <strong>Garantimos Sua Satisfação</strong>
+                            </div>
+                            <div id="awa_ho" class="award_icon" style="text-align: center;">
+                                <i><img src="~/rhino-html/images/ch2.png" alt="#" /></i>
+                                <strong>Melhores Preços</strong>
+                            </div>
+                            <div id="awa_ho" class="award_icon" style="margin-top: 10px; text-align: center;">
+                                <i><img src="~/rhino-html/images/ch3.png" alt="#" /></i>
+                                <strong>Site Confiável</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- end choose -->
+    <!-- staff -->
+    <div class="container">
+        <div class="container_staff" style="margin-top: 75px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage" style="text-align: center;">
+                        <h2>Nossos Administradores</h2>
+                    </div>
+                </div>
+                <div class="col-sm-2,5">
+                    <div class="staff">
+                        <div class="man">
+                            <i><img src="~/rhino-html/images/man.png" alt="#" /></i>
+                        </div>
+                        <div style="text-align: center; font-size: large;">Guilherme Mueller</div>
+                        <ul class="social_icon_main">
+                            <li><a href="https://github.com/GuilhermeDMueller"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/guilherme-dzesigaleski-mueller2603/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/guilherme.dzesigaleski"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2,5">
+                    <div class="staff">
+                        <div class="man">
+                            <i><img src="~/rhino-html/images/man.png" alt="#" /></i>
+                        </div>
+                        <div class="social_icon_main">
+                            <div style="text-align: center; font-size: large;">Gustavo Prim</div>
+                            <ul class="social_icon_staff text_align_center">
+                                <li><a href="https://github.com/GustavoPrim"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://instagram.com/gustavopriim?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2,5">
+                    <div class="staff">
+                        <div class="man">
+                            <i><img src="~/rhino-html/images/man.png" alt="#" /></i>
+                        </div>
+                        <div class="social_icon_main">
+                            <div style="text-align: center; font-size: large;">Juliana Forbici</div>
+                            <ul class="social_icon_staff text_align_center  ">
+                                <li><a href="https://github.com/JulianaForbici"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/juliana-forbici/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://instagram.com/juforbici?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2,5">
+                    <div class="staff">
+                        <div class="man">
+                            <i><img src="~/rhino-html/images/man.png" alt="#" /></i>
+                        </div>
+                        <div class="social_icon_main">
+                            <div style="text-align: center; font-size: large;">Lucas Perez</div>
+                            <ul class="social_icon_staff text_align_center  ">
+                                <li><a href="https://github.com/LucasPerezAlves"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://instagram.com/lucas_perez334?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2,5">
+                    <div class="staff">
+                        <div class="man">
+                            <i><img src="~/rhino-html/images/man.png" alt="#" /></i>
+                        </div>
+                        <div class="social_icon_main">
+                            <div style="text-align: center; font-size: large;">William Lima</div>
+                            <ul class="social_icon_staff text_align_center  ">
+                                <li><a href="https://github.com/Willljdev"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/william-lima-de-jesus-desenvolvedor/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/wlimaj_/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end staff -->
+    <!-- clients -->
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 75px;">
+        <div class="carousel-indicators">
+            <button type="button" data-target="#myCarousel" data-slide-to="0" class="active"></button>
+            <button type="button" data-target="#myCarousel" data-slide-to="1"></button>
+            <button type="button" data-target="#myCarousel" data-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio3.jpg" preserveAspectRatio="xMidYMid slice">
+            </div>
+
+            <div class="carousel-item active">
+                <img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio2.jpg" preserveAspectRatio="xMidYMid slice">
+            </div>
+
+            <div class="carousel-item">
+                <img class="bd-placeholder-img" width="100%" height="50%" src="~/Tema/Imagens/predio.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span class="sr-only">Próximo</span>
+        </a>
+    </div>
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <span class="sr-only">Próximo</span>
+    <!-- end clients -->
+    <div class="contact">
+        <div class="container">
+            <div class="row">
             </div>
             <div class="row">
-               <div class="col-md-6 padding_right0">
-                  <form id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Name" type="type" name="Nome"> 
+                <div class="col-md-6 padding_left0">
+                    <div class="map_main">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Blumenau+SantaCatarina+Brasil+AcessoEducação" width="600" height="463" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
                         </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone" type="type" name="Telefone">                          
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Mensagem</textarea>
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Send</button>projetos
-                        </div>
-                     </div>
-                  </form>
-               </div>
-               <div class="col-md-6 padding_left0">
-                  <div class="map_main">
-                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Blumenau+SantaCatarina+Brasil" width="600" height="463" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-	<!--  footer -->
-	<footer>
-		<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class=" col-lg-3 col-md-6">
-						<a class="logo_bottom"><img src="~/rhino-html/images/logo_bottom.png" alt="#" /></a>
-						<p class="many">
-							The dream that fits in your pocket! Tudo para o seu sonho!
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 offset-md-2">
-							<p>© 2022 Todos os direitos reservados. Design feito por <a href="https://github.com/GustavoPrim/Entra21-TrabalhoFinal-FoxBudgets"> Fox Budgets. </a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- end footer -->
-	<!-- Javascript files-->
-	<script src="~/rhino-html/js/bootstrap.bundle.js"></script>
-	<script src="~/rhino-html/js/bootstrap.bundle.min.js"></script>
-	<script src="~/rhino-html/js/bootstrap.js"></script>
-	<script src="~/rhino-html/js/bootstrap.min.js"></script>
-	<script src="~/rhino-html/js/custom.js"></script>
-	<script src="~/rhino-html/js/jquery-3.0.0.min.js"></script>
-	<script src="~/rhino-html/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="~/rhino-html/js/jquery.min.js"></script>
-	<script src="~/rhino-html/js/jquery.validate.js"></script>
-	<script src="~/rhino-html/js/modernizer.js"></script>
-	<script src="~/rhino-html/js/plugin.js"></script>
-	<script src="~/rhino-html/js/popper.min.js"></script>
-	<script src="~/rhino-html/js/slider-setting.js"></script>
-	<script src="~/rhino-html/js/revolution/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/jquery.themepunch.tools.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        </div>
+    </div>
+    <!--  footer -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-lg-3 col-md-6">
+                        <a class="logo_bottom"><img src="~/rhino-html/images/logo_bottom.png" alt="#" /></a>
+                        <p class="many">
+                            The dream that fits in your pocket! Tudo para o seu sonho!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <p>© 2022 Todos os direitos reservados. Design feito por <a href="https://github.com/GustavoPrim/Entra21-TrabalhoFinal-FoxBudgets"> Fox Budgets. </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="~/rhino-html/js/bootstrap.bundle.js"></script>
+    <script src="~/rhino-html/js/bootstrap.bundle.min.js"></script>
+    <script src="~/rhino-html/js/bootstrap.js"></script>
+    <script src="~/rhino-html/js/bootstrap.min.js"></script>
+    <script src="~/rhino-html/js/custom.js"></script>
+    <script src="~/rhino-html/js/jquery-3.0.0.min.js"></script>
+    <script src="~/rhino-html/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/rhino-html/js/jquery.min.js"></script>
+    <script src="~/rhino-html/js/jquery.validate.js"></script>
+    <script src="~/rhino-html/js/modernizer.js"></script>
+    <script src="~/rhino-html/js/plugin.js"></script>
+    <script src="~/rhino-html/js/popper.min.js"></script>
+    <script src="~/rhino-html/js/slider-setting.js"></script>
+    <script src="~/rhino-html/js/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/rhino-html/js/revolution/js/extensions/revolution.extension.video.min.js"></script>
 </body>
 </html>
