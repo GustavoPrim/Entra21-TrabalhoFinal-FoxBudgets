@@ -1,10 +1,5 @@
 ﻿using Repositorio.Entidades;
 using Servico.ViewModels.Orcamentos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servico.Servicos
 {
@@ -15,5 +10,6 @@ namespace Servico.Servicos
         Orcamento ObterPorId(int id);
         List<Orcamento> ObterTodos();
         bool Apagar(int id);
+        List<OrcamentoItemIndexViewModel> ObterItensOrcamentoAtual(int idUsuarioLogado);
     }
 }

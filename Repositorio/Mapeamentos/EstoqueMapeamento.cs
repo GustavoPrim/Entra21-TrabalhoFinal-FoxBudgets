@@ -40,6 +40,80 @@ namespace Repositorio.Mapeamentos
                 .WithMany(x => x.Estoques)
                 .HasForeignKey(x => x.FornecedorId);
 
+            builder.HasData(
+                new Estoque
+                {
+                    Id = 1,
+                    Valor = 23.50,
+                    Quantidade = 2,
+                    MaterialId = 3,
+                    FornecedorId = 3,
+                    Tipo = Enuns.EstoqueTipo.Entrada,
+                },
+                new Estoque
+                {
+                    Id = 2,
+                    Valor = 67.90,
+                    Quantidade = 6,
+                    MaterialId = 6,
+                    FornecedorId = 4,
+                    Tipo = Enuns.EstoqueTipo.Saida,
+                },
+                new Estoque
+                {
+                    Id = 3,
+                    Valor = 50.00,
+                    Quantidade = 8,
+                    MaterialId = 10,
+                    FornecedorId = 2,
+                    Tipo = Enuns.EstoqueTipo.Saida,
+                },
+                new Estoque
+                {
+                    Id = 4,
+                    Valor = 99.99,
+                    Quantidade = 10,
+                    MaterialId = 6,
+                    FornecedorId = 1,
+                    Tipo = Enuns.EstoqueTipo.Entrada,
+                },
+                new Estoque
+                {
+                    Id = 5,
+                    Valor = 76.56,
+                    Quantidade = 7,
+                    MaterialId = 2,
+                    FornecedorId = 1,
+                    Tipo = Enuns.EstoqueTipo.Saida,
+                },
+                new Estoque
+                {
+                    Id = 6,
+                    Valor = 95.34,
+                    Quantidade = 19,
+                    MaterialId = 4,
+                    FornecedorId = 2,
+                    Tipo = Enuns.EstoqueTipo.Entrada,
+                },
+                new Estoque
+                {
+                    Id = 7,
+                    Valor = 100.00,
+                    Quantidade = 50,
+                    MaterialId = 5,
+                    FornecedorId = 3,
+                    Tipo = Enuns.EstoqueTipo.Saida,
+                },
+                new Estoque
+                {
+                    Id = 8,
+                    Valor = 150.00,
+                    Quantidade = 75,
+                    MaterialId = 2,
+                    FornecedorId = 4,
+                    Tipo = Enuns.EstoqueTipo.Entrada,
+                });
+
         }
     }
 }

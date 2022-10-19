@@ -59,5 +59,21 @@ namespace Servico.Servicos
 
             return orcamento;
         }
+
+        public List<OrcamentoItemIndexViewModel> ObterItensOrcamentoAtual(int idUsuarioLogado)
+        {
+            var orcamento = _orcamentoRepositorio.ObterPorClienteId(idUsuarioLogado);
+
+            if(orcamento == null)
+                return new List<OrcamentoItemIndexViewModel>();
+
+            return orcamento.OrcamentoMateriais.Select(
+                x => new OrcamentoItemIndexViewModel
+                {
+                    Material = x.Material.Nome,
+                    OrcamentoMaterialId = x.Id,
+                    Quantidade = x.Quantidade
+                }).ToList();
+        }
     }
 }
