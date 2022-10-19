@@ -135,7 +135,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
         [HttpGet("obterItensOrcamentoAtual")]
         public IActionResult ObterItensOrcamentoAtual()
         {
-            var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+            var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
             var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
 

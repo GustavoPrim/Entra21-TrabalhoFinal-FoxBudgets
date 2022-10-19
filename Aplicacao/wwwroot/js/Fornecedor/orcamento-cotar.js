@@ -8,7 +8,7 @@
     dados.append("quantidade", quantidade)
     dados.append("valor", valor)
 
-    fetch('/cliente/cotacao/adicionarProduto', {
+    fetch('/fornecedor/estoque/adicionarProduto', {
         method: 'POST',
         body: dados
     })

@@ -3,13 +3,13 @@
         url: 'https://raw.githubusercontent.com/DataTables/Plugins/master/i18n/pt-BR.json'
     },
     ajax: {
-        url: '/cliente/cotacao/obterItensOrcamentoAtual',
+        url: '/fornecedor/estoque/obterItensOrcamentoAtual',
         dataSrc: ''
     },
     processing: true,
     columns: [
         {data: 'material'},
-        {data: 'quantidade'}
+        {data: 'quantidade'},
         {data: 'valor'}
     ],
 });

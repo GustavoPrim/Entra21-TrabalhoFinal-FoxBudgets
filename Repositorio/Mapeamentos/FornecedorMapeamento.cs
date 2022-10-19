@@ -64,59 +64,59 @@ namespace Repositorio.Mapeamentos
                .HasColumnType("VARCHAR")
                .HasMaxLength(100);
 
-            builder.HasData(
-                new Fornecedor
-                {
-                    Id = 1,
-                    Nome = "Wolf Tubos e conexões",
-                    Cnpj = "34.56.789/0001-25",
-                    DataFundacao = new DateTime(2020, 03, 15),
-                    Endereco = "Rua 2 de Setembro 1890",
-                    Email = "Willljdev@gmail.com",
-                    Telefone = "991599314",
-                    Categoria = (int)AdministradorEnum.MaterialHidraulico,
-                    Login = "Fornecedor1",
-                    Senha = "1234".GerarHash()
-                },
-                new Fornecedor
-                {
-                    Id = 2,
-                    Nome = "Materiais de construção VG",
-                    Cnpj = "12.123.456/0001-78",
-                    DataFundacao = new DateTime(2019, 09, 18),
-                    Endereco = "Rua Alberto Stein 199",
-                    Email = "budgetsVG@gmail.com",
-                    Telefone = "3381-7700",
-                    Categoria = (int)AdministradorEnum.MaterialBruto,
-                    Login = "Fornecedor2",
-                    Senha = "1234".GerarHash()
-                },
-                new Fornecedor
-                {
-                    Id = 3,
-                    Nome = "Móveis Juquinha",
-                    Cnpj = "43.534.987/0001-43",
-                    DataFundacao = new DateTime(2009, 09, 18),
-                    Endereco = "Rua General Osório 1567",
-                    Email = "juquinhamoveis@gmail.com",
-                    Telefone = "4563-9877",
-                    Categoria = (int)AdministradorEnum.Tintas,
-                    Login = "Fornecedor3",
-                    Senha = "1234".GerarHash()
-                },
-                new Fornecedor
-                {
-                    Id = 3,
-                    Nome = "Ferramentas do João",
-                    Cnpj = "23.756.976/0001-65",
-                    DataFundacao = new DateTime(20009, 09, 18),
-                    Endereco = "Rua Água Branca 3333",
-                    Email = "joaoferramentas@gmail.com",
-                    Telefone = "6543-2464",
-                    Categoria = (int)AdministradorEnum.MaterialEletrico,
-                    Login = "Fornecedor4",
-                    Senha = "1234".GerarHash()
-                });
+            //builder.HasData(
+            //    new Fornecedor
+            //    {
+            //        Id = 1,
+            //        Nome = "Wolf Tubos e conexões",
+            //        Cnpj = "34.56.789/0001-25",
+            //        DataFundacao = new DateTime(2020, 03, 15),
+            //        Endereco = "Rua 2 de Setembro 1890",
+            //        Email = "Willljdev@gmail.com",
+            //        Telefone = "991599314",
+            //        Categoria = (int)AdministradorEnum.MaterialHidraulico,
+            //        Login = "Fornecedor1",
+            //        Senha = "1234".GerarHash()
+            //    },
+            //    new Fornecedor
+            //    {
+            //        Id = 2,
+            //        Nome = "Materiais de construção VG",
+            //        Cnpj = "12.123.456/0001-78",
+            //        DataFundacao = new DateTime(2019, 09, 18),
+            //        Endereco = "Rua Alberto Stein 199",
+            //        Email = "budgetsVG@gmail.com",
+            //        Telefone = "3381-7700",
+            //        Categoria = (int)AdministradorEnum.MaterialBruto,
+            //        Login = "Fornecedor2",
+            //        Senha = "1234".GerarHash()
+            //    },
+            //    new Fornecedor
+            //    {
+            //        Id = 3,
+            //        Nome = "Móveis Juquinha",
+            //        Cnpj = "43.534.987/0001-43",
+            //        DataFundacao = new DateTime(2009, 09, 18),
+            //        Endereco = "Rua General Osório 1567",
+            //        Email = "juquinhamoveis@gmail.com",
+            //        Telefone = "4563-9877",
+            //        Categoria = (int)AdministradorEnum.Tintas,
+            //        Login = "Fornecedor3",
+            //        Senha = "1234".GerarHash()
+            //    },
+            //    new Fornecedor
+            //    {
+            //        Id = 3,
+            //        Nome = "Ferramentas do João",
+            //        Cnpj = "23.756.976/0001-65",
+            //        DataFundacao = new DateTime(20009, 09, 18),
+            //        Endereco = "Rua Água Branca 3333",
+            //        Email = "joaoferramentas@gmail.com",
+            //        Telefone = "6543-2464",
+            //        Categoria = (int)AdministradorEnum.MaterialEletrico,
+            //        Login = "Fornecedor4",
+            //        Senha = "1234".GerarHash()
+            //    });
         }
     }
 }
