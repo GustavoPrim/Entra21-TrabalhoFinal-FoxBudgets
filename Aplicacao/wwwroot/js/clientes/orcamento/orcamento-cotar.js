@@ -6,7 +6,7 @@
     dados.append("item", item);
     dados.append("quantidade", quantidade)
 
-    fetch('/cliente/cotacao/cotar', {
+    fetch('/cliente/cotacao/adicionarProduto', {
         method: 'POST',
         body: dados
     })
