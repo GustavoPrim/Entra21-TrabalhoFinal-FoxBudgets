@@ -19,8 +19,8 @@ namespace Tests.Servico.MapeamentoEntidades
             //Arrange
             var viewModel = new OrcamentoCadastrarViewModel
             {
-                Item = 2,
-                Quantidade = 11
+                Item = 0,
+                Quantidade = 0
             };
             //Act
             var estoque = _orcamentoMapeamentoEntidade.ConstruirCom(viewModel);
