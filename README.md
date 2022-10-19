@@ -10,7 +10,7 @@ O objetivo da Fox Budgets e da equipe foi inovar e ser pioneira de orçamentos r
   
 ## Tecnologias :globe_with_meridians:
 
-Foram utilizazdos na construção deste projeto:
+Foram utilizados na construção deste projeto:
 
 <b>ASP.NET Core</b>
 * <b>Entity Framework</b>
