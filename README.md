@@ -1,4 +1,4 @@
-![foxbud](https://user-images.githubusercontent.com/105084941/196571178-853aaf78-a282-4996-8c17-cd9d57136083.jpg)
+
 ![design-sem-nome-2022-01-26t131235627-1200x460](https://user-images.githubusercontent.com/105084941/172011940-4cdc7594-5d71-4823-95c6-1d3cec75fe7e.png)![design-sem-
 
 <h1 align="center">Trabalho Final</h1>
@@ -54,6 +54,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
 <b>[Lucas Perez Alves](https://github.com/LucasPerezAlves)</b>
 <b>[William Lima de Jesus](https://github.com/Willljdev)</b>
 
+![foxbud](https://user-images.githubusercontent.com/105084941/196571178-853aaf78-a282-4996-8c17-cd9d57136083.jpg)
 
 ### Contatos: :hammer:
 
@@ -64,4 +65,4 @@ Para a execução dos algoritmos você pode optar por duas formas:
 <a href="https://www.linkedin.com/in/juliana-forbici/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   
 <a href = "https://www.linkedin.com/in/lucas-perez-alves-86721a242/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 <div>
-    
+    ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
