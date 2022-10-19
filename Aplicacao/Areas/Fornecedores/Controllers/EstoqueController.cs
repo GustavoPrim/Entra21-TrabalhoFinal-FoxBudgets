@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicacao.Help;
+using Microsoft.AspNetCore.Mvc;
+using Repositorio.Entidades;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Estoque;
+using Servico.ViewModels.Orcamentos;
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
@@ -10,10 +13,16 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
     public class EstoqueController : Controller
     {
         private readonly IEstoqueServico _estoqueServico;
+        private readonly ISessao _sessao;
+        private readonly IOrcamentoServico _orcamentoServico;
+        private readonly IMaterialService _materialService;
 
-        public EstoqueController(IEstoqueServico estoqueServico)
+        public EstoqueController(IEstoqueServico estoqueServico, ISessao sessao, IOrcamentoServico orcamentoServico, IMaterialService materialService)
         {
             _estoqueServico = estoqueServico;
+            _sessao = sessao;
+            _orcamentoServico = orcamentoServico;
+            _materialService = materialService;
         }
 
         [HttpGet]
@@ -97,6 +106,40 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             return Enum.GetNames<EstoqueEnum>()
                 .OrderBy(x => x)
                 .ToList();
+        }
+
+        [HttpPost("adicionarProduto")]
+        public IActionResult AdicionarProduto(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Materiais = _materialService.ObterTodos();
+                ViewBag.Administradores = ObterOrcamentos();
+                return View(orcamentoCadastrarViewModel);
+            }
+
+            var clienteId = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+
+            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, clienteId);
+
+            return Ok();
+        }
+
+        private List<string> ObterOrcamentos()
+        {
+            return Enum.GetNames<AdministradorEnum>()
+                .OrderBy(x => x)
+                .ToList();
+        }
+
+        [HttpGet("obterItensOrcamentoAtual")]
+        public IActionResult ObterItensOrcamentoAtual()
+        {
+            var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
+
+            var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
+
+            return Ok(itens);
         }
     }
 }
