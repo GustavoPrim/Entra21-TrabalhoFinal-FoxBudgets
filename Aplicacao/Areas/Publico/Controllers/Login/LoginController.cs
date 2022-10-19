@@ -109,27 +109,27 @@ namespace Aplicacao.Administradores.Controllers
 
         }
 
-        //[HttpGet("confirmarEmail")]
-        //public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
-        //{
-        //    var user = _clienteService.ObterPorId(id);
+        [HttpGet("confirmarEmail")]
+        public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
+        {
+            var user = _clienteService.ObterPorId(id);
 
-        //    if (user == null || user.Token != token)
-        //        TempData["mensagem"] = "Não existe nenhum usuário referido!";
+            if (user == null || user.Token != token)
+                TempData["mensagem"] = "Não existe nenhum usuário referido!";
 
-        //    else if (user.EmailConfirmado == true)
-        //        TempData["mensagem"] = "O usuário já possui o link confirmado!";
+            else if (user.EmailConfirmado == true)
+                TempData["mensagem"] = "O usuário já possui o link confirmado!";
 
-        //    else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
-        //        TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
+            else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
+                TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
 
-        //    else
-        //    {
-        //        TempData["mensagem"] = "O usuário foi confirmado!";
-        //        _clienteService.AtualizarVerificarEmail(user.Id);
-        //    }
-        //    return View("Alerta/Index");
-        //}
+            else
+            {
+                TempData["mensagem"] = "O usuário foi confirmado!";
+                _clienteService.AtualizarVerificarEmail(user.Id);
+            }
+            return View("Alerta/Index");
+        }
 
         //[Route("login-google")]
         //public async Task LoginComGoogle()
@@ -144,25 +144,24 @@ namespace Aplicacao.Administradores.Controllers
         //{
         //    var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-        //    //var claims = result.Principal.AddIdentities
-        //    //    .FirstOrDefault().Claims.Select(claim => new
-        //    //{
-        //    //    claim.Issuer,
-        //    //    claim.OriginalIssuer,
-        //    //    claim.Type,
-        //    //    claim.Value,
-        //    //});
-        //    //return Json(claims);
+            //var claims = result.Principal.AddIdentities
+            //    .FirstOrDefault().Claims.Select(claim => new
+            //{
+            //    claim.Issuer,
+            //    claim.OriginalIssuer,
+            //    claim.Type,
+            //    claim.Value,
+            //});
+            //return Json(claims);
         //}
-        
+
         //public async Task<IActionResult> Logout()
         //{
         //    await HttpContext.SignOutAsync();
         //    return RedirectToAction("Login");
-        //}
 
         //    return View("Alerta/Index");
         //}
-
     }
+
 }
