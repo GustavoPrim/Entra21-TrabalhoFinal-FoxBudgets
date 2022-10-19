@@ -1,14 +1,18 @@
 
-![design-sem-nome-2022-01-26t131235627-1200x460](https://user-images.githubusercontent.com/105084941/172011940-4cdc7594-5d71-4823-95c6-1d3cec75fe7e.png)![design-sem-
+![design-sem-nome-2022-01-26t131235627-1200x460](https://user-images.githubusercontent.com/105084941/172011940-4cdc7594-5d71-4823-95c6-1d3cec75fe7e.png)
 
 <h1 align="center">Trabalho Final</h1>
 <p align="center">Repositório criado para hospedar o último trabalho de C# do Entra21 Noturno.</p>
   
 ## Objetivo :dart:
 
-O objetivo da Fox Budgets e da equipe foi inovar e ser pioneira de orçamentos rápidos onlines. [Francisco Lucas Sens](https://github.com/franciscosens).
+O objetivo da Fox Budgets e da equipe foi inovar e ser pioneira de orçamentos rápidos onlines.
+Nosso querido professor: [Francisco Lucas Sens](https://github.com/franciscosens).
 
-  
+  <h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
+
 ## Tecnologias :globe_with_meridians:
 
 Foram utilizados na construção deste projeto:
@@ -65,4 +69,3 @@ Para a execução dos algoritmos você pode optar por duas formas:
 <a href="https://www.linkedin.com/in/juliana-forbici/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   
 <a href = "https://www.linkedin.com/in/lucas-perez-alves-86721a242/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 <div>
-    ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
