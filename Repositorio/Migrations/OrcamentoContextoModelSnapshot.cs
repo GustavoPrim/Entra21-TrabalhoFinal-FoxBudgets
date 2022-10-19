@@ -390,7 +390,6 @@ namespace Repositorio.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
@@ -398,7 +397,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Orcamento");
+                    b.ToTable("Orcamentos");
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.OrcamentoMaterial", b =>
@@ -430,9 +429,7 @@ namespace Repositorio.Migrations
 
                     b.HasIndex("OrcamentoId");
 
-
                     b.ToTable("orcamentos_materiais", (string)null);
-
                 });
 
             modelBuilder.Entity("Repositorio.Entidades.Estoque", b =>

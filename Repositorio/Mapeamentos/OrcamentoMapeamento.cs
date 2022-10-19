@@ -8,7 +8,7 @@ namespace Repositorio.Mapeamentos
     {
         public void Configure(EntityTypeBuilder<Orcamento> builder)
         {
-            builder.ToTable("orcamentos");
+            //builder.ToTable("orcamentos");
 
             builder.HasKey(x => x.Id);
 
