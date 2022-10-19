@@ -38,8 +38,8 @@ namespace Aplicacao.Areas.Clientes.Controllers
             return View(orcamentoCadastrarViewMOdel);
         }
 
-        [HttpPost("cotar")]
-        public IActionResult Cotar(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        [HttpPost("adicionarProduto")]
+        public IActionResult AdicionarProduto(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -54,44 +54,57 @@ namespace Aplicacao.Areas.Clientes.Controllers
 
             return Ok();
         }
-        [HttpGet("apagar")]
-        public IActionResult Apagar([FromQuery] int id)
-        {
-            _orcamentoServico.Apagar(id);
-            return RedirectToAction("Index");
-        }
-        [HttpGet("editar")]
-        public IActionResult Editar([FromQuery] int id)
-        {
-            var orcamento = _orcamentoServico.ObterPorId(id);
-            var orcamentos = ObterOrcamentos();
-            var orcamentoEditarViewModel = new OrcamentoEditarViewModel
-            {
-                Id = orcamento.Id,
-                //DataOrcamento = orcamento.,
-                //Quantidade = orcamento.Quantidade,
-                //Item = orcamento.Item
-            };
-            ViewBag.Orcamentos = orcamentos;
-            return View(orcamentoEditarViewModel);
-        }
-        [HttpPost("editar")]
-        public IActionResult Editar([FromForm] OrcamentoEditarViewModel orcamentoEditarViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Orcamentos = ObterOrcamentos();
-                return View(orcamentoEditarViewModel);
-            }
-            _orcamentoServico.Editar(orcamentoEditarViewModel);
-            return RedirectToAction("Index");
-        }
+
+        //[HttpGet("apagar")]
+        //public IActionResult Apagar([FromQuery] int id)
+        //{
+        //    _orcamentoServico.Apagar(id);
+        //    return RedirectToAction("Index");
+        //}
+        //[HttpGet("editar")]
+        //public IActionResult Editar([FromQuery] int id)
+        //{
+        //    var orcamento = _orcamentoServico.ObterPorId(id);
+        //    var orcamentos = ObterOrcamentos();
+        //    var orcamentoEditarViewModel = new OrcamentoEditarViewModel
+        //    {
+        //        Id = orcamento.Id,
+        //        //DataOrcamento = orcamento.,
+        //        //Quantidade = orcamento.Quantidade,
+        //        //Item = orcamento.Item
+        //    };
+        //    ViewBag.Orcamentos = orcamentos;
+        //    return View(orcamentoEditarViewModel);
+        //}
+        //[HttpPost("editar")]
+        //public IActionResult Editar([FromForm] OrcamentoEditarViewModel orcamentoEditarViewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ViewBag.Orcamentos = ObterOrcamentos();
+        //        return View(orcamentoEditarViewModel);
+        //    }
+        //    _orcamentoServico.Editar(orcamentoEditarViewModel);
+        //    return RedirectToAction("Index");
+        //}
+
         [HttpGet("obtertodos")]
         public IActionResult ObterTodos()
         {
             var selectViewModel = _orcamentoServico.ObterTodos();
             return Ok(selectViewModel);
         }
+
+        [HttpGet("obterItensOrcamentoAtual")]
+        public IActionResult ObterItensOrcamentoAtual()
+        {
+            var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+
+            var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
+
+            return Ok(itens);
+        }
+
         private List<string> ObterOrcamentos()
         {
             return Enum.GetNames<AdministradorEnum>()
