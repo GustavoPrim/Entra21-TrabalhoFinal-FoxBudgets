@@ -48,49 +48,15 @@
         </div>
 
         <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
+            <ul class="navbar-nav flex-row align-items-center h-100">
+                <li class="nav-item nav-item-dropdown-lg dropdown">
+            </ul>
 
-            <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                <a href="#"
-                   class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
-                   data-toggle="dropdown">
-                    <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                         height="34" alt="">
-                    <p>@Context.Items["UsuarioNome"]</p>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
-                               class="font-weight-semibold">Sair da conta</a>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
-
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <div class="font-weight-semibold">Privacy</div>
-                            <span class="text-muted font-size-sm">Access, permissions</span>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
-
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <div class="font-weight-semibold">Pagamentos</div>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
-                    <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                        <i class="icon-arrow-right8"></i>
-                    </span>
+            <div class="dropdown-item d-flex py-2">
+                <div class="flex-1" style="margin-top: 20px;">
+                    <a class="style-scope style-suggestive" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
                 </div>
+            </div>
         </div>
     </div>
     <!-- /main navbar -->
