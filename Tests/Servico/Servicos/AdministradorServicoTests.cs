@@ -54,7 +54,7 @@ namespace Tests.Servico.Servicos
                 Endereco = "rua palmeiras 201",
                 Telefone = "99772-1079",
                 Login = "navio",
-                Senha = "calabresa",
+                Senha = "calabresa".GerarHash(),
             };
             //Act
             _administradorServico.Cadastrar(viewModel);
@@ -75,7 +75,7 @@ namespace Tests.Servico.Servicos
             administrador.Endereco.Should().Be(viewModel.Endereco);
             administrador.Telefone.Should().Be(viewModel.Telefone);
             administrador.Login.Should().Be(viewModel.Login);
-            administrador.Senha.Should().Be(viewModel.Senha);
+            administrador.Senha.Should().Be(viewModel.Senha.GerarHash());
 
             return true;
         }

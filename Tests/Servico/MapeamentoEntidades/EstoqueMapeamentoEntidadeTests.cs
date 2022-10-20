@@ -21,8 +21,8 @@ namespace Tests.Servico.MapeamentoEntidades
             //Arrange
             var viewModel = new EstoqueCadastrarViewModel
             {
-                Quantidade = 1,
-                Valor = 200
+                Quantidade = 0,
+                Valor = 0
             };
             //Act
             var estoque = _estoqueMapeamentoEntidade.ConstruirCom(viewModel);
@@ -38,13 +38,13 @@ namespace Tests.Servico.MapeamentoEntidades
             //Arrange
             var estoque = new Estoque
             {
-                Valor = 100,
+                Valor = 0,
                 Quantidade = 20
             };
 
             var estoqueEditar = new EstoqueEditarViewModel
             {
-                Valor = 150,
+                Valor = 0,
                 Quantidade = 230,
             };
             //Act
