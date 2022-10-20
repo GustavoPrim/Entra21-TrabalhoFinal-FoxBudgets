@@ -19,7 +19,6 @@ namespace Servico.Servicos
         public bool Apagar(int id) =>
             _orcamentoRepositorio.Apagar(id);
 
-
         public bool Editar(OrcamentoEditarViewModel viewModel)
         {
             //var orcamento = _orcamentoRepositorio.ObterPorId(viewModel.Id);
@@ -41,7 +40,6 @@ namespace Servico.Servicos
 
         public Orcamento Cotar(OrcamentoCadastrarViewModel viewModel, int clienteId)
         {
-
             var orcamento = _orcamentoRepositorio.ObterPorClienteId(clienteId);
 
             if (orcamento == null)

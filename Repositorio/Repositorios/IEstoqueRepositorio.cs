@@ -10,5 +10,8 @@ namespace Repositorio.Repositorios
         Estoque ObterPorId(int id);
         IList<Estoque> ObterTodos();
         void Editar(Estoque estoque);
+        void CrirOuAtualizar(Estoque estoque);
+        Estoque? ObterPorFornecedorId(int idFornecedor);
+
     }
 }
