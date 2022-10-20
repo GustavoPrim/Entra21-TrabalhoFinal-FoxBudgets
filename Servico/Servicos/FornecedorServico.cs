@@ -1,7 +1,9 @@
 ﻿using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
+using Servico.ViewModels.Estoque;
 using Servico.ViewModels.Fornecedores;
+using Servico.ViewModels.Orcamentos;
 
 namespace Servico.Servicos
 {
@@ -16,6 +18,26 @@ namespace Servico.Servicos
         {
             _fornecedorReposistorio = fornecedorReposistorio;
             _mapeamentoEntidade = mapeamentoEntidade;
+        }
+
+        public Estoque Adicionar(EstoqueCadastrarViewModel viewModel, int fornecedorId)
+        {
+            var estoque = _fornecedorReposistorio.ObterPorFornecedorId(fornecedorId);
+
+            if (estoque == null)
+                estoque = new Estoque
+                {
+                    ClienteId = clienteId,
+                    OrcamentoMateriais = new List<OrcamentoMaterial>()
+                };
+
+            var orcamentoMaterial = _mapeamentoEntidade.ConstruirCom(viewModel);
+
+            estoque.OrcamentoMateriais.Add(orcamentoMaterial);
+
+            _orcamentoRepositorio.CrirOuAtualizar(estoque);
+
+            return estoque;
         }
 
         public bool Apagar(int id) =>
@@ -47,6 +69,11 @@ namespace Servico.Servicos
             _mapeamentoEntidade.AtualizarCampos(fornecedor, viewModel);
             _fornecedorReposistorio.Editar(fornecedor);
             return true;
+        }
+
+        public List<OrcamentoItemIndexViewModel> ObterItensOrcamentoAtual(int idUsuarioLogado)
+        {
+            throw new NotImplementedException();
         }
 
         public Fornecedor? ObterPorId(int id) =>

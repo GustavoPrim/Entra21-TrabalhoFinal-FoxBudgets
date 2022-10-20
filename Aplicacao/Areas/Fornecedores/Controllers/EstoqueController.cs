@@ -14,15 +14,15 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
     {
         private readonly IEstoqueServico _estoqueServico;
         private readonly ISessao _sessao;
-        private readonly IOrcamentoServico _orcamentoServico;
+        private readonly IFornecedorServico _fornecedorServico;
         private readonly IMaterialService _materialService;
 
-        public EstoqueController(IEstoqueServico estoqueServico, ISessao sessao, IOrcamentoServico orcamentoServico, IMaterialService materialService)
+        public EstoqueController(IEstoqueServico estoqueServico, ISessao sessao, IMaterialService materialService, IFornecedorServico fornecedorServico)
         {
             _estoqueServico = estoqueServico;
             _sessao = sessao;
-            _orcamentoServico = orcamentoServico;
             _materialService = materialService;
+            _fornecedorServico = fornecedorServico;
         }
 
         [HttpGet]
@@ -109,18 +109,18 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
         }
 
         [HttpPost("adicionarProduto")]
-        public IActionResult AdicionarProduto(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        public IActionResult AdicionarProduto(EstoqueCadastrarViewModel estoqueCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Materiais = _materialService.ObterTodos();
                 ViewBag.Administradores = ObterOrcamentos();
-                return View(orcamentoCadastrarViewModel);
+                return View(estoqueCadastrarViewModel);
             }
 
             var fornecedorId = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, fornecedorId);
+            _fornecedorServico.Adicionar(estoqueCadastrarViewModel, fornecedorId);
 
             return Ok();
         }
@@ -137,7 +137,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
         {
             var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
+            var itens = _fornecedorServico.ObterItensOrcamentoAtual(idUsuarioLogado);
 
             return Ok(itens);
         }
