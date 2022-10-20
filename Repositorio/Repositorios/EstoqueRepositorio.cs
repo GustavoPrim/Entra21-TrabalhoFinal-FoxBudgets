@@ -64,7 +64,7 @@ namespace Repositorio.Repositorios
             var estoque = _contexto.Estoque
                 .Where(x => x.FornecedorId == idFornecedor)
                 .Include(x => x.EstoqueMaterial)
-                .ThenInclude(x => x.Material)
+                //.ThenInclude(x => x.Material)
                 .FirstOrDefault();
             return estoque;
         }
