@@ -9,7 +9,7 @@
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
-        type="text/css">
+          type="text/css">
     <link href="~/Tema/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
     <link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
@@ -44,42 +44,15 @@
             </div>
         </div>
 
-        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-            <ul class="navbar-nav flex-row align-items-center h-100">
-                <li class="nav-item nav-item-dropdown-lg dropdown">
-                </li>
+        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end nav-link" style="margin-top: 12px;">
+			<ul class="navbar-nav flex-row align-items-center h-100">
+				<li class="nav-item nav-item-dropdown-lg dropdown"></li>
+			</ul>
 
-                <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
-                        data-toggle="dropdown">
-                        <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                            height="34" alt="">
-                            <p>@Context.Items["UsuarioNome"]</p>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
-                                   class="font-weight-semibold">Sair da conta</a>
-                            </div>
-                        </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                     
-                        </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                        </div>
-
-                        <div class="dropdown-item d-flex py-2">
-
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+			<div class="container" style="text-align: center">
+				<a class="nav-link" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
+			</div>
+		</div>
     </div>
     <!-- /main navbar -->
     <!-- Page header -->
@@ -93,7 +66,7 @@
                 <div class="breadcrumb justify-content-center">
                     <div class="breadcrumb-elements-item dropdown p-0">
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>                            
+                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
                         </div>
@@ -118,12 +91,7 @@
                         <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
                         <div>
                             <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
-                                <i class="icon-transmission"></i>
-                            </button>
-
-                            <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
+                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
                                 <i class="icon-cross2"></i>
                             </button>
                         </div>
@@ -132,16 +100,9 @@
                 <!-- /header -->
                 <!-- User menu -->
                 <div class="sidebar-section sidebar-user">
-                    <div class="sidebar-section-body d-flex justify-content-center">
-                        <a href="#">
-                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                alt="">
-                        </a>
-
-                        <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
-                                Administrador
-                            </div>
+                    <div class="sidebar-section-body d-flex">
+                        <div class="all">
+                            <strong class="all" style="font-size: large; color: white;"> @Context.Items["UsuarioNome"!] </strong>
                         </div>
                     </div>
                 </div>
@@ -153,10 +114,10 @@
                         <!-- Main -->
                         <li class="nav-item-header pt-0">
                             <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu"
-                                title="Main"></i>
+                                                                                              title="Main"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="/administrador" class="nav-link active" style="background-color: darkorange">
+                            <a href="/administrador" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -165,33 +126,48 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <!-- <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Operações</span></a>-->
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Cadastros</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
 
-                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Cadastrar"
-                                        class="nav-link">Administrador</a></li>
-                                <li class="nav-item"><a asp-controller="Cliente" asp-action="Cadastrar"
-                                        class="nav-link">Cliente</a></li>
-                                <li class="nav-item"><a asp-controller="Fornecedor" asp-action="Cadastrar"
-                                        class="nav-link">Fornecedor</a></li>
-                                <li class="nav-item"><a asp-controller="Material" asp-action="Cadastrar"
-                                        class="nav-link">Materiais</a></li>
+                                <li class="nav-item">
+                                    <a asp-controller="Administrador" asp-action="Cadastrar"
+                                       class="nav-link">Administrador</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Cliente" asp-action="Cadastrar"
+                                       class="nav-link">Cliente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Fornecedor" asp-action="Cadastrar"
+                                       class="nav-link">Fornecedor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Material" asp-action="Cadastrar"
+                                       class="nav-link">Materiais</a>
+                                </li>
                             </ul>
                         </li>
 
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Listas</span></a>
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                <li class="nav-item"><a asp-controller="Administrador" asp-action="Index"
-                                        class="nav-link">Administradores</a></li>
-                                <li class="nav-item"><a asp-controller="Cliente" asp-action="Index"
-                                        class="nav-link">Clientes</a></li>
-                                <li class="nav-item"><a asp-controller="Fornecedor" asp-action="Index"
-                                        class="nav-link">Fornecedores</a></li>
-                                <li class="nav-item"><a asp-controller="Material" asp-action="Index"
-                                        class="nav-link">Materiais</a></li>
+                                <li class="nav-item">
+                                    <a asp-controller="Administrador" asp-action="Index"
+                                       class="nav-link">Administradores</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Cliente" asp-action="Index"
+                                       class="nav-link">Clientes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Fornecedor" asp-action="Index"
+                                       class="nav-link">Fornecedores</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Material" asp-action="Index"
+                                       class="nav-link">Materiais</a>
+                                </li>
                             </ul>
 
                         </li>
@@ -222,7 +198,6 @@
 
     </div>
     <!-- /page content -->
-
     <!-- Core JS files -->
     <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
     <script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>

@@ -9,7 +9,7 @@
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
-        type="text/css">
+          type="text/css">
     <link href="~/Tema/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
     <link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
@@ -46,38 +46,16 @@
             </div>
         </div>
 
-        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-          <ul class="navbar-nav flex-row align-items-center h-100">
-                <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                    <a href="#"
-                        class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
-                        data-toggle="dropdown">
-                        <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                            height="34" alt="">
-                        <p>@Context.Items["UsuarioNome"]</p>
-                    </a>
+        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end nav-link" style="margin-top: 12px;">
+			<ul class="navbar-nav flex-row align-items-center h-100">
+				<li class="nav-item nav-item-dropdown-lg dropdown"></li>
+			</ul>
 
-                    <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
-                        <div class="dropdown-item d-flex py-2">
-        
-                        </div>
-
-                        <div class="dropdown-item d-flex py-2">
-                            <div class="flex-1">
-                                <div class="font-weight-semibold">Redefinir Senha</div>
-                                 <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
-                                  class="font-weight-semibold">Sair da conta</a>
-                            </div>
-                            <span>
-                                class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                                <i class="icon-arrow-right8"></i>
-                            </span>
-                        </div>
-                         
-                        </div>
-                    </div>
-                </div>
-        </ul>
+			<div class="container" style="text-align: center">
+				<a class="nav-link" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
+			</div>
+		</div>
+    </div>
     <!-- /main navbar -->
     <!-- Page header -->
     <div class="page-header mb-2">
@@ -88,14 +66,14 @@
 
             <div class="header-elements d-none">
                 <div class="breadcrumb justify-content-center">
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
-                            <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
-                        </div>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
+                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- /page header -->
     <!-- Page content -->
@@ -113,12 +91,12 @@
                         <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
                         <div>
                             <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
                                 <i class="icon-transmission"></i>
                             </button>
 
                             <button type="button"
-                                class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
+                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
                                 <i class="icon-cross2"></i>
                             </button>
                         </div>
@@ -127,16 +105,9 @@
                 <!-- /header -->
                 <!-- User menu -->
                 <div class="sidebar-section sidebar-user">
-                    <div class="sidebar-section-body d-flex justify-content-center">
-                        <a href="#">
-                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                alt="">
-                        </a>
-
-                        <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
-                                Cliente
-                            </div>
+                    <div class="sidebar-section-body d-flex">
+                        <div class="all">
+                            <strong class="all" style="font-size: large; color: white;"> @Context.Items["UsuarioNome"!] </strong>
                         </div>
                     </div>
                 </div>
@@ -148,10 +119,10 @@
                         <!-- Main -->
                         <li class="nav-item-header pt-0">
                             <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu"
-                                title="Main"></i>
+                                                                                              title="Main"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="/cliente" class="nav-link active" style="background-color: darkorange">
+                            <a href="/cliente" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -162,10 +133,14 @@
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Orçamentos</span></a>
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                <li class="nav-item"><a asp-controller="Cotacao" asp-action="cotar"
-                                        class="nav-link">Cotar</a></li>
-                                <li class="nav-item"><a asp-controller="Orcamento" asp-action="Realizados"
-                                        class="nav-link">Realizados</a></li>
+                                <li class="nav-item">
+                                    <a asp-controller="Cotacao" asp-action="cotar"
+                                       class="nav-link">Cotar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Orcamento" asp-action="Realizados"
+                                       class="nav-link">Realizados</a>
+                                </li>
                             </ul>
                         </li>
                         <!-- /layout -->
@@ -199,19 +174,23 @@
     <div class="navbar navbar-expand-lg navbar-light">
         <div class="text-center d-lg-none w-100">
             <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
-                data-target="#navbar-footer">
+                    data-target="#navbar-footer">
                 <i class="icon-unfold mr-2"></i>
                 Footer
             </button>
         </div>
 
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item"><a
-                        href=""
-                        class="navbar-nav-link font-weight-semibold"><span class="text-pink"><i
-                                class="icon-cart2 mr-2"></i> Carrinho</span></a></li>
-            </ul>
-        </div>
+        <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+                <a href=""
+                   class="navbar-nav-link font-weight-semibold">
+                    <span class="text-pink">
+                        <i class="icon-cart2 mr-2"></i> Carrinho
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
     </div>
     <!-- /footer -->
     <!-- Notifications -->
@@ -221,7 +200,9 @@
                 <div class="modal-header bg-transparent border-0 align-items-center">
                     <h5 class="modal-title font-weight-semibold">Notifications</h5>
                     <button type="button" class="btn btn-icon btn-light btn-sm border-0 rounded-pill ml-auto"
-                        data-dismiss="modal"><i class="icon-cross2"></i></button>
+                            data-dismiss="modal">
+                        <i class="icon-cross2"></i>
+                    </button>
                 </div>
 
                 <div class="modal-body p-0">
@@ -229,46 +210,123 @@
                         <div class="d-flex mb-3">
                             <a href="#" class="mr-3">
                                 <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
+                                     height="36" class="rounded-circle" alt="">
                             </a>
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="d-flex mb-3">
-                            <a href="#" class="mr-3">
-                                <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
-                                    height="36" class="rounded-circle" alt="">
-                            </a>
+                    <div class="d-flex mb-3">
+                        <a href="#" class="mr-3">
+                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" width="36"
+                                 height="36" class="rounded-circle" alt="">
+                        </a>
 
-                        
 
-    <!-- Core JS files -->
-    <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
-    <script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>
-    <!-- /core JS files -->
-    <!-- Theme JS files -->
-    <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/pickers/daterangepicker.js"></script>
 
-    <script src="~/Tema/assets/js/app.js"></script>
-    <script src="~/Tema/global_assets/js/demo_pages/dashboard.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/streamgraph.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/sparklines.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/lines.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/areas.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/donuts.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bars.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/progress.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/heatmaps.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+                        <!-- Core JS files -->
+                        <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
+                        <script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>
+                        <!-- /core JS files -->
+                        <!-- Theme JS files -->
+                        <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+                        <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+                        <script src="~/Tema/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+                        <script src="~/Tema/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+
+                        <script src="~/Tema/assets/js/app.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_pages/dashboard.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/streamgraph.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/sparklines.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/lines.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/areas.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/donuts.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bars.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/progress.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/heatmaps.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
+                        <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
+                        <script src="~/base-theme-master/config/data.json"></script>
+                        <script src="~/base-theme-master/config/defaults.txt"></script>
+                        <script src="~/base-theme-master/config/sections.txt"></script>
+                        <script src="~/base-theme-master/config/settings.txt"></script>
+                        <script src="~/base-theme-master/config/translations.txt"></script>
+                        <script src="~/base-theme-master/config/variants.txt"></script>
+                        <script src="~/base-theme-master/css/clientes/site.css"></script>
+                        <script src="~/base-theme-master/css/fornecedores/site.css"></script>
+                        <script src="~/base-theme-master/css/fornecedores/style.css"></script>
+                        <script src="~/base-theme-master/css/fornecedores/imgConfig.css"></script>
+                        <script src="~/base-theme-master/css/fornecedores/SiteFornecedor.css"></script>
+                        <script src="~/base-theme-master/js/clientes/orcamento/cotar-select2.js"></script>
+                        <script src="~/base-theme-master/js/clientes/orcamento/orcamento-cotar.js"></script>
+                        <script src="~/base-theme-master/js/clientes/orcamento/orcamento-datatable.js"></script>
+                        <script src="~/base-theme-master/js/Fornecedor/cotar-select2.js"></script>
+                        <script src="~/base-theme-master/js/Fornecedor/orcamento-cotar.js"></script>
+                        <script src="~/base-theme-master/js/Fornecedor/orcamento-datable.js"></script>
+                        <script src="~/base-theme-master/js/usuarios/usuarioValidacao.js"></script>
+                        <script src="~/base-theme-master/js/site.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.css.map/bootstrap.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.css.map/bootstrap.min.css/bootstrap.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.rtl.css/bootstrap.rtl.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.rtl.css/bootstrap.rtl.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap.css/bootstrap.rtl.css/bootstrap.rtl.min.css/bootstrap.rtl.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.min.css/bootstrap-grid.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.rtl.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.rtl.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.rtl.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-grid.css/bootstrap-grid.rtl.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-reboot.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-reboot.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-reboot.min.css/bootstrap-reboot.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.min.css/bootstrap-utilities.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.rtl.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.rtl.css/bootstrap-utilities.rtl.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.rtl.css/bootstrap-utilities.rtl.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.rtl.css/bootstrap-utilities.rtl.min.css"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/css/bootstrap-reboot.css/bootstrap-utilities.css/bootstrap-utilities.rtl.css/bootstrap-utilities.rtl.min.css/bootstrap-utilities.rtl.min.css.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.bundle.js.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.bundle.min.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.bundle.min.js/bootstrap.bundle.min.js.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.esm.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.esm.js.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.esm.min.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.bundle.js/bootstrap.esm.min.js/bootstrap.esm.min.js.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.js/bootstrap.min.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/dist/js/bootstrap.js/bootstrap.js/bootstrap.min.js/bootstrap.min.js.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery/dist"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery/dist/jquery.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery/dist/jquery.js/jquery.min.js"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery/dist/jquery.js/jquery.min.js/jquery.min.map"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery-validation"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery-validation/dist"></script>
+                        <script src="~/base-theme-master/lib/bootstrap/jquery-validation/dist/additional-methods.js"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation/dist/additional-methods.js/additional-methods.min.js"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation/dist/jquery.validate.js"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation/dist/jquery.validate.js/jquery.validate.min.js"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation-unobtrusive"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+                        <script src="~/base-theme-master/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js/jquery.validate.unobtrusive.min.js"></script>
+
                         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-    <!-- /theme JS files -->
-    <!-- /notifications -->
-    @await RenderSectionAsync("Scripts", required: false)
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+                        <!-- /theme JS files -->
+                        <!-- /notifications -->
+                        @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

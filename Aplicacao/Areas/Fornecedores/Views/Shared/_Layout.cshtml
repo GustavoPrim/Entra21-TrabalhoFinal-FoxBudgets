@@ -2,243 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>FoxBudgets</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>FoxBudgets</title>
 
-    <!-- Global stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
-          type="text/css">
-    <link href="~/Tema/global_assets/images/Fox-Ico.png" rel="stylesheet" type="text/css">
-    <link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
-    <!-- /global stylesheets -->
-    <link rel="shortcut icon" href="~/Tema/global_assets/images/Fox-Ico.png" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="~/css/clientes/Site.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+		  type="text/css">
+	<link href="~/Tema/global_assets/images/Fox-Ico.png" rel="stylesheet" type="text/css">
+	<link href="~/Tema/assets/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="~/css/imgConfig.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+	<link rel="shortcut icon" href="~/Tema/global_assets/images/Fox-Ico.png" />
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<link href="~/css/clientes/Site.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
 
 </head>
 
 <body>
 
-    <!-- Main navbar -->
-    <div class="navbar navbar-expand-lg navbar-light navbar-static">
-        <div class="d-flex flex-1 d-lg-none">
-            <button type="button" class="navbar-toggler sidebar-mobile-main-toggle">
-                <i class="icon-transmission"></i>
-            </button>
-        </div>
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-lg navbar-light navbar-static">
+		<div class="d-flex flex-1 d-lg-none">
+			<button type="button" class="navbar-toggler sidebar-mobile-main-toggle">
+				<i class="icon-transmission"></i>
+			</button>
+		</div>
 
-        <div class="navbar-brand text-center text-lg-left">
-            <a href="/fornecedor" class="d-inline-block">
-                <img src="~/Tema/global_assets/images/FOXXtest.png" class="layout-imagem d-none d-sm-block" alt="">
-                <img src="~/Tema/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="">
-            </a>
-        </div>
+		<div class="navbar-brand text-center text-lg-left">
+			<a href="/fornecedor" class="d-inline-block">
+				<img src="~/Tema/global_assets/images/FOXXtest.png" class="layout-imagem d-none d-sm-block" alt="">
+				<img src="~/Tema/global_assets/images/logo_icon_light.png" class="d-sm-none" alt="">
+			</a>
+		</div>
 
-        <div class="collapse navbar-collapse order-2 order-lg-1" id="navbar_search">
-            <div class="navbar-search d-flex align-items-center py-3 py-lg-0">
-                <div class="form-group-feedback form-group-feedback-left flex-grow-1">
-                    <div class="form-control-feedback">
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="collapse navbar-collapse order-2 order-lg-1" id="navbar_search">
+			<div class="navbar-search d-flex align-items-center py-3 py-lg-0">
+				<div class="form-group-feedback form-group-feedback-left flex-grow-1">
+					<div class="form-control-feedback">
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
+		<div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end nav-link" style="margin-top: 12px;">
+			<ul class="navbar-nav flex-row align-items-center h-100">
+				<li class="nav-item nav-item-dropdown-lg dropdown"></li>
+			</ul>
 
-            <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                <a href="#"
-                   class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
-                   data-toggle="dropdown">
-                    <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                         height="34" alt="">
-                    <p>@Context.Items["UsuarioNome"]</p>
-                </a>
+			<div class="container" style="text-align: center">
+				<a class="nav-link" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
+			</div>
+		</div>
+	</div>
+	<!-- /main navbar -->
+	<!-- Page header -->
+	<div class="page-header mb-2">
+		<div class="breadcrumb-line header-elements-lg-inline border-bottom">
+			<div class="d-flex">
+				<a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+			</div>
+			<div class="dropdown-menu dropdown-menu-right">
+				<a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+	</div>
+	<!-- /page header -->
+	<!-- Page content -->
+	<div class="page-content pt-0">
 
-                <div class="dropdown-menu dropdown-menu-right wmin-lg-250 py-2">
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <a asp-area="Publico" asp-controller="Login" asp-action="Sair"
-                               class="font-weight-semibold">Sair da conta</a>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
+		<!-- Main sidebar -->
+		<div class="sidebar sidebar-light sidebar-main sidebar-expand-lg align-self-start">
 
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <div class="font-weight-semibold">Privacy</div>
-                            <span class="text-muted font-size-sm">Access, permissions</span>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
 
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <div class="font-weight-semibold">Pagamentos</div>
-                        </div>
-                        <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                            <i class="icon-arrow-right8"></i>
-                        </span>
-                    </div>
-                    <span class="btn btn-dark-100 btn-icon btn-sm text-body border-transparent rounded-pill ml-1">
-                        <i class="icon-arrow-right8"></i>
-                    </span>
-                </div>
-        </div>
-    </div>
-    <!-- /main navbar -->
-    <!-- Page header -->
-    <div class="page-header mb-2">
-        <div class="breadcrumb-line header-elements-lg-inline border-bottom">
-            <div class="d-flex">
-                <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
-            </div>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Segurança da Conta</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> Configurações</a>
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </div>
-            </div>
-    <!-- /page header -->
-    <!-- Page content -->
-    <div class="page-content pt-0">
+				<!-- Header -->
+				<div class="sidebar-section sidebar-header">
+					<div class="sidebar-section-body d-flex align-items-center justify-content-center pb-0">
+						<h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
+						<div>
+							<button type="button"
+									class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+								<i class="icon-transmission"></i>
+							</button>
 
-        <!-- Main sidebar -->
-        <div class="sidebar sidebar-light sidebar-main sidebar-expand-lg align-self-start">
+							<button type="button"
+									class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
+								<i class="icon-cross2"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- /header -->
+				<!-- User menu -->
+				<div class="sidebar-section sidebar-user">
+					<div class="sidebar-section-body d-flex">
+						<div class="all">
+							<strong class="all" style="font-size: large; color: white;"> @Context.Items["UsuarioNome"!] </strong>
+						</div>
+					</div>
+				</div>
+				<!-- /user menu -->
+				<!-- Main navigation -->
+				<div class="sidebar-section">
+					<ul class="nav nav-sidebar" data-nav-type="accordion">
 
-            <!-- Sidebar content -->
-            <div class="sidebar-content">
+						<!-- Main -->
+						<li class="nav-item-header pt-0">
+							<div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu"
+																							  title="Main"></i>
+						</li>
+						<li class="nav-item">
+							<a href="/fornecedor" class="nav-link active">
+								<i class="icon-home4"></i>
+								<span>
+									Dashboard
+									<span class="d-block font-weight-normal opacity-50"></span>
+								</span>
+							</a>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Estoque</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+								<li class="nav-item">
+									<a asp-controller="Estoque" asp-action="Cadastrar" class="nav-link">Materiais</a>
+								</li>
+								<li class="nav-item">
+									<a asp-controller="Estoque" asp-action="" class="nav-link">Consulta</a>
+								</li>
+							</ul>
+						</li>
+						<!-- /layout -->
 
-                <!-- Header -->
-                <div class="sidebar-section sidebar-header">
-                    <div class="sidebar-section-body d-flex align-items-center justify-content-center pb-0">
-                        <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
-                        <div>
-                            <button type="button"
-                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
-                                <i class="icon-transmission"></i>
-                            </button>
+					</ul>
+				</div>
+				<!-- /main navigation -->
 
-                            <button type="button"
-                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
-                                <i class="icon-cross2"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /header -->
-                <!-- User menu -->
-                <div class="sidebar-section sidebar-user">
-                    <div class="sidebar-section-body d-flex justify-content-center">
-                        <a href="#">
-                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                 alt="">
-                        </a>
+			</div>
+			<!-- /sidebar content -->
 
-                        <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
-                                Fornecedor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /user menu -->
-                <!-- Main navigation -->
-                <div class="sidebar-section">
-                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+		</div>
+		<!-- /main sidebar -->
+		<!-- Main content -->
+		<div class="content-wrapper">
 
-                        <!-- Main -->
-                        <li class="nav-item-header pt-0">
-                            <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu"
-                                                                                              title="Main"></i>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/fornecedor" class="nav-link active" style="background-color: darkorange">
-                                <i class="icon-home4"></i>
-                                <span>
-                                    Dashboard
-                                    <span class="d-block font-weight-normal opacity-50"></span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Estoque</span></a>
+			<!-- Content area -->
+			<div class="content">
 
-                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+				@RenderBody()
 
-                                <li class="nav-item">
-                                    <a asp-controller="Estoque" asp-action="Cadastrar" class="nav-link">Materiais</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-controller="Estoque" asp-action="" class="nav-link">Consulta</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- /layout -->
+			</div>
+			<!-- /content area -->
 
-                    </ul>
-                </div>
-                <!-- /main navigation -->
+		</div>
+		<!-- /main content -->
 
-            </div>
-            <!-- /sidebar content -->
+	</div>
+	<!-- /page content -->
+	<!-- Footer -->
+	<!-- /footer -->
+	<!-- Core JS files -->
+	<script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
+	<script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>
+	<!-- /core JS files -->
+	<!-- Theme JS files -->
+	<script src="~/Tema/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script src="~/Tema/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script src="~/Tema/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script src="~/Tema/global_assets/js/plugins/pickers/daterangepicker.js"></script>
 
-        </div>
-        <!-- /main sidebar -->
-        <!-- Main content -->
-        <div class="content-wrapper">
+	<script src="~/Tema/assets/js/app.js"></script>
+	<script src="~/Tema/global_assets/js/demo_pages/dashboard.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/streamgraph.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/sparklines.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/lines.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/areas.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/donuts.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bars.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/progress.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/heatmaps.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
+	<script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
 
-            <!-- Content area -->
-            <div class="content">
-
-                @RenderBody()
-
-            </div>
-            <!-- /content area -->
-
-        </div>
-        <!-- /main content -->
-
-    </div>
-    <!-- /page content -->
-    <!-- Footer -->
-    <!-- /footer -->
-    <!-- Core JS files -->
-    <script src="~/Tema/global_assets/js/main/jquery.min.js"></script>
-    <script src="~/Tema/global_assets/js/main/bootstrap.bundle.min.js"></script>
-    <!-- /core JS files -->
-    <!-- Theme JS files -->
-    <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script src="~/Tema/global_assets/js/plugins/pickers/daterangepicker.js"></script>
-
-    <script src="~/Tema/assets/js/app.js"></script>
-    <script src="~/Tema/global_assets/js/demo_pages/dashboard.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/streamgraph.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/sparklines.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/lines.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/areas.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/donuts.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bars.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/progress.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/heatmaps.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/pies.js"></script>
-    <script src="~/Tema/global_assets/js/demo_charts/pages/dashboard/dark/bullets.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-
-    <!-- /theme JS files -->
-    @await RenderSectionAsync("Scripts", required: false)
+	<!-- /theme JS files -->
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
