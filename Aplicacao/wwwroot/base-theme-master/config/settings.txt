@@ -1,0 +1,630 @@
+Colores de tu marca
+	meta
+		icon = paint-brush
+		advanced = false
+	color
+		name = primary_color
+		description = Color principal
+	subtitle
+		subtitle = <div class='js-color-description'>Aplica a los botones.</div>
+	color
+		name = accent_color
+		description = Color de acento
+	subtitle
+		subtitle = <div class='js-color-description'>Aplica a promociones y a mensajes de descuento, envío gratis y cuotas sin interés.</div>
+	title
+		title = Colores de contraste
+	color
+		name = background_color
+		description = Color de fondo
+	color
+		name = text_color
+		description = Color de textos
+	description
+		description = Para facilitar la lectura, asegurate de que los colores contrasten entre sí.
+	title
+		title = Combinaciones predeterminadas
+	description
+		description = Ideales para restablecer los colores por defecto del diseño.
+	palettes
+		palettes
+			palette_1
+				primary_color = #000000
+				background_color = #FFFFFF
+				text_color = #000000
+				accent_color = #808E25
+			palette_2
+				primary_color = #F29466
+				background_color = #F9F9F9
+				text_color = #CC8563
+				accent_color = #F29466
+			palette_3
+				primary_color = #86C2B4
+				background_color = #FFF9EE
+				text_color = #0F5672
+				accent_color = #86C2B4
+	subtitle
+		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_ES/124497-colores-de-tu-marca/como-cambiar-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>
+		
+Tipo de letra
+	meta
+		icon = font
+		advanced = false
+	font
+		name = font_headings
+		description = Títulos de páginas y banners
+		values
+			"Muli", sans-serif = Muli
+			"Playfair Display", Helvetica, Arial, sans-serif = Playfair
+			"Libre Baskerville", serif = Libre Baskerville
+			"Open Sans",sans-serif = Open Sans
+			"Slabo 27px", serif = Slabo
+			"Lora", serif = Lora			
+			"Droid Sans", Sans-serif = Droid Sans
+	font
+		name = font_rest
+		description = Texto en el resto del sitio
+		values
+			"Muli", sans-serif = Muli
+			"Lato", Helvetica, Arial, sans-serif = Lato
+			"Libre Baskerville", serif = Libre Baskerville
+			"Open Sans",sans-serif = Open Sans
+			"Slabo 27px", serif = Slabo
+			"Lora", serif = Lora			
+			"Droid Sans", Sans-serif = Droid Sans
+
+
+Encabezado
+	meta
+		icon = arrow-up
+		advanced = true
+	dropdown
+		name = head_background
+		description = Color de fondo del encabezado
+		values
+			light = Color de fondo
+			dark = Color de textos
+	checkbox
+		name = head_transparent
+		description = Encabezado transparente sobre el carrusel de imágenes
+	checkbox
+		name = head_fix
+		description = Encabezado siempre visible al navegar la tienda
+	title
+		title = Barra de anuncio
+	checkbox
+		name = ad_bar
+		description = Mostrar barra de anuncio
+	i18n_input
+		name = ad_text
+		description = Mensaje
+	i18n_input
+		name = ad_url
+		description = Link (opcional)
+
+
+Página de inicio
+	meta
+		icon = home
+		advanced = true
+	collapse
+		title = Carrusel de imágenes
+	subtitle
+		subtitle = <span data-toggle-info='show-on_slider_mobile-active'>Imágenes para computadoras</span>
+	gallery
+		name = slider
+		gallery_image = Agregar imagen
+		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
+		gallery_width = 1580
+	checkbox
+		name = toggle_slider_mobile
+		description = Cargar otras imágenes para celulares
+	subtitle
+		subtitle = <span data-toggle-info='show-on_slider_mobile-active'>Imágenes para celulares</span>
+	gallery
+		name = slider_mobile
+		gallery_image = Agregar imagen
+		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
+		gallery_width = 500
+		gallery_height = 890
+	subtitle
+		subtitle = <span class='js-instatheme-carrusel-info' data-toggle-info='show-on_slider_mobile-inactive'></span><br/><a target='_blank' data-toggle-info='show-on_slider_mobile-inactive' href='https://ayuda.tiendanube.com/es/articles/3297783-como-usar-el-carrusel-de-imagenes-para-las-plantillas-idea-bahia-y-amazonas'>¿Cómo diseñar las imágenes para tu carrusel?</a>
+	collapse
+		title = Información de envíos, pagos y compra
+	checkbox
+		name = banner_services
+		description = Mostrar los banners en la página principal
+	subtitle
+		subtitle = BANNER 1
+	dropdown
+		name = banner_services_01_icon
+		description = Ícono
+		values
+			shipping = Envíos
+			card = Tarjetas de crédito
+			security = Seguridad
+			returns = Cambios y devoluciones
+			whatsapp = WhatsApp
+			promotions = Promociones
+			cash = Pago en efectivo
+	i18n_input
+		name = banner_services_01_title
+		description = Título
+	i18n_input
+		name = banner_services_01_description
+		description = Descripción
+	i18n_input
+		name = banner_services_01_url
+		description = Link
+	subtitle
+		subtitle = BANNER 2
+	dropdown
+		name = banner_services_02_icon
+		description = Ícono
+		values
+			shipping = Envíos
+			card = Tarjetas de crédito
+			security = Seguridad
+			returns = Cambios y devoluciones
+			whatsapp = WhatsApp
+			promotions = Promociones
+			cash = Pago en efectivo
+	i18n_input
+		name = banner_services_02_title
+		description = Título
+	i18n_input
+		name = banner_services_02_description
+		description = Descripción
+	i18n_input
+		name = banner_services_02_url
+		description = Link
+	subtitle
+		subtitle = BANNER 3
+	dropdown
+		name = banner_services_03_icon
+		description = Ícono
+		values
+			shipping = Envíos
+			card = Tarjetas de crédito
+			security = Seguridad
+			returns = Cambios y devoluciones
+			whatsapp = WhatsApp
+			promotions = Promociones
+			cash = Pago en efectivo
+	i18n_input
+		name = banner_services_03_title
+		description = Título
+	i18n_input
+		name = banner_services_03_description
+		description = Descripción
+	i18n_input
+		name = banner_services_03_url
+		description = Link
+
+	collapse
+		title = Mensaje institucional
+	i18n_input
+		name = welcome_message
+		description = Título
+	i18n_input
+		name = welcome_text
+		description = Descripción
+
+	collapse
+		title = Banners de categorías
+	description
+		description = Los banners se mostrarán de izquierda a derecha en computadoras y de arriba hacia abajo en celulares
+	checkbox
+		name = banners_full
+		description = Mostrar banner a todo el ancho de la pantalla en computadoras
+	subtitle
+		subtitle = CATEGORÍA 1
+	checkbox
+		name = banner_01_show
+		description = Mostrar banner
+	image
+		original = banner_01.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 600
+		height = 600
+	i18n_input
+		name = banner_01_title
+		description = Título
+	i18n_input
+		name = banner_01_description
+		description = Descripción
+	i18n_input
+		name = banner_01_button
+		description = Texto del botón
+	i18n_input
+		name = banner_01_url
+		description = Link
+	subtitle
+		subtitle = CATEGORÍA 2
+	checkbox
+		name = banner_02_show
+		description = Mostrar banner
+	image
+		original = banner_02.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 600
+		height = 600
+	i18n_input
+		name = banner_02_title
+		description = Título
+	i18n_input
+		name = banner_02_description
+		description = Descripción
+	i18n_input
+		name = banner_02_button
+		description = Texto del botón
+	i18n_input
+		name = banner_02_url
+		description = Link
+	subtitle
+		subtitle = CATEGORÍA 3
+	checkbox
+		name = banner_03_show
+		description = Mostrar banner
+	image
+		original = banner_03.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 600
+		height = 600
+	i18n_input
+		name = banner_03_title
+		description = Título
+	i18n_input
+		name = banner_03_description
+		description = Descripción
+	i18n_input
+		name = banner_03_button
+		description = Texto del botón
+	i18n_input
+		name = banner_03_url
+		description = Link
+
+	collapse
+		title = Módulos de imagen y texto
+	description
+		description = Los módulos se mostrarán de izquierda a derecha en computadoras y de arriba hacia abajo en celulares
+	checkbox
+		name = modules_full
+		description = Mostrar módulos a todo el ancho de la pantalla en computadoras
+	subtitle
+		subtitle = MÓDULO 1
+	checkbox
+		name = module_01_show
+		description = Mostrar módulo
+	image
+		original = module_01.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 600
+		height = 400
+	dropdown
+		name = module_01_align
+		description = Alineación de la imagen
+		values
+			left = Izquierda
+			right = Derecha
+	i18n_input
+		name = module_01_title
+		description = Título
+	i18n_input
+		name = module_01_description
+		description = Descripción
+	i18n_input
+		name = module_01_button
+		description = Texto del botón
+	i18n_input
+		name = module_01_url
+		description = Link
+	subtitle
+		subtitle = MÓDULO 2
+	checkbox
+		name = module_02_show
+		description = Mostrar módulo
+	image
+		original = module_02.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 600
+		height = 400
+	dropdown
+		name = module_02_align
+		description = Alineación de la imagen
+		values
+			left = Izquierda
+			right = Derecha
+	i18n_input
+		name = module_02_title
+		description = Título
+	i18n_input
+		name = module_02_description
+		description = Descripción
+	i18n_input
+		name = module_02_button
+		description = Texto del botón
+	i18n_input
+		name = module_02_url
+		description = Link
+
+	collapse
+		title = Video
+	checkbox
+		name = video_full
+		description = Mostrar video a todo el ancho de la pantalla en computadoras
+	i18n_input
+		name = video_embed
+		description = Link (Youtube o Vimeo)
+	description
+		description = Ej: https://www.youtube.com/watch?v=dptrWehSI8c
+
+	collapse
+		title = Orden de secciones
+	dropdown
+		name = home_order_position_1
+		description = Posición 1
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_2
+		description = Posición 2
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_3
+		description = Posición 3
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_4
+		description = Posición 4
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_5
+		description = Posición 5
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_6
+		description = Posición 6
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+	dropdown
+		name = home_order_position_7
+		description = Posición 7
+		values
+			welcome = Mensaje institucional
+			products = Productos destacados
+			informatives = Información de envíos, pagos y compra
+			categories = Banners de categorías
+			modules = Módulos de imagen y texto
+			video = Video
+			instafeed = Publicaciones de Instagram
+			empty = Ninguno
+
+Listado de productos
+	meta
+		icon = list-ul
+		advanced = true
+	title
+		title = Imagen para las categorías
+	image
+		title = Cargar imagen (JPG, GIF, PNG)
+		original = banner-products.jpg
+		width = 1580
+		height = 220
+	subtitle
+		subtitle = Podés subir una imagen diferente para cada categoría <a target='_blank' href='/admin/categories/'>desde acá</a>
+	title
+		title = Filtros
+	checkbox
+		name = product_filters
+		description = Mostrar filtros en el listado de productos
+	title
+		title = Productos en el listado
+	dropdown
+		name = grid_columns
+		description = Cantidad de productos por fila
+		values
+			1 = 1 en celular y 3 en computadora
+			2 = 2 en celular y 4 en computadora
+	title
+		title = Título para Productos destacados
+	i18n_input
+		description = Título
+		name = featured_products_title
+	title
+		title = Título para productos relacionados
+	i18n_input
+		description = Título
+		name = products_related_title
+	title
+		title = Variantes de color
+	checkbox
+		name = product_color_variants
+		description = Mostrar variantes de color en listado de productos
+	title
+		title = Compra rápida
+	checkbox
+		name = quick_shop
+		description = Permitir que tus clientes puedan agregar productos a su carrito rápidamente desde el listado de productos
+
+Detalle de producto
+	meta
+		icon = cube
+		advanced = true
+	title
+		title = Formas de entrega
+	checkbox_global
+		name = shipping_calculator_product_page
+		description = Mostrar el calculador de costos de envío y locales físicos en la página de producto
+	subtitle
+		subtitle = <a target='_blank' href='/admin/shipping/'>Agregar medios de envío o locales físicos</a>
+	title
+		title = Último producto en stock
+	checkbox
+		name = last_product
+		description = Mostrar un mensaje para incentivar la compra cuando quede la última unidad de un producto
+	i18n_input
+		description = Mensaje
+		name = last_product_text
+
+Carrito de compras
+	meta
+		icon = shopping-cart
+		advanced = true
+	checkbox
+		name = continue_buying
+		description = Mostrar el botón 'Ver más productos' en el carrito de compras
+	title
+		title = Carrito de compras rápidas
+	checkbox
+		name = ajax_cart
+		description = Tus clientes pueden agregar y ver los productos que van a comprar sin necesidad de ir a otra página, ya que la información está siempre visible.
+	title
+		title = Monto mínimo de compra
+	text
+		name = cart_minimum_value
+		description = ¿Cuál es el monto mínimo que tus clientes deben gastar?
+		placeholder = Ej.: 3000
+	subtitle
+		subtitle = <span class='legend'>Ingresá solamente números</span>
+	title
+		title = Formas de entrega
+	checkbox_global
+		name = shipping_calculator_cart_page
+		description = Mostrar el calculador de costos de envío y locales físicos en el carrito
+	subtitle
+		subtitle = <a target='_blank' href='/admin/shipping/'>Agregar medios de envío o locales físicos</a>
+
+Pie de página
+	meta
+		icon = arrow-down
+		advanced = true
+	title
+		title = Menúes
+	subtitle
+		subtitle = Elegí el menú para el final de la página (footer). Si aún no configuraste ninguno, podés hacerlo <a target='_blank' href='/admin/navigation/?ref=submenu'>desde acá</a>
+	subtitle
+		subtitle = <a target='_blank' href='http://ayuda.tiendanube.com/diseno/como-cambio-el-menu-inferior-de-mi-tienda/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio el menú inferior de mi tienda?</a>
+	menu
+		name = footer_menu
+		description = ¿Qué menú vas a mostrar al final de la página?
+	title
+		title = Medios de envío
+	checkbox_global
+		name = shipping_show
+		description = Mostrar medios de envío en tu tienda
+	title
+		title = Medios de pago
+	checkbox_global
+		name = payments_show
+		description = Mostrar medios de pago en tu tienda
+	title
+		title = Suscripción al newsletter desde el footer
+	checkbox
+		name = news_show
+		description = Permitir que tus clientes se registren para recibir novedades desde el Pié de Página
+	i18n_input
+		name = news_title
+		description = Elegí el título para la sección 'Newsletter' en el footer
+	i18n_input
+		name = news_text
+		description = ¡Escribí algo para que tus clientes se suscriban a tu newsletter!
+	title
+		title = Sellos personalizados en el footer
+	description
+		description = Podés agregar sellos de dos formas: subiendo una imagen o pegando el código Javascript o HTML
+	image
+		title = Imagen del sello
+		original = seal_img.jpg
+		width = 24
+		height = 24
+		url = seal_url
+		url_description = [Opcional] Página web externa a la que llevará la imagen del sello al hacer clic
+	subtitle
+		subtitle = Código Javascript o HTML del sello
+	textarea
+		name = custom_seal_code
+	
+Redes sociales
+	meta
+		icon = share-alt
+		advanced = true
+	title
+		title = Publicaciones de Instagram
+	description
+		description = El Feed de Instagram muestra automáticamente tus últimas publicaciones en la página de inicio de tu tienda. Tu perfil debe ser público.
+	checkbox
+		name = show_instafeed
+		description = Mostrar tus publicaciones de Instagram en la página de inicio de tu tienda
+	subtitle
+		subtitle = Para mostrar tus publicaciones necesitás generar un token, <a target='_blank' href='https://ayuda.tiendanube.com/es_ES/como-mostrar-mis-publicaciones-de-instagram-en-mi-tienda'>¿cómo configurarlo?</a>
+	title
+		title = Facebook
+	subtitle
+		subtitle = Comentarios en el producto
+	checkbox
+		name = show_product_fb_comment_box
+		description = Permitir que tus clientes te dejen comentarios con su usuario de Facebook en la página de producto
+	text
+		name = fb_admins
+		description = ID de tu perfil de Facebook
+	subtitle
+		subtitle = Es necesario si querés moderar los comentarios. Podés obtenerlo <a target='_blank' href='https://findmyfbid.in/'>acá</a>
+
+Edición avanzada de CSS
+	meta
+		icon = code
+		advanced = true
+	title
+		title = Para diseñadores web
+	css_code
+		name = css_code
+		description = Acá podes escribir código CSS para que se muestre en tu tienda
+	subtitle
+		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_ES/123225-edicion-avanzada-de-css/como-editar-el-diseno-con-codigo-css'>¿Cómo edito el código CSS de mi tienda?</a>

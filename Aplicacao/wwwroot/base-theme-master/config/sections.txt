@@ -1,0 +1,3 @@
+primary
+	name = Destacados
+	description = Los productos aparecen destacados en la página de inicio (hasta 40 productos).
