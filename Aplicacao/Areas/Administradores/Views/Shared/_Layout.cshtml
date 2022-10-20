@@ -44,20 +44,15 @@
             </div>
         </div>
 
-        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end align-items-center">
-            <ul class="navbar-nav flex-row align-items-center h-100">
-                <li class="nav-item nav-item-dropdown-lg dropdown">
-                </li>
+        <div class="order-1 order-lg-2 d-flex flex-1 flex-lg-0 justify-content-end nav-link" style="margin-top: 12px;">
+			<ul class="navbar-nav flex-row align-items-center h-100">
+				<li class="nav-item nav-item-dropdown-lg dropdown"></li>
+			</ul>
 
-                <li class="nav-item nav-item-dropdown-lg dropdown dropdown-user h-100">
-                    <div class="dropdown-item d-flex py-2">
-                        <div class="flex-1">
-                            <a class="style-scope style-suggestive" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+			<div class="container" style="text-align: center">
+				<a class="nav-link" asp-area="Publico" asp-controller="Login" asp-action="Sair">Sair da conta</a>
+			</div>
+		</div>
     </div>
     <!-- /main navbar -->
     <!-- Page header -->
@@ -96,11 +91,6 @@
                         <h6 class="sidebar-resize-hide flex-1 mb-0">Menu</h6>
                         <div>
                             <button type="button"
-                                    class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
-                                <i class="icon-transmission"></i>
-                            </button>
-
-                            <button type="button"
                                     class="btn btn-outline-light text-body border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none">
                                 <i class="icon-cross2"></i>
                             </button>
@@ -110,16 +100,9 @@
                 <!-- /header -->
                 <!-- User menu -->
                 <div class="sidebar-section sidebar-user">
-                    <div class="sidebar-section-body d-flex justify-content-center">
-                        <a href="#">
-                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                 alt="">
-                        </a>
-
-                        <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-size-sm line-height-sm text-muted" style="padding: 11px 0;">
-                                Administrador
-                            </div>
+                    <div class="sidebar-section-body d-flex">
+                        <div class="all">
+                            <strong class="all" style="font-size: large; color: white;"> @Context.Items["UsuarioNome"!] </strong>
                         </div>
                     </div>
                 </div>
@@ -134,7 +117,7 @@
                                                                                               title="Main"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="/administrador" class="nav-link active" style="background-color: darkorange">
+                            <a href="/administrador" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -143,7 +126,6 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <!-- <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Operações</span></a>-->
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Cadastros</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Layouts">
