@@ -77,7 +77,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>    
     <td align="center">
       <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/">
-        <img src="300669769_3992799967612779_2332740019779596115_n](https://user-images.githubusercontent.com/105084941/196853536-ed1cddce-330d-4a33-b72a-14f746defa41.jpg" width="85px;"/><br>
+        <img src="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/"(https://user-images.githubusercontent.com/105084941/196853536-ed1cddce-330d-4a33-b72a-14f746defa41.jpg" width="85px;"/><br>
         <sub>
           <b>Gustavo Prim</b>
           <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -86,7 +86,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>
         <td align="center">
       <a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/">
-        <img src="299499855_152887930743132_3268598438971241317_n](https://user-images.githubusercontent.com/105084941/196853656-3a962e64-83e8-4824-b794-582055098ac0.jpg" width="85px;"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196859775-462bf06b-51cc-41aa-9820-25ff4f12e9e5.jpg"(https://user-images.githubusercontent.com/105084941/196853656-3a962e64-83e8-4824-b794-582055098ac0.jpg" width="85px;"/><br>
         <sub>
           <b>Lucas Alves Perez</b>
           <a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
