@@ -25,6 +25,12 @@ namespace Repositorio.Mapeamentos
                 .HasMaxLength(14)
                 .IsRequired()
                 .HasColumnName("cnpj");
+            
+            builder.Property(x => x.Cpf)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(14)
+                .IsRequired()
+                .HasColumnName("cpf");
 
             builder.Property(x => x.DataFundacao)
                 .HasColumnType("DATETIME2")
@@ -74,7 +80,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua 2 de Setembro 1890",
                     Email = "Willljdev@gmail.com",
                     Telefone = "991599314",
-                    Categoria = (int)AdministradorEnum.MaterialHidraulico,
+                    Categoria = AdministradorEnum.MaterialHidraulico,
                     Login = "Fornecedor1",
                     Senha = "1234".GerarHash()
                 },
@@ -82,12 +88,12 @@ namespace Repositorio.Mapeamentos
                 {
                     Id = 2,
                     Nome = "Materiais de construção VG",
-                    Cnpj = "12.123.456/0001-78",
+                    Cpf = "089.567.453-87",
                     DataFundacao = new DateTime(2019, 09, 18),
                     Endereco = "Rua Alberto Stein 199",
                     Email = "budgetsVG@gmail.com",
                     Telefone = "3381-7700",
-                    Categoria = (int)AdministradorEnum.MaterialBruto,
+                    Categoria = AdministradorEnum.MaterialBruto,
                     Login = "Fornecedor2",
                     Senha = "1234".GerarHash()
                 },
@@ -100,7 +106,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua General Osório 1567",
                     Email = "juquinhamoveis@gmail.com",
                     Telefone = "4563-9877",
-                    Categoria = (int)AdministradorEnum.Tintas,
+                    Categoria = AdministradorEnum.Tintas,
                     Login = "Fornecedor3",
                     Senha = "1234".GerarHash()
                 },
@@ -108,12 +114,12 @@ namespace Repositorio.Mapeamentos
                 {
                     Id = 4,
                     Nome = "Ferramentas do João",
-                    Cnpj = "23.756.976/0001-65",
+                    Cpf = "567.453.676-99",
                     DataFundacao = new DateTime(2009, 09, 18),
                     Endereco = "Rua Água Branca 3333",
                     Email = "joaoferramentas@gmail.com",
                     Telefone = "6543-2464",
-                    Categoria = (int)AdministradorEnum.MaterialEletrico,
+                    Categoria = AdministradorEnum.MaterialEletrico,
                     Login = "Fornecedor4",
                     Senha = "1234".GerarHash()
                 });
