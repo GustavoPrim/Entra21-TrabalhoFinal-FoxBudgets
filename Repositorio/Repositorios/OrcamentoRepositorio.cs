@@ -31,18 +31,19 @@ namespace Repositorio.Repositorios
 
             return true;
         }
+
         public void Atualizar(OrcamentoMaterial orcamentoParaAlterar)
         {
             var orcamentos = _contexto.Orcamentos
                 .Where(x => x.Id == orcamentoParaAlterar.Id)
                 .FirstOrDefault();
         }
+
         public void Editar(Orcamento orcamento)
         {
             _contexto.Orcamentos.Update(orcamento);
             _contexto.SaveChanges();
         }
-
 
         public Orcamento? ObterPorClienteId(int idCliente)
         {
@@ -59,6 +60,7 @@ namespace Repositorio.Repositorios
             var orcamento = _contexto.Orcamentos.Where(x => x.Id == id).FirstOrDefault();
             return orcamento;
         }
+
         public List<Orcamento> ObterTodos() 
         {
             var orcamentos = _contexto.Orcamentos.ToList();
