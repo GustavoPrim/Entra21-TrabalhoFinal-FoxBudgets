@@ -66,8 +66,6 @@
                     <a href="#"
                         class="navbar-nav-link navbar-nav-link-toggler dropdown-toggle d-inline-flex align-items-center h-100"
                         data-toggle="dropdown">
-                        <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-pill"
-                            height="34" alt="">
                         <span class="d-none d-lg-inline-block ml-2">Cliente</span>
                     </a>
 
@@ -189,15 +187,10 @@
                 <!-- User menu -->
                 <div class="sidebar-section sidebar-user">
                     <div class="sidebar-section-body d-flex justify-content-center">
-                        <a href="#">
-                            <img src="~/Tema/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle"
-                                alt="">
-                        </a>
-
                         <div class="sidebar-resize-hide flex-1 ml-3">
-                            <div class="font-weight-semibold">William Lima</div>
+                            <div class="font-weight-semibold">@Context.Items["UsuarioNome"!]</div>
                             <div class="font-size-sm line-height-sm text-muted">
-                                Cliente
+                                @Context.Items["UsuarioNome"!]
                             </div>
                         </div>
                     </div>
