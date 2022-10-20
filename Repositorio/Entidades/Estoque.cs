@@ -4,7 +4,7 @@ namespace Repositorio.Entidades
 {
     public class Estoque : EntidadeBase
     {
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
         public int Quantidade { get; set; }
         public int MaterialId { get; set; }
         public int FornecedorId { get; set; }
@@ -12,5 +12,6 @@ namespace Repositorio.Entidades
 
         public Material Material { get; set; }
         public Fornecedor Fornecedor{ get; set; }
+        public IList<Estoque> EstoqueMaterial { get; set; }
     }
 }

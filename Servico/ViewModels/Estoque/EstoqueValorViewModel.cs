@@ -14,7 +14,7 @@ namespace Servico.ViewModels.Estoque
         [Required(ErrorMessage = "{0} deve ser preenchido")]
         [MinLength(1, ErrorMessage = "{0} deve conter no mínimo {1}")]
         [MaxLength(40, ErrorMessage = "{0} deve conter no máximo {1}")]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Display(Name = "Item")]
         [Required(ErrorMessage = "{0} deve ser preenchido")]
