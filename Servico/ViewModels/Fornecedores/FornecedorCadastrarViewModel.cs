@@ -19,7 +19,7 @@ namespace Servico.ViewModels.Fornecedores
 
         [Display(Name = "Cpf")]
         //[Required(ErrorMessage = "{0} deve ser preenchido")]
-        [StringLength(14, ErrorMessage = "{0} deve conter pelo menos {1} caracteres")]
+        [StringLength(14, ErrorMessage = "{0} deve conter {1} caracteres")]
         public string? Cpf { get; set; }
 
         [Display(Name = "Endereço")]

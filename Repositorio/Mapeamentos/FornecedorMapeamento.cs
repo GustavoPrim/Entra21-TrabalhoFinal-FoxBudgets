@@ -80,7 +80,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua 2 de Setembro 1890",
                     Email = "Willljdev@gmail.com",
                     Telefone = "991599314",
-                    Categoria = AdministradorEnum.MaterialHidraulico,
+                    Categoria = (int)AdministradorEnum.MaterialHidraulico,
                     Login = "Fornecedor1",
                     Senha = "1234".GerarHash()
                 },
@@ -93,7 +93,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Alberto Stein 199",
                     Email = "budgetsVG@gmail.com",
                     Telefone = "3381-7700",
-                    Categoria = AdministradorEnum.MaterialBruto,
+                    Categoria = (int)AdministradorEnum.MaterialBruto,
                     Login = "Fornecedor2",
                     Senha = "1234".GerarHash()
                 },
@@ -106,7 +106,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua General Osório 1567",
                     Email = "juquinhamoveis@gmail.com",
                     Telefone = "4563-9877",
-                    Categoria = AdministradorEnum.Tintas,
+                    Categoria = (int)AdministradorEnum.Tintas,
                     Login = "Fornecedor3",
                     Senha = "1234".GerarHash()
                 },
@@ -119,7 +119,7 @@ namespace Repositorio.Mapeamentos
                     Endereco = "Rua Água Branca 3333",
                     Email = "joaoferramentas@gmail.com",
                     Telefone = "6543-2464",
-                    Categoria = AdministradorEnum.MaterialEletrico,
+                    Categoria = (int)AdministradorEnum.MaterialEletrico,
                     Login = "Fornecedor4",
                     Senha = "1234".GerarHash()
                 });
