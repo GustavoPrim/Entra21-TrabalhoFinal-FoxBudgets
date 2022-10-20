@@ -23,7 +23,6 @@ Foram utilizados na construção deste projeto:
 * <b>HTML</b>
 * <b>CSS</b>
 * <b>JavaScript</b>
-* <b>FluentAssertions</b>
 * <b>Microsoft NET Test Sdk</b>
 * <b>xUnit</b>
 * <b>xUnit Runner VisualStudio</b>
@@ -51,12 +50,6 @@ Para a execução dos algoritmos você pode optar por duas formas:
 * Abra o <b>Visual Studio 2022</b>;
 * Clone este repositório por meio do link `https://github.com/GustavoPrim/Entra21-TrabalhoFinal-FoxBudgets`;
 * Após a clonagem do repositório terminar, clique no botão direito na Aplicação e selecione `Set as Startup Project` e rode a Aplicação normalmente;
-## Autores :busts_in_silhouette:
-<b>[Guilherme Mueller](https://github.com/GuilhermeDMueller)</b>
-<b>[Gustavo Henrique Prim](https://github.com/GustavoPrim)</b>
-<b>[Juliana Forbici](https://github.com/JulianaForbici)</b>
-<b>[Lucas Perez Alves](https://github.com/LucasPerezAlves)</b>
-<b>[William Lima de Jesus](https://github.com/Willljdev)</b>
 
 ![foxbud](https://user-images.githubusercontent.com/105084941/196571178-853aaf78-a282-4996-8c17-cd9d57136083.jpg)
 
@@ -65,8 +58,8 @@ Para a execução dos algoritmos você pode optar por duas formas:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/105084941/196850898-f88ec619-88f4-4c93-a1dd-97d0bb8642a6.jpg" width="85px;"/><br>
+      <a href="https://www.linkedin.com/in/guilherme-dzesigaleski-mueller2603/">
+        <img src="https://user-images.githubusercontent.com/105084941/196853798-4cb9ac34-09e7-4d30-a7e8-ba543c12e197.jpg" width="85px;"/><br>
         <sub>
           <b>Guilherme Mueller</b>
           <a href="https://www.linkedin.com/in/guilherme-dzesigaleski-mueller2603/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -74,7 +67,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/william-lima-de-jesus-desenvolvedor/">
         <img src="https://user-images.githubusercontent.com/105084941/196851077-49810741-cb9d-4981-b870-8c1dca8edff7.jpg" width="85px;"/><br>
         <sub>
           <b>William Lima</b>
@@ -83,8 +76,8 @@ Para a execução dos algoritmos você pode optar por duas formas:
       </a>
     </td>    
     <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/105084941/196851246-25275ad7-992b-4bf2-a449-0c7f3884f1bf.jpg" width="85px;"/><br>
+      <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/">
+        <img src="300669769_3992799967612779_2332740019779596115_n](https://user-images.githubusercontent.com/105084941/196853536-ed1cddce-330d-4a33-b72a-14f746defa41.jpg" width="85px;"/><br>
         <sub>
           <b>Gustavo Prim</b>
           <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -92,8 +85,8 @@ Para a execução dos algoritmos você pode optar por duas formas:
       </a>
     </td>
         <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/105084941/196851332-26d0e670-089d-48d2-9fcd-237736b09eac.jpg" width="85px;"/><br>
+      <a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/">
+        <img src="299499855_152887930743132_3268598438971241317_n](https://user-images.githubusercontent.com/105084941/196853656-3a962e64-83e8-4824-b794-582055098ac0.jpg" width="85px;"/><br>
         <sub>
           <b>Lucas Alves Perez</b>
           <a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -101,7 +94,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
       </a>
     </td>
         <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/juliana-forbici/">
         <img src="https://user-images.githubusercontent.com/105084941/196851424-075932e3-3b1e-4051-97e1-8259d9eec5b8.jpg" width="85px;"/><br>
         <sub>
           <b>Juliana Forbici</b>
@@ -111,3 +104,10 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>
   </tr>
 </table>
+
+## Githubs dos Autores :busts_in_silhouette:
+<b>[Guilherme Mueller](https://github.com/GuilhermeDMueller)</b>
+<b>[Gustavo Henrique Prim](https://github.com/GustavoPrim)</b>
+<b>[Juliana Forbici](https://github.com/JulianaForbici)</b>
+<b>[Lucas Perez Alves](https://github.com/LucasPerezAlves)</b>
+<b>[William Lima de Jesus](https://github.com/Willljdev)</b>
