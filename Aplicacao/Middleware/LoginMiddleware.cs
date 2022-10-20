@@ -54,13 +54,22 @@ namespace Aplicacao.Middleware
                 return;
             }
 
-            //var usuarioLogado = sessao.BuscarSessaoUsuario<Usuario>();
+            var usuarioLogadoCliente = sessao.BuscarSessaoUsuario<Cliente>();
+            var usuarioLogadoFornecedor = sessao.BuscarSessaoUsuario<Fornecedor>();
+            var usuarioLogadoAdministrador = sessao.BuscarSessaoUsuario<Administrador>();
 
-            //if (usuarioLogado != null)
-            //{
-            //    httpContext.Items.Add("UsuarioNome", usuarioLogado.Nome);
-            //}
-
+            if (usuarioLogadoCliente != null)
+            {
+                httpContext.Items.Add("UsuarioNome", usuarioLogadoCliente.Nome);
+            } 
+            if (usuarioLogadoFornecedor != null)
+            {
+                httpContext.Items.Add("UsuarioNome", usuarioLogadoFornecedor.Nome);
+            } 
+            if (usuarioLogadoAdministrador != null)
+            {
+                httpContext.Items.Add("UsuarioNome", usuarioLogadoAdministrador.Nome);
+            }
 
             await _next(httpContext);
         }

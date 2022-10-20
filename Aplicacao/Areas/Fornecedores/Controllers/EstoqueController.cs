@@ -118,9 +118,9 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
                 return View(orcamentoCadastrarViewModel);
             }
 
-            var clienteId = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+            var fornecedorId = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, clienteId);
+            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, fornecedorId);
 
             return Ok();
         }

@@ -15,12 +15,9 @@
         .then((data) => {
             console.log(data);
 
-            toastr.sucess("Item adicionado com sucesso");
-
             $('#tabela-itens').DataTable().ajax.reload();
+            return;
 
-            bootstrap.Modal.getInstance(
-                document.getElementById('exampleModal')).hide();
         })
         .catch((error) => {
             toastr.error("Não foi possível adionar o item ao orçamento");
