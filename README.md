@@ -66,7 +66,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="![ba59db6e-06b9-4ef4-b8b5-b748c163494f](https://user-images.githubusercontent.com/105084941/196850898-f88ec619-88f4-4c93-a1dd-97d0bb8642a6.jpg)" width="85px;" alt="Foto do Guilherme"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196850898-f88ec619-88f4-4c93-a1dd-97d0bb8642a6.jpg" width="85px;"/><br>
         <sub>
           <b>Guilherme Mueller</b>
           <a href="https://www.linkedin.com/in/guilherme-dzesigaleski-mueller2603/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -75,7 +75,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>
     <td align="center">
       <a href="#">
-        <img src="![1661471956121](https://user-images.githubusercontent.com/105084941/196851077-49810741-cb9d-4981-b870-8c1dca8edff7.jpg)" width="85px;" alt="Foto do William"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196851077-49810741-cb9d-4981-b870-8c1dca8edff7.jpg" width="85px;"/><br>
         <sub>
           <b>William Lima</b>
           <a href="https://www.linkedin.com/in/william-lima-de-jesus-desenvolvedor/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -84,8 +84,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>    
     <td align="center">
       <a href="#">
-        <img src="![f39b5111-7b02-47d6-b4df-d7fcc08cfef2](https://user-images.githubusercontent.com/105084941/196851246-25275ad7-992b-4bf2-a449-0c7f3884f1bf.jpg)
-" width="85px;" alt="Foto do Gustavo"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196851246-25275ad7-992b-4bf2-a449-0c7f3884f1bf.jpg" width="85px;"/><br>
         <sub>
           <b>Gustavo Prim</b>
           <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -94,8 +93,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>
         <td align="center">
       <a href="#">
-        <img src="![4db9167c-f94a-415c-9983-30ab7f19ce0e](https://user-images.githubusercontent.com/105084941/196851332-26d0e670-089d-48d2-9fcd-237736b09eac.jpg)
-" width="85px;" alt="Foto do Perez"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196851332-26d0e670-089d-48d2-9fcd-237736b09eac.jpg" width="85px;"/><br>
         <sub>
           <b>Lucas Alves Perez</b>
           <a href="https://www.linkedin.com/in/lucas-perez-alves-86721a242/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -104,7 +102,7 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>
         <td align="center">
       <a href="#">
-        <img src="![105084941](https://user-images.githubusercontent.com/105084941/196851424-075932e3-3b1e-4051-97e1-8259d9eec5b8.jpg)" width="85px;" alt="Foto da Ju"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/196851424-075932e3-3b1e-4051-97e1-8259d9eec5b8.jpg" width="85px;"/><br>
         <sub>
           <b>Juliana Forbici</b>
           <a href="https://www.linkedin.com/in/juliana-forbici/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
