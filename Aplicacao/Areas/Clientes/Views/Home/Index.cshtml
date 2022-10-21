@@ -6,6 +6,14 @@
     <h1 class="" style="font-size: 500%; color: darkorange">Bem-vindo @Context.Items["UsuarioNome"!]!</h1>
 </div>
 
+<div class="fab" ontouchstart="">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="pedido-carrinho">🛒</button>
+</div>
+
+<partial name="ProdutoModal"/>
+<partial name="CarrinhoModal"/>
+
 @section Scripts{
 				<script src="~/js/clientes/orcamento/cotar-select2.js"></script>
+    <script src="~/base-theme-master/static/js/carrinhoacesso.js"></script>
 }
