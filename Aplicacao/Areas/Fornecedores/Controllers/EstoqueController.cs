@@ -16,14 +16,12 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
     {
         private readonly IEstoqueServico _estoqueServico;
         private readonly ISessao _sessao;
-        private readonly IOrcamentoServico _orcamentoServico;
         private readonly IMaterialService _materialService;
 
         public EstoqueController(IEstoqueServico estoqueServico, ISessao sessao, IOrcamentoServico orcamentoServico, IMaterialService materialService)
         {
             _estoqueServico = estoqueServico;
             _sessao = sessao;
-            _orcamentoServico = orcamentoServico;
             _materialService = materialService;
         }
 
@@ -137,12 +135,12 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
                 .ToList();
         }
 
-        [HttpGet("obterItensOrcamentoAtual")]
-        public IActionResult ObterItensOrcamentoAtual()
+        [HttpGet("obterItensEstoqueAtual")]
+        public IActionResult ObterItensEstoqueAtual()
         {
             var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
+            var itens = _estoqueServico.ObterItensEstoqueAtual(idUsuarioLogado);
 
             return Ok(itens);
         }

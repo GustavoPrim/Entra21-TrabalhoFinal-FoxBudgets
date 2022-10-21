@@ -14,7 +14,6 @@
         body: dados
     })
         .then((data) => {
-            debugger;
             console.log(data);
 
             $('#estoque-table').DataTable().ajax.reload();
