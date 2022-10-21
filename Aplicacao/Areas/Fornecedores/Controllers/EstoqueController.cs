@@ -50,7 +50,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
                 ViewBag.Administradores = ObterEstoques();
                 return View(estoqueCadastrarViewModel);
             }
-            _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
+    //        _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
             return RedirectToAction("Index");
         }
 
