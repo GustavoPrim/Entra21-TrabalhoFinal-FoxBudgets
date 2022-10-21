@@ -12,6 +12,7 @@ namespace Servico.MapeamentoViewModels
                 Id = fornecedor.Id,
                 Nome = fornecedor.Nome,
                 Cnpj = fornecedor.Cnpj,
+                Cpf = fornecedor.Cpf,
                 DataFundacao = fornecedor.DataFundacao,
                 Endereco = fornecedor.Endereco,
                 Email = fornecedor.Email,
