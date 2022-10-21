@@ -7,19 +7,22 @@
     dados.append("item", item);
     dados.append("quantidade", quantidade)
     dados.append("valor", valor)
+    debugger;   
 
-    fetch('/fornecedor/estoque/adicionarProduto', {
+    fetch('/fornecedores/estoque/adicionarProduto', {
         method: 'POST',
         body: dados
     })
         .then((data) => {
+            debugger;
             console.log(data);
 
-            $('#tabela-itens').DataTable().ajax.reload();
+            $('#estoque-table').DataTable().ajax.reload();
             return;
 
         })
         .catch((error) => {
+            debugger;
             toastr.error("Não foi possível adionar o item ao orçamento");
             console.log(error);
         });
