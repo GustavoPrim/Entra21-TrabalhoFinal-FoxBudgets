@@ -22,7 +22,7 @@ namespace Repositorio.Mapeamentos
 
             builder.Property(x => x.Cnpj)
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(14)
+                .HasMaxLength(18)
                 .HasColumnName("cnpj");
             
             builder.Property(x => x.Cpf)
@@ -73,7 +73,7 @@ namespace Repositorio.Mapeamentos
                 {
                     Id = 1,
                     Nome = "Wolf Tubos e conexões",
-                    Cnpj = "34.56.789/0001-25",
+                    Cnpj = "34.568.789/0001-25",
                     DataFundacao = new DateTime(2020, 03, 15),
                     Endereco = "Rua 2 de Setembro 1890",
                     Email = "Willljdev@gmail.com",
