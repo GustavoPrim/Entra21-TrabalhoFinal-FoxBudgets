@@ -1,4 +1,5 @@
-﻿using Aplicacao.Help;
+﻿using Aplicacao.Filtros;
+using Aplicacao.Help;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Repositorio.Enuns;
@@ -9,7 +10,8 @@ using Servico.ViewModels.Orcamentos;
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
     [Area("Fornecedores")]
-    [Route("fornecedor/estoque")]
+    [Route("fornecedores/estoque")]
+    [UsuarioLogado]
     public class EstoqueController : Controller
     {
         private readonly IEstoqueServico _estoqueServico;
@@ -111,7 +113,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
         }
 
         [HttpPost("adicionarProduto")]
-        public IActionResult AdicionarProduto([FromForm]EstoqueCadastrarViewModel estoqueCadastrarViewModel)
+        public IActionResult AdicionarProduto(EstoqueCadastrarViewModel estoqueCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
