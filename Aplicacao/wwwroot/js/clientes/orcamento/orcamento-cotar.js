@@ -13,9 +13,9 @@
         .then((data) => {
             console.log(data);
 
+            $('#orcamento-table').DataTable().ajax.reload();
             toastr.sucess("Item adicionado com sucesso");
 
-            $('#tabela-itens').DataTable().ajax.reload();
 
             bootstrap.Modal.getInstance(
                 document.getElementById('exampleModal')).hide();
