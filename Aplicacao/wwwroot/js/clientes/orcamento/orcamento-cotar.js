@@ -12,13 +12,13 @@
     })
         .then((data) => {
             console.log(data);
+            debugger;
+            $('#orcamento-table').DataTable().ajax.reload();
+            toastr.success("Item adicionado com sucesso");
 
-            toastr.sucess("Item adicionado com sucesso");
 
-            $('#tabela-itens').DataTable().ajax.reload();
-
-            bootstrap.Modal.getInstance(
-                document.getElementById('exampleModal')).hide();
+            //bootstrap.Modal.getInstance(
+            //    document.getElementById('exampleModal')).hide();
         })
         .catch((error) => {
             toastr.error("Não foi possível adionar o item ao orçamento");

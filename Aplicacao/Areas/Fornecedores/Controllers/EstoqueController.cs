@@ -50,7 +50,9 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
                 ViewBag.Administradores = ObterEstoques();
                 return View(estoqueCadastrarViewModel);
             }
-    //        _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
+
+            //_estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
+
             return RedirectToAction("Index");
         }
 
@@ -109,18 +111,19 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
         }
 
         [HttpPost("adicionarProduto")]
-        public IActionResult AdicionarProduto(OrcamentoCadastrarViewModel orcamentoCadastrarViewModel)
+        public IActionResult AdicionarProduto([FromForm]EstoqueCadastrarViewModel estoqueCadastrarViewModel)
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Materiais = _materialService.ObterTodos();
-                ViewBag.Administradores = ObterOrcamentos();
-                return View(orcamentoCadastrarViewModel);
+                ViewBag.Materiais = _estoqueServico.ObterTodos();
+                ViewBag.Valor = _estoqueServico.ObterTodos();
+                ViewBag.Quantidade = _estoqueServico.ObterTodos();
+                return View(estoqueCadastrarViewModel);
             }
 
             var fornecedorId = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            _orcamentoServico.Cotar(orcamentoCadastrarViewModel, fornecedorId);
+            _estoqueServico.Estocar(estoqueCadastrarViewModel, fornecedorId);
 
             return Ok();
         }
