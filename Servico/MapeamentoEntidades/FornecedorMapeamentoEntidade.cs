@@ -10,6 +10,7 @@ namespace Servico.MapeamentoEntidades
         {
             fornecedor.Nome = viewModel.Nome;
             fornecedor.Cnpj = viewModel.Cnpj;
+            fornecedor.Cpf = viewModel.Cpf;
             fornecedor.Endereco = viewModel.Endereco;
             fornecedor.DataFundacao = viewModel.DataFundacao;
             fornecedor.Email = viewModel.Email;
@@ -24,6 +25,7 @@ namespace Servico.MapeamentoEntidades
             {
                 Nome = viewModel.Nome,
                 Cnpj = viewModel.Cnpj,
+                Cpf = viewModel.Cpf,
                 Endereco = viewModel.Endereco,
                 DataFundacao = viewModel.DataFundacao,
                 Email = viewModel.Email,

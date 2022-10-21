@@ -15,7 +15,7 @@
 
 		<tr>
 			<th>Nome</th>
-			<th>Cnpj</th>
+			<th>Cnpj ou Cpf</th>
 			<th>Data de Fundação</th>
 			<th>Endereço</th>
 			<th>E-mail</th>
@@ -28,7 +28,12 @@
 		{
 			<tr>
 				<td>@fornecedor.Nome</td>
-				<td>@fornecedor.Cnpj</td>
+				@if(fornecedor.Cnpj != null){
+					<td>@fornecedor.Cnpj</td>
+				}
+				@if(fornecedor.Cpf != null){
+					<td>@fornecedor.Cpf</td>
+				}
 				<td>@fornecedor.DataFundacao.Date</td>
 				<td>@fornecedor.Endereco</td>
 				<td>@fornecedor.Email</td>

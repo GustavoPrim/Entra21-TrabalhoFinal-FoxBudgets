@@ -12,10 +12,15 @@ namespace Servico.ViewModels.Fornecedores
         public string Nome { get; set; }
 
         [Display(Name = "Cnpj")]
-        [Required(ErrorMessage = "{0} deve ser preenchido!")]
+        //[Required(ErrorMessage = "{0} deve ser preenchido!")]
         [RegularExpression(@"\d{2,3}.\d{3}.\d{3}/\d{4}-\d{2}", ErrorMessage = "Digite um CNPJ válido!")]
         [MaxLength(18, ErrorMessage = "Digite um CNPJ válido!")]
-        public string Cnpj { get; set; }
+        public string? Cnpj { get; set; }
+
+        [Display(Name = "Cpf")]
+        //[Required(ErrorMessage = "{0} deve ser preenchido")]
+        [StringLength(14, ErrorMessage = "{0} deve conter {1} caracteres")]
+        public string? Cpf { get; set; }
 
         [Display(Name = "Endereço")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
