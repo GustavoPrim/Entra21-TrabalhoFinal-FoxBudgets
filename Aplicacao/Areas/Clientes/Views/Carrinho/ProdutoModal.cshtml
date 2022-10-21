@@ -1,0 +1,40 @@
+﻿<div class="modal left fade" id="produtoPedidoModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style=" background: black; opacity: 80%;">
+            <div class="modal-header" style="background: black";>
+                <h5 class="modal-title">Menu Produto</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <div class="modal-body">
+                            <img id="item-escolhido-imagem" class="img-center img-fluid menu-img rounded-circle" alt="" src="/uploads/produtos/X-Burguer.png">
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="modal-body" style="color: white !important">
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="hidden" id="item-escolhido-id">
+                            <b><span id="item-escolhido-nome"></span></b>
+                        </div>
+                        <div class="col-4">
+                            <b>Valor:</b>
+                            <b>R$ <span id="item-escolhido-valor"></span></b>
+                        </div>
+                    </div>
+                    <div class="qtarea">
+                        <button class="menos">-</button>
+                        <div class="qtd">01</div>
+                        <button class="mais">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="botao-finalizar-pedido">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+</div>
