@@ -1,9 +1,9 @@
 ﻿@model FornecedorEditarViewModel
 @{
-	var fornecedores = ViewBag.Fornecedores as List<string>;
-	fornecedores.Add(string.Empty);
+    var fornecedores = ViewBag.Fornecedores as List<string>;
+    fornecedores.Add(string.Empty);
 
-	var selectDosFornecedores = new SelectList(fornecedores, string.Empty);
+    var selectDosFornecedores = new SelectList(fornecedores, string.Empty);
 }
 
 <form asp-action="editar" method="POST" class="row g-3">
@@ -21,37 +21,37 @@
 		<span asp-validation-for="Cnpj" class="text-danger"></span>
 	</div>
 
-	<div class="col-md-6">
-		<label asp-for="DataFundacao" class="form-label" span-required="">Data de fundação</label>
-		<input asp-for="DataFundacao" class="form-control" />
-		<span asp-validation-for="DataFundacao" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="DataFundacao" class="form-label" span-required="">Data de fundação</label>
+        <input asp-for="DataFundacao" class="form-control" />
+        <span asp-validation-for="DataFundacao" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Endereco" class="form-label" span-required=""></label>
-		<input asp-for="Endereco" class="form-control" />
-		<span asp-validation-for="Endereco" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Endereco" class="form-label" span-required=""></label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Email" class="form-label" span-required="">E-mail</label>
-		<input asp-for="Email" class="form-control" placeholder="fornecedor@fornecedor.com" />
-		<span asp-validation-for="Email" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label" span-required="">E-mail</label>
+        <input asp-for="Email" class="form-control" placeholder="fornecedor@fornecedor.com" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Telefone" class="form-label" span-required=""></label>
-		<input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
-		<span asp-validation-for="Telefone" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Telefone" class="form-label" span-required=""></label>
+        <input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Categoria" class="form-label" span-required=""></label>
-		<input asp-for="Categoria" class="form-control" />
-		<span asp-validation-for="Categoria" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Categoria" class="form-label" span-required=""></label>
+        <input asp-for="Categoria" class="form-control" />
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+    </div>
 
-	    <div class="col-md-6">
+    <div class="col-md-6">
         <label asp-for="Login" class="form-label" span-required=""></label>
         <input asp-for="Login" class="form-control" />
 
