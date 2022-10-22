@@ -77,7 +77,8 @@ Para a execução dos algoritmos você pode optar por duas formas:
     </td>    
     <td align="center">
       <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/">
-        <img src="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/"(https://user-images.githubusercontent.com/105084941/196853536-ed1cddce-330d-4a33-b72a-14f746defa41.jpg" width="85px;"/><br>
+        <img src="https://user-images.githubusercontent.com/105084941/197309503-91f251d4-bc07-41cc-9534-0dcbb55f830f.jpg)
+"(https://user-images.githubusercontent.com/105084941/196853536-ed1cddce-330d-4a33-b72a-14f746defa41.jpg" width="85px;"/><br>
         <sub>
           <b>Gustavo Prim</b>
           <a href="https://www.linkedin.com/in/gustavo-henrique-prim-22361a243/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
