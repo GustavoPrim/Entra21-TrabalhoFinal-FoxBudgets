@@ -1,9 +1,4 @@
 ﻿using Repositorio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositorio.Repositorios
 {
@@ -16,5 +11,6 @@ namespace Repositorio.Repositorios
         bool Apagar(int id);
         Orcamento? ObterPorClienteId(int idCliente);
         void CrirOuAtualizar(Orcamento orcamento);
+        Orcamento? ObterPorOrcamentoCliente(int clienteId, Estoque material);
     }
 }
