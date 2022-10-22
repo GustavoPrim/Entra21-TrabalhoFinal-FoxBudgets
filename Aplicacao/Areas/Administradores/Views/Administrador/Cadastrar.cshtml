@@ -17,7 +17,7 @@
 
 	<div class="col-md-6">
 		<label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-		<input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" oninput="mascara(this)" />
+		<input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" />
 		<span asp-validation-for="Cpf" class="text-danger"></span>
 	</div>
 
@@ -41,7 +41,7 @@
 
 	<div class="col-6">
 		<label asp-for="Telefone" class="form-label" span-required=""></label>
-		<input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
+		<input asp-for="Telefone"  class="form-control" placeholder="(__) _____-____" />
 		<span asp-validation-for="Telefone" class="text-danger"></span>
 	</div>
 
@@ -62,5 +62,9 @@
 		<button type="submit" class="btn btn-success">Salvar</button>
 	</div>
 
+	<script src="~/js/jquery.mask.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
 	<script src="~/js/usuarios/usuarioValidacao.js"></script>
+
 </form>

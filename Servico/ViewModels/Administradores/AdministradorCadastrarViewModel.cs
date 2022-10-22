@@ -13,7 +13,6 @@ namespace Servico.ViewModels.Administradores
 
         [Display(Name = "Cpf")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "Digite um CPF válido!")]
         [MaxLength(14, ErrorMessage = "Digite um CPF válido!")]
         public string Cpf { get; set; }
 
@@ -37,7 +36,7 @@ namespace Servico.ViewModels.Administradores
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [RegularExpression("^[(]{1}[0-9]{2}[)]{1}[ ][0-9]{5}[-]{1}[0-9]{4}$", ErrorMessage = "Digite um número de telefone válido!")]
+        [MaxLength(15, ErrorMessage = "Informe um número de telefone válido!")]
         public string Telefone { get; set; }
 
         [Display(Name = "Login")]

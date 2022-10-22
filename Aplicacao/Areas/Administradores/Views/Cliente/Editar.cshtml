@@ -1,73 +1,71 @@
 ﻿@using Servico.ViewModels.Clientes
 @model ClienteEditarViewModel
 @{
-	var clientes = ViewBag.Clientes as List<string>;
-	clientes.Add(string.Empty);
+    var clientes = ViewBag.Clientes as List<string>;
+    clientes.Add(string.Empty);
 
-	var selectDosClientes = new SelectList(clientes, string.Empty);
+    var selectDosClientes = new SelectList(clientes, string.Empty);
 }
 
 <form asp-action="editar" method="POST" class="row g-3">
-	<input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Id" />
 
-	<div class="col-md-6">
-		<label asp-for="Nome" class="form-label" span-required=""></label>
-		<input asp-for="Nome" class="form-control" />
-		<span asp-validation-for="Nome" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Nome" class="form-label" span-required=""></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-		<input asp-for="Cpf" class="form-control" placeholder="___.___.___-__" oninput="mascara(this)" />
-		<span asp-validation-for="Cpf" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
+        <input asp-for="Cpf" class="form-control" placeholder="Digite um CPF" />
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Cnpj" class="form-label" span-required="">CNPJ</label>
-		<input asp-for="Cnpj" class="form-control" placeholder="__.___.___/____-__" />
-		<span asp-validation-for="Cnpj" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="DataNascimento" class="form-label" span-required="">Data de nascimento</label>
+        <input asp-for="DataNascimento" class="form-control" />
+        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="DataNascimento" class="form-label" span-required="">Data de nascimento</label>
-		<input asp-for="DataNascimento" class="form-control" />
-		<span asp-validation-for="DataNascimento" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Endereco" class="form-label" span-required="">Endereço</label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Endereco" class="form-label" span-required="">Endereço</label>
-		<input asp-for="Endereco" class="form-control" />
-		<span asp-validation-for="Endereco" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label" span-required="">E-mail</label>
+        <input asp-for="Email" class="form-control" placeholder="cliente@cliente.com" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Email" class="form-label" span-required="">E-mail</label>
-		<input asp-for="Email" class="form-control" placeholder="cliente@cliente.com" />
-		<span asp-validation-for="Email" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Telefone" class="form-label" span-required=""></label>
+        <input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Telefone" class="form-label" span-required=""></label>
-		<input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
-		<span asp-validation-for="Telefone" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Login" class="form-label" span-required=""></label>
+        <input asp-for="Login" class="form-control" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Login" class="form-label" span-required=""></label>
-		<input asp-for="Login" class="form-control" />
-		<span asp-validation-for="Senha" class="text-danger"></span>
-	</div>
+    <div class="col-md-6">
+        <label asp-for="Senha" class="form-label" span-required=""></label>
+        <input asp-for="Senha" class="form-control" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
 
-	<div class="col-md-6">
-		<label asp-for="Senha" class="form-label" span-required=""></label>
-		<input asp-for="Senha" class="form-control" />
-		<span asp-validation-for="Senha" class="text-danger"></span>
-	</div>
+    <div class="col-lg-12" style="text-align: right;">
+        <a href="/administrador/cliente/cadastrar" class="btn btn-outline-danger">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
 
-	<div class="col-lg-12" style="text-align: right;">
-		<a href="/administrador/cliente/cadastrar" class="btn btn-outline-danger">Cancelar</a>
-		<button type="submit" class="btn btn-success">Salvar</button>
-	</div>
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
+    <script src="~/js/usuarios/usuarioValidacao.js"></script>
 
-	<script src="~/js/usuarios/usuarioValidacao.js"></script>
 </form>

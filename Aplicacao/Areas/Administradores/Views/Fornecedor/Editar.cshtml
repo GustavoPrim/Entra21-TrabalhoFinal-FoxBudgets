@@ -15,42 +15,10 @@
 		<span asp-validation-for="Nome" class="text-danger"></span>
 	</div>
 
-	<script>
-        function text(x) {
-            if (x == 0)
-                document.getElementById("mycode").style.display = "block";
-            else
-                document.getElementById("mycode").style.display = "none";
-
-            return;
-        }
-    </script>
-
-    <div class="col-md-6">
-        <div class="input-group">
-            <label class="label" name="Cnpj">Já possui um CNPJ?</label>
-        </div>
-
-        <div class="col-lg-12">
-            <label class="radio-container m-r-45">
-                Sim
-                <input type="radio" name="Cnpj" value="true" onclick="text(0)" checked />
-                <span class="checkmark"></span>
-                <span asp-validation-for="Cnpj" class="text-danger"></span>
-            </label>
-            
-            <label class="radio-container m-r-45">
-                Não
-                <input type="radio" name="Cnpj" value="false" onclick="text(1)" />
-                <span class="checkmark"></span>
-            </label>
-        </div>
-    </div>
-
 	<div class="col-md-6">
-		<div class="input-group" id="mycode">
-			<label asp-for="Cnpj" class="form-label">CNPJ</label>
-		</div>
+		<label asp-for="Cnpj" class="form-label" span-required="">CNPJ</label>
+		<input asp-for="Cnpj" class="form-control" placeholder="__.___.___/____-__" />
+		<span asp-validation-for="Cnpj" class="text-danger"></span>
 	</div>
 
 	<div class="col-md-6">
@@ -99,4 +67,10 @@
 		<a href="/administrador/fornecedor/cadastrar" class="btn btn-outline-danger">Cancelar</a>
 		<button type="submit" class="btn btn-success">Salvar</button>
 	</div>
+
+	<script src="~/js/jquery.mask.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
+	<script src="~/js/usuarios/usuarioValidacao.js"></script>
+
 </form>
