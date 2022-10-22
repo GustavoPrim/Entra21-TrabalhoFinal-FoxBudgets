@@ -5,7 +5,7 @@ namespace Servico.MapeamentoEntidades
 {
     public interface IEstoqueMapeamentoEntidade
     {
-        Estoque ConstruirCom(EstoqueCadastrarViewModel viewModel);
+        Estoque ConstruirCom(EstoqueCadastrarViewModel viewModel, int fornecedorId);
         void AtualizarCom(Estoque estoque, EstoqueEditarViewModel estoqueEditarViewModel);
     }
 }

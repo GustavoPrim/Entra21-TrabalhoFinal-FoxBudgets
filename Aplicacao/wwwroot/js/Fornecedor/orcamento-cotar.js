@@ -9,7 +9,7 @@
     dados.append("valor", valor)
     debugger;   
 
-    fetch('/fornecedores/estoque/adicionarProduto', {
+    fetch('/fornecedor/estoque/adicionarProduto', {
         method: 'POST',
         body: dados
     })

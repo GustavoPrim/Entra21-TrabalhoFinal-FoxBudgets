@@ -2,7 +2,6 @@
 using Repositorio.Entidades;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Repositorio.Repositorios
 {
     public class EstoqueRepositorio : IEstoqueRepositorio
@@ -28,7 +27,7 @@ namespace Repositorio.Repositorios
             return true;
         }
 
-        public Estoque CadastrarQuantidade(Estoque quantidade)
+        public Estoque Cadastrar(Estoque quantidade)
         {
             _contexto.Estoque.Add(quantidade);
             _contexto.SaveChanges();
@@ -44,7 +43,7 @@ namespace Repositorio.Repositorios
             return valor;
         }
 
-        public void CrirOuAtualizar(Estoque estoque)
+        public void CriarOuAtualizar(Estoque estoque)
         {
             if (estoque.Id == 0)
                 _contexto.Estoque.Add(estoque);
@@ -60,14 +59,13 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public Estoque? ObterPorFornecedorId(int idFornecedor)
+        public List<Estoque> ObterTodosPorFornecedorId(int idFornecedor)
         {
-            var estoque = _contexto.Estoque
+            return
+                _contexto.Estoque
                 .Where(x => x.FornecedorId == idFornecedor)
-                .Include(x => x.EstoqueMaterial)
-                .ThenInclude(x => x.Material)
-                .FirstOrDefault();
-            return estoque;
+                .Include(x => x.Material)
+                .ToList();
         }
 
         public Estoque ObterPorId(int id) =>
@@ -77,5 +75,14 @@ namespace Repositorio.Repositorios
         public IList<Estoque> ObterTodos() =>
             _contexto.Estoque
             .ToList();
+
+        public Estoque? ObterPorFornecedorId(int fornecedorId, int item)
+        {
+            return
+                _contexto.Estoque
+                .Where(x => x.FornecedorId == fornecedorId && x.MaterialId == item)
+                .Include(x => x.Material)
+                .FirstOrDefault();
+        }
     }
 }

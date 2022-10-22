@@ -12,6 +12,5 @@ namespace Repositorio.Entidades
 
         public Material Material { get; set; }
         public Fornecedor Fornecedor{ get; set; }
-        public IList<Estoque> EstoqueMaterial { get; set; }
     }
 }
