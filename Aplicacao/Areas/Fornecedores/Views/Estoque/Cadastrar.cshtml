@@ -8,28 +8,28 @@
 }
 
 <p class="h3">Cadastro de Estoque</p>
-<form asp-action="cadastrar" method="POST" class="row g-3">
+<form asp-action="cadastrar" method="POST">
 
-    <div class="row modal-body">
-        <div class="col-6 p-8 form-group">
+    <div class="row">
+        <div class="col-5 form-group">
             <label for="estoqueItem" class="form-label" span-required="">Item</label>
             <select id="estoqueItem" class="form-select"></select>
         </div>
 
 
-        <div class="p-2 tamanho form-group">
+        <div class="col-3 tamanho form-group">
             <label for="estoqueQuantidade" class="form-label" span-required="">Quantidade</label>
-            <input id="estoqueQuantidade" class="form-control w-50" />
+            <input id="estoqueQuantidade" class="form-control" />
         </div>
 
-        <div class="p-2 tamanho form-group">
+        <div class="col-2 tamanho form-group">
             <label for="estoqueValor" class="form-label" span-required="">Valor</label>
-            <input id="estoqueValor" class="form-control w-50" />
+            <input id="estoqueValor" class="form-control" />
         </div>
-    </div>
-    <div class="col-lg-12" style="text-align: right;">
-        <a href="/administrador/administrador" class="btn btn-outline-danger">Cancelar</a>
-        <div class="modal-footer">
+        <div class="col-1" style="text-align: right;">
+            <a href="/administrador/administrador" class="btn btn-outline-danger">Cancelar</a>
+        </div>
+        <div class="col-1" style="text-align: right;">
             <button type="button" class="btn btn-primary" id="botao-adicionar-item">Adicionar</button>
         </div>
     </div>
@@ -58,13 +58,19 @@
 <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js" type="text/javascript"></script>
 
 <script>
-    jQuery(function() {
+    //jQuery(function () {
 
-        jQuery("#valor").maskMoney({
-            prefix: 'R$ ',
-            thousands: '.',
-            decimal: ','
-        })
+    //	jQuery("#valor").maskMoney({
+    //		prefix: 'R$ ',
+    //		thousands: '.',
+    //		decimal: ','
+    //	})
 
-    });
+    //});
 </script>
+
+@section Scripts{
+    <script src="~/js/Fornecedor/cotar-select2.js"></script>
+    <script src="~/js/Fornecedor/orcamento-cotar.js"></script>
+    <script src="~/js/Fornecedor/orcamento-datatable.js"></script>
+}

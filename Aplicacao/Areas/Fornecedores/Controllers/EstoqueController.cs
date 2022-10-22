@@ -10,20 +10,18 @@ using Servico.ViewModels.Orcamentos;
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
     [Area("Fornecedores")]
-    [Route("fornecedores/estoque")]
+    [Route("fornecedor/estoque")]
     [UsuarioLogado]
     public class EstoqueController : Controller
     {
         private readonly IEstoqueServico _estoqueServico;
         private readonly ISessao _sessao;
-        private readonly IOrcamentoServico _orcamentoServico;
         private readonly IMaterialService _materialService;
 
         public EstoqueController(IEstoqueServico estoqueServico, ISessao sessao, IOrcamentoServico orcamentoServico, IMaterialService materialService)
         {
             _estoqueServico = estoqueServico;
             _sessao = sessao;
-            _orcamentoServico = orcamentoServico;
             _materialService = materialService;
         }
 
@@ -44,26 +42,19 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             return View(estoqueCadastrarViewModel);
         }
 
-        [HttpPost("cadastrar")]
-        public IActionResult Cadastrar([FromForm] EstoqueCadastrarViewModel estoqueCadastrarViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Administradores = ObterEstoques();
-                return View(estoqueCadastrarViewModel);
-            }
+        //[HttpPost("cadastrar")]
+        //public IActionResult Cadastrar([FromForm] EstoqueCadastrarViewModel estoqueCadastrarViewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ViewBag.Administradores = ObterEstoques();
+        //        return View(estoqueCadastrarViewModel);
+        //    }
 
-            //_estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
+        //    _estoqueServico.CadastrarValor(estoqueCadastrarViewModel);
 
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet("apagar")]
-        public IActionResult Apagar([FromQuery] int id)
-        {
-            _estoqueServico.Apagar(id);
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
         [HttpGet("obterTodos")]
         public IActionResult ObterTodos()
@@ -94,17 +85,6 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             return View(estoqueEditarViewModel);
         }
 
-        [HttpPost("editar")]
-        public IActionResult Editar([FromForm] EstoqueEditarViewModel estoqueEditarViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Estoques = ObterEstoques();
-                return View(estoqueEditarViewModel);
-            }
-            _estoqueServico.Editar(estoqueEditarViewModel);
-            return RedirectToAction("Index");
-        }
         private List<string> ObterEstoques()
         {
             return Enum.GetNames<EstoqueEnum>()
@@ -137,12 +117,12 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
                 .ToList();
         }
 
-        [HttpGet("obterItensOrcamentoAtual")]
-        public IActionResult ObterItensOrcamentoAtual()
+        [HttpGet("obterItensEstoqueAtual")]
+        public IActionResult ObterItensEstoqueAtual()
         {
             var idUsuarioLogado = _sessao.BuscarSessaoUsuario<Fornecedor>().Id;
 
-            var itens = _orcamentoServico.ObterItensOrcamentoAtual(idUsuarioLogado);
+            var itens = _estoqueServico.ObterItensEstoqueAtual(idUsuarioLogado);
 
             return Ok(itens);
         }

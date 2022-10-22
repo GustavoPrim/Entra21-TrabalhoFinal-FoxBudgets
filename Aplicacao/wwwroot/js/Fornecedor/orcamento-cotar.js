@@ -9,21 +9,21 @@
     dados.append("valor", valor)
     debugger;   
 
-    fetch('/fornecedores/estoque/adicionarProduto', {
+    fetch('/fornecedor/estoque/adicionarProduto', {
         method: 'POST',
         body: dados
     })
         .then((data) => {
-            debugger;
             console.log(data);
 
             $('#estoque-table').DataTable().ajax.reload();
-            return;
+            toastr.success("Item adicionado com sucesso");
+           
 
         })
         .catch((error) => {
             debugger;
-            toastr.error("Não foi possível adionar o item ao orçamento");
+            toastr.error("Não foi possível adionar o item ao estoque");
             console.log(error);
         });
 }

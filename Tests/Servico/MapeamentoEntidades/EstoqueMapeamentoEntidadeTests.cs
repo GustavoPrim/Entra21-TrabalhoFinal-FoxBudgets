@@ -15,22 +15,22 @@ namespace Tests.Servico.MapeamentoEntidades
             _estoqueMapeamentoEntidade = new EstoqueMapeamentoEntidade();
         }
 
-        [Fact]
-        public void Test_construirCom()
-        {
-            //Arrange
-            var viewModel = new EstoqueCadastrarViewModel
-            {
-                Quantidade = 0,
-                Valor = 0
-            };
-            //Act
-            var estoque = _estoqueMapeamentoEntidade.ConstruirCom(viewModel);
+        //[Fact]
+        //public void Test_construirCom()
+        //{
+        //    //Arrange
+        //    var viewModel = new EstoqueCadastrarViewModel
+        //    {
+        //        Quantidade = 0,
+        //        Valor = 0
+        //    };
+        //    //Act
+        //    var estoque = _estoqueMapeamentoEntidade.ConstruirCom(viewModel);
 
-            //Assertion
-            estoque.Quantidade.Should().Be(viewModel.Quantidade);
-            estoque.Valor.Should().Be(viewModel.Valor);
-        }
+        //    //Assertion
+        //    estoque.Quantidade.Should().Be(viewModel.Quantidade);
+        //    estoque.Valor.Should().Be(viewModel.Valor);
+        //}
 
         [Fact]
         public void Test_AtualizarCom()
