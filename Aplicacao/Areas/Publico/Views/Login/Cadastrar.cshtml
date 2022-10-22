@@ -19,25 +19,11 @@
                                 <span asp-validation-for="Nome" class="text-danger"></span>
                             </div>
 
-                            <div>
-                                <input type="radio" id="radio-cpf" value="Cpf" name="campo-tipo" />
-                                <label for="radio-cpf">CPF</label>
-
-                                <input type="radio" id="radio-cnpj" value="Cnpj" name="campo-tipo" />
-                                <label for="radio-cnpj">CNPJ</label>
-                            </div>
-
-                            <div id="div-cpf" style="block">
-                                <label for="Cpf">CPF</label>
+                            <div class="form-group form-material floating">
+                                <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
                                 <input asp-for="Cpf" class="form-control cpf-mask" style="text-align:center;" oninput="mascara(this)" placeholder="___.___.___-__" />
                                 <span asp-validation-for="Cpf" class="text-danger"></span>
                             </div>  
-                            
-                            <div id="div-cnpj" style="none">
-                                <label for="Cnpj">CNPJ</label>
-                                <input asp-for="Cnpj" class="form-control cnpj-mask" style="text-align:center;" placeholder="__.___.___/____-__" />
-                                <span asp-validation-for="Cnpj" class="text-danger"></span>
-                            </div>
 
                             <div class="form-group form-material floating">
                                 <label asp-for="DataNascimento" class="form-label" span-required="">Data de nascimento</label>
@@ -92,19 +78,3 @@
         </div>
     </div>
 </div>
-<script>
-    document.getElementById("div-cpf").style.display = "none";
-    document.getElementById("div-cnpj").style.display = "none";
-    let apresentarCpf = () => {
-        document.getElementById("div-cpf").style.display = "block";
-        document.getElementById("div-cnpj").style.display = "none";
-    }
-
-    let apresentarCnpj = () => {
-        document.getElementById("div-cpf").style.display = "none";
-        document.getElementById("div-cnpj").style.display = "block";
-    }
-    document.getElementById("radio-cpf").addEventListener("click", apresentarCpf);
-
-    document.getElementById("radio-cnpj").addEventListener("click", apresentarCnpj);
-</script>
