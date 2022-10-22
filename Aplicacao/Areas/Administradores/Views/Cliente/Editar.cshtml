@@ -18,7 +18,7 @@
 
     <div class="col-md-6">
         <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-        <input asp-for="Cpf" class="form-control" placeholder="Digite um CPF" />
+        <input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" />
         <span asp-validation-for="Cpf" class="text-danger"></span>
     </div>
 
@@ -30,13 +30,13 @@
 
     <div class="col-md-6">
         <label asp-for="Endereco" class="form-label" span-required="">Endereço</label>
-        <input asp-for="Endereco" class="form-control" />
+        <input asp-for="Endereco" class="form-control" placeholder="Rua XV de Novembro, 21" />
         <span asp-validation-for="Endereco" class="text-danger"></span>
     </div>
 
     <div class="col-md-6">
         <label asp-for="Email" class="form-label" span-required="">E-mail</label>
-        <input asp-for="Email" class="form-control" placeholder="cliente@cliente.com" />
+        <input asp-for="Email" class="form-control" placeholder="cliente@gmail.com" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
