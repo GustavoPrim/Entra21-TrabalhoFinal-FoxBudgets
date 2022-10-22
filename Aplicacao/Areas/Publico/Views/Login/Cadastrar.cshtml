@@ -21,9 +21,9 @@
 
                             <div class="form-group form-material floating">
                                 <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-                                <input asp-for="Cpf" class="form-control cpf-mask" style="text-align:center;" oninput="mascara(this)" placeholder="___.___.___-__" />
+                                <input asp-for="Cpf" class="form-control" placeholder="Digite o CPF" style="text-align: center;" />
                                 <span asp-validation-for="Cpf" class="text-danger"></span>
-                            </div>  
+                            </div>
 
                             <div class="form-group form-material floating">
                                 <label asp-for="DataNascimento" class="form-label" span-required="">Data de nascimento</label>
@@ -70,6 +70,12 @@
                             <div class="text-end">
                                 <a href="/Login" class="btn btn-outline-danger btn-block btn-lg mt-40">Cancelar</a>
                             </div>
+
+                            <script src="~/js/jquery.mask.js"></script>
+                            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                            <script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
+                            <script src="~/js/usuarios/usuarioValidacao.js"></script>
+
                         </form>
                         <Por>Já possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
                     </div>
