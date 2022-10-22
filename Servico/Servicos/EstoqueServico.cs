@@ -18,68 +18,40 @@ namespace Servico.Servicos
             _estoqueRepositorio = estoqueRepositorio;
             _mapeamentoEntidade = mapeamentoEntidade;
         }
-        public bool Apagar(int id) =>
-            _estoqueRepositorio.Apagar(id);
-        public Estoque CadastrarValor(EstoqueCadastrarViewModel viewModel, int fornecedorId)
-        {
-            var valor = _mapeamentoEntidade.ConstruirCom(viewModel);
 
-            _estoqueRepositorio.CadastrarValor(valor);
-            return valor;
-        }
-        public Estoque CadastrarQuantidade(EstoqueCadastrarViewModel viewModel, int fornecedorId)
-        {
-            var quantidade = _mapeamentoEntidade.ConstruirCom(viewModel);
-
-            _estoqueRepositorio.CadastrarQuantidade(quantidade);
-            return quantidade;
-        }
-        public bool Editar(EstoqueEditarViewModel viewModel)
-        {
-            var estoque = _estoqueRepositorio.ObterPorId(viewModel.Id);
-
-            if (estoque == null)
-                return false;
-            _mapeamentoEntidade.AtualizarCom(estoque, viewModel);
-            _estoqueRepositorio.Editar(estoque);
-            return true;
-        }
         public Estoque? ObterPorId(int id) =>
             _estoqueRepositorio.ObterPorId(id);
+
         public IList<Estoque> ObterTodos() =>
             _estoqueRepositorio.ObterTodos();
+
         public List<EstoqueItemIndexViewModel> ObterItensEstoqueAtual(int idUsuarioLogado)
         {
-            var estoque = _estoqueRepositorio.ObterPorFornecedorId(idUsuarioLogado);
+            var estoque = _estoqueRepositorio.ObterTodosPorFornecedorId(idUsuarioLogado);
 
             if (estoque == null)
                 return new List<EstoqueItemIndexViewModel>();
 
-            return estoque.EstoqueMaterial.Select(
+            return estoque.Select(
                 x => new EstoqueItemIndexViewModel
                 {
                     Quantidade = x.Quantidade,
-                    Material = x.Material,
+                    Material = x.Material.Nome,
                     Valor = x.Valor,
                     EstoqueMaterialId = x.MaterialId
                 }).ToList();
         }
         public Estoque Estocar(EstoqueCadastrarViewModel viewModel, int fornecedorId)
         {
-            var estoque = _estoqueRepositorio.ObterPorFornecedorId(fornecedorId);
+            var estoque = _estoqueRepositorio.ObterPorFornecedorId(fornecedorId, viewModel.Item);
 
-            if (estoque == null)
-                estoque = new Estoque
-                {
-                    FornecedorId = fornecedorId,
-                    EstoqueMaterial = new List<Estoque>()
-                };
+            if(estoque == null)
+                estoque = _mapeamentoEntidade.ConstruirCom(viewModel, fornecedorId);
 
-            var estoqueMaterial = _mapeamentoEntidade.ConstruirCom(viewModel);
+            estoque.Quantidade += viewModel.Quantidade;
+            estoque.Valor = viewModel.Valor;
 
-            estoque.EstoqueMaterial.Add(estoqueMaterial);
-
-            _estoqueRepositorio.CrirOuAtualizar(estoque);
+            _estoqueRepositorio.CriarOuAtualizar(estoque);
 
             return estoque;
         }

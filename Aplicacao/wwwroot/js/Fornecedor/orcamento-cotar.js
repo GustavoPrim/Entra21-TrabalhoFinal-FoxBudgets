@@ -9,12 +9,11 @@
     dados.append("valor", valor)
     debugger;   
 
-    fetch('/fornecedores/estoque/adicionarProduto', {
+    fetch('/fornecedor/estoque/adicionarProduto', {
         method: 'POST',
         body: dados
     })
         .then((data) => {
-            debugger;
             console.log(data);
 
             $('#estoque-table').DataTable().ajax.reload();

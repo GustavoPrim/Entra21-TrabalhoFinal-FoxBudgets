@@ -6,12 +6,12 @@ namespace Repositorio.Repositorios
     {
         bool Apagar(int id);
         Estoque CadastrarValor(Estoque valor);
-        Estoque CadastrarQuantidade(Estoque quantidade);
+        Estoque Cadastrar(Estoque quantidade);
         Estoque ObterPorId(int id);
         IList<Estoque> ObterTodos();
         void Editar(Estoque estoque);
-        void CrirOuAtualizar(Estoque estoque);
-        Estoque? ObterPorFornecedorId(int idFornecedor);
-
+        void CriarOuAtualizar(Estoque estoque);
+        List<Estoque> ObterTodosPorFornecedorId(int idFornecedor);
+        Estoque? ObterPorFornecedorId(int fornecedorId, int item);
     }
 }
