@@ -274,7 +274,7 @@ const App = function () {
 
 
         // Create button
-        toTopContainer.append($('<div class="btn-to-top"><button type="button" class="btn btn-secondary btn-icon rounded-pill"><i class="icon-arrow-up8"></i></button></div>'));
+        toTopContainer.append($('<div class="btn-to-top"><button type="button" class="btn btn-dark btn-icon rounded-pill"><i class="icon-arrow-up8"></i></button></div>'));
 
         // Show and hide on scroll
         const to_top_button = $('.btn-to-top'),

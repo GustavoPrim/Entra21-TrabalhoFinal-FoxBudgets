@@ -77,5 +77,15 @@ namespace Repositorio.Repositorios
 
             _contexto.SaveChanges();
         }
+
+        public Orcamento? ObterPorOrcamentoCliente(int clienteId, Estoque material)
+        {
+            return
+                _contexto.Orcamentos
+                .Where(x => x.ClienteId == clienteId && x.OrcamentoMateriais == material)
+                .Include(x => x.OrcamentoMateriais)
+                .ThenInclude(x => x.Quantidade)
+                .FirstOrDefault();
+        }
     }
 }

@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Clientes\Views\NewFolder1\**" />
+    <Compile Remove="Areas\Clientes\Views\NewFolder2\**" />
+    <Compile Remove="Areas\Clientes\Views\NewFolder\**" />
+    <Content Remove="Areas\Clientes\Views\NewFolder1\**" />
+    <Content Remove="Areas\Clientes\Views\NewFolder2\**" />
+    <Content Remove="Areas\Clientes\Views\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Clientes\Views\NewFolder1\**" />
+    <EmbeddedResource Remove="Areas\Clientes\Views\NewFolder2\**" />
+    <EmbeddedResource Remove="Areas\Clientes\Views\NewFolder\**" />
+    <None Remove="Areas\Clientes\Views\NewFolder1\**" />
+    <None Remove="Areas\Clientes\Views\NewFolder2\**" />
+    <None Remove="Areas\Clientes\Views\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Areas\Publico\Views\Home\_LayoutDeslogado.cshtml" />
   </ItemGroup>
 

@@ -19,24 +19,10 @@
                                 <span asp-validation-for="Nome" class="text-danger"></span>
                             </div>
 
-                            <div>
-                                <input type="radio" id="radio-cpf" value="Cpf" name="campo-tipo" />
-                                <label for="radio-cpf">CPF</label>
-
-                                <input type="radio" id="radio-cnpj" value="Cnpj" name="campo-tipo" />
-                                <label for="radio-cnpj">CNPJ</label>
-                            </div>
-
-                            <div id="div-cpf" style="block">
-                                <label for="Cpf">CPF</label>
-                                <input asp-for="Cpf" class="form-control cpf-mask" style="text-align:center;" oninput="mascara(this)" placeholder="___.___.___-__" />
+                            <div class="form-group form-material floating">
+                                <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
+                                <input asp-for="Cpf" class="form-control" placeholder="Digite seu CPF" style="text-align: center;" />
                                 <span asp-validation-for="Cpf" class="text-danger"></span>
-                            </div>  
-                            
-                            <div id="div-cnpj" style="none">
-                                <label for="Cnpj">CNPJ</label>
-                                <input asp-for="Cnpj" class="form-control cnpj-mask" style="text-align:center;" placeholder="__.___.___/____-__" />
-                                <span asp-validation-for="Cnpj" class="text-danger"></span>
                             </div>
 
                             <div class="form-group form-material floating">
@@ -47,13 +33,13 @@
 
                             <div class="form-group form-material floating">
                                 <label asp-for="Endereco" class="form-label" span-required="">Endereço</label>
-                                <input asp-for="Endereco" class="form-control" style="text-align:center;" />
+                                <input asp-for="Endereco" class="form-control" style="text-align:center;" placeholder="Rua XV de Novembro, 12" />
                                 <span asp-validation-for="Endereco" class="text-danger"></span>
                             </div>
 
                             <div class="form-group form-material floating">
                                 <label asp-for="Email" class="form-label" span-required="">E-mail</label>
-                                <input asp-for="Email" class="form-control" style="text-align:center;" />
+                                <input asp-for="Email" class="form-control" style="text-align:center;" placeholder="cliente@gmail.com" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
 
@@ -84,6 +70,12 @@
                             <div class="text-end">
                                 <a href="/Login" class="btn btn-outline-danger btn-block btn-lg mt-40">Cancelar</a>
                             </div>
+
+                            <script src="~/js/jquery.mask.js"></script>
+                            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                            <script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
+                            <script src="~/js/usuarios/usuarioValidacao.js"></script>
+
                         </form>
                         <Por>Já possui uma conta cadastrada? <a asp-controller="Login" asp-action="Index">Entre aqui</a><p>
                     </div>
@@ -92,19 +84,3 @@
         </div>
     </div>
 </div>
-<script>
-    document.getElementById("div-cpf").style.display = "none";
-    document.getElementById("div-cnpj").style.display = "none";
-    let apresentarCpf = () => {
-        document.getElementById("div-cpf").style.display = "block";
-        document.getElementById("div-cnpj").style.display = "none";
-    }
-
-    let apresentarCnpj = () => {
-        document.getElementById("div-cpf").style.display = "none";
-        document.getElementById("div-cnpj").style.display = "block";
-    }
-    document.getElementById("radio-cpf").addEventListener("click", apresentarCpf);
-
-    document.getElementById("radio-cnpj").addEventListener("click", apresentarCnpj);
-</script>

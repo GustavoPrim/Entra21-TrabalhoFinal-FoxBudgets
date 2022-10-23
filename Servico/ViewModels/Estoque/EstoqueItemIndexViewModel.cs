@@ -6,7 +6,7 @@ namespace Servico.ViewModels.Estoque
     {
         public int Quantidade { get; set; }
         public double Valor { get; set; }
-        public Material Material { get; set; }
+        public string Material { get; set; }
         public int EstoqueMaterialId { get; set; }
 
     }
