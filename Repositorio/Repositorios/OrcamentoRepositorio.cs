@@ -87,5 +87,20 @@ namespace Repositorio.Repositorios
                 .ThenInclude(x => x.Quantidade)
                 .FirstOrDefault();
         }
+
+        public List<OrcamentoMaterial> EstoqueIdMaterial(OrcamentoMaterial[] listaOrcamento, int materialId)
+        {
+            for (int i = 0; i < listaOrcamento.Length; i++)
+            {
+                var fornecedores = listaOrcamento[i];
+
+                       _contexto.Estoque
+                       .Where(x => x.MaterialId == materialId)
+                       .Include(x => x.Fornecedor)
+                       .FirstOrDefault();
+
+            }
+            return null;
+        }
     }
 }
