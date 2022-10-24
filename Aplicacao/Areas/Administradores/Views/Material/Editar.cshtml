@@ -22,9 +22,17 @@
 
     <div class="mb-3">
         <label asp-for="Sku" class="form-label" span-required=""></label>
-        <input asp-for="Sku" class="form-control" style="text-align: center" />
+        <input asp-for="Sku" class="form-control sku-mask" style="text-align: center" placeholder="ADSSMVR37" onekeydown="upperCaseF(Sku)" />
         <span asp-validation-for="Sku" class="text-danger"></span>
     </div>
+
+    <script>
+        function upperCaseF(a) {
+            setTimeout(function () {
+                a.value = a.value.toUpperCase();
+            }, 1);
+        }
+    </script>
 
     <div class="mb-3">
         <label asp-for="Descricao" class="form-label" span-required="">Descrição</label>
