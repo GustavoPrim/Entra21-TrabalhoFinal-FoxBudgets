@@ -7,18 +7,15 @@ namespace Servico.ViewModels.Fornecedores
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "{0} deve ser preenchido!")]
-        [RegularExpression(@"^[a-zãçA-Z''-'\s]{3,100}$", ErrorMessage =
-            "Números e caracteres especiais não são permitidos no nome!")]
+        [RegularExpression(@"^[a-zãóáçA-Z''-'\s]{3,100}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome!")]
         public string Nome { get; set; }
 
         [Display(Name = "Cnpj")]
-        //[Required(ErrorMessage = "{0} deve ser preenchido!")]
         [RegularExpression(@"\d{2,3}.\d{3}.\d{3}/\d{4}-\d{2}", ErrorMessage = "Digite um CNPJ válido!")]
         [MaxLength(18, ErrorMessage = "Digite um CNPJ válido!")]
         public string? Cnpj { get; set; }
 
         [Display(Name = "Cpf")]
-        //[Required(ErrorMessage = "{0} deve ser preenchido")]
         [StringLength(14, ErrorMessage = "{0} deve conter {1} caracteres")]
         public string? Cpf { get; set; }
 

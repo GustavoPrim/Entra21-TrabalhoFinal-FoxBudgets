@@ -2,7 +2,6 @@
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.ViewModels.Estoque;
-using Servico.ViewModels.Orcamentos;
 
 namespace Servico.Servicos
 {
@@ -45,7 +44,7 @@ namespace Servico.Servicos
         {
             var estoque = _estoqueRepositorio.ObterPorFornecedorId(fornecedorId, viewModel.Item);
 
-            if(estoque == null)
+            if (estoque == null)
                 estoque = _mapeamentoEntidade.ConstruirCom(viewModel, fornecedorId);
 
             estoque.Quantidade += viewModel.Quantidade;

@@ -5,7 +5,6 @@ using Repositorio.Entidades;
 using Repositorio.Enuns;
 using Servico.Servicos;
 using Servico.ViewModels.Estoque;
-using Servico.ViewModels.Orcamentos;
 
 namespace Aplicacao.Areas.Fornecedores.Controllers
 {
@@ -80,6 +79,7 @@ namespace Aplicacao.Areas.Fornecedores.Controllers
             {
                 Quantidade = estoque.Quantidade
             };
+
             ViewBag.Estoques = estoques;
 
             return View(estoqueEditarViewModel);

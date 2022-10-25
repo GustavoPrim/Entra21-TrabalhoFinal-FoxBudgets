@@ -1,6 +1,4 @@
 ﻿using Aplicacao.Help;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using Repositorio.Entidades;
 using Servico.Email;
@@ -108,60 +106,5 @@ namespace Aplicacao.Administradores.Controllers
             return View("Index");
 
         }
-
-        [HttpGet("confirmarEmail")]
-        public IActionResult ConfirmEmail([FromQuery] int id, Guid token)
-        {
-            var user = _clienteService.ObterPorId(id);
-
-            if (user == null || user.Token != token)
-                TempData["mensagem"] = "Não existe nenhum usuário referido!";
-
-            else if (user.EmailConfirmado == true)
-                TempData["mensagem"] = "O usuário já possui o link confirmado!";
-
-            else if (user.DataInspiracaoToken.TimeOfDay < DateTime.Now.TimeOfDay)
-                TempData["mensagem"] = "O link foi espirado! Tente criar outra conta";
-
-            else
-            {
-                TempData["mensagem"] = "O usuário foi confirmado!";
-                _clienteService.AtualizarVerificarEmail(user.Id);
-            }
-            return View("Alerta/Index");
-        }
-
-        //[Route("login-google")]
-        //public async Task LoginComGoogle()
-        //{
-        //    await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
-        //    {
-        //        RedirectUri = Url.Action("GoogleResponse")
-        //    });
-        //}
-
-        //public async Task<IActionResult> RespostaGoogle()
-        //{
-        //    var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            //var claims = result.Principal.AddIdentities
-            //    .FirstOrDefault().Claims.Select(claim => new
-            //{
-            //    claim.Issuer,
-            //    claim.OriginalIssuer,
-            //    claim.Type,
-            //    claim.Value,
-            //});
-            //return Json(claims);
-        //}
-
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await HttpContext.SignOutAsync();
-        //    return RedirectToAction("Login");
-
-        //    return View("Alerta/Index");
-        //}
     }
-
 }

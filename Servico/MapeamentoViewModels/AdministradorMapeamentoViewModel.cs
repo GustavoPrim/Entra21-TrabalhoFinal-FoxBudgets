@@ -14,9 +14,9 @@ namespace Servico.MapeamentoViewModels
                 Endereco = administrador.Endereco,
                 Email = administrador.Email,
                 Telefone = administrador.Telefone,
-				Login = administrador.Login,
-				Senha = administrador.Senha,
-			};
+                Login = administrador.Login,
+                Senha = administrador.Senha,
+            };
         }
     }
 }

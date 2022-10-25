@@ -1,15 +1,14 @@
 ﻿using Repositorio.Entidades;
 using Servico.ViewModels.Fornecedores;
 
-namespace Servico.Servicos
+namespace Servico.Servicos;
+
+public interface IFornecedorServico
 {
-    public interface IFornecedorServico
-    {
-        Fornecedor BuscarPorLogin(string login, string senha);
-        bool Apagar(int id);
-        Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel);
-        bool Editar(FornecedorEditarViewModel viewModel);
-        Fornecedor? ObterPorId(int id);
-        IList<Fornecedor> ObterTodos();
-    }
+    Fornecedor BuscarPorLogin(string login, string senha);
+    bool Apagar(int id);
+    Fornecedor CadastrarFornecedor(FornecedorCadastrarViewModel viewModel);
+    bool Editar(FornecedorEditarViewModel viewModel);
+    Fornecedor? ObterPorId(int id);
+    IList<Fornecedor> ObterTodos();
 }

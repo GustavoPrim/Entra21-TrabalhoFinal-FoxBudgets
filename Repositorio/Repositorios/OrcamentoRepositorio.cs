@@ -50,13 +50,13 @@ namespace Repositorio.Repositorios
             return orcamento;
         }
 
-        public Orcamento? ObterPorId(int id) 
+        public Orcamento? ObterPorId(int id)
         {
             var orcamento = _contexto.Orcamentos.Where(x => x.Id == id).FirstOrDefault();
             return orcamento;
         }
 
-        public List<Orcamento> ObterTodos() 
+        public List<Orcamento> ObterTodos()
         {
             var orcamentos = _contexto.Orcamentos.ToList();
             return orcamentos;

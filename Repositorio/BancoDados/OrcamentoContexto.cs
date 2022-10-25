@@ -18,7 +18,6 @@ namespace Repositorio.BancoDados
             : base(options)
         {
             // dotnet ef migrations add AdicionarAdministradorFornecedorTabela --project Repositorio --startup-project .\Aplicacao
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

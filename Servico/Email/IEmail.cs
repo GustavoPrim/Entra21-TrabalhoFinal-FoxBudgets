@@ -1,7 +1,6 @@
-﻿namespace Servico.Email
+﻿namespace Servico.Email;
+
+public interface IEmail
 {
-    public interface IEmail
-    {
-        bool Enviar(string email, string assunto, string mensagem);
-    }
+    bool Enviar(string email, string assunto, string mensagem);
 }

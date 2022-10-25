@@ -2,7 +2,6 @@
 using Repositorio.Entidades;
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
-using Servico.ViewModels;
 using Servico.ViewModels.Administradores;
 
 namespace Servico.Servicos
@@ -12,7 +11,6 @@ namespace Servico.Servicos
         private readonly IAdministradorRepositorio _administradorRepositorio;
         private readonly IAdministradorMapeamentoEntidade _mapeamentoEntidade;
         private readonly OrcamentoContexto _contexto;
-        
 
         public AdministradorServico(
             IAdministradorRepositorio administradorRepositorio,

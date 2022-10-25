@@ -1,7 +1,6 @@
-namespace Repositorio.Entidades
+namespace Repositorio.Entidades;
+
+public class EntidadeBase
 {
-    public class EntidadeBase
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }
