@@ -5,7 +5,7 @@ using Servico.ViewModels.Clientes;
 
 namespace Servico.MapeamentoEntidades
 {
-	public class ClienteMapeamentoEntidade : IClienteMapeamentoEntidade
+    public class ClienteMapeamentoEntidade : IClienteMapeamentoEntidade
     {
         public void AtualizarCampos(Cliente cliente, ClienteEditarViewModel viewModel)
         {

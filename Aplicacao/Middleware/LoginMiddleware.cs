@@ -1,5 +1,4 @@
-﻿using Aplicacao.Filtros;
-using Aplicacao.Help;
+﻿using Aplicacao.Help;
 using Repositorio.Entidades;
 
 namespace Aplicacao.Middleware
@@ -8,22 +7,22 @@ namespace Aplicacao.Middleware
     {
         private readonly RequestDelegate _next;
 
-        public LoginMiddleware(RequestDelegate next )
+        public LoginMiddleware(RequestDelegate next)
         {
             _next = next;
         }
 
         public async Task InvokeAsync(HttpContext httpContext, ISessao sessao)
         {
-            var area = httpContext.GetRouteData().Values["area"]?.ToString() ?? string.Empty ;
-            var action = httpContext.GetRouteData().Values["action"]?.ToString() ?? string.Empty ;
-            var controller = httpContext.GetRouteData().Values["controller"]?.ToString() ?? string.Empty ;
+            var area = httpContext.GetRouteData().Values["area"]?.ToString() ?? string.Empty;
+            var action = httpContext.GetRouteData().Values["action"]?.ToString() ?? string.Empty;
+            var controller = httpContext.GetRouteData().Values["controller"]?.ToString() ?? string.Empty;
 
             var cliente = sessao.BuscarSessaoUsuario<Cliente>();
             var fornecedor = sessao.BuscarSessaoUsuario<Fornecedor>();
             var administrador = sessao.BuscarSessaoUsuario<Administrador>();
 
-            if(IsNotAuthenticatedAndRightAccessToArea(cliente, area, "Clientes") ||
+            if (IsNotAuthenticatedAndRightAccessToArea(cliente, area, "Clientes") ||
                 IsNotAuthenticatedAndRightAccessToArea(fornecedor, area, "Fornecedores") ||
                 IsNotAuthenticatedAndRightAccessToArea(administrador, area, "Administradores"))
             {
@@ -31,7 +30,7 @@ namespace Aplicacao.Middleware
                 return;
             }
 
-            if(area == "Publico" && controller == "Login" && action == "Sair")
+            if (area == "Publico" && controller == "Login" && action == "Sair")
             {
                 await _next(httpContext);
             }
@@ -61,11 +60,11 @@ namespace Aplicacao.Middleware
             if (usuarioLogadoCliente != null)
             {
                 httpContext.Items.Add("UsuarioNome", usuarioLogadoCliente.Nome);
-            } 
+            }
             if (usuarioLogadoFornecedor != null)
             {
                 httpContext.Items.Add("UsuarioNome", usuarioLogadoFornecedor.Nome);
-            } 
+            }
             if (usuarioLogadoAdministrador != null)
             {
                 httpContext.Items.Add("UsuarioNome", usuarioLogadoAdministrador.Nome);
@@ -84,5 +83,4 @@ namespace Aplicacao.Middleware
             return usuario != null && area == "Publico";
         }
     }
-
 }

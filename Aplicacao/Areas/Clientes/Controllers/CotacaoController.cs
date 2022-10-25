@@ -16,6 +16,7 @@ namespace Aplicacao.Areas.Clientes.Controllers
         private readonly IOrcamentoServico _orcamentoServico;
         private readonly IMaterialService _materiaServico;
         private readonly ISessao _sessao;
+
         public CotacaoController(IOrcamentoServico orcamentoServico, IMaterialService materiaServico, ISessao sessao)
         {
             _orcamentoServico = orcamentoServico;

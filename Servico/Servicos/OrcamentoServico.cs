@@ -62,7 +62,7 @@ namespace Servico.Servicos
         {
             var orcamento = _orcamentoRepositorio.ObterPorClienteId(idUsuarioLogado);
 
-            if(orcamento == null)
+            if (orcamento == null)
                 return new List<OrcamentoItemIndexViewModel>();
 
             return orcamento.OrcamentoMateriais.Select(

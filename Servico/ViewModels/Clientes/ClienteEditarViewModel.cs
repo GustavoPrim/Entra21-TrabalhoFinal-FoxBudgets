@@ -1,7 +1,6 @@
-﻿namespace Servico.ViewModels.Clientes
+﻿namespace Servico.ViewModels.Clientes;
+
+public class ClienteEditarViewModel : CadastrarUsuarioViewModel
 {
-    public class ClienteEditarViewModel : CadastrarUsuarioViewModel
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

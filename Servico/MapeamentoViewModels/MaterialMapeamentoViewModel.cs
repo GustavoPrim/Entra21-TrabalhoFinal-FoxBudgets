@@ -11,9 +11,7 @@ namespace Servico.MapeamentoViewModels
             {
                 Id = material.Id,
                 DataValidade = material.DataValidade,
-                Descricao = material.Descricao,
-                //FornecedorId = material.FornecedorId,
-                //Fornecedor = material.Fornecedor
+                Descricao = material.Descricao
             };
         }
     }

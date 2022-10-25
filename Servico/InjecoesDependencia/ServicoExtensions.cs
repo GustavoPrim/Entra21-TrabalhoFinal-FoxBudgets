@@ -29,7 +29,7 @@ namespace Servico.InjecoesDependencia
             services.AddScoped<IMaterialMapeamentoEntidade, MaterialMapeamentoEntidade>();
             services.AddScoped<IEstoqueMapeamentoEntidade, EstoqueMapeamentoEntidade>();
             services.AddScoped<IOrcamentoMapeamentoEntidade, OrcamentoMapeamentoEntidade>();
-            
+
             return services;
         }
     }
