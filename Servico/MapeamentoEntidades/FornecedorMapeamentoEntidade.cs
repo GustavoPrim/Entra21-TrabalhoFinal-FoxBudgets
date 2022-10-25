@@ -4,7 +4,7 @@ using Servico.ViewModels.Fornecedores;
 
 namespace Servico.MapeamentoEntidades
 {
-	public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
+    public class FornecedorMapeamentoEntidade : IFornecedorMapeamentoEntidade
     {
         public void AtualizarCampos(Fornecedor fornecedor, FornecedorEditarViewModel viewModel)
         {

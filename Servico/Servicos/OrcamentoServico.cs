@@ -2,6 +2,7 @@
 using Repositorio.Repositorios;
 using Servico.MapeamentoEntidades;
 using Servico.ViewModels.Orcamentos;
+using System.Data.Entity.Core;
 
 namespace Servico.Servicos
 {
@@ -62,7 +63,7 @@ namespace Servico.Servicos
         {
             var orcamento = _orcamentoRepositorio.ObterPorClienteId(idUsuarioLogado);
 
-            if(orcamento == null)
+            if (orcamento == null)
                 return new List<OrcamentoItemIndexViewModel>();
 
             return orcamento.OrcamentoMateriais.Select(
@@ -72,6 +73,39 @@ namespace Servico.Servicos
                     OrcamentoMaterialId = x.Id,
                     Quantidade = x.Quantidade
                 }).ToList();
+        }
+
+        public List<OrcamentoMaterialViewModel> Calcular(int clienteId)
+        {
+            var orcamento = _orcamentoRepositorio.ObterOrcamentoPorClienteId(clienteId);
+
+            var materiais = new List<OrcamentoMaterialViewModel>();
+
+            foreach (var orcamentoMaterial in orcamento.OrcamentoMateriais)
+            {
+                var estoques = _orcamentoRepositorio
+                    .ObterEstoquePorMaterialId(orcamentoMaterial.MaterialId, orcamentoMaterial.Quantidade);
+
+                var material = new OrcamentoMaterialViewModel
+                {
+                    Item = orcamentoMaterial.Material.Nome,
+                    Quantidade = orcamentoMaterial.Quantidade
+                };
+
+                foreach (var estoque in estoques)
+                {
+                    material.Fornecedores.Add(new OrcamentoFornecedorViewModel
+                    {
+                        Nome = estoque.Fornecedor.Nome,
+                        Valor = estoque.Valor * material.Quantidade,
+                        ValorUnitario = estoque.Valor
+                    });
+                }
+
+                materiais.Add(material);
+            }
+
+            return materiais;
         }
     }
 }

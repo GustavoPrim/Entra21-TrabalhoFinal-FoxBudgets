@@ -50,13 +50,13 @@ namespace Repositorio.Repositorios
             return orcamento;
         }
 
-        public Orcamento? ObterPorId(int id) 
+        public Orcamento? ObterPorId(int id)
         {
             var orcamento = _contexto.Orcamentos.Where(x => x.Id == id).FirstOrDefault();
             return orcamento;
         }
 
-        public List<Orcamento> ObterTodos() 
+        public List<Orcamento> ObterTodos()
         {
             var orcamentos = _contexto.Orcamentos.ToList();
             return orcamentos;
@@ -78,14 +78,24 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public Orcamento? ObterPorOrcamentoCliente(int clienteId, Estoque material)
+        public Orcamento? ObterOrcamentoPorClienteId(int clienteId)
         {
+            // show isso está correto, : emoji feliz
             return
                 _contexto.Orcamentos
-                .Where(x => x.ClienteId == clienteId && x.OrcamentoMateriais == material)
+                .Where(x => x.ClienteId == clienteId)
                 .Include(x => x.OrcamentoMateriais)
-                .ThenInclude(x => x.Quantidade)
+                .ThenInclude(x => x.Material)
                 .FirstOrDefault();
+        }
+
+        public List<Estoque> ObterEstoquePorMaterialId(int materialId, int quantidadeNecessaria)
+        {
+            return _contexto.Estoque
+                .Where(x => x.MaterialId == materialId && x.Quantidade >= quantidadeNecessaria)
+                .Include(x => x.Fornecedor)
+                .OrderBy(x => x.Valor)
+                .ToList();
         }
     }
 }

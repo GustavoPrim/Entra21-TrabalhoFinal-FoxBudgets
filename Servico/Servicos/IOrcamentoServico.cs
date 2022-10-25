@@ -11,5 +11,6 @@ namespace Servico.Servicos
         List<Orcamento> ObterTodos();
         bool Apagar(int id);
         List<OrcamentoItemIndexViewModel> ObterItensOrcamentoAtual(int idUsuarioLogado);
+        List<OrcamentoMaterialViewModel> Calcular(int clienteId);
     }
 }

@@ -18,7 +18,6 @@ namespace Servico.MapeamentoEntidades
 
                 MaterialId = viewModel.Item,
                 Quantidade = viewModel.Quantidade
-
             };
         }
     }

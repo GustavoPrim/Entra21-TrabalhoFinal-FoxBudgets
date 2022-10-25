@@ -16,6 +16,7 @@ namespace Aplicacao.Areas.Clientes.Controllers
         private readonly IOrcamentoServico _orcamentoServico;
         private readonly IMaterialService _materiaServico;
         private readonly ISessao _sessao;
+
         public CotacaoController(IOrcamentoServico orcamentoServico, IMaterialService materiaServico, ISessao sessao)
         {
             _orcamentoServico = orcamentoServico;
@@ -53,6 +54,16 @@ namespace Aplicacao.Areas.Clientes.Controllers
             _orcamentoServico.Cotar(orcamentoCadastrarViewModel, clienteId);
 
             return Ok();
+        }
+
+        [HttpGet("calcular")]
+        public IActionResult Calcular()
+        {
+            var idCliente = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+
+            var materiais = _orcamentoServico.Calcular(idCliente);
+
+            return View(materiais);
         }
 
         //[HttpGet("apagar")]

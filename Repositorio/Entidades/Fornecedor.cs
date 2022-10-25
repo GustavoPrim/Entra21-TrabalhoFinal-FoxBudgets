@@ -1,6 +1,4 @@
-﻿using Repositorio.Enuns;
-
-namespace Repositorio.Entidades
+﻿namespace Repositorio.Entidades
 {
     public class Fornecedor : Usuario
     {
@@ -11,8 +9,6 @@ namespace Repositorio.Entidades
         public string Email { get; set; }
         public string Telefone { get; set; }
         public int Categoria { get; set; }
-
-
         public IList<Estoque> Estoques { get; set; }
     }
 }

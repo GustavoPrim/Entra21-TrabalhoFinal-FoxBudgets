@@ -4,7 +4,7 @@ using Servico.ViewModels.Administradores;
 
 namespace Servico.MapeamentoEntidades
 {
-	public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
+    public class AdministradorMapeamentoEntidade : IAdministradorMapeamentoEntidade
     {
         public void AtualizarCom(Administrador administrador, AdministradorEditarViewModel administradorEditarViewModel)
         {

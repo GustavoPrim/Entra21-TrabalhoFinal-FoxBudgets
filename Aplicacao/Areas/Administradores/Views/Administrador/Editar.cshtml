@@ -17,7 +17,7 @@
 
     <div class="col-md-6">
         <label asp-for="Cpf" class="form-label" span-required="">CPF</label>
-        <input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" oninput="mascara(this)" />
+        <input asp-for="Cpf" class="form-control" placeholder="Digite o seu CPF" />
         <span asp-validation-for="Cpf" class="text-danger"></span>
     </div>
 
@@ -43,18 +43,6 @@
         <label asp-for="Telefone" class="form-label" span-required=""></label>
         <input asp-for="Telefone" class="form-control" placeholder="(__) _____-____" />
         <span asp-validation-for="Telefone" class="text-danger"></span>
-    </div>
-
-    <div class="col-md-6">
-        <label asp-for="Login" class="form-label" span-required=""></label>
-        <input asp-for="Login" class="form-control" />
-        <span asp-validation-for="Senha" class="text-danger"></span>
-    </div>
-
-    <div class="col-md-6">
-        <label asp-for="Senha" class="form-label" span-required=""></label>
-        <input asp-for="Senha" class="form-control" />
-        <span asp-validation-for="Senha" class="text-danger"></span>
     </div>
 
     <div class="col-lg-12" style="text-align: right;">

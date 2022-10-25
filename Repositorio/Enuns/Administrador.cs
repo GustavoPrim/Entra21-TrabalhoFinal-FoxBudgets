@@ -1,11 +1,10 @@
-﻿namespace Repositorio.Enuns
+﻿namespace Repositorio.Enuns;
+
+public enum AdministradorEnum
 {
-    public enum AdministradorEnum
-    {
-        MaterialEletrico,
-        MaterialHidraulico,
-        Revestimentos,
-        Tintas,
-        MaterialBruto,
-    }
+    MaterialEletrico,
+    MaterialHidraulico,
+    Revestimentos,
+    Tintas,
+    MaterialBruto,
 }

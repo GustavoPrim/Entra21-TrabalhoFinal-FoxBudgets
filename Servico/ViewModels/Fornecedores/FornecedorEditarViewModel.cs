@@ -1,7 +1,6 @@
-﻿namespace Servico.ViewModels.Fornecedores
+﻿namespace Servico.ViewModels.Fornecedores;
+
+public class FornecedorEditarViewModel : FornecedorCadastrarViewModel
 {
-    public class FornecedorEditarViewModel : FornecedorCadastrarViewModel
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

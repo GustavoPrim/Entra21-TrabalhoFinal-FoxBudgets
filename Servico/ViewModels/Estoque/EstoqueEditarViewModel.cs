@@ -1,7 +1,6 @@
-﻿namespace Servico.ViewModels.Estoque
+﻿namespace Servico.ViewModels.Estoque;
+
+public class EstoqueEditarViewModel : EstoqueCadastrarViewModel
 {
-    public class EstoqueEditarViewModel : EstoqueCadastrarViewModel
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

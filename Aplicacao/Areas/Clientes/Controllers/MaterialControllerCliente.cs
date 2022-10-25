@@ -1,8 +1,6 @@
 ﻿using Aplicacao.Filtros;
 using Microsoft.AspNetCore.Mvc;
-using Repositorio.Enuns;
 using Servico.Servicos;
-using Servico.ViewModels.Materiais;
 
 namespace Aplicacao.Areas.Clientes.Controllers
 {
@@ -25,6 +23,5 @@ namespace Aplicacao.Areas.Clientes.Controllers
 
             return Ok(selectViewModel);
         }
-
     }
 }
