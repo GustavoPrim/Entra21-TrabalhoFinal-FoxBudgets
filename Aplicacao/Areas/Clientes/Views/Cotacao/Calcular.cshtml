@@ -1,0 +1,33 @@
+﻿@model List<OrcamentoMaterialViewModel>
+@{
+	int i = 0;
+
+}
+
+
+<div class="row">
+	<div class="col-12">
+		<h4 class="h4 text-center text-primary">Cotação</h4>
+	</div>
+</div>
+
+
+	@foreach (var material in @Model)
+	{
+						<li><a href="OrcamentoMaterialViewModel">@material.Item </a></li>
+						<li><a href="OrcamentoMaterialViewModel">@material.Quantidade </a></li>
+
+		foreach (var fornecedor in material.Fornecedores)
+		{
+									<div class="card">
+												  <div class="col">
+														 <div class="card-body">
+											<p class="card-text"><span class="fw-bold">Fornecedor: </span> @fornecedor.Nome</p>
+											<p class="card-text"><span class="fw-bold">Valor Total: </span> @fornecedor.Valor</p>
+											   <p class="card-text"><span class="fw-bold">Valor Unitário: </span> @fornecedor.ValorUnitario</p>
+													</div>
+											</div>
+									</div>
+		}
+		i++;
+	}

@@ -92,7 +92,7 @@ namespace Servico.Servicos
                     Quantidade = orcamentoMaterial.Quantidade
                 };
 
-                foreach (var estoque in estoques)
+                    foreach (var estoque in estoques)
                 {
                     material.Fornecedores.Add(new OrcamentoFornecedorViewModel
                     {
