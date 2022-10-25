@@ -20,8 +20,6 @@
 
 $("#pedidoCarrinho").on("click", function () { AbrirCarrinho(); });
 
-// PARTE DO CARRINHO
-
 let PreencherModalCarrinho = () => {
     fetch('/client/pedido/atual', {
         method: 'GET',
@@ -55,13 +53,11 @@ let PreencherModalCarrinho = () => {
             $("#PedidoModal").modal('show');
         })
         .catch((error) => {
-            toastr.error("Não foi possível carregar as informações os produto")
+            toastr.error("Não foi possível carregar as informações dos produtos.")
             console.log(error);
         });
 
 }
-
-// PARTE DO CARRINHO
 
 let produtoAdicionarNoPedido = () => {
     let produtoId = document.getElementById("produto-escolhido-id").value;
@@ -86,7 +82,7 @@ let produtoAdicionarNoPedido = () => {
         })
         .catch((error) => {
             console.log(error);
-            toastr.error("Não foi possível finalizar seu pedido")
+            toastr.error("Não foi possível finalizar o seu pedido.")
         });
 }
 let gerarPedido = () => {
@@ -94,6 +90,5 @@ let gerarPedido = () => {
 
 
 }
-
 document.getElementById("botao-finalizar-pedido")
     .addEventListener("click", produtoAdicionarNoPedido);

@@ -11,6 +11,6 @@ public interface IOrcamentoRepositorio
     bool Apagar(int id);
     Orcamento? ObterPorClienteId(int idCliente);
     void CrirOuAtualizar(Orcamento orcamento);
-    Orcamento? ObterPorOrcamentoCliente(int clienteId, Estoque material);
-    List<OrcamentoMaterial> EstoqueIdMaterial(OrcamentoMaterial[] listaOrcamnento, int materialId);
+    Orcamento? ObterOrcamentoPorClienteId(int clienteId);
+    List<Estoque> ObterEstoquePorMaterialId(int materialId, int quantidadeNecessaria);
 }

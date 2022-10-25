@@ -56,6 +56,16 @@ namespace Aplicacao.Areas.Clientes.Controllers
             return Ok();
         }
 
+        [HttpGet("calcular")]
+        public IActionResult Calcular()
+        {
+            var idCliente = _sessao.BuscarSessaoUsuario<Cliente>().Id;
+
+            var materiais = _orcamentoServico.Calcular(idCliente);
+
+            return View(materiais);
+        }
+
         //[HttpGet("apagar")]
         //public IActionResult Apagar([FromQuery] int id)
         //{

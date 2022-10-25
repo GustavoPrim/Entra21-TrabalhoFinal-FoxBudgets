@@ -78,28 +78,24 @@ namespace Repositorio.Repositorios
             _contexto.SaveChanges();
         }
 
-        public Orcamento? ObterPorOrcamentoCliente(int clienteId, Estoque material)
+        public Orcamento? ObterOrcamentoPorClienteId(int clienteId)
         {
+            // show isso está correto, : emoji feliz
             return
                 _contexto.Orcamentos
-                .Where(x => x.ClienteId == clienteId && x.OrcamentoMateriais == material)
+                .Where(x => x.ClienteId == clienteId)
                 .Include(x => x.OrcamentoMateriais)
-                .ThenInclude(x => x.Quantidade)
+                .ThenInclude(x => x.Material)
                 .FirstOrDefault();
         }
 
-        public List<OrcamentoMaterial> EstoqueIdMaterial(OrcamentoMaterial[] listaOrcamento, int materialId)
+        public List<Estoque> ObterEstoquePorMaterialId(int materialId, int quantidadeNecessaria)
         {
-            for (int i = 0; i < listaOrcamento.Length; i++)
-            {
-                var fornecedores = listaOrcamento[i];
-
-                _contexto.Estoque
-                .Where(x => x.MaterialId == materialId)
+            return _contexto.Estoque
+                .Where(x => x.MaterialId == materialId && x.Quantidade >= quantidadeNecessaria)
                 .Include(x => x.Fornecedor)
-                .FirstOrDefault();
-            }
-            return null;
+                .OrderBy(x => x.Valor)
+                .ToList();
         }
     }
 }
