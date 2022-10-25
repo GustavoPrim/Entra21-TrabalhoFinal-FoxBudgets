@@ -27,6 +27,7 @@ namespace Repositorio.BancoDados
             modelBuilder.ApplyConfiguration(new ClienteMapeamento());
             modelBuilder.ApplyConfiguration(new MaterialMapeamento());
             modelBuilder.ApplyConfiguration(new OrcamentoMaterialMapeamento());
+            modelBuilder.ApplyConfiguration(new EstoqueMapeamento());
         }
     }
 }
