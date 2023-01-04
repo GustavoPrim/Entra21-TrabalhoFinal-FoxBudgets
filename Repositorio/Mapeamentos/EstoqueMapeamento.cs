@@ -50,6 +50,24 @@ namespace Repositorio.Mapeamentos
                     FornecedorId = 3,
                     Tipo = Enuns.EstoqueTipo.Entrada,
                 },
+                   new Estoque
+                   {
+                       Id = 9,
+                       Valor = 25.50,
+                       Quantidade = 5,
+                       MaterialId = 3,
+                       FornecedorId = 3,
+                       Tipo = Enuns.EstoqueTipo.Entrada,
+                   },
+                        new Estoque
+                        {
+                            Id = 10,
+                            Valor = 30.10,
+                            Quantidade = 7,
+                            MaterialId = 3,
+                            FornecedorId = 3,
+                            Tipo = Enuns.EstoqueTipo.Entrada,
+                        },
                 new Estoque
                 {
                     Id = 2,

@@ -46,6 +46,8 @@ namespace Servico.Servicos
             return true;
         }
 
+        //vendo se tem que aprovar  PR
+
         public Administrador? ObterPorId(int id) =>
             _administradorRepositorio.ObterPorId(id);
 

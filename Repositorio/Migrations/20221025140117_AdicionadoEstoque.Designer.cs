@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositorio.BancoDados;
 
@@ -11,9 +12,10 @@ using Repositorio.BancoDados;
 namespace Repositorio.Migrations
 {
     [DbContext(typeof(OrcamentoContexto))]
-    partial class OrcamentoContextoModelSnapshot : ModelSnapshot
+    [Migration("20221025140117_AdicionadoEstoque")]
+    partial class AdicionadoEstoque
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -262,24 +264,6 @@ namespace Repositorio.Migrations
                             Quantidade = 2,
                             Tipo = 0,
                             Valor = 23.5
-                        },
-                        new
-                        {
-                            Id = 9,
-                            FornecedorId = 3,
-                            MaterialId = 3,
-                            Quantidade = 5,
-                            Tipo = 0,
-                            Valor = 25.5
-                        },
-                        new
-                        {
-                            Id = 10,
-                            FornecedorId = 3,
-                            MaterialId = 3,
-                            Quantidade = 7,
-                            Tipo = 0,
-                            Valor = 30.100000000000001
                         },
                         new
                         {
